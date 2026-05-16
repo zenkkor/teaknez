@@ -1057,6 +1057,11 @@ ul li::marker { color: var(--clay); }
   gap: 80px;
   padding: 20px 0 60px;
 }
+.contact-single {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 20px 0 60px;
+}
 .contact-info h2 { margin-bottom: 22px; }
 .contact-info p { margin-bottom: 28px; }
 .contact-info-list {

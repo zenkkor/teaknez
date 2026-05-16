@@ -146,7 +146,7 @@ TESTIMONIALS = [
 def testimonials_section():
     cards = "\n".join(
         f"""    <article class="testimonial">
-      <blockquote>„{q}"</blockquote>
+      <blockquote>»{q}«</blockquote>
       <cite><strong>{name}</strong>{role}</cite>
     </article>"""
         for q, name, role in TESTIMONIALS
@@ -154,9 +154,9 @@ def testimonials_section():
     return f"""<section class="section section-cream">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Kaj pravijo stranke</span>
-      <h2>Zgodbe, ki me opominjajo, zakaj delam to delo</h2>
-      <p>Vsak pogovor prinese drugačno zgodbo — od večje jasnosti in samozavesti, do konkretnih premikov v življenju.</p>
+      <span class="eyebrow">Zaupanje strank</span>
+      <h2>Kaj pravijo stranke</h2>
+      <p>Vsak pogovor prinese drugačno zgodbo - od večje jasnosti in samozavesti, do konkretnih premikov v življenju.</p>
     </div>
     <div class="testimonials">
 {cards}
@@ -191,9 +191,9 @@ def page_index():
     <div class="hero-grid">
       <div>
         <span class="hero-eyebrow">Tea Knez — Coaching</span>
-        <h1>Notranja jasnost.<br><em>Zrele odločitve.</em><br>Trajne spremembe.</h1>
+        <h1>Notranja jasnost. <em>Zrele odločitve.</em><br>Trajne spremembe.</h1>
         <p class="hero-lead">Pomagam ti umiriti notranji hrup, razjasniti prioritete in sprejemati odločitve, ki so skladne s tem, kdo si.</p>
-        <a href="kontakt.html" class="btn btn-primary">Piši mi <span class="arrow">→</span></a>
+        <a href="kontakt.html" class="btn btn-primary">Piši mi!</a>
       </div>
       <div class="hero-image-wrap">
         <div class="hero-image"><img src="assets/images/hero.png" alt="Tea Knez — coaching" loading="eager"></div>
@@ -206,9 +206,8 @@ def page_index():
   <div class="container">
     <div class="reasons">
       <div>
-        <span class="eyebrow">Mogoče si tukaj, ker…</span>
-        <h2>…iščeš jasnost v trenutku, ki bi se rad razmaknil.</h2>
-        <p>Vsak prehod prinese tihe dvome. Coaching je prostor, kjer si jih dovoliš slišati — in iz njih oblikuješ naslednji premišljen korak.</p>
+        <span class="eyebrow">Mogoče</span>
+        <h2>Mogoče si tukaj, ker…</h2>
       </div>
       <ul class="reasons-list">
         <li>stojiš pred pomembno odločitvijo in želiš več jasnosti</li>
@@ -224,11 +223,10 @@ def page_index():
 <section class="section">
   <div class="container">
     <div class="split">
-      <div class="split-image"><img src="assets/images/coaching-section.png" alt="Coaching — prostor za razmislek"></div>
+      <div class="split-image"><img src="assets/images/coaching-section.png" alt="Coaching - prostor za razmislek"></div>
       <div>
         <span class="eyebrow">Kaj je coaching</span>
-        <h2>Coaching ni svetovanje in ni terapija.</h2>
-        <p>Je <strong>strukturiran, zaupen proces</strong>, ki te podpira pri bolj jasnem in zavestnem razmišljanju. Namesto da iščeš odgovore zunaj, začneš <strong>razumevati sebe, svoje vzorce in svoje odločitve</strong>.</p>
+        <p>Coaching ni svetovanje in ni terapija. Je <strong>strukturiran, zaupen proces</strong>, ki te podpira pri bolj jasnem in zavestnem razmišljanju. Namesto da iščeš odgovore zunaj, začneš <strong>razumevati sebe, svoje vzorce in svoje odločitve</strong>.</p>
         <p>Postopoma oblikuješ <strong>korake, ki so res v skladu s tabo</strong>.</p>
         <p>Coaching ne daje rešitev. Ustvari prostor, kjer lahko <em>odgovore odkriješ sam</em>.</p>
       </div>
@@ -239,16 +237,17 @@ def page_index():
 <section class="section">
   <div class="container">
     <div class="outcomes">
-      <span class="eyebrow" style="color:var(--clay-light);">Kaj se spremeni</span>
-      <h2>Sčasoma opaziš, da:</h2>
+      <span class="eyebrow" style="color:var(--clay-light);">Kaj se spremeni?</span>
+      <h2>Kaj se spremeni?</h2>
+      <p>Sčasoma opaziš, da:</p>
       <ul>
-        <li>odločitve sprejemaš bolj mirno in z manj notranjega hrupa</li>
-        <li>jasneje komuniciraš svoje meje in pričakovanja</li>
-        <li>prevzemaš odgovornost brez pretiranega pritiska</li>
-        <li>deluješ bolj skladno s tem, kar ti je zares pomembno</li>
-        <li>gradiš stabilnost, ki ni odvisna od zunanjih okoliščin</li>
+        <li>odločitve sprejemaš bolj mirno in z manj notranjega hrupa.</li>
+        <li>jasneje komuniciraš svoje meje in pričakovanja.</li>
+        <li>prevzemaš odgovornost brez pretiranega pritiska.</li>
+        <li>deluješ bolj skladno s tem, kar ti je zares pomembno.</li>
+        <li>gradiš stabilnost, ki ni odvisna od zunanjih okoliščin.</li>
       </ul>
-      <p class="outcomes-final">In kar je najpomembneje: imaš več jasnosti, kako naprej — na način, ki je tvoj.</p>
+      <p class="outcomes-final">In kar je najpomembneje: imaš več jasnosti, kako naprej - na način, ki je tvoj.</p>
     </div>
   </div>
 </section>
@@ -257,13 +256,12 @@ def page_index():
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Moj pristop</span>
-      <h2>Coaching, ki ima globino in strukturo</h2>
     </div>
     <div class="cards">
       <div class="card">
         <div class="card-icon">I.</div>
         <h3>Coaching z globino in strukturo</h3>
-        <p>Ne ponujam hitrih rešitev. Delava sistemično — raziskujeva širšo sliko, odnose, dinamike in nezavedne vzorce. Hkrati ostajava zelo konkretna: cilji so jasni, koraki izvedljivi, napredek merljiv.</p>
+        <p>Ne ponujam hitrih rešitev. Delava sistemično - raziskujeva širšo sliko, odnose, dinamike in nezavedne vzorce. Hkrati ostajava zelo konkretna: cilji so jasni, koraki izvedljivi, napredek merljiv.</p>
       </div>
       <div class="card">
         <div class="card-icon">II.</div>
@@ -273,7 +271,7 @@ def page_index():
       <div class="card">
         <div class="card-icon">III.</div>
         <h3>Toplina, jasnost in pogum</h3>
-        <p>Moj stil je neposreden, a empatičen. Ustvarjam prostor zaupanja, kjer lahko razmišljaš na glas, preizkušaš ideje in krepiš notranjo stabilnost. Ko je potrebno, odprem tudi zahtevne teme — z občutkom in jasnostjo.</p>
+        <p>Moj stil je neposreden, a empatičen. Ustvarjam prostor zaupanja, kjer lahko razmišljaš na glas, preizkušaš ideje in krepiš notranjo stabilnost. Ko je potrebno, odprem tudi zahtevne teme - z občutkom in jasnostjo.</p>
       </div>
     </div>
   </div>
@@ -285,39 +283,31 @@ def page_index():
       <span class="eyebrow">Blog</span>
       <h2>Prostor za refleksijo</h2>
       <p>Praktični vpogledi in misli, ki ti pomagajo graditi jasnost, notranjo moč in osebno rast.</p>
+      <p>Preberi več</p>
     </div>
     <div class="blog-grid">
       <a class="blog-card" href="blog/vracanje-s-porodniskega-dopusta.html">
         <div class="blog-card-image"><img src="assets/images/blog-vracanje.png" alt=""></div>
         <div class="blog-card-body">
           <h3>Vračanje s porodniškega dopusta: ko se vrneš drugačna</h3>
-          <p>Kako podpreti vračanje s porodniškega dopusta? O izzivih, prehodu in vlogi coachinga za posameznice in podjetja.</p>
-          <span class="blog-card-more">Preberi več</span>
         </div>
       </a>
       <a class="blog-card" href="blog/kako-preprecitiizgorelost.html">
         <div class="blog-card-image"><img src="assets/images/blog-izgorelost.png" alt=""></div>
         <div class="blog-card-body">
           <h3>Kako preprečiti izgorelost v podjetjih: kultura ravnovesja, ne žrtvovanja</h3>
-          <p>Kultura zaupanja in ravnovesja namesto preobremenjenosti. Ustvari delovno okolje, kjer ljudje resnično zmorejo rasti.</p>
-          <span class="blog-card-more">Preberi več</span>
         </div>
       </a>
       <a class="blog-card" href="blog/sindrom-vsiljivca.html">
         <div class="blog-card-image"><img src="assets/images/blog-sindrom.png" alt=""></div>
         <div class="blog-card-body">
           <h3>Kako premagati sindrom vsiljivca (imposter syndrome)</h3>
-          <p>O dvomu vase, ki te želi zaščititi. Spoznaj, kako prepoznati ta glas in verjeti, da si že zdaj dovolj.</p>
-          <span class="blog-card-more">Preberi več</span>
         </div>
       </a>
     </div>
-    <div style="text-align:center;margin-top:50px;">
-      <a href="blog.html" class="btn btn-secondary">Vsi članki <span class="arrow">→</span></a>
-    </div>
   </div>
 </section>
-""" + cta_band(0)
+"""
 
     page = head(
         "Tea Knez — Osebni, karierni in poslovni coaching",
@@ -332,7 +322,8 @@ def page_about():
     body = """<section class="page-header">
   <div class="container">
     <span class="eyebrow">O meni</span>
-    <h1>Večina ljudi ne potrebuje več informacij.<br>Potrebuje prostor, da lahko jasno razmisli.</h1>
+    <h1>O meni</h1>
+    <p class="lead">Večina ljudi ne potrebuje več informacij. Potrebuje prostor, da lahko jasno razmisli.</p>
   </div>
 </section>
 
@@ -340,8 +331,8 @@ def page_about():
   <div class="about-intro">
     <div class="split-image portrait"><img src="assets/images/about-tea.png" alt="Tea Knez"></div>
     <div>
-      <p>Sem <strong>Tea</strong>, coachinja in podjetnica, predvsem pa ženska in mama. V svoji karieri sem delovala v okoljih, kjer so odločitve pomembne, odgovornost velika in odnosi kompleksni. Prav tam sem od blizu spoznala, kako hitro lahko jasnost zamegli pritisk — in kako dragocen je prostor za premišljen razmislek.</p>
-      <p>Vedno me je zanimalo, kaj ljudi zares premakne — ne le navzven, ampak navznoter. Kaj ustvarja notranjo stabilnost, iz katere lahko delujemo bolj zrelo.</p>
+      <p>Sem <strong>Tea</strong>, coachinja in podjetnica, predvsem pa ženska in mama. V svoji karieri sem delovala v okoljih, kjer so odločitve pomembne, odgovornost velika in odnosi kompleksni. Prav tam sem od blizu spoznala, kako hitro lahko jasnost zamegli pritisk - in kako dragocen je prostor za premišljen razmislek.</p>
+      <p>Vedno me je zanimalo, kaj ljudi zares premakne, ne le navzven, ampak navznoter. Kaj ustvarja notranjo stabilnost, iz katere lahko delujemo bolj zrelo.</p>
     </div>
   </div>
 </section>
@@ -351,13 +342,12 @@ def page_about():
     <div class="split">
       <div>
         <span class="eyebrow">Moj pristop</span>
-        <h2>Strukturiran proces razmisleka</h2>
+        <h2>Moj pristop</h2>
         <p>Coaching zame ni svetovanje, temveč <strong>strukturiran proces razmisleka</strong>.</p>
-        <p>Ustvarjam <strong>varen, a zahteven prostor</strong>, kjer raziščeš širšo sliko — odnose, dinamike in svoje vzorce odločanja. Verjamem, da ima vsak človek v sebi vse vire in odgovore; včasih potrebujemo le <strong>prisotnost in jasnost</strong>, da jih prepoznamo.</p>
-        <p>Moje delo temelji na poslušanju, natančnih vprašanjih in spoštovanju tvojega procesa.</p>
-        <p><em>Cilj ni hitra rešitev, temveč zrela odločitev.</em></p>
+        <p>Ustvarjam <strong>varen, a zahteven prostor</strong>, kjer raziščeš širšo sliko - odnose, dinamike in svoje vzorce odločanja. Verjamem, da ima vsak človek v sebi vse vire in odgovore, včasih potrebujemo le <strong>prisotnost in jasnost</strong>, da jih prepoznamo.</p>
+        <p>Moje delo temelji na poslušanju, natančnih vprašanjih in spoštovanju tvojega procesa. Cilj ni hitra rešitev, temveč zrela odločitev.</p>
       </div>
-      <div class="split-image portrait"><img src="assets/images/tea-portrait.png" alt="Tea Knez — portret"></div>
+      <div class="split-image portrait"><img src="assets/images/tea-portrait.png" alt="Tea Knez - portret"></div>
     </div>
   </div>
 </section>
@@ -366,11 +356,11 @@ def page_about():
   <div class="container">
     <div class="section-head" style="text-align:left;max-width:780px;margin-left:0;">
       <span class="eyebrow">Moja pot</span>
-      <h2>Iz prakse, ki je zahtevala jasnost.</h2>
+      <h2>Moja pot</h2>
     </div>
     <div style="max-width:780px;">
       <p>Skozi svojo kariero sem opravljala in opravljam različne vloge: pravnica, mediatorka, vodja ekip in podjetnica. Delo z ljudmi v zahtevnih situacijah me je naučilo, da sprememba ni stvar motivacije, temveč razumevanja.</p>
-      <p>Iz teh izkušenj je naravno zrasla moja pot v coaching — kot nadaljevanje zanimanja za odnose, odgovornost in razvoj potenciala.</p>
+      <p>Iz teh izkušenj je naravno zrasla moja pot v coaching - kot nadaljevanje zanimanja za odnose, odgovornost in razvoj potenciala.</p>
       <p>Moj pristop pa ne oblikujejo le profesionalne izkušnje, temveč tudi moja vloga žene in mame, kjer se vsak dan znova učim, kako pomembni so <strong>prisotnost, razumevanje in prostor za resničen premislek.</strong></p>
     </div>
   </div>
@@ -384,6 +374,9 @@ def page_about():
         <li>NLP Mojster Praktik &amp; Coach (INLPTA)</li>
         <li>Life Coach Practitioner (Academy of Applied Psychology)</li>
         <li>Mediator (Inštitut za mediacijo Concordia)</li>
+      </ul>
+      <h3>Coaching akreditacije</h3>
+      <ul class="credentials-list">
         <li>Organizacijska coachinja (Kreativlab d.o.o.)</li>
         <li>EIA EMCC — individualna akreditacija</li>
         <li>ACC ICF — v pridobivanju</li>
@@ -395,8 +388,8 @@ def page_about():
 <section class="section section-cream">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Vrednote, ki me vodijo</span>
-      <h2>Trije temelji vsakega srečanja</h2>
+      <span class="eyebrow">Vrednote</span>
+      <h2>Vrednote, ki me vodijo</h2>
     </div>
     <div class="values">
       <div class="value">
@@ -414,7 +407,13 @@ def page_about():
     </div>
   </div>
 </section>
-""" + cta_band(0)
+
+<section class="section">
+  <div class="container" style="text-align:center;">
+    <h2>Želiš raziskati več?</h2>
+    <p><a href="kontakt.html" class="btn btn-primary">Piši mi!</a></p>
+  </div>
+</section>"""
 
     page = head(
         "O meni — Tea Knez",
@@ -429,8 +428,7 @@ def page_services_hub():
     body = """<section class="page-header">
   <div class="container">
     <span class="eyebrow">Storitve</span>
-    <h1>Trije prostori za razmislek.<br>En cilj: jasnost.</h1>
-    <p class="lead">Vse storitve potekajo online in temeljijo na profesionalnih standardih ter spoštovanju zaupnosti. Izberi obliko, ki te najbolj nagovarja — naslednji korak je vedno pogovor.</p>
+    <h1>Storitve</h1>
   </div>
 </section>
 
@@ -463,8 +461,7 @@ def page_services_hub():
       </a>
     </div>
   </div>
-</section>
-""" + cta_band(0)
+</section>"""
 
     page = head(
         "Storitve — Tea Knez Coaching",
@@ -496,7 +493,6 @@ def service_detail(slug, title, lead, intro_paragraphs, bullets_intro, bullets, 
       <span class="eyebrow">Storitev</span>
       <h1>{title}</h1>
       <p class="lead">{lead}</p>
-      <a href="../kontakt.html" class="btn btn-primary">Piši mi <span class="arrow">→</span></a>
       <div class="service-meta">
       {meta_html}
       </div>
@@ -518,14 +514,21 @@ def service_detail(slug, title, lead, intro_paragraphs, bullets_intro, bullets, 
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Kaj pridobiš</span>
-      <h2>{benefits_intro}</h2>
+      <h2>Kaj pridobiš</h2>
+      <p>{benefits_intro}</p>
     </div>
     <div class="cards">
 {benefits_html}
     </div>
   </div>
 </section>
-""" + testimonials_section() + cta_band(1)
+""" + testimonials_section() + """
+<section class="section">
+  <div class="container" style="text-align:center;">
+    <h2>Želiš raziskati več?</h2>
+    <p><a href="../kontakt.html" class="btn btn-primary">Piši mi!</a></p>
+  </div>
+</section>"""
 
     page = head(
         f"{title} — Tea Knez",
@@ -563,10 +566,12 @@ def page_karierni():
     service_detail(
         slug="karierni-in-poslovni-coaching",
         title="Karierni in poslovni coaching",
-        lead="Pomaga ti razjasniti smer, okrepiti samozavest pri odločanju in graditi vlogo, ki je skladna s tvojimi vrednotami.",
+        lead="Karierni in poslovni coaching ti pomaga razjasniti smer, okrepiti samozavest pri odločanju in graditi vlogo, ki je skladna s tvojimi vrednotami.",
         intro_paragraphs=[
-            'Ko se znajdeš na točki spremembe, ne potrebuješ še enega nasveta — potrebuješ jasnost.',
+            'Ko se znajdeš na točki spremembe, ne potrebuješ še enega nasveta - potrebuješ jasnost.',
             'Coaching je namenjen posameznikom, ki razmišljajo o naslednjem koraku: vrnitev na delo, menjava službe, nova vloga ali drugačen način vodenja kariere.',
+            'Coaching ti ponudi <strong>strukturiran in zaupen prostor</strong>, kjer lahko razmisliš širše. O svojih vrednotah, ambicijah in realnih možnostih. Ne iščeš idealne rešitve, ampak smer, ki je skladna s tabo.',
+            'Srečanja trajajo 60 minut in potekajo online. Proces temelji na profesionalnih standardih, zaupnosti in spoštovanju tvojega tempa.',
         ],
         bullets_intro="Prehodi prinesejo vprašanja:",
         bullets=[
@@ -590,10 +595,11 @@ def page_podjetja():
     service_detail(
         slug="coaching-za-podjetja",
         title="Coaching za podjetja",
-        lead="Ustvari kulturo zaupanja, sodelovanja in zavestnega vodenja. Coaching spodbuja rast posameznikov in ekip ter krepi komunikacijo.",
+        lead="Ustvari kulturo zaupanja, sodelovanja in zavestnega vodenja. Coaching za podjetja spodbuja rast posameznikov in ekip, krepi komunikacijo ter pomaga, da delo postane prostor navdiha, povezanosti in skupnega razvoja.",
         intro_paragraphs=[
             'Gradite kulturo zaupanja, odgovornosti in zavestnega vodenja. Coaching za podjetja je namenjen organizacijam, ki želijo sistematično vlagati v razvoj vodij, ekip in ključnih posameznikov. V kompleksnem poslovnem okolju postajajo komunikacija, čustvena inteligenca in sposobnost sodelovanja ključni dejavniki uspeha.',
             'Skozi strukturiran coaching proces ustvarjamo prostor za refleksijo, jasnejše odločanje in bolj zavestno vodenje. Poudarek je na odgovornosti, medsebojnem zaupanju ter krepitvi kulture, kjer posamezniki delujejo skladno s skupnimi cilji in vrednotami.',
+            'Srečanja potekajo online ali v živo, individualno ali v manjših skupinah. Proces temelji na profesionalnih standardih ICF ter spoštovanju zaupnosti in etike.',
         ],
         bullets_intro="Coaching podpira organizacije pri:",
         bullets=[
@@ -628,8 +634,8 @@ POSTS = [
     {"slug":"mir-v-sebi", "title":"Ko mir v sebi postane pomembnejši od tega, da imaš prav",
      "summary":"O notranji svobodi, ko mir izbereš pred dokazovanjem. Nauči se slišati sebe, ne potrebe po potrditvi.",
      "image":"blog-mir.png"},
-    {"slug":"samozavest", "title":"Samozavest ni nekaj, kar imaš — ampak nekaj, kar gradiš",
-     "summary":"Samozavest ni lastnost, s katero se rodiš — je pot, ki jo gradiš skozi drobne izbire in notranji dialog.",
+    {"slug":"samozavest", "title":"Samozavest ni nekaj, kar imaš – ampak nekaj, kar gradiš",
+     "summary":"Samozavest ni lastnost, s katero se rodiš – je pot, ki jo gradiš skozi drobne izbire in notranji dialog.",
      "image":"blog-samozavest.png"},
     {"slug":"avtenticno-vodenje", "title":"Avtentično vodenje: Moč resničnega stika",
      "summary":"Avtentično vodenje ne temelji na popolnosti, temveč na iskrenosti in povezanosti. Kako voditi z resničnostjo.",
@@ -638,52 +644,34 @@ POSTS = [
      "summary":"Notranji kritik pogosto ovira našo rast, a lahko postane vir učenja. Kako ga prepoznati in preoblikovati.",
      "image":"blog-notranji.png"},
     {"slug":"odpornost", "title":"Odpornost in prožnost: Kako graditi notranjo moč celostno",
-     "summary":"Odpornost ni le miselna trdnost — vključuje telo, čustva, misli in odnose. Kako celostno graditi notranjo moč.",
+     "summary":"Odpornost ni le miselna trdnost – vključuje telo, čustva, misli in odnose. Kako celostno graditi notranjo moč.",
      "image":"blog-odpornost.png"},
 ]
 
 def page_blog_index():
-    feature = POSTS[0]
-    rest = POSTS[1:]
-    rest_cards = "\n".join(
+    cards = "\n".join(
         f"""      <a class="blog-card" href="blog/{p['slug']}.html">
         <div class="blog-card-image"><img src="assets/images/{p['image']}" alt=""></div>
         <div class="blog-card-body">
           <h3>{p['title']}</h3>
-          <p>{p['summary']}</p>
-          <span class="blog-card-more">Preberi več</span>
         </div>
       </a>"""
-        for p in rest
+        for p in POSTS
     )
     body = f"""<section class="page-header">
   <div class="container">
     <span class="eyebrow">Blog</span>
-    <h1>Prostor za refleksijo</h1>
-    <p class="lead">Ne svetujem, temveč ustvarjam prostor. Blog je povabilo k samorefleksiji, raziskovanju in spoznavanju, kaj zate pomeni jasnost, moč in avtentičnost.</p>
-  </div>
-</section>
-
-<section class="container">
-  <div class="blog-feature">
-    <div class="blog-feature-image"><img src="assets/images/{feature['image']}" alt=""></div>
-    <div>
-      <span class="eyebrow">Najnovejše</span>
-      <h2>{feature['title']}</h2>
-      <p>{feature['summary']}</p>
-      <a href="blog/{feature['slug']}.html" class="btn btn-secondary">Preberi članek <span class="arrow">→</span></a>
-    </div>
+    <h1>Blog</h1>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <div class="blog-grid">
-{rest_cards}
+{cards}
     </div>
   </div>
-</section>
-""" + cta_band(0)
+</section>"""
 
     page = head(
         "Blog — Tea Knez Coaching",
@@ -722,8 +710,7 @@ def render_blog_post(slug, title, lead, image, body_html, prev_post=None, next_p
 <article class="post-body">
 {body_html}
 </article>
-{nav}
-""" + cta_band(1)
+{nav}"""
 
     page = head(
         f"{title} — Tea Knez",
@@ -736,7 +723,7 @@ def render_blog_post(slug, title, lead, image, body_html, prev_post=None, next_p
 def page_blog_vracanje():
     body = """<p>Vračanje s porodniškega dopusta na prvi pogled deluje kot precej praktična stvar. Uvajanje otroka v vrtec. Usklajevanje urnikov. Jutra, ki naenkrat postanejo bolj intenzivna. Ponoven prehod iz domačega ritma v službenega. In potem pride še tisti trenutek, ko ponovno sedeš za računalnik in naj bi se stvari nekako nadaljevale. Pa vendar se veliko žensk v tem obdobju za trenutek ustavi in potiho pomisli:</p>
 
-<p class="pullquote">„Nisem več ista."</p>
+<p class="pullquote">“Nisem več ista.”</p>
 
 <p>In res nisi.</p>
 
@@ -748,7 +735,7 @@ def page_blog_vracanje():
 <p>Vmes pa se pojavi tiha napetost:</p>
 <ul>
   <li>Ali delam dovolj?</li>
-  <li>Sem še vedno „dovolj dobra" v službi?</li>
+  <li>Sem še vedno “dovolj dobra” v službi?</li>
   <li>Kako naj vse to uskladim, ne da se izgubim?</li>
 </ul>
 <p>To niso vprašanja, na katera obstaja en pravilen odgovor. So pa vprašanja, ki si zaslužijo prostor.</p>
@@ -769,19 +756,19 @@ def page_blog_vracanje():
 
 <h2>Kje pride v igro coaching?</h2>
 <p>Coaching ni prostor, kjer nekdo pove, kaj bi morala narediti. Je prostor, kjer lahko za trenutek ustaviš tempo in se vprašaš:</p>
-<blockquote>„Kaj pa zdaj res potrebujem jaz?"</blockquote>
+<blockquote>“Kaj pa zdaj res potrebujem jaz?”</blockquote>
 <p>V takem prostoru lahko:</p>
 <ul>
   <li>razjasniš, kaj so tvoje prioritete v tej novi fazi</li>
   <li>ponovno vzpostaviš občutek kompetentnosti</li>
   <li>najdeš svoj način usklajevanja dela in življenja</li>
-  <li>in predvsem — razviješ način delovanja, ki je zate dolgoročno vzdržen</li>
+  <li>in predvsem – razviješ način delovanja, ki je zate dolgoročno vzdržen</li>
 </ul>
 <p>Ne gre za hitro rešitev. Gre za to, da si dovoliš, da se v novo fazo ne vrneš na silo, ampak zavestno.</p>
 
-<p>Vračanje s porodniškega dopusta ni vrnitev nazaj. Je prehod naprej. In način, kako je ta prehod podprt, lahko naredi veliko razliko — tako za posameznico kot za organizacijo. Morda ne potrebujemo več rešitev. Morda potrebujemo več prostora, kjer si lahko stvari dovolimo na novo razumeti.</p>
+<p>Vračanje s porodniškega dopusta ni vrnitev nazaj. Je prehod naprej. In način, kako je ta prehod podprt, lahko naredi veliko razliko – tako za posameznico kot za organizacijo. Morda ne potrebujemo več rešitev. Morda potrebujemo več prostora, kjer si lahko stvari dovolimo na novo razumeti.</p>
 
-<p class="pullquote">Kako si želiš, da bi izgledalo tvoje vračanje — ne takšno, kot ga pričakuje okolje, ampak takšno, ki je zares usklajeno s tabo?</p>
+<p class="pullquote">Kako si želiš, da bi izgledalo tvoje vračanje – ne takšno, kot ga pričakuje okolje, ampak takšno, ki je zares usklajeno s tabo?</p>
 
 <div class="cta-final">
 <p>👉 <strong>Če ob branju prepoznavaš sebe</strong> in čutiš, da bi ti v tem obdobju koristil prostor za razmislek in podporo, ali pa kot podjetje razmišljate, kako bolje podpreti zaposlene ob vračanju s porodniškega dopusta, me lahko kontaktiraš za kratek pogovor.</p>
@@ -801,7 +788,7 @@ def page_blog_vracanje():
 def page_blog_izgorelost():
     body = """<p class="pullquote">Izgorelost se ne začne z izčrpanostjo, ampak z željo po tem, da bi bilo vse popolno.</p>
 
-<p>Ko ljudje v podjetju nenehno delujejo „nad svojimi mejami" — ne zato, ker morajo, ampak ker želijo dokazati svojo vrednost — se postopoma izčrpajo.</p>
+<p>Ko ljudje v podjetju nenehno delujejo “nad svojimi mejami” – ne zato, ker morajo, ampak ker želijo dokazati svojo vrednost – se postopoma izčrpajo.</p>
 <p>In ko izgori posameznik, izgubi energijo tudi ekipa. Kultura izgorelosti postane sistemska.</p>
 
 <h2>Prvi korak: ozaveščanje</h2>
@@ -814,20 +801,19 @@ def page_blog_izgorelost():
   <li>Spodbujaj odprte pogovore o obremenjenosti brez strahu pred sodbo.</li>
   <li>Poudarjaj pomen počitka kot dela uspeha, ne kot nagrade zanj.</li>
   <li>Dajaj zgled: pokaži, da znaš ustaviti tudi sam.</li>
-  <li>Prepoznaj, da so „mehke veščine" — sočutje, razumevanje, prisotnost — pravzaprav trdne veščine prihodnosti.</li>
+  <li>Prepoznaj, da so “mehke veščine” – sočutje, razumevanje, prisotnost – pravzaprav trdne veščine prihodnosti.</li>
 </ul>
 
-<h2>Vprašanja za refleksijo (za vodje in ekipe)</h2>
 <ul>
   <li>Kako v našem okolju govorimo o utrujenosti?</li>
   <li>Ali znamo priznati, da smo ljudje, preden smo zaposleni?</li>
   <li>Kaj bi pomenilo, če bi bila skrb za dobrobit del naše strategije uspeha?</li>
 </ul>
 
-<p>Izgorelost ni neizogibna. Je klic po spremembi. Ko podjetje izbere kulturo zaupanja, ravnovesja in človečnosti, se delo ne le izboljša — postane prostor, kjer ljudje rastejo skupaj.</p>
+<p>Izgorelost ni neizogibna. Je klic po spremembi. Ko podjetje izbere kulturo zaupanja, ravnovesja in človečnosti, se delo ne le izboljša – postane prostor, kjer ljudje rastejo skupaj.</p>
 
 <div class="cta-final">
-<p>👉 <strong>Če želiš raziskati</strong>, kako v tvojem podjetju ustvariti kulturo ravnovesja in preprečiti izgorelost, me kontaktiraj — skupaj lahko razvijemo okolje, kjer uspeh temelji na zdravju, ne na izčrpanosti.</p>
+<p>👉 <strong>Če želiš raziskati</strong>, kako v tvojem podjetju ustvariti kulturo ravnovesja in preprečiti izgorelost, me kontaktiraj – skupaj lahko razvijemo okolje, kjer uspeh temelji na zdravju, ne na izčrpanosti.</p>
 </div>
 """
     render_blog_post(
@@ -843,26 +829,24 @@ def page_blog_izgorelost():
 
 def page_blog_sindrom():
     body = """<p>Kolikokrat si se vprašal/a, ali si res dovolj dober?</p>
-<p>Tisti občutek, da si na „napačnem mestu" ali da bo nekdo kmalu ugotovil, da ne veš dovolj, pozna skoraj vsak.</p>
-<p>To je <strong>sindrom vsiljivca</strong> — notranji glas, ki dvomi v tvojo vrednost, tudi ko imaš dokaze o uspehu pred sabo.</p>
+<p>Tisti občutek, da si na “napačnem mestu” ali da bo nekdo kmalu ugotovil, da ne veš dovolj, pozna skoraj vsak.</p>
+<p>To je <strong>sindrom vsiljivca</strong> – notranji glas, ki dvomi v tvojo vrednost, tudi ko imaš dokaze o uspehu pred sabo.</p>
 
 <h2>Zakaj se pojavi</h2>
 <p>Sindrom vsiljivca ni znak nesposobnosti, temveč posledica visokih standardov, perfekcionizma in notranje negotovosti.</p>
 <p>Pogosto se pojavi pri ljudeh, ki jim je mar, ki želijo prispevati in delati dobro. Paradoksalno ravno ti najbolj dvomijo vase.</p>
-<p>Ko te vodi notranji občutek „nisem dovolj", se lahko ujameš v nenehno dokazovanje — dosežki pridejo, a miru ni.</p>
+<p>Ko te vodi notranji občutek “nisem dovolj”, se lahko ujameš v nenehno dokazovanje – dosežki pridejo, a miru ni.</p>
 
 <h2>Kako se začne spreminjati</h2>
 <p>Prvi korak je, da prepoznaš, da občutek ne odraža realnosti. Dvom ni dokaz resnice, ampak znak, da rasteš izven cone udobja.</p>
 <p>Drugi korak je, da dovoliš sebi, da nisi popoln. Da uspeh ne pomeni odsotnosti napak, ampak pogum, da greš naprej, kljub njim.</p>
 
-<h2>Majhni koraki</h2>
 <ul>
-  <li>Namesto „nisem dovolj dober" poskusi reči: „Učim se in rastem."</li>
+  <li>Namesto “nisem dovolj dober” poskusi reči: “Učim se in rastem.”</li>
   <li>Dovoli si praznovati male uspehe.</li>
   <li>Obkroži se z ljudmi, ki ti pomagajo videti resničnost, ne iluzijo lastne negotovosti.</li>
 </ul>
 
-<h2>Vprašanja za samorefleksijo</h2>
 <ul>
   <li>Kdaj sem nazadnje podvomil/a vase kljub temu, da sem nekaj dobro naredil/a?</li>
   <li>Kako bi ravnal/a, če bi verjel/a, da sem dovolj?</li>
@@ -872,7 +856,7 @@ def page_blog_sindrom():
 <p class="pullquote">Sindrom vsiljivca ne izgine, ko dosežeš več, ampak ko začneš verjeti, da si že zdaj dovolj.</p>
 
 <div class="cta-final">
-<p>👉 <strong>Če želiš raziskati</strong>, kako se osvoboditi notranjega dvoma in voditi iz zaupanja vase, me kontaktiraj — skupaj bova gradila tvoj občutek jasnosti in miru v profesionalni rasti.</p>
+<p>👉 <strong>Če želiš raziskati</strong>, kako se osvoboditi notranjega dvoma in voditi iz zaupanja vase, me kontaktiraj – skupaj bova gradila tvoj občutek jasnosti in miru v profesionalni rasti.</p>
 </div>
 """
     render_blog_post(
@@ -888,23 +872,21 @@ def page_blog_sindrom():
 
 def page_blog_mir():
     body = """<p>Včasih nas v razpravah, odnosih ali življenjskih situacijah vodi potreba, da dokažemo svoj prav. Želimo, da drugi razumejo našo plat, da priznajo našo resnico. Toda pogosto se ob tem zapletemo v napetost, dokazovanje in čustveno izčrpanost.</p>
-<p>Mir, ki ga iščemo, se oddaljuje — ravno zato, ker ga želimo doseči z razumom, ne z notranjim sprejemanjem.</p>
+<p>Mir, ki ga iščemo, se oddaljuje – ravno zato, ker ga želimo doseči z razumom, ne z notranjim sprejemanjem.</p>
 
 <h2>Pot od potrebe po prav do notranje svobode</h2>
 <p>Ko mir v sebi postane pomembnejši od tega, da imaš prav, se začne prava sprememba.</p>
-<p>Ne pomeni, da se vdaš ali pustiš, da te drugi pohodijo. Pomeni, da izbereš stik s sabo — da ostaneš v svoji resnici brez potrebe, da jo kdorkoli potrdi.</p>
+<p>Ne pomeni, da se vdaš ali pustiš, da te drugi pohodijo. Pomeni, da izbereš stik s sabo – da ostaneš v svoji resnici brez potrebe, da jo kdorkoli potrdi.</p>
 <p class="pullquote">To je svoboda: ko tvoj notranji mir ne zavisi več od zunanjih odzivov.</p>
 <p>Mir prihaja, ko se naučimo opazovati svoje misli in čustva, ne da bi jih morali takoj zagovarjati.</p>
-<p>Ko v pogovoru začutimo napetost in namesto, da bi dokazovali, izberemo dih — in s tem ohranimo stik s seboj.</p>
+<p>Ko v pogovoru začutimo napetost in namesto, da bi dokazovali, izberemo dih – in s tem ohranimo stik s seboj.</p>
 
-<h2>Majhni premiki, velike razlike</h2>
 <ul>
-  <li>Ko se vprašaš: <em>„Kaj je zdaj zame res pomembno — da imam prav ali da ohranim mir?"</em></li>
+  <li>Ko se vprašaš: <em>“Kaj je zdaj zame res pomembno – da imam prav ali da ohranim mir?”</em></li>
   <li>Ko zavestno izbereš tišino, ne zato, ker nimaš odgovora, ampak ker mir govori glasneje kot ego.</li>
   <li>Ko razumeš, da mir ni šibkost, ampak znak notranje zrelosti.</li>
 </ul>
 
-<h2>Vprašanja za samorefleksijo</h2>
 <ul>
   <li>Kdaj sem se nazadnje zapletel/a v dokazovanje, ki mi je vzelo mir?</li>
   <li>Kaj bi se zgodilo, če bi v tistem trenutku izbrala mir namesto prav?</li>
@@ -914,7 +896,7 @@ def page_blog_mir():
 <p>Mir v sebi je prostor, kamor se vedno lahko vrneš. Ni odvisen od zunanjih okoliščin, ampak od tvoje odločitve, da izbereš stik namesto dokazovanja.</p>
 
 <div class="cta-final">
-<p>👉 <strong>Če želiš raziskati</strong>, kako lahko gradiš notranji mir v odnosih in življenjskih izzivih, me kontaktiraj — skupaj bova odkrila načine, kako najti mir, ki ostane tudi, ko okoliščine niso popolne.</p>
+<p>👉 <strong>Če želiš raziskati</strong>, kako lahko gradiš notranji mir v odnosih in življenjskih izzivih, me kontaktiraj – skupaj bova odkrila načine, kako najti mir, ki ostane tudi, ko okoliščine niso popolne.</p>
 </div>
 """
     render_blog_post(
@@ -930,15 +912,14 @@ def page_blog_mir():
 
 def page_blog_samozavest():
     body = """<h2>Kaj pravzaprav pomeni samozavest?</h2>
-<p>Ko govorimo o samozavesti, mnogi pomislijo na ljudi, ki so glasni, karizmatični ali vedno prepričani vase. A resnična samozavest nima nujno veze z nastopom navzven. Gre za notranje stanje — za občutek, da zaupamo vase, tudi takrat, ko ne poznamo vseh odgovorov in ko ne gre vse po načrtih.</p>
-<p>Samozavest ni nekaj, kar „dobimo" ali kar je dano le izbranim. Je proces, pot, ki jo gradimo z majhnimi koraki. In kar je najpomembneje — je lastnost, ki se spreminja. Včasih jo čutimo močno, drugič skoraj izgine. In to je človeško.</p>
+<p>Ko govorimo o samozavesti, mnogi pomislijo na ljudi, ki so glasni, karizmatični ali vedno prepričani vase. A resnična samozavest nima nujno veze z nastopom navzven. Gre za notranje stanje – za občutek, da zaupamo vase, tudi takrat, ko ne poznamo vseh odgovorov in ko ne gre vse po načrtih.</p>
+<p>Samozavest ni nekaj, kar “dobimo” ali kar je dano le izbranim. Je proces, pot, ki jo gradimo z majhnimi koraki. In kar je najpomembneje – je lastnost, ki se spreminja. Včasih jo čutimo močno, drugič skoraj izgine. In to je človeško.</p>
 
 <h2>Korenine samozavesti</h2>
-<p>Naša samozavest se pogosto gradi že v otroštvu — skozi odzive staršev, učiteljev, okolja. A v odraslosti ni več odvisna samo od zunanjih potrditev. Takrat postane predvsem notranji dialog:</p>
+<p>Naša samozavest se pogosto gradi že v otroštvu – skozi odzive staršev, učiteljev, okolja. A v odraslosti ni več odvisna samo od zunanjih potrditev. Takrat postane predvsem notranji dialog:</p>
 <blockquote>Kaj verjamem o sebi? Kako govorim s sabo, ko mi ne uspe?</blockquote>
-<p>Samozavest se hrani takrat, ko si dovolimo biti iskreni do sebe — ko prepoznamo svoje močne plati, pa tudi ranljivosti, in jih sprejmemo kot del celote.</p>
+<p>Samozavest se hrani takrat, ko si dovolimo biti iskreni do sebe – ko prepoznamo svoje močne plati, pa tudi ranljivosti, in jih sprejmemo kot del celote.</p>
 
-<h2>Majhni koraki, velika razlika</h2>
 <p>Samozavest ne pride z enim velikim dejanjem. Gradi se skozi drobne izbire vsak dan:</p>
 <ul>
   <li>ko si dovolimo izraziti svoje mnenje,</li>
@@ -947,25 +928,22 @@ def page_blog_samozavest():
 </ul>
 <p>Vsak tak trenutek postane nova opeka v temelju zaupanja vase.</p>
 
-<h2>Vprašanja za samorefleksijo</h2>
 <ul>
   <li>Katere besede si najpogosteje rečem, ko naredim napako? Bi jih rekel/a enako osebi, ki jo imam rad/a?</li>
-  <li>Kdaj sem nazadnje naredil/a nekaj kljub strahu — in kako sem se ob tem počutil/a?</li>
+  <li>Kdaj sem nazadnje naredil/a nekaj kljub strahu – in kako sem se ob tem počutil/a?</li>
   <li>Katera mala dejanja bi mi danes pomagala okrepiti občutek, da zaupam vase?</li>
 </ul>
 
-<p class="pullquote">Samozavest je kot mišica — krepi se, ko jo uporabljamo, in oslabi, če jo zanemarimo.</p>
-
-<p>Zato ni pomembno, da smo „vedno samozavestni", ampak da znamo v vsakdanjih trenutkih izbrati zaupanje vase, tudi ko je težko.</p>
+<p>Samozavest ni končni cilj, ki ga dosežemo in obdržimo za vedno. Je kot mišica – krepi se, ko jo uporabljamo, in oslabi, če jo zanemarimo. Zato ni pomembno, da smo “vedno samozavestni”, ampak da znamo v vsakdanjih trenutkih izbrati zaupanje vase, tudi ko je težko.</p>
 
 <div class="cta-final">
-<p>👉 <strong>Če želiš raziskati</strong>, kako bi lahko krepil/a svojo samozavest v varnem, sočutnem prostoru, me kontaktiraj — skupaj bova našla načine, kako graditi temelje, ki te bodo podpirali na tvoji poti.</p>
+<p>👉 <strong>Če želiš raziskati</strong>, kako bi lahko krepil/a svojo samozavest v varnem, sočutnem prostoru, me kontaktiraj – skupaj bova našla načine, kako graditi temelje, ki te bodo podpirali na tvoji poti.</p>
 </div>
 """
     render_blog_post(
         "samozavest",
-        "Samozavest ni nekaj, kar imaš — ampak nekaj, kar gradiš",
-        "Samozavest ni lastnost, s katero se rodiš — je pot, ki jo gradiš skozi drobne izbire in notranji dialog. Preberi, kako lahko začneš danes.",
+        "Samozavest ni nekaj, kar imaš – ampak nekaj, kar gradiš",
+        "Samozavest ni lastnost, s katero se rodiš – je pot, ki jo gradiš skozi drobne izbire in notranji dialog. Preberi, kako lahko začneš danes.",
         "blog-samozavest.png",
         body,
         prev_post=POSTS[3],
@@ -975,17 +953,15 @@ def page_blog_samozavest():
 
 def page_blog_avtenticno():
     body = """<h2>Kaj pomeni biti avtentičen vodja?</h2>
-<p>Vodja se pogosto razume kot oseba, ki ima odgovore, sprejema odločitve in vodi druge k ciljem. A resnično učinkovito vodenje ne temelji na popolnosti, temveč na avtentičnosti. To pomeni, da si upaš pokazati, kdo v resnici si — z močmi in z negotovostmi.</p>
+<p>Vodja se pogosto razume kot oseba, ki ima odgovore, sprejema odločitve in vodi druge k ciljem. A resnično učinkovito vodenje ne temelji na popolnosti, temveč na avtentičnosti. To pomeni, da si upaš pokazati, kdo v resnici si – z močmi in z negotovostmi.</p>
 <p>Avtentičen vodja ne nosi maske. Ne skuša ustvariti podobe brez napak, ampak gradi prostor, kjer se sodelavci počutijo sprejeti, slišani in vključeni. Prav ta stik je temelj zaupanja, na katerem raste sodelovanje in predanost.</p>
 
-<h2>Zakaj avtentičnost prinaša moč?</h2>
-<p>V ekipi, kjer vlada iskrenost, se ljudje upajo izraziti. Lažje delijo svoje ideje, priznajo napake in sodelujejo pri iskanju rešitev. Vodja, ki pokaže človečnost, pravzaprav krepi svojo avtoriteto — ker gradi na zaupanju, ne na strahu.</p>
+<p>V ekipi, kjer vlada iskrenost, se ljudje upajo izraziti. Lažje delijo svoje ideje, priznajo napake in sodelujejo pri iskanju rešitev. Vodja, ki pokaže človečnost, pravzaprav krepi svojo avtoriteto – ker gradi na zaupanju, ne na strahu.</p>
 <p>Avtentično vodenje torej ni znak šibkosti, ampak poguma. Poguma, da se pokažeš resničen, da poslušaš in dopuščaš, da ima vsak glas svojo vrednost.</p>
 
-<h2>Vprašanja za samorefleksijo</h2>
 <ul>
   <li>Kdaj sem kot vodja najbolj resnično jaz?</li>
-  <li>Kaj poskušam skriti, ker mislim, da „ni dovolj dobro"?</li>
+  <li>Kaj poskušam skriti, ker mislim, da “ni dovolj dobro”?</li>
   <li>Kako lahko danes odprem več prostora za iskren dialog v svoji ekipi?</li>
 </ul>
 
@@ -993,7 +969,7 @@ def page_blog_avtenticno():
 <p>Biti avtentičen ne pomeni, da deliš vse svoje misli brez filtra, ampak da ostajaš zvest svojim vrednotam in deluješ skladno z njimi. To je proces, ki zahteva samorefleksijo in pripravljenost na učenje.</p>
 <p>Vsakič, ko se odločiš nastopiti brez maske in v dialogu prisluhniti resnično, narediš korak k avtentičnemu vodenju. In prav ti majhni koraki ustvarjajo spremembe v tvojem timu in v tvojem načinu vodenja.</p>
 
-<p class="pullquote">Avtentično vodenje je vabilo k stiku — s seboj in z drugimi.</p>
+<p class="pullquote">Avtentično vodenje je vabilo k stiku – s seboj in z drugimi.</p>
 
 <p>Je izbira, da vodiš ne le z znanjem, ampak tudi z iskrenostjo in prisotnostjo.</p>
 
@@ -1014,34 +990,32 @@ def page_blog_avtenticno():
 
 def page_blog_notranji():
     body = """<p>V vsakem izmed nas obstaja glas, ki nas opozarja, kritizira ali zadržuje. Pogosto mu rečemo <strong>notranji kritik</strong>. Njegove besede so lahko ostre:</p>
-<blockquote>„Nisi dovolj dober/a. Kaj pa, če ti ne uspe? Ne izpostavljaj se."</blockquote>
+<blockquote>“Nisi dovolj dober/a. Kaj pa, če ti ne uspe? Ne izpostavljaj se.”</blockquote>
 <p>Ta glas nas lahko upočasni, zmanjša naš pogum in nam prepreči, da bi naredili korak naprej.</p>
-<p>Toda notranji kritik ni vedno naš sovražnik. Pogosto je del nas, ki skuša — na svoj neroden način — poskrbeti za našo varnost. Nastal je v preteklosti, ko smo se učili, da je bolje biti previden, se umakniti ali se ne izpostavljati, kot pa tvegati bolečino in zavrnitev.</p>
+<p>Toda notranji kritik ni vedno naš sovražnik. Pogosto je del nas, ki skuša – na svoj neroden način – poskrbeti za našo varnost. Nastal je v preteklosti, ko smo se učili, da je bolje biti previden, se umakniti ali se ne izpostavljati, kot pa tvegati bolečino in zavrnitev.</p>
 
 <h2>Prepoznati glas kritika</h2>
-<p>Prvi korak je, da ločimo sebe od kritika. Notranji kritik je del nas, a ni naše bistvo. Ko ga prepoznamo, lahko opazimo njegove besede kot nekaj, kar se dogaja znotraj nas — ne pa kot resnico o tem, kdo smo.</p>
+<p>Prvi korak je, da ločimo sebe od kritika. Notranji kritik je del nas, a ni naše bistvo. Ko ga prepoznamo, lahko opazimo njegove besede kot nekaj, kar se dogaja znotraj nas – ne pa kot resnico o tem, kdo smo.</p>
 
-<h2>Vprašanja za samorefleksijo</h2>
 <ul>
   <li>Kateri stavek moj notranji kritik najpogosteje ponavlja?</li>
   <li>V katerih situacijah se njegov glas najglasneje oglasi?</li>
   <li>Kako bi zvenel moj notranji dialog, če bi bil prijaznejši?</li>
 </ul>
 
-<h2>Preoblikovanje odnosa</h2>
 <p>Namesto da se z notranjim kritikom borimo, ga lahko povabimo v dialog. Lahko ga vprašamo:</p>
-<blockquote>„Kaj želiš s tem doseči? Pred čim me želiš obvarovati?"</blockquote>
+<blockquote>“Kaj želiš s tem doseči? Pred čim me želiš obvarovati?”</blockquote>
 <p>Presenečeni bomo, ko ugotovimo, da pogosto želi samo, da ne bi doživeli neuspeha, zavrnitve ali sramu.</p>
 <p>S tem ko mu damo glas, se začne njegov ton mehčati. Kritična sporočila se lahko počasi preoblikujejo v opozorila, ki nam pomagajo bolj zavestno sprejemati odločitve. In tam, kjer nas je prej ustavljal, nas lahko začne usmerjati.</p>
 
 <h2>Pot k notranjemu zavezniku</h2>
-<p>Notranji kritik ne bo nikoli povsem izginil — in to tudi ni njegov namen. Lahko pa postane drugačen: iz ostrega sodnika se spremeni v notranji kompas, ki nas opozarja, kje potrebujemo več zaupanja vase.</p>
+<p>Notranji kritik ne bo nikoli povsem izginil – in to tudi ni njegov namen. Lahko pa postane drugačen: iz ostrega sodnika se spremeni v notranji kompas, ki nas opozarja, kje potrebujemo več zaupanja vase.</p>
 <p class="pullquote">Vsakič, ko mu prisluhnemo z nežnostjo in brez sodbe, naredimo korak k temu, da ga preoblikujemo v zaveznika.</p>
 
 <p>Notranji kritik je lahko ovira, a tudi priložnost. Ko se naučimo opazovati in razumeti njegov glas, ne izgubljamo več energije za boj proti njemu. Namesto tega lahko ustvarimo notranji dialog, ki nas podpira pri rasti.</p>
 
 <div class="cta-final">
-<p>👉 <strong>Če želiš raziskati</strong> svoj odnos z notranjim kritikom in ga spremeniti v vir notranje moči, me kontaktiraj — skupaj lahko ustvariva varen prostor, kjer boš odkril/a, kako v njegovem glasu prepoznati priložnost.</p>
+<p>👉 <strong>Če želiš raziskati</strong> svoj odnos z notranjim kritikom in ga spremeniti v vir notranje moči, me kontaktiraj – skupaj lahko ustvariva varen prostor, kjer boš odkril/a, kako v njegovem glasu prepoznati priložnost.</p>
 </div>
 """
     render_blog_post(
@@ -1057,10 +1031,9 @@ def page_blog_notranji():
 
 def page_blog_odpornost():
     body = """<h2>Odpornost ni togost, temveč gibljivost</h2>
-<p>Ko slišimo besedo <strong>odpornost</strong>, si pogosto predstavljamo trdnost — nekoga, ki se ne zlomi in ostane neomajen ne glede na okoliščine. A v resnici odpornost ni togost, ampak prožnost. Gre za sposobnost, da se upognemo, ko je treba, in se nato znova poravnamo. Tako kot drevo, ki se pod težo vetra skloni, a se ne zlomi.</p>
-<p>Odpornost je torej gibljivost življenja — da se znamo vračati k sebi tudi takrat, ko nas zunanje okoliščine izzovejo.</p>
+<p>Ko slišimo besedo <strong>odpornost</strong>, si pogosto predstavljamo trdnost – nekoga, ki se ne zlomi in ostane neomajen ne glede na okoliščine. A v resnici odpornost ni togost, ampak prožnost. Gre za sposobnost, da se upognemo, ko je treba, in se nato znova poravnamo. Tako kot drevo, ki se pod težo vetra skloni, a se ne zlomi.</p>
+<p>Odpornost je torej gibljivost življenja – da se znamo vračati k sebi tudi takrat, ko nas zunanje okoliščine izzovejo.</p>
 
-<h2>Celostna moč: telo, čustva, misli, odnosi</h2>
 <p>Odpornost ni le lastnost uma. Je nekaj, kar prežema vse naše bitje:</p>
 <ul>
   <li><strong>Telo:</strong> Ko smo spočiti, negujemo svoje zdravje in poslušamo signale telesa, lažje zdržimo obremenitve.</li>
@@ -1070,28 +1043,26 @@ def page_blog_odpornost():
 </ul>
 <p>Vsak izmed teh stebrov deluje skupaj. Če zanemarimo enega, odpornost izgublja svojo celostno moč.</p>
 
-<h2>Vprašanja za samorefleksijo</h2>
 <ul>
   <li>Kako se moje telo oglasi, ko sem pod stresom? Ali mu namenim dovolj počitka in nege?</li>
-  <li>Kaj naredim s svojimi čustvi — jih izrazim ali jih zadržim v sebi?</li>
+  <li>Kaj naredim s svojimi čustvi – jih izrazim ali jih zadržim v sebi?</li>
   <li>Kakšen je ton mojega notranjega dialoga? Bi ga želel/a slišati vsak dan od nekoga drugega?</li>
   <li>Kateri ljudje v mojem življenju me podpirajo in mi vračajo občutek moči?</li>
 </ul>
 
-<h2>Majhni koraki, velike spremembe</h2>
 <p>Gradnja odpornosti ni projekt, ki ga opravimo naenkrat. Je proces drobnih odločitev: da gremo spat nekoliko prej, da si dovolimo solze, da se sprehodimo na svežem zraku, da izrečemo prijazno besedo sebi ali drugim.</p>
 <p>Vsak tak korak postane del notranjega tkiva, ki nas drži skupaj, ko pridejo izzivi.</p>
 
-<p class="pullquote">Odpornost in prožnost nista končna točka, ampak način življenja, kjer se učimo vračati k sebi.</p>
+<p>Odpornost in prožnost sta dar, ki ju lahko razvijamo vsak dan. Nista končna točka, ampak način življenja, kjer se učimo vračati k sebi in živeti usklajeno s telesom, čustvi, mislimi in odnosi.</p>
 
 <div class="cta-final">
-<p>👉 <strong>Če želiš raziskati</strong>, kako lahko ti gradiš svojo notranjo odpornost na celosten način, me kontaktiraj — skupaj bova ustvarila varen prostor, kjer boš lahko odkril/a svojo moč in prožnost.</p>
+<p>👉 <strong>Če želiš raziskati</strong>, kako lahko ti gradiš svojo notranjo odpornost na celosten način, me kontaktiraj – skupaj bova ustvarila varen prostor, kjer boš lahko odkril/a svojo moč in prožnost.</p>
 </div>
 """
     render_blog_post(
         "odpornost",
         "Odpornost in prožnost: Kako graditi notranjo moč celostno",
-        "Odpornost ni le miselna trdnost — vključuje telo, čustva, misli in odnose. Preberi, kako lahko celostno gradiš notranjo moč in prožnost.",
+        "Odpornost ni le miselna trdnost – vključuje telo, čustva, misli in odnose. Preberi, kako lahko celostno gradiš notranjo moč in prožnost.",
         "blog-odpornost.png",
         body,
         prev_post=POSTS[6],
@@ -1110,28 +1081,18 @@ def page_contact():
 </section>
 
 <section class="container">
-  <div class="contact-grid">
-    <div class="contact-info">
-      <h2>Kje smo</h2>
-      <p>Srečanja potekajo online prek videoklica, kar omogoča fleksibilno vključitev iz katerekoli lokacije. Za podjetja se po dogovoru organiziramo tudi v živo.</p>
-      <ul class="contact-info-list">
-        <li><strong>Email</strong><a href="mailto:tea@teaknez.com">tea@teaknez.com</a></li>
-        <li><strong>Format</strong><span>Online (Google Meet / Zoom)</span></li>
-        <li><strong>Trajanje</strong><span>60 minut na srečanje</span></li>
-        <li><strong>Prvo srečanje</strong><span>Brezplačno uvodno spoznavanje</span></li>
-      </ul>
-    </div>
+  <div class="contact-single">
     <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-web3forms>
       <input type="hidden" name="access_key" value="e78b399d-a62e-494f-b90b-519f4b7f7a48">
       <input type="hidden" name="subject" value="Novo povpraševanje s teaknez.com">
-      <input type="hidden" name="from_name" value="teaknez.com — kontaktni obrazec">
+      <input type="hidden" name="from_name" value="teaknez.com - kontaktni obrazec">
       <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="field">
-        <label for="name">Ime *</label>
+        <label for="name">Ime*</label>
         <input id="name" name="name" type="text" required autocomplete="name">
       </div>
       <div class="field">
-        <label for="email">Email *</label>
+        <label for="email">Email*</label>
         <input id="email" name="email" type="email" required autocomplete="email">
       </div>
       <div class="field">
@@ -1140,9 +1101,9 @@ def page_contact():
       </div>
       <label class="field-check">
         <input type="checkbox" name="consent" required>
-        <span>Strinjam se s <a href="politika-zasebnosti.html">pogoji obdelave osebnih podatkov</a>.</span>
+        <span>Strinjam se s <a href="politika-zasebnosti.html">Pogoji.</a></span>
       </label>
-      <button type="submit" class="btn btn-primary">Piši mi <span class="arrow">→</span></button>
+      <button type="submit" class="btn btn-primary">Piši mi</button>
       <div class="form-status" role="status" aria-live="polite"></div>
     </form>
   </div>
@@ -1191,7 +1152,7 @@ Zavezanec za DDV: da</p>
   <li>elektronski naslov,</li>
   <li>telefonska številka,</li>
   <li>vsebina sporočila v obrazcu ali e-pošti,</li>
-  <li>tehnični podatki (npr. IP-naslov, vrsta brskalnika, čas dostopa — preko piškotkov).</li>
+  <li>tehnični podatki (npr. IP-naslov, vrsta brskalnika, čas dostopa – preko piškotkov).</li>
 </ul>
 
 <h2>4. Pravna podlaga za obdelavo</h2>
@@ -1228,7 +1189,7 @@ Zavezanec za DDV: da</p>
 <ul>
   <li>dostopa do svojih osebnih podatkov,</li>
   <li>popravka netočnih podatkov,</li>
-  <li>izbrisa („pravica do pozabe"),</li>
+  <li>izbrisa (“pravica do pozabe”),</li>
   <li>omejitve obdelave,</li>
   <li>prenosljivosti podatkov,</li>
   <li>ugovora obdelavi,</li>
@@ -1243,11 +1204,11 @@ Zavezanec za DDV: da</p>
 <h2>10. Spremembe politike zasebnosti</h2>
 <p>Politika zasebnosti se lahko občasno posodobi, da bo usklajena z zakonodajo ali spremembami v poslovanju. Veljavna različica je vedno objavljena na spletni strani <a href="https://www.teaknez.com">www.teaknez.com</a>.</p>
 
-<p class="legal-meta">📅 Veljavnost: od 1. 1. 2026<br>© Tea Knez s.p. — vsi podatki so varovani.</p>
+<p class="legal-meta">📅 Veljavnost: od 1. 1. 2026<br>© Tea Knez s.p. – vsi podatki so varovani.</p>
 </section>
 """
     page = head(
-        "Politika zasebnosti — Tea Knez",
+        "Politika zasebnosti – Tea Knez",
         "Politika zasebnosti spletne strani teaknez.com v skladu z GDPR in slovensko zakonodajo.",
         "https://www.teaknez.com/politika-zasebnosti", 0
     ) + header("", 0) + body + footer(0)
@@ -1285,7 +1246,7 @@ def page_cookies():
 <p>Uporabljajo se za prikazovanje vsebin, ki so relevantne za uporabnika, in za analizo uspešnosti oglaševanja. Nameščajo se le, če jih izrecno dovolite.</p>
 
 <h2>Upravljanje soglasja za piškotke</h2>
-<p>Pri prvem obisku strani se prikaže obvestilo o piškotkih, kjer lahko izberete, katere vrste piškotkov dovoljujete. Soglasje lahko kadarkoli spremenite ali prekličete v nastavitvah brskalnika ali prek gumba <strong>„Nastavitve piškotkov"</strong>, ki je dostopen na dnu spletne strani.</p>
+<p>Pri prvem obisku strani se prikaže obvestilo o piškotkih, kjer lahko izberete, katere vrste piškotkov dovoljujete. Soglasje lahko kadarkoli spremenite ali prekličete v nastavitvah brskalnika ali prek gumba <strong>“Nastavitve piškotkov”</strong>, ki je dostopen na dnu spletne strani.</p>
 <p>Če piškotkov ne sprejmete, bo spletna stran še vedno delovala, vendar nekatere funkcije morda ne bodo optimalne.</p>
 
 <h2>Piškotki tretjih oseb</h2>
@@ -1294,7 +1255,7 @@ def page_cookies():
   <li><strong>Google Analytics</strong> (analitika obiskov),</li>
   <li><strong>Meta Pixel</strong> (Facebook oglaševanje, če je omogočeno).</li>
 </ul>
-<p>Te storitve imajo lastne politike zasebnosti, s katerimi se lahko seznanite na spletnih straneh ponudnikov: <a href="https://policies.google.com/privacy">Google — zasebnost in pogoji</a>, <a href="https://www.facebook.com/policy.php">Meta (Facebook) — politika zasebnosti</a>.</p>
+<p>Te storitve imajo lastne politike zasebnosti, s katerimi se lahko seznanite na spletnih straneh ponudnikov: <a href="https://policies.google.com/privacy">Google – zasebnost in pogoji</a>, <a href="https://www.facebook.com/policy.php">Meta (Facebook) – politika zasebnosti</a>.</p>
 
 <h2>Hramba piškotkov</h2>
 <p>Piškotki se hranijo toliko časa, kolikor je potrebno za dosego namena, zaradi katerega so bili nameščeni:</p>
@@ -1306,12 +1267,12 @@ def page_cookies():
 <h2>Vaše pravice</h2>
 <p>V skladu z veljavno zakonodajo imate pravico, da kadar koli zahtevate dostop, popravek, izbris ali omejitev obdelave osebnih podatkov, pridobljenih s piškotki. Zahtevo lahko pošljete na e-naslov <a href="mailto:tea@teaknez.com">tea@teaknez.com</a>.</p>
 
-<p class="legal-meta">Upravljavec spletne strani: Tea Knez s.p.<br>📅 Veljavnost politike piškotkov: od 1. 1. 2026<br>© Tea Knez s.p. — vsi podatki so varovani.</p>
+<p class="legal-meta">Upravljavec spletne strani: Tea Knez s.p.<br>📅 Veljavnost politike piškotkov: od 1. 1. 2026<br>© Tea Knez s.p. – vsi podatki so varovani.</p>
 </section>
 """
     page = head(
-        "Politika piškotkov — Tea Knez",
-        "Politika piškotkov spletne strani teaknez.com — kateri piškotki se uporabljajo in kako jih lahko upravljate.",
+        "Politika piškotkov – Tea Knez",
+        "Politika piškotkov spletne strani teaknez.com – kateri piškotki se uporabljajo in kako jih lahko upravljate.",
         "https://www.teaknez.com/piskotki", 0
     ) + header("", 0) + body + footer(0)
     write("piskotki.html", page)

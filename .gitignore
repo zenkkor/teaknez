@@ -13,6 +13,9 @@ venv/
 .pw/node_modules/
 .pw/package-lock.json
 .pw/screenshots/
+.pw/live/
+.pw/local/
+.pw/local-v*/
 
 # Editor
 .vscode/
