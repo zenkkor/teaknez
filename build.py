@@ -74,7 +74,7 @@ def header(active, depth=0):
       <ul class="nav-list">
         <li>{link("Domov", p + "index.html", "home")}</li>
         {services_dropdown}
-        <li>{link("Blog", p + "blog.html", "blog")}</li>
+        <li>{link("Blog", p + "blog/", "blog")}</li>
         <li>{link("O meni", p + "o-meni.html", "about")}</li>
       </ul>
       <a href="{p}kontakt.html" class="nav-cta">Piši mi!</a>
@@ -108,7 +108,7 @@ def footer(depth=0):
         <h4>Raziskuj</h4>
         <ul>
           <li><a href="{p}o-meni.html">O meni</a></li>
-          <li><a href="{p}blog.html">Blog</a></li>
+          <li><a href="{p}blog/">Blog</a></li>
           <li><a href="{p}kontakt.html">Kontakt</a></li>
         </ul>
       </div>
@@ -286,19 +286,19 @@ def page_index():
       <p>Preberi več</p>
     </div>
     <div class="blog-grid">
-      <a class="blog-card" href="blog/vracanje-s-porodniskega-dopusta.html">
+      <a class="blog-card" href="blog/vracanje-s-porodniskega-dopusta/">
         <div class="blog-card-image"><img src="assets/images/blog-vracanje.png" alt=""></div>
         <div class="blog-card-body">
           <h3>Vračanje s porodniškega dopusta: ko se vrneš drugačna</h3>
         </div>
       </a>
-      <a class="blog-card" href="blog/kako-preprecitiizgorelost.html">
+      <a class="blog-card" href="blog/kako-preprečiti-izgorelost-v-podjetjih-kultura-ravnovesja-ne-žrtvovanja/">
         <div class="blog-card-image"><img src="assets/images/blog-izgorelost.png" alt=""></div>
         <div class="blog-card-body">
           <h3>Kako preprečiti izgorelost v podjetjih: kultura ravnovesja, ne žrtvovanja</h3>
         </div>
       </a>
-      <a class="blog-card" href="blog/sindrom-vsiljivca.html">
+      <a class="blog-card" href="blog/kako-premagati-sindrom-vsiljivca-(imposter-syndrome)/">
         <div class="blog-card-image"><img src="assets/images/blog-sindrom.png" alt=""></div>
         <div class="blog-card-body">
           <h3>Kako premagati sindrom vsiljivca (imposter syndrome)</h3>
@@ -625,33 +625,33 @@ POSTS = [
     {"slug":"vracanje-s-porodniskega-dopusta", "title":"Vračanje s porodniškega dopusta: ko se vrneš drugačna",
      "summary":"Kako podpreti vračanje s porodniškega dopusta? O izzivih, prehodu in vlogi coachinga za posameznice in podjetja.",
      "image":"blog-vracanje.png"},
-    {"slug":"kako-preprecitiizgorelost", "title":"Kako preprečiti izgorelost v podjetjih: kultura ravnovesja, ne žrtvovanja",
+    {"slug":"kako-preprečiti-izgorelost-v-podjetjih-kultura-ravnovesja-ne-žrtvovanja", "title":"Kako preprečiti izgorelost v podjetjih: kultura ravnovesja, ne žrtvovanja",
      "summary":"Kultura zaupanja in ravnovesja namesto preobremenjenosti. Ustvari delovno okolje, kjer ljudje resnično zmorejo rasti.",
      "image":"blog-izgorelost.png"},
-    {"slug":"sindrom-vsiljivca", "title":"Kako premagati sindrom vsiljivca (imposter syndrome)",
+    {"slug":"kako-premagati-sindrom-vsiljivca-(imposter-syndrome)", "title":"Kako premagati sindrom vsiljivca (imposter syndrome)",
      "summary":"O dvomu vase, ki te želi zaščititi. Spoznaj, kako prepoznati ta glas in verjeti, da si že zdaj dovolj.",
      "image":"blog-sindrom.png"},
-    {"slug":"mir-v-sebi", "title":"Ko mir v sebi postane pomembnejši od tega, da imaš prav",
+    {"slug":"ko-mir-v-sebi-postane-pomembnejši-od-tega-da-imaš-prav", "title":"Ko mir v sebi postane pomembnejši od tega, da imaš prav",
      "summary":"O notranji svobodi, ko mir izbereš pred dokazovanjem. Nauči se slišati sebe, ne potrebe po potrditvi.",
      "image":"blog-mir.png"},
-    {"slug":"samozavest", "title":"Samozavest ni nekaj, kar imaš – ampak nekaj, kar gradiš",
+    {"slug":"samozavest-ni-nekaj-kar-imas", "title":"Samozavest ni nekaj, kar imaš – ampak nekaj, kar gradiš",
      "summary":"Samozavest ni lastnost, s katero se rodiš – je pot, ki jo gradiš skozi drobne izbire in notranji dialog.",
      "image":"blog-samozavest.png"},
-    {"slug":"avtenticno-vodenje", "title":"Avtentično vodenje: Moč resničnega stika",
+    {"slug":"avtenticno-vodenje-moc-resnicnega-stika", "title":"Avtentično vodenje: Moč resničnega stika",
      "summary":"Avtentično vodenje ne temelji na popolnosti, temveč na iskrenosti in povezanosti. Kako voditi z resničnostjo.",
      "image":"blog-avtenticno.png"},
-    {"slug":"notranji-kritik", "title":"Notranji kritik: Kako ga prepoznati in spremeniti v zaveznika",
+    {"slug":"notranji-kritik-kako-ga-prepoznati-in-spremeniti-v-zaveznika", "title":"Notranji kritik: Kako ga prepoznati in spremeniti v zaveznika",
      "summary":"Notranji kritik pogosto ovira našo rast, a lahko postane vir učenja. Kako ga prepoznati in preoblikovati.",
      "image":"blog-notranji.png"},
-    {"slug":"odpornost", "title":"Odpornost in prožnost: Kako graditi notranjo moč celostno",
+    {"slug":"odpornost-in-proznost-celostna-notranja-moc", "title":"Odpornost in prožnost: Kako graditi notranjo moč celostno",
      "summary":"Odpornost ni le miselna trdnost – vključuje telo, čustva, misli in odnose. Kako celostno graditi notranjo moč.",
      "image":"blog-odpornost.png"},
 ]
 
 def page_blog_index():
     cards = "\n".join(
-        f"""      <a class="blog-card" href="blog/{p['slug']}.html">
-        <div class="blog-card-image"><img src="assets/images/{p['image']}" alt=""></div>
+        f"""      <a class="blog-card" href="{p['slug']}/">
+        <div class="blog-card-image"><img src="../assets/images/{p['image']}" alt=""></div>
         <div class="blog-card-body">
           <h3>{p['title']}</h3>
         </div>
@@ -676,17 +676,17 @@ def page_blog_index():
     page = head(
         "Blog — Tea Knez Coaching",
         "Misli o samorefleksiji, samozavesti, odnosih, vodenju in notranji rasti. Praktični vpogledi za jasen razmislek in zrele odločitve.",
-        "https://www.teaknez.com/blog", 0
-    ) + header("blog", 0) + body + footer(0)
-    write("blog.html", page)
+        "https://www.teaknez.com/blog", 1
+    ) + header("blog", 1) + body + footer(1)
+    write("blog/index.html", page)
 
 
 # ---------- BLOG POSTS ----------
 def render_blog_post(slug, title, lead, image, body_html, prev_post=None, next_post=None):
     nav = ""
     if prev_post or next_post:
-        prev_html = f'<a href="{prev_post["slug"]}.html" style="display:flex;flex-direction:column;gap:6px;color:var(--ink-soft);"><span style="font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);">← Prejšnji</span><strong style="color:var(--ink);font-family:var(--serif);font-size:1.15rem;font-weight:500;">{prev_post["title"]}</strong></a>' if prev_post else "<span></span>"
-        next_html = f'<a href="{next_post["slug"]}.html" style="display:flex;flex-direction:column;gap:6px;color:var(--ink-soft);text-align:right;align-items:flex-end;"><span style="font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);">Naslednji →</span><strong style="color:var(--ink);font-family:var(--serif);font-size:1.15rem;font-weight:500;">{next_post["title"]}</strong></a>' if next_post else "<span></span>"
+        prev_html = f'<a href="../{prev_post["slug"]}/" style="display:flex;flex-direction:column;gap:6px;color:var(--ink-soft);"><span style="font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);">← Prejšnji</span><strong style="color:var(--ink);font-family:var(--serif);font-size:1.15rem;font-weight:500;">{prev_post["title"]}</strong></a>' if prev_post else "<span></span>"
+        next_html = f'<a href="../{next_post["slug"]}/" style="display:flex;flex-direction:column;gap:6px;color:var(--ink-soft);text-align:right;align-items:flex-end;"><span style="font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);">Naslednji →</span><strong style="color:var(--ink);font-family:var(--serif);font-size:1.15rem;font-weight:500;">{next_post["title"]}</strong></a>' if next_post else "<span></span>"
         nav = f"""
 <section class="section">
   <div class="container-narrow">
@@ -699,13 +699,13 @@ def render_blog_post(slug, title, lead, image, body_html, prev_post=None, next_p
 """
     body = f"""<section class="post-hero">
   <div class="container-narrow">
-    <a class="back-link" href="../blog.html">Nazaj na blog</a>
+    <a class="back-link" href="../../blog/">Nazaj na blog</a>
     <h1>{title}</h1>
     <p class="lead">{lead}</p>
   </div>
 </section>
 
-<div class="post-image"><img src="../assets/images/{image}" alt=""></div>
+<div class="post-image"><img src="../../assets/images/{image}" alt=""></div>
 
 <article class="post-body">
 {body_html}
@@ -715,9 +715,9 @@ def render_blog_post(slug, title, lead, image, body_html, prev_post=None, next_p
     page = head(
         f"{title} — Tea Knez",
         lead,
-        f"https://www.teaknez.com/blog/{slug}", 1
-    ) + header("blog", 1) + body + footer(1)
-    write(f"blog/{slug}.html", page)
+        f"https://www.teaknez.com/blog/{slug}", 2
+    ) + header("blog", 2) + body + footer(2)
+    write(f"blog/{slug}/index.html", page)
 
 
 def page_blog_vracanje():
@@ -817,7 +817,7 @@ def page_blog_izgorelost():
 </div>
 """
     render_blog_post(
-        "kako-preprecitiizgorelost",
+        "kako-preprečiti-izgorelost-v-podjetjih-kultura-ravnovesja-ne-žrtvovanja",
         "Kako preprečiti izgorelost v podjetjih: kultura ravnovesja, ne žrtvovanja",
         "Kultura zaupanja in ravnovesja namesto preobremenjenosti. Ustvari delovno okolje, kjer ljudje resnično zmorejo rasti.",
         "blog-izgorelost.png",
@@ -860,7 +860,7 @@ def page_blog_sindrom():
 </div>
 """
     render_blog_post(
-        "sindrom-vsiljivca",
+        "kako-premagati-sindrom-vsiljivca-(imposter-syndrome)",
         "Kako premagati sindrom vsiljivca (imposter syndrome)",
         "O dvomu vase, ki te želi zaščititi. Spoznaj, kako prepoznati ta glas in verjeti, da si že zdaj dovolj.",
         "blog-sindrom.png",
@@ -900,7 +900,7 @@ def page_blog_mir():
 </div>
 """
     render_blog_post(
-        "mir-v-sebi",
+        "ko-mir-v-sebi-postane-pomembnejši-od-tega-da-imaš-prav",
         "Ko mir v sebi postane pomembnejši od tega, da imaš prav",
         "O notranji svobodi, ko mir izbereš pred dokazovanjem. Nauči se slišati sebe, ne potrebe po potrditvi.",
         "blog-mir.png",
@@ -941,7 +941,7 @@ def page_blog_samozavest():
 </div>
 """
     render_blog_post(
-        "samozavest",
+        "samozavest-ni-nekaj-kar-imas",
         "Samozavest ni nekaj, kar imaš – ampak nekaj, kar gradiš",
         "Samozavest ni lastnost, s katero se rodiš – je pot, ki jo gradiš skozi drobne izbire in notranji dialog. Preberi, kako lahko začneš danes.",
         "blog-samozavest.png",
@@ -978,7 +978,7 @@ def page_blog_avtenticno():
 </div>
 """
     render_blog_post(
-        "avtenticno-vodenje",
+        "avtenticno-vodenje-moc-resnicnega-stika",
         "Avtentično vodenje: Moč resničnega stika",
         "Avtentično vodenje ne temelji na popolnosti, temveč na iskrenosti in povezanosti. Preberi, kako lahko kot vodja navdihuješ s svojo avtentičnostjo.",
         "blog-avtenticno.png",
@@ -1019,7 +1019,7 @@ def page_blog_notranji():
 </div>
 """
     render_blog_post(
-        "notranji-kritik",
+        "notranji-kritik-kako-ga-prepoznati-in-spremeniti-v-zaveznika",
         "Notranji kritik: Kako ga prepoznati in spremeniti v zaveznika",
         "Notranji kritik pogosto ovira našo rast, a lahko postane vir učenja. Preberi, kako ga prepoznati in ga preoblikovati v notranjega zaveznika.",
         "blog-notranji.png",
@@ -1060,7 +1060,7 @@ def page_blog_odpornost():
 </div>
 """
     render_blog_post(
-        "odpornost",
+        "odpornost-in-proznost-celostna-notranja-moc",
         "Odpornost in prožnost: Kako graditi notranjo moč celostno",
         "Odpornost ni le miselna trdnost – vključuje telo, čustva, misli in odnose. Preberi, kako lahko celostno gradiš notranjo moč in prožnost.",
         "blog-odpornost.png",
@@ -1287,11 +1287,11 @@ def page_sitemap():
         "https://www.teaknez.com/storitve/osebni-coaching.html",
         "https://www.teaknez.com/storitve/karierni-in-poslovni-coaching.html",
         "https://www.teaknez.com/storitve/coaching-za-podjetja.html",
-        "https://www.teaknez.com/blog.html",
+        "https://www.teaknez.com/blog/",
         "https://www.teaknez.com/kontakt.html",
         "https://www.teaknez.com/politika-zasebnosti.html",
         "https://www.teaknez.com/piskotki.html",
-    ] + [f"https://www.teaknez.com/blog/{p['slug']}.html" for p in POSTS]
+    ] + [f"https://www.teaknez.com/blog/{p['slug']}/" for p in POSTS]
     body = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for u in urls:
         body += f"  <url><loc>{u}</loc></url>\n"
