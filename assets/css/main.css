@@ -454,18 +454,6 @@ ul li::marker { color: var(--clay); }
   gap: 80px;
   align-items: center;
 }
-.hero-eyebrow {
-  display: inline-block;
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--clay-dark);
-  font-weight: 500;
-  margin-bottom: 28px;
-  padding: 8px 16px;
-  background: var(--clay-light);
-  border-radius: 999px;
-}
 .hero h1 { margin-bottom: 28px; }
 .hero h1 em {
   font-style: italic;

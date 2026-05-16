@@ -190,7 +190,6 @@ def page_index():
   <div class="container">
     <div class="hero-grid">
       <div>
-        <span class="hero-eyebrow">Tea Knez — Coaching</span>
         <h1>Notranja jasnost. <em>Zrele odločitve.</em><br>Trajne spremembe.</h1>
         <p class="hero-lead">Pomagam ti umiriti notranji hrup, razjasniti prioritete in sprejemati odločitve, ki so skladne s tem, kdo si.</p>
         <a href="kontakt.html" class="btn btn-primary">Piši mi!</a>
