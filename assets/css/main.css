@@ -465,13 +465,12 @@ ul li::marker { color: var(--clay); }
 .word-accent::after {
   content: "";
   position: absolute;
-  left: -2%;
-  right: -2%;
-  bottom: -0.08em;
-  height: 0.32em;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M2 9 C 30 2, 60 12, 100 6 S 170 2, 198 8' fill='none' stroke='%23758F70' stroke-width='2.5' stroke-linecap='round'/></svg>");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  left: 0;
+  right: 0;
+  bottom: 0.02em;
+  height: 3px;
+  background: var(--sage-dark);
+  border-radius: 2px;
   pointer-events: none;
 }
 .hero h1 em {
