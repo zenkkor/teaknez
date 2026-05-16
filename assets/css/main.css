@@ -13,6 +13,7 @@
   --sage-soft: #C5D1BD;
   --sage-dark: #758F70;
   --sage-darker: #5d7459;
+  --earth: #2E2A24;
   --shadow: 0 8px 32px rgba(74, 56, 42, 0.08);
   --shadow-lg: 0 24px 64px rgba(74, 56, 42, 0.12);
   --radius: 18px;
@@ -441,14 +442,10 @@ ul li::marker { color: var(--clay); }
 .cta-end .btn {
   margin: 0;
 }
-@media (max-width: 960px) {
-  .cta-end { padding: 60px 0 80px; }
-  .cta-end h2 { margin-bottom: 24px; }
-}
 
 /* HERO */
 .hero {
-  padding: 80px 0 100px;
+  padding: 90px 0 100px;
   position: relative;
 }
 .hero-grid {
@@ -571,13 +568,13 @@ ul li::marker { color: var(--clay); }
 
 /* OUTCOMES */
 .outcomes {
-  background: var(--sage-darker);
-  color: var(--cream);
+  background: var(--cream-deep);
+  color: var(--ink);
   border-radius: var(--radius-lg);
   padding: 80px;
 }
-.outcomes h2 { color: var(--cream); }
-.outcomes p, .outcomes li { color: rgba(250, 246, 239, 0.78); }
+.outcomes h2 { color: var(--ink); }
+.outcomes p, .outcomes li { color: var(--ink-soft); }
 .outcomes ul {
   list-style: none;
   padding: 0;
@@ -585,7 +582,7 @@ ul li::marker { color: var(--clay); }
 }
 .outcomes ul li {
   padding: 18px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(74, 56, 42, 0.12);
   font-size: 1.05rem;
   display: flex;
   align-items: flex-start;
@@ -597,17 +594,17 @@ ul li::marker { color: var(--clay); }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--clay-light);
+  background: var(--sage);
   margin-top: 12px;
 }
 .outcomes-final {
   margin-top: 32px;
   padding-top: 28px;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(74, 56, 42, 0.15);
   font-family: var(--serif);
   font-size: 1.5rem;
   line-height: 1.4;
-  color: var(--cream);
+  color: var(--ink);
 }
 
 /* CARDS */
@@ -770,10 +767,10 @@ ul li::marker { color: var(--clay); }
 
 /* FOOTER */
 .site-footer {
-  background: var(--sage-darker);
-  color: rgba(250, 246, 239, 0.82);
+  background: var(--earth);
+  color: rgba(250, 246, 239, 0.72);
   padding: 80px 0 30px;
-  margin-top: 100px;
+  margin-top: 60px;
 }
 .site-footer a { color: rgba(250, 246, 239, 0.85); }
 .site-footer a:hover { color: var(--clay-light); }
@@ -815,7 +812,7 @@ ul li::marker { color: var(--clay); }
 
 /* PAGE HEADER (subpages) */
 .page-header {
-  padding: 70px 0 50px;
+  padding: 90px 0 40px;
   text-align: center;
 }
 .page-header .eyebrow { margin-bottom: 14px; }
@@ -924,7 +921,7 @@ ul li::marker { color: var(--clay); }
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
-  padding: 30px 0 90px;
+  padding: 60px 0 90px;
 }
 .service-hero-image {
   border-radius: var(--radius-lg);
@@ -983,7 +980,7 @@ ul li::marker { color: var(--clay); }
 /* BLOG POST */
 .post-hero {
   text-align: center;
-  padding: 30px 0 50px;
+  padding: 60px 0 50px;
 }
 .post-hero .back-link {
   display: inline-flex;
@@ -1349,7 +1346,12 @@ ul li::marker { color: var(--clay); }
   .outcomes, .cta-band, .credentials, .contact-form { padding: 48px 32px; }
   .blog-feature { padding: 32px; }
   .section { padding: 64px 0; }
-  .hero { padding: 50px 0 70px; }
+  .hero { padding: 64px 0 80px; }
+  .service-hero { padding: 40px 0 64px; }
+  .post-hero { padding: 40px 0 36px; }
+  .page-header { padding: 64px 0 32px; }
+  .cta-end { padding: 64px 0 80px; }
+  .cta-end h2 { margin-bottom: 24px; }
   .post-image { margin-left: 0; margin-right: 0; border-radius: var(--radius-lg); }
   body { font-size: 16px; }
 }
@@ -1363,7 +1365,11 @@ ul li::marker { color: var(--clay); }
   .site-logo { font-size: 1.2rem; }
   .site-logo img { width: 36px; height: 36px; }
   .site-logo .tag { font-size: 0.62rem; }
-  .hero { padding: 36px 0 60px; }
+  .hero { padding: 48px 0 64px; }
+  .service-hero { padding: 28px 0 48px; }
+  .post-hero { padding: 28px 0 28px; }
+  .page-header { padding: 48px 0 24px; }
+  .cta-end { padding: 56px 0 64px; }
   .section { padding: 56px 0; }
   .section-head { margin-bottom: 44px; }
   h1 { font-size: 2.25rem; }
@@ -1374,7 +1380,6 @@ ul li::marker { color: var(--clay); }
   .testimonial { padding: 32px 28px; }
   .testimonial blockquote { font-size: 1.15rem; }
   .blog-feature { padding: 24px; gap: 28px; }
-  .page-header { padding: 50px 0 36px; }
   .page-header h1 { font-size: 2rem; }
   .post-hero h1 { font-size: 1.9rem; }
   .post-body p, .post-body li { font-size: 1.04rem; }
