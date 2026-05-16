@@ -467,10 +467,11 @@ ul li::marker { color: var(--clay); }
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0.02em;
-  height: 3px;
+  bottom: 0.04em;
+  height: 2px;
   background: var(--sage);
   border-radius: 2px;
+  opacity: 0.7;
   pointer-events: none;
 }
 .hero h1 em {
