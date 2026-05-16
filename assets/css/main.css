@@ -445,7 +445,7 @@ ul li::marker { color: var(--clay); }
 
 /* HERO */
 .hero {
-  padding: 90px 0 100px;
+  padding: 50px 0 100px;
   position: relative;
 }
 .hero-grid {
@@ -455,6 +455,25 @@ ul li::marker { color: var(--clay); }
   align-items: center;
 }
 .hero h1 { margin-bottom: 28px; }
+
+/* Hand-drawn sage accent under a key headline word — editorial flourish */
+.word-accent {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+.word-accent::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -0.08em;
+  height: 0.32em;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M2 9 C 30 2, 60 12, 100 6 S 170 2, 198 8' fill='none' stroke='%23758F70' stroke-width='2.5' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
 .hero h1 em {
   font-style: italic;
   color: var(--clay-dark);
@@ -1335,7 +1354,7 @@ ul li::marker { color: var(--clay); }
   .outcomes, .cta-band, .credentials, .contact-form { padding: 48px 32px; }
   .blog-feature { padding: 32px; }
   .section { padding: 64px 0; }
-  .hero { padding: 64px 0 80px; }
+  .hero { padding: 32px 0 80px; }
   .service-hero { padding: 40px 0 64px; }
   .post-hero { padding: 40px 0 36px; }
   .page-header { padding: 64px 0 32px; }
@@ -1354,7 +1373,7 @@ ul li::marker { color: var(--clay); }
   .site-logo { font-size: 1.2rem; }
   .site-logo img { width: 36px; height: 36px; }
   .site-logo .tag { font-size: 0.62rem; }
-  .hero { padding: 48px 0 64px; }
+  .hero { padding: 24px 0 64px; }
   .service-hero { padding: 28px 0 48px; }
   .post-hero { padding: 28px 0 28px; }
   .page-header { padding: 48px 0 24px; }
