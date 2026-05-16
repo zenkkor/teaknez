@@ -58,7 +58,7 @@ def header(active, depth=0):
             <span>Kultura zaupanja, zavestnega vodenja in odgovornosti.</span>
           </a></li>
           <li role="none"><hr class="dropdown-divider"></li>
-          <li role="none"><a class="dropdown-link" role="menuitem" href="{p}storitve.html">
+          <li role="none"><a class="dropdown-link dropdown-link-all" role="menuitem" href="{p}storitve.html">
             <strong>Vse storitve →</strong>
           </a></li>
         </ul>
@@ -68,7 +68,6 @@ def header(active, depth=0):
 <header class="site-header">
   <div class="container">
     <a href="{p}index.html" class="site-logo" aria-label="Tea Knez Coaching — domov">
-      <img src="{p}assets/images/logo.png" alt="">
       <span>Tea Knez<small class="tag">Coaching</small></span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Glavna navigacija">
@@ -78,10 +77,11 @@ def header(active, depth=0):
         <li>{link("Blog", p + "blog.html", "blog")}</li>
         <li>{link("O meni", p + "o-meni.html", "about")}</li>
       </ul>
-      <a href="{p}kontakt.html" class="nav-cta">Piši mi <span class="arrow" aria-hidden="true">→</span></a>
+      <a href="{p}kontakt.html" class="nav-cta">Piši mi!</a>
     </nav>
     <button class="nav-toggle" aria-label="Odpri meni" aria-controls="site-nav" aria-expanded="false"><span></span></button>
   </div>
+  <div class="nav-backdrop" hidden></div>
 </header>
 <main id="main">
 """

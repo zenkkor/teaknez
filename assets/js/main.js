@@ -2,7 +2,10 @@
   const mqMobile = window.matchMedia("(max-width: 960px)");
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
+  const backdrop = document.querySelector(".nav-backdrop");
   const dropdowns = Array.from(document.querySelectorAll(".nav-item-dropdown"));
+
+  if (backdrop) backdrop.removeAttribute("hidden");
 
   function closeMobileNav() {
     if (!nav) return;
@@ -24,6 +27,8 @@
       toggle.setAttribute("aria-label", open ? "Zapri meni" : "Odpri meni");
     });
   }
+
+  if (backdrop) backdrop.addEventListener("click", closeMobileNav);
 
   dropdowns.forEach((dd) => {
     const trigger = dd.querySelector(".nav-link");
