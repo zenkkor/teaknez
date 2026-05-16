@@ -11,8 +11,8 @@
   --clay-light: #DFC1A8;
   --sage: #8FA38A;
   --sage-soft: #C5D1BD;
-  --sage-dark: #5d7459;
-  --sage-darker: #475a44;
+  --sage-dark: #758F70;
+  --sage-darker: #5d7459;
   --shadow: 0 8px 32px rgba(74, 56, 42, 0.08);
   --shadow-lg: 0 24px 64px rgba(74, 56, 42, 0.12);
   --radius: 18px;
@@ -571,7 +571,7 @@ ul li::marker { color: var(--clay); }
 
 /* OUTCOMES */
 .outcomes {
-  background: var(--ink);
+  background: var(--sage-darker);
   color: var(--cream);
   border-radius: var(--radius-lg);
   padding: 80px;
@@ -770,8 +770,8 @@ ul li::marker { color: var(--clay); }
 
 /* FOOTER */
 .site-footer {
-  background: var(--ink);
-  color: rgba(250, 246, 239, 0.78);
+  background: var(--sage-darker);
+  color: rgba(250, 246, 239, 0.82);
   padding: 80px 0 30px;
   margin-top: 100px;
 }
