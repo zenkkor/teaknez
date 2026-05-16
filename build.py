@@ -408,10 +408,10 @@ def page_about():
   </div>
 </section>
 
-<section class="section">
-  <div class="container" style="text-align:center;">
+<section class="cta-end">
+  <div class="container">
     <h2>Želiš raziskati več?</h2>
-    <p><a href="kontakt.html" class="btn btn-primary">Piši mi!</a></p>
+    <a href="kontakt.html" class="btn btn-primary">Piši mi!</a>
   </div>
 </section>"""
 
@@ -523,10 +523,10 @@ def service_detail(slug, title, lead, intro_paragraphs, bullets_intro, bullets, 
   </div>
 </section>
 """ + testimonials_section() + """
-<section class="section">
-  <div class="container" style="text-align:center;">
+<section class="cta-end">
+  <div class="container">
     <h2>Želiš raziskati več?</h2>
-    <p><a href="../kontakt.html" class="btn btn-primary">Piši mi!</a></p>
+    <a href="../kontakt.html" class="btn btn-primary">Piši mi!</a>
   </div>
 </section>"""
 

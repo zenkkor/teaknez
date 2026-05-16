@@ -7,10 +7,33 @@
 
   if (backdrop) backdrop.removeAttribute("hidden");
 
+  let lockedScrollY = 0;
+
+  function lockScroll() {
+    // Capture scroll, then lock both html and body. Compensate for the
+    // disappearing scrollbar so desktop layout doesn't shift.
+    lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    const scrollbar = window.innerWidth - document.documentElement.clientWidth;
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    if (scrollbar > 0) {
+      document.documentElement.style.paddingRight = scrollbar + "px";
+    }
+  }
+  function unlockScroll() {
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+    document.documentElement.style.paddingRight = "";
+    // Some browsers reset scroll when toggling overflow:hidden — restore it.
+    window.scrollTo(0, lockedScrollY);
+  }
+
   function closeMobileNav() {
     if (!nav) return;
+    const wasOpen = nav.classList.contains("is-open");
     nav.classList.remove("is-open");
     document.body.classList.remove("nav-open");
+    if (wasOpen) unlockScroll();
     if (toggle) {
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", "Odpri meni");
@@ -21,6 +44,8 @@
   if (toggle && nav) {
     toggle.addEventListener("click", () => {
       const open = !nav.classList.contains("is-open");
+      if (open) lockScroll();
+      else unlockScroll();
       nav.classList.toggle("is-open", open);
       document.body.classList.toggle("nav-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");

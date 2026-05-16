@@ -11,6 +11,8 @@
   --clay-light: #DFC1A8;
   --sage: #8FA38A;
   --sage-soft: #C5D1BD;
+  --sage-dark: #5d7459;
+  --sage-darker: #475a44;
   --shadow: 0 8px 32px rgba(74, 56, 42, 0.08);
   --shadow-lg: 0 24px 64px rgba(74, 56, 42, 0.12);
   --radius: 18px;
@@ -328,8 +330,8 @@ ul li::marker { color: var(--clay); }
   margin-left: 12px;
   padding: 10px 22px;
   font-size: 0.92rem;
-  background: var(--clay-dark);
-  color: var(--cream);
+  background: var(--sage-dark);
+  color: #fff;
   border-radius: 999px;
   font-weight: 500;
   text-decoration: none;
@@ -337,13 +339,13 @@ ul li::marker { color: var(--clay); }
   align-items: center;
   gap: 8px;
   transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
-  box-shadow: 0 4px 14px rgba(142, 101, 73, 0.18);
+  box-shadow: 0 4px 14px rgba(93, 116, 89, 0.22);
 }
 .nav-cta:hover {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--sage-darker);
+  color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(42, 31, 24, 0.22);
+  box-shadow: 0 6px 18px rgba(71, 90, 68, 0.28);
 }
 .nav-cta .arrow { transition: transform .2s ease; }
 .nav-cta:hover .arrow { transform: translateX(3px); }
@@ -398,22 +400,24 @@ ul li::marker { color: var(--clay); }
   white-space: nowrap;
 }
 .btn-primary {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--sage-dark);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(93, 116, 89, 0.22);
 }
 .btn-primary:hover {
-  background: var(--clay-dark);
-  color: var(--cream);
+  background: var(--sage-darker);
+  color: #fff;
   transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(71, 90, 68, 0.28);
 }
 .btn-secondary {
   background: transparent;
-  color: var(--ink);
-  border-color: var(--ink);
+  color: var(--sage-dark);
+  border-color: var(--sage-dark);
 }
 .btn-secondary:hover {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--sage-dark);
+  color: #fff;
 }
 .btn-clay {
   background: var(--clay);
@@ -425,6 +429,22 @@ ul li::marker { color: var(--clay); }
 }
 .btn .arrow { transition: transform .2s ease; }
 .btn:hover .arrow { transform: translateX(4px); }
+
+/* Bottom-of-page CTA block — h2 + button. Uniform spacing on every page. */
+.cta-end {
+  padding: 90px 0 110px;
+  text-align: center;
+}
+.cta-end h2 {
+  margin: 0 0 32px;
+}
+.cta-end .btn {
+  margin: 0;
+}
+@media (max-width: 960px) {
+  .cta-end { padding: 60px 0 80px; }
+  .cta-end h2 { margin-bottom: 24px; }
+}
 
 /* HERO */
 .hero {
@@ -1217,7 +1237,15 @@ ul li::marker { color: var(--clay); }
     z-index: 95;
   }
   .site-nav.is-open { transform: translateX(0); }
-  body.nav-open { overflow: hidden; }
+  /* When the menu is open we lock scroll via JS — but the sticky header
+     needs an explicit fixed anchor too, since sticky disengages once its
+     scroll container's overflow is hidden. */
+  body.nav-open .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
 
   .nav-list {
     flex-direction: column;
