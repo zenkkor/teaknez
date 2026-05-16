@@ -469,7 +469,7 @@ ul li::marker { color: var(--clay); }
   right: 0;
   bottom: 0.02em;
   height: 3px;
-  background: var(--sage-dark);
+  background: var(--sage);
   border-radius: 2px;
   pointer-events: none;
 }
