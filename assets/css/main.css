@@ -474,10 +474,10 @@ ul li::marker { color: var(--clay); }
   content: "";
   position: absolute;
   inset: -30px -30px 30px 30px;
-  background: var(--clay-light);
+  background: var(--sage-soft);
   border-radius: var(--radius-lg);
   z-index: -1;
-  opacity: 0.5;
+  opacity: 0.55;
 }
 
 /* SECTIONS */
@@ -529,7 +529,7 @@ ul li::marker { color: var(--clay); }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--clay);
+  background: var(--sage);
   margin-top: 12px;
 }
 
@@ -657,6 +657,10 @@ ul li::marker { color: var(--clay); }
   display: block;
 }
 .testimonial cite strong { color: var(--ink); display: block; margin-bottom: 2px; font-size: 0.98rem; }
+
+/* Sage eyebrow on the testimonials section — quiet cool counterpoint to clay everywhere else */
+.section-cream .section-head .eyebrow,
+.testimonials-section .eyebrow { color: #6e8870; }
 
 /* BLOG GRID */
 .blog-grid {
@@ -918,11 +922,12 @@ ul li::marker { color: var(--clay); }
   margin-top: 28px;
 }
 .service-meta-item {
-  background: var(--cream-soft);
+  background: rgba(143, 163, 138, 0.12);
+  border: 1px solid rgba(143, 163, 138, 0.25);
   padding: 10px 18px;
   border-radius: 999px;
   font-size: 0.88rem;
-  color: var(--ink-soft);
+  color: #506b4c;
   font-weight: 500;
 }
 
@@ -1124,9 +1129,9 @@ ul li::marker { color: var(--clay); }
 .form-status.is-success,
 .form-status.is-error { display: block; }
 .form-status.is-success {
-  background: rgba(120, 145, 95, 0.12);
-  color: #4f6038;
-  border: 1px solid rgba(120, 145, 95, 0.3);
+  background: rgba(143, 163, 138, 0.14);
+  color: #506b4c;
+  border: 1px solid rgba(143, 163, 138, 0.35);
 }
 .form-status.is-error {
   background: rgba(178, 76, 60, 0.1);
