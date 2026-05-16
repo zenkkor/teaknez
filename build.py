@@ -237,7 +237,7 @@ def page_index():
 <section class="section">
   <div class="container">
     <div class="outcomes">
-      <span class="eyebrow" style="color:var(--clay-light);">Kaj se spremeni?</span>
+      <span class="eyebrow">Kaj se spremeni?</span>
       <h2>Kaj se spremeni?</h2>
       <p>Sčasoma opaziš, da:</p>
       <ul>
