@@ -623,18 +623,27 @@ ul li::marker { color: var(--clay); }
   border-color: var(--clay-light);
 }
 .card-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--clay-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  color: var(--clay-dark);
+  display: inline-block;
   font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--sage-dark);
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  position: relative;
+}
+.card-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 28px;
+  height: 2px;
+  background: var(--sage);
+  opacity: 0.55;
+  border-radius: 2px;
 }
 .card h3 { margin-bottom: 14px; }
 .card p { margin-bottom: 0; font-size: 0.98rem; }
