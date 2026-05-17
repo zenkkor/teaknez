@@ -500,6 +500,10 @@ ul li::marker { color: var(--clay); }
 .section-head h2 { margin-bottom: 18px; }
 .section-head p { color: var(--ink-soft); font-size: 1.1rem; }
 .section-foot { text-align: center; margin-top: 48px; }
+@media (max-width: 640px) {
+  .section-foot { margin-top: 28px; }
+  .section-foot .btn { display: inline-flex; padding: 12px 24px; font-size: 0.94rem; }
+}
 .eyebrow {
   font-size: 0.78rem;
   letter-spacing: 0.22em;
@@ -641,27 +645,67 @@ ul li::marker { color: var(--clay); }
 }
 .testimonial {
   background: var(--cream);
-  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 36px 36px 32px;
+  padding: 40px 36px 32px;
   position: relative;
+  box-shadow: 0 4px 24px rgba(74, 56, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+.testimonial::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 36px;
+  right: 36px;
+  height: 3px;
+  background: var(--sage);
+  opacity: 0.55;
+  border-radius: 0 0 3px 3px;
 }
 .testimonial blockquote {
   font-family: var(--serif);
   font-size: 1.22rem;
   line-height: 1.55;
   color: var(--ink);
-  margin: 0 0 22px;
+  margin: 0 0 28px;
   font-style: italic;
   font-weight: 500;
+  flex: 1;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.testimonial-avatar {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--sage-soft);
+  color: var(--sage-darker);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 .testimonial cite {
   font-style: normal;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   color: var(--muted);
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.4;
 }
-.testimonial cite strong { color: var(--ink); display: block; margin-bottom: 2px; font-size: 0.98rem; }
+.testimonial cite strong { color: var(--ink); font-size: 0.98rem; font-weight: 600; }
 
 /* Sage eyebrow on the testimonials section - quiet cool counterpoint to clay everywhere else */
 .section-cream .section-head .eyebrow,

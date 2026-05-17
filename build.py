@@ -147,7 +147,10 @@ def testimonials_section():
     cards = "\n".join(
         f"""    <article class="testimonial">
       <blockquote>»{q}«</blockquote>
-      <cite><strong>{name}</strong>{role}</cite>
+      <footer class="testimonial-author">
+        <span class="testimonial-avatar" aria-hidden="true">{name[0]}</span>
+        <cite><strong>{name}</strong><span>{role}</span></cite>
+      </footer>
     </article>"""
         for q, name, role in TESTIMONIALS
     )
