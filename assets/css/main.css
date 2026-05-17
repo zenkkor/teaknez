@@ -534,6 +534,7 @@ ul li::marker { color: var(--clay); }
   align-items: flex-start;
   gap: 16px;
 }
+.reasons-list li:last-child { border-bottom: none; }
 .reasons-list li::before {
   content: "";
   flex: 0 0 8px;
@@ -583,6 +584,7 @@ ul li::marker { color: var(--clay); }
   align-items: flex-start;
   gap: 16px;
 }
+.outcomes ul li:last-child { border-bottom: none; }
 .outcomes ul li::before {
   content: "";
   flex: 0 0 8px;
@@ -898,6 +900,8 @@ ul li::marker { color: var(--clay); }
   align-items: center;
   gap: 14px;
 }
+.credentials-list li:last-child,
+.credentials-list li:nth-last-child(2):nth-child(odd) { border-bottom: none; }
 .credentials-list li::before {
   content: "\2014";
   color: var(--clay);
