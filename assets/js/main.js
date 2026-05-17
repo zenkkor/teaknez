@@ -128,6 +128,15 @@
         status.textContent = "";
         status.className = "form-status";
       }
+      // hCaptcha: block submit until widget is solved
+      const captchaField = form.querySelector("textarea[name='h-captcha-response']");
+      if (form.querySelector(".h-captcha") && (!captchaField || !captchaField.value)) {
+        if (status) {
+          status.textContent = "Prosim, potrdi, da nisi robot.";
+          status.classList.add("is-error");
+        }
+        return;
+      }
       if (submit) {
         submit.disabled = true;
         submit.dataset.originalLabel = submit.dataset.originalLabel || submit.innerHTML;

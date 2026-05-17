@@ -21,8 +21,8 @@ def head(title, description, canonical, depth=0):
 <meta property="og:description" content="{description}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:image" content="https://www.teaknez.com{asset.replace('..', '').lstrip('/')}/images/hero.png">
-<link rel="icon" type="image/png" href="{asset}/images/favicon-light.png">
-<link rel="apple-touch-icon" href="{asset}/images/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="{asset}/images/favicon.svg">
+<link rel="apple-touch-icon" href="{asset}/images/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -190,7 +190,7 @@ def page_index():
   <div class="container">
     <div class="hero-grid">
       <div>
-        <h1>Notranja <span class="word-accent">jasnost</span>.<br><em>Zrele odločitve.</em><br>Trajne spremembe.</h1>
+        <h1>Notranja jasnost.<br><em>Zrele odločitve.</em><br>Trajne spremembe.</h1>
         <p class="hero-lead">Pomagam ti umiriti notranji hrup, razjasniti prioritete in sprejemati odločitve, ki so skladne s tem, kdo si.</p>
         <a href="kontakt.html" class="btn btn-primary">Piši mi!</a>
       </div>
@@ -1102,9 +1102,11 @@ def page_contact():
         <input type="checkbox" name="consent" required>
         <span>Strinjam se s <a href="politika-zasebnosti.html">Pogoji.</a></span>
       </label>
+      <div class="h-captcha" data-captcha="true"></div>
       <button type="submit" class="btn btn-primary">Piši mi</button>
       <div class="form-status" role="status" aria-live="polite"></div>
     </form>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   </div>
 </section>
 """

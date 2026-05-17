@@ -456,24 +456,6 @@ ul li::marker { color: var(--clay); }
 }
 .hero h1 { margin-bottom: 28px; }
 
-/* Hand-drawn sage accent under a key headline word - editorial flourish */
-.word-accent {
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
-}
-.word-accent::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0.04em;
-  height: 2px;
-  background: var(--sage);
-  border-radius: 2px;
-  opacity: 0.7;
-  pointer-events: none;
-}
 .hero h1 em {
   font-style: italic;
   color: var(--clay-dark);
@@ -1139,6 +1121,11 @@ ul li::marker { color: var(--clay); }
   color: var(--ink-soft);
 }
 .field-check input { margin-top: 4px; accent-color: var(--clay); }
+
+.h-captcha {
+  margin: 20px 0 24px;
+  min-height: 78px;
+}
 
 .form-status {
   margin-top: 18px;
