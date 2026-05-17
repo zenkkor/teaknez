@@ -67,7 +67,7 @@ def header(active, depth=0):
     return f"""<a href="#main" class="skip-link">Preskoči na vsebino</a>
 <header class="site-header">
   <div class="container">
-    <a href="{p}index.html" class="site-logo" aria-label="Tea Knez Coaching — domov">
+    <a href="{p}index.html" class="site-logo" aria-label="Tea Knez Coaching - domov">
       <span>Tea Knez<small class="tag">Coaching</small></span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Glavna navigacija">
@@ -195,7 +195,7 @@ def page_index():
         <a href="kontakt.html" class="btn btn-primary">Piši mi!</a>
       </div>
       <div class="hero-image-wrap">
-        <div class="hero-image"><img src="assets/images/hero.png" alt="Tea Knez — coaching" loading="eager"></div>
+        <div class="hero-image"><img src="assets/images/hero.png" alt="Tea Knez - coaching" loading="eager"></div>
       </div>
     </div>
   </div>
@@ -309,7 +309,7 @@ def page_index():
 """
 
     page = head(
-        "Tea Knez — Osebni, karierni in poslovni coaching",
+        "Tea Knez - Osebni, karierni in poslovni coaching",
         "Pomagam ti umiriti notranji hrup, razjasniti prioritete in sprejemati odločitve, ki so skladne s tem, kdo si. Osebni, karierni in poslovni coaching.",
         "https://www.teaknez.com/", 0
     ) + header("home", 0) + body + footer(0)
@@ -377,8 +377,8 @@ def page_about():
       <h3>Coaching akreditacije</h3>
       <ul class="credentials-list">
         <li>Organizacijska coachinja (Kreativlab d.o.o.)</li>
-        <li>EIA EMCC — individualna akreditacija</li>
-        <li>ACC ICF — v pridobivanju</li>
+        <li>EIA EMCC - individualna akreditacija</li>
+        <li>ACC ICF - v pridobivanju</li>
       </ul>
     </div>
   </div>
@@ -415,7 +415,7 @@ def page_about():
 </section>"""
 
     page = head(
-        "O meni — Tea Knez",
+        "O meni - Tea Knez",
         "Sem Tea Knez, coachinja, mediatorka in podjetnica. Spoznaj moj pristop, vrednote in pot, ki vodi v ustvarjanje prostora za zrele odločitve.",
         "https://www.teaknez.com/o-meni", 0
     ) + header("about", 0) + body + footer(0)
@@ -463,7 +463,7 @@ def page_services_hub():
 </section>"""
 
     page = head(
-        "Storitve — Tea Knez Coaching",
+        "Storitve - Tea Knez Coaching",
         "Osebni, karierni in poslovni coaching ter coaching za podjetja. Spoznaj tri oblike sodelovanja in izberi tisto, ki najbolj ustreza tvoji situaciji.",
         "https://www.teaknez.com/storitve", 0
     ) + header("services", 0) + body + footer(0)
@@ -530,7 +530,7 @@ def service_detail(slug, title, lead, intro_paragraphs, bullets_intro, bullets, 
 </section>"""
 
     page = head(
-        f"{title} — Tea Knez",
+        f"{title} - Tea Knez",
         head_desc,
         f"https://www.teaknez.com/storitve/{slug}", 1
     ) + header("services", 1) + body + footer(1)
@@ -673,7 +673,7 @@ def page_blog_index():
 </section>"""
 
     page = head(
-        "Blog — Tea Knez Coaching",
+        "Blog - Tea Knez Coaching",
         "Misli o samorefleksiji, samozavesti, odnosih, vodenju in notranji rasti. Praktični vpogledi za jasen razmislek in zrele odločitve.",
         "https://www.teaknez.com/blog", 1
     ) + header("blog", 1) + body + footer(1)
@@ -712,7 +712,7 @@ def render_blog_post(slug, title, lead, image, body_html, prev_post=None, next_p
 {nav}"""
 
     page = head(
-        f"{title} — Tea Knez",
+        f"{title} - Tea Knez",
         lead,
         f"https://www.teaknez.com/blog/{slug}", 2
     ) + header("blog", 2) + body + footer(2)
@@ -1109,7 +1109,7 @@ def page_contact():
 </section>
 """
     page = head(
-        "Kontakt — Tea Knez Coaching",
+        "Kontakt - Tea Knez Coaching",
         "Piši mi za rezervacijo brezplačnega uvodnega srečanja. Coaching online, 60 minut, prilagojeno tvojemu tempu.",
         "https://www.teaknez.com/kontakt", 0
     ) + header("contact", 0) + body + footer(0)

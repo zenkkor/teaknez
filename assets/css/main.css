@@ -73,7 +73,7 @@ p { margin-bottom: 1.1em; color: var(--ink-soft); }
 p strong, strong { color: var(--ink); font-weight: 600; }
 em { font-style: italic; }
 
-/* Justified body copy — running paragraphs only, never headings, eyebrows, buttons, or centered blocks */
+/* Justified body copy - running paragraphs only, never headings, eyebrows, buttons, or centered blocks */
 .hero-lead,
 .section-head p,
 .page-header .lead,
@@ -431,9 +431,9 @@ ul li::marker { color: var(--clay); }
 .btn .arrow { transition: transform .2s ease; }
 .btn:hover .arrow { transform: translateX(4px); }
 
-/* Bottom-of-page CTA block — h2 + button. Uniform spacing on every page. */
+/* Bottom-of-page CTA block - h2 + button. Uniform spacing on every page. */
 .cta-end {
-  padding: 90px 0 110px;
+  padding: 90px 0;
   text-align: center;
 }
 .cta-end h2 {
@@ -445,7 +445,7 @@ ul li::marker { color: var(--clay); }
 
 /* HERO */
 .hero {
-  padding: 50px 0 100px;
+  padding: 80px 0;
   position: relative;
 }
 .hero-grid {
@@ -456,7 +456,7 @@ ul li::marker { color: var(--clay); }
 }
 .hero h1 { margin-bottom: 28px; }
 
-/* Hand-drawn sage accent under a key headline word — editorial flourish */
+/* Hand-drawn sage accent under a key headline word - editorial flourish */
 .word-accent {
   position: relative;
   display: inline-block;
@@ -672,9 +672,6 @@ ul li::marker { color: var(--clay); }
   font-style: italic;
   font-weight: 500;
 }
-.testimonial blockquote::first-letter {
-  color: var(--clay);
-}
 .testimonial cite {
   font-style: normal;
   font-size: 0.92rem;
@@ -683,7 +680,7 @@ ul li::marker { color: var(--clay); }
 }
 .testimonial cite strong { color: var(--ink); display: block; margin-bottom: 2px; font-size: 0.98rem; }
 
-/* Sage eyebrow on the testimonials section — quiet cool counterpoint to clay everywhere else */
+/* Sage eyebrow on the testimonials section - quiet cool counterpoint to clay everywhere else */
 .section-cream .section-head .eyebrow,
 .testimonials-section .eyebrow { color: #6e8870; }
 
@@ -820,7 +817,7 @@ ul li::marker { color: var(--clay); }
 
 /* PAGE HEADER (subpages) */
 .page-header {
-  padding: 90px 0 40px;
+  padding: 70px 0;
   text-align: center;
 }
 .page-header .eyebrow { margin-bottom: 14px; }
@@ -929,7 +926,7 @@ ul li::marker { color: var(--clay); }
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
-  padding: 60px 0 90px;
+  padding: 70px 0;
 }
 .service-hero-image {
   border-radius: var(--radius-lg);
@@ -988,7 +985,7 @@ ul li::marker { color: var(--clay); }
 /* BLOG POST */
 .post-hero {
   text-align: center;
-  padding: 60px 0 50px;
+  padding: 60px 0;
 }
 .post-hero .back-link {
   display: inline-flex;
@@ -1188,7 +1185,7 @@ ul li::marker { color: var(--clay); }
   color: var(--muted);
 }
 
-/* RESPONSIVE — TABLET (1024 → 960) */
+/* RESPONSIVE - TABLET (1024 → 960) */
 @media (max-width: 1024px) {
   .hero-grid, .service-hero { gap: 56px; }
   .cards, .services-grid, .blog-grid { gap: 22px; }
@@ -1198,7 +1195,7 @@ ul li::marker { color: var(--clay); }
   .dropdown-menu { min-width: 320px; }
 }
 
-/* RESPONSIVE — TABLET (960) */
+/* RESPONSIVE - TABLET (960) */
 @media (max-width: 960px) {
   .nav-toggle { display: inline-flex; }
   .site-header {
@@ -1207,7 +1204,7 @@ ul li::marker { color: var(--clay); }
     background: rgba(250, 246, 239, 0.97);
   }
 
-  /* Backdrop scrim — sits behind the slide-in panel, clickable to close */
+  /* Backdrop scrim - sits behind the slide-in panel, clickable to close */
   .nav-backdrop {
     position: fixed;
     inset: 74px 0 0 0;
@@ -1242,7 +1239,7 @@ ul li::marker { color: var(--clay); }
     z-index: 95;
   }
   .site-nav.is-open { transform: translateX(0); }
-  /* When the menu is open we lock scroll via JS — but the sticky header
+  /* When the menu is open we lock scroll via JS - but the sticky header
      needs an explicit fixed anchor too, since sticky disengages once its
      scroll container's overflow is hidden. */
   body.nav-open .site-header {
@@ -1341,7 +1338,7 @@ ul li::marker { color: var(--clay); }
   .credentials-list { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 
-  /* Horizontal cards at tablet — image left, content right */
+  /* Horizontal cards at tablet - image left, content right */
   .service-card, .blog-card { flex-direction: row; align-items: stretch; }
   .service-card .service-card-image,
   .blog-card .blog-card-image { width: 38%; aspect-ratio: auto; flex-shrink: 0; }
@@ -1354,17 +1351,17 @@ ul li::marker { color: var(--clay); }
   .outcomes, .cta-band, .credentials, .contact-form { padding: 48px 32px; }
   .blog-feature { padding: 32px; }
   .section { padding: 64px 0; }
-  .hero { padding: 32px 0 80px; }
-  .service-hero { padding: 40px 0 64px; }
-  .post-hero { padding: 40px 0 36px; }
-  .page-header { padding: 64px 0 32px; }
-  .cta-end { padding: 64px 0 80px; }
+  .hero { padding: 56px 0; }
+  .service-hero { padding: 56px 0; }
+  .post-hero { padding: 48px 0; }
+  .page-header { padding: 56px 0; }
+  .cta-end { padding: 64px 0; }
   .cta-end h2 { margin-bottom: 24px; }
   .post-image { margin-left: 0; margin-right: 0; border-radius: var(--radius-lg); }
   body { font-size: 16px; }
 }
 
-/* RESPONSIVE — MOBILE (640) */
+/* RESPONSIVE - MOBILE (640) */
 @media (max-width: 640px) {
   .cards, .services-grid, .testimonials, .blog-grid, .values { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; padding-bottom: 40px; }
@@ -1373,11 +1370,11 @@ ul li::marker { color: var(--clay); }
   .site-logo { font-size: 1.2rem; }
   .site-logo img { width: 36px; height: 36px; }
   .site-logo .tag { font-size: 0.62rem; }
-  .hero { padding: 24px 0 64px; }
-  .service-hero { padding: 28px 0 48px; }
-  .post-hero { padding: 28px 0 28px; }
-  .page-header { padding: 48px 0 24px; }
-  .cta-end { padding: 56px 0 64px; }
+  .hero { padding: 48px 0; }
+  .service-hero { padding: 48px 0; }
+  .post-hero { padding: 40px 0; }
+  .page-header { padding: 48px 0; }
+  .cta-end { padding: 56px 0; }
   .section { padding: 56px 0; }
   .section-head { margin-bottom: 44px; }
   h1 { font-size: 2.25rem; }
