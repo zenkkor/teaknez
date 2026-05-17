@@ -499,6 +499,7 @@ ul li::marker { color: var(--clay); }
 }
 .section-head h2 { margin-bottom: 18px; }
 .section-head p { color: var(--ink-soft); font-size: 1.1rem; }
+.section-foot { text-align: center; margin-top: 48px; }
 .eyebrow {
   font-size: 0.78rem;
   letter-spacing: 0.22em;

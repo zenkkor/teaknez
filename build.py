@@ -282,7 +282,6 @@ def page_index():
       <span class="eyebrow">Blog</span>
       <h2>Prostor za refleksijo</h2>
       <p>Praktični vpogledi in misli, ki ti pomagajo graditi jasnost, notranjo moč in osebno rast.</p>
-      <p>Preberi več</p>
     </div>
     <div class="blog-grid">
       <a class="blog-card" href="blog/vracanje-s-porodniskega-dopusta/">
@@ -303,6 +302,9 @@ def page_index():
           <h3>Kako premagati sindrom vsiljivca (imposter syndrome)</h3>
         </div>
       </a>
+    </div>
+    <div class="section-foot">
+      <a href="blog/" class="btn btn-secondary">Preberi več</a>
     </div>
   </div>
 </section>
