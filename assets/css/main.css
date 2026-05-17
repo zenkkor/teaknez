@@ -611,10 +611,12 @@ ul li::marker { color: var(--clay); }
   gap: 28px;
 }
 .card {
+  position: relative;
   background: var(--cream);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 40px 32px;
+  padding: 48px 32px 36px;
+  overflow: hidden;
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 .card:hover {
@@ -622,31 +624,44 @@ ul li::marker { color: var(--clay); }
   box-shadow: var(--shadow);
   border-color: var(--clay-light);
 }
-.card-icon {
-  display: inline-block;
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: 2.6rem;
-  line-height: 1;
-  color: var(--sage-dark);
-  margin-bottom: 22px;
-  padding-bottom: 14px;
-  position: relative;
-}
-.card-icon::after {
+.card::before {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 28px;
-  height: 2px;
+  top: 0;
+  left: 32px;
+  width: 44px;
+  height: 3px;
   background: var(--sage);
-  opacity: 0.55;
-  border-radius: 2px;
+  border-radius: 0 0 3px 3px;
 }
-.card h3 { margin-bottom: 14px; }
+.card-icon {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 5.2rem;
+  line-height: 1;
+  color: var(--sage);
+  opacity: 0.18;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -1px;
+}
+.card h3 {
+  position: relative;
+  z-index: 1;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  padding-right: 56px;
+}
 .card p { margin-bottom: 0; font-size: 0.98rem; }
+@media (max-width: 640px) {
+  .card { padding: 44px 28px 32px; }
+  .card-icon { font-size: 4.6rem; top: 14px; right: 22px; }
+  .card h3 { padding-right: 48px; }
+}
 
 /* TESTIMONIALS */
 .testimonials {
