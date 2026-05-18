@@ -20,7 +20,7 @@ def head(title, description, canonical, depth=0):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="https://www.teaknez.com{asset.replace('..', '').lstrip('/')}/images/hero.png">
+<meta property="og:image" content="https://www.teaknez.com{asset.replace('..', '').lstrip('/')}/images/hero.webp">
 <link rel="icon" type="image/svg+xml" href="{asset}/images/favicon.svg">
 <link rel="apple-touch-icon" href="{asset}/images/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -198,7 +198,7 @@ def page_index():
         <a href="kontakt.html" class="btn btn-primary">Piši mi!</a>
       </div>
       <div class="hero-image-wrap">
-        <div class="hero-image"><img src="assets/images/hero.png" alt="Tea Knez - coaching" loading="eager"></div>
+        <div class="hero-image"><img src="assets/images/hero.webp" alt="Tea Knez - coaching" loading="eager"></div>
       </div>
     </div>
   </div>
@@ -225,7 +225,7 @@ def page_index():
 <section class="section">
   <div class="container">
     <div class="split">
-      <div class="split-image"><img src="assets/images/coaching-section.png" alt="Coaching - prostor za razmislek"></div>
+      <div class="split-image"><img src="assets/images/coaching-section.webp" alt="Coaching - prostor za razmislek"></div>
       <div>
         <span class="eyebrow">Kaj je coaching</span>
         <p>Coaching ni svetovanje in ni terapija. Je <strong>strukturiran, zaupen proces</strong>, ki te podpira pri bolj jasnem in zavestnem razmišljanju. Namesto da iščeš odgovore zunaj, začneš <strong>razumevati sebe, svoje vzorce in svoje odločitve</strong>.</p>
@@ -239,7 +239,6 @@ def page_index():
 <section class="section">
   <div class="container">
     <div class="outcomes">
-      <span class="eyebrow">Kaj se spremeni?</span>
       <h2>Kaj se spremeni?</h2>
       <p>Sčasoma opaziš, da:</p>
       <ul>
@@ -288,19 +287,19 @@ def page_index():
     </div>
     <div class="blog-grid">
       <a class="blog-card" href="blog/vracanje-s-porodniskega-dopusta/">
-        <div class="blog-card-image"><img src="assets/images/blog-vracanje.png" alt=""></div>
+        <div class="blog-card-image"><img src="assets/images/blog-vracanje.webp" alt=""></div>
         <div class="blog-card-body">
           <h3>Vračanje s porodniškega dopusta: ko se vrneš drugačna</h3>
         </div>
       </a>
       <a class="blog-card" href="blog/kako-preprečiti-izgorelost-v-podjetjih-kultura-ravnovesja-ne-žrtvovanja/">
-        <div class="blog-card-image"><img src="assets/images/blog-izgorelost.png" alt=""></div>
+        <div class="blog-card-image"><img src="assets/images/blog-izgorelost.webp" alt=""></div>
         <div class="blog-card-body">
           <h3>Kako preprečiti izgorelost v podjetjih: kultura ravnovesja, ne žrtvovanja</h3>
         </div>
       </a>
       <a class="blog-card" href="blog/kako-premagati-sindrom-vsiljivca-(imposter-syndrome)/">
-        <div class="blog-card-image"><img src="assets/images/blog-sindrom.png" alt=""></div>
+        <div class="blog-card-image"><img src="assets/images/blog-sindrom.webp" alt=""></div>
         <div class="blog-card-body">
           <h3>Kako premagati sindrom vsiljivca (imposter syndrome)</h3>
         </div>
@@ -326,15 +325,14 @@ def page_about():
     body = """<section class="page-header page-header--about">
   <div class="container">
     <div class="page-header-intro">
-      <span class="eyebrow">O meni</span>
       <h1>O <em>meni</em></h1>
       <span class="page-header-rule" aria-hidden="true"></span>
       <p class="lead">Večina ljudi ne potrebuje več informacij. Potrebuje prostor, da lahko jasno razmisli.</p>
     </div>
     <div class="about-intro">
-      <div class="split-image portrait"><img src="assets/images/about-tea.png" alt="Tea Knez"></div>
+      <div class="split-image portrait"><img src="assets/images/about-tea.webp" alt="Tea Knez"></div>
       <div class="about-text">
-        <p><span class="dropcap">S</span>em <strong>Tea</strong>, coachinja in podjetnica, predvsem pa ženska in mama. V svoji karieri sem delovala v okoljih, kjer so odločitve pomembne, odgovornost velika in odnosi kompleksni. Prav tam sem od blizu spoznala, kako hitro lahko jasnost zamegli pritisk - in kako dragocen je prostor za premišljen razmislek.</p>
+        <p>Sem <strong>Tea</strong>, coachinja in podjetnica, predvsem pa ženska in mama. V svoji karieri sem delovala v okoljih, kjer so odločitve pomembne, odgovornost velika in odnosi kompleksni. Prav tam sem od blizu spoznala, kako hitro lahko jasnost zamegli pritisk - in kako dragocen je prostor za premišljen razmislek.</p>
         <p>Vedno me je zanimalo, kaj ljudi zares premakne, ne le navzven, ampak navznoter. Kaj ustvarja notranjo stabilnost, iz katere lahko delujemo bolj zrelo.</p>
       </div>
     </div>
@@ -345,13 +343,12 @@ def page_about():
   <div class="container">
     <div class="split">
       <div>
-        <span class="eyebrow">Moj pristop</span>
         <h2>Moj pristop</h2>
         <p>Coaching zame ni svetovanje, temveč <strong>strukturiran proces razmisleka</strong>.</p>
         <p>Ustvarjam <strong>varen, a zahteven prostor</strong>, kjer raziščeš širšo sliko - odnose, dinamike in svoje vzorce odločanja. Verjamem, da ima vsak človek v sebi vse vire in odgovore, včasih potrebujemo le <strong>prisotnost in jasnost</strong>, da jih prepoznamo.</p>
         <p>Moje delo temelji na poslušanju, natančnih vprašanjih in spoštovanju tvojega procesa. Cilj ni hitra rešitev, temveč zrela odločitev.</p>
       </div>
-      <div class="split-image portrait"><img src="assets/images/tea-portrait.png" alt="Tea Knez - portret"></div>
+      <div class="split-image portrait"><img src="assets/images/tea-portrait.webp" alt="Tea Knez - portret"></div>
     </div>
   </div>
 </section>
@@ -359,7 +356,6 @@ def page_about():
 <section class="section">
   <div class="container">
     <div class="section-head" style="text-align:left;max-width:780px;margin-left:0;">
-      <span class="eyebrow">Moja pot</span>
       <h2>Moja pot</h2>
     </div>
     <div style="max-width:780px;">
@@ -431,7 +427,6 @@ def page_about():
 def page_services_hub():
     body = """<section class="page-header">
   <div class="container">
-    <span class="eyebrow">Storitve</span>
     <h1>Storitve</h1>
   </div>
 </section>
@@ -440,7 +435,7 @@ def page_services_hub():
   <div class="container">
     <div class="services-grid">
       <a class="service-card" href="storitve/osebni-coaching.html">
-        <div class="service-card-image"><img src="assets/images/service-osebni.png" alt=""></div>
+        <div class="service-card-image"><img src="assets/images/service-osebni.webp" alt=""></div>
         <div class="service-card-body">
           <h3>Osebni coaching</h3>
           <p>Strukturiran in zaupen prostor za razmislek. Za jasnost odločitev, zaupanje vase in več ravnovesja v vsakdanu.</p>
@@ -448,7 +443,7 @@ def page_services_hub():
         </div>
       </a>
       <a class="service-card" href="storitve/karierni-in-poslovni-coaching.html">
-        <div class="service-card-image"><img src="assets/images/service-karierni.png" alt=""></div>
+        <div class="service-card-image"><img src="assets/images/service-karierni.webp" alt=""></div>
         <div class="service-card-body">
           <h3>Karierni in poslovni coaching</h3>
           <p>Za posameznike v prehodih: vrnitev na delo, menjava službe, nova vloga ali drugačen način vodenja kariere.</p>
@@ -456,7 +451,7 @@ def page_services_hub():
         </div>
       </a>
       <a class="service-card" href="storitve/coaching-za-podjetja.html">
-        <div class="service-card-image"><img src="assets/images/service-podjetja.png" alt=""></div>
+        <div class="service-card-image"><img src="assets/images/service-podjetja.webp" alt=""></div>
         <div class="service-card-body">
           <h3>Coaching za podjetja</h3>
           <p>Razvoj vodij, ekip in ključnih posameznikov. Kultura zaupanja, zavestnega vodenja in skupne odgovornosti.</p>
@@ -517,7 +512,6 @@ def service_detail(slug, title, lead, intro_paragraphs, bullets_intro, bullets, 
 <section class="section section-cream">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Kaj pridobiš</span>
       <h2>Kaj pridobiš</h2>
       <p>{benefits_intro}</p>
     </div>
@@ -560,7 +554,7 @@ def page_osebni():
             {"title": "Zaupanje vase", "text": "Okrepiš notranjo stabilnost in začneš delovati z več samozavesti."},
             {"title": "Ravnovesje", "text": "V vsakdan vneseš več miru, prisotnosti in občutek, da si v stiku s sabo."},
         ],
-        image="service-osebni.png",
+        image="service-osebni.webp",
         meta_pills=["60 min srečanja", "Online", "Tvoj tempo"],
         head_desc="Osebni coaching s Teo Knez. Strukturiran in zaupen prostor za razmislek, jasnost odločitev in več ravnovesja v vsakdanu."
     )
@@ -589,7 +583,7 @@ def page_karierni():
             {"title": "Samozavest pri odločitvah", "text": "Odločitve sprejemaš z več notranje gotovosti in manj dvoma."},
             {"title": "Zrel premik", "text": "Ne ostaneš v razmišljanju, temveč narediš premišljen korak naprej."},
         ],
-        image="service-karierni.png",
+        image="service-karierni.webp",
         meta_pills=["60 min srečanja", "Online", "Zaupno"],
         head_desc="Karierni in poslovni coaching s Teo Knez. Strukturiran prostor za jasno smer, premišljene odločitve in zrele karierne premike."
     )
@@ -618,7 +612,7 @@ def page_podjetja():
             {"title": "Sodelovanje in zaupanje", "text": "Ekipe razvijajo odprt dialog, več medsebojnega razumevanja in skupno odgovornost za rezultate."},
             {"title": "Trajnostni razvoj potencialov", "text": "Organizacija gradi temelje za dolgoročno rast, večjo odpornost in večjo zavzetost zaposlenih."},
         ],
-        image="service-podjetja.png",
+        image="service-podjetja.webp",
         meta_pills=["Individualno ali skupinsko", "Online ali v živo", "Skladno z ICF standardi"],
         head_desc="Coaching za podjetja. Razvoj vodij, ekip in kulture zaupanja. Profesionalno strukturiran proces v skladu z ICF standardi."
     )
@@ -628,28 +622,28 @@ def page_podjetja():
 POSTS = [
     {"slug":"vracanje-s-porodniskega-dopusta", "title":"Vračanje s porodniškega dopusta: ko se vrneš drugačna",
      "summary":"Kako podpreti vračanje s porodniškega dopusta? O izzivih, prehodu in vlogi coachinga za posameznice in podjetja.",
-     "image":"blog-vracanje.png"},
+     "image":"blog-vracanje.webp"},
     {"slug":"kako-preprečiti-izgorelost-v-podjetjih-kultura-ravnovesja-ne-žrtvovanja", "title":"Kako preprečiti izgorelost v podjetjih: kultura ravnovesja, ne žrtvovanja",
      "summary":"Kultura zaupanja in ravnovesja namesto preobremenjenosti. Ustvari delovno okolje, kjer ljudje resnično zmorejo rasti.",
-     "image":"blog-izgorelost.png"},
+     "image":"blog-izgorelost.webp"},
     {"slug":"kako-premagati-sindrom-vsiljivca-(imposter-syndrome)", "title":"Kako premagati sindrom vsiljivca (imposter syndrome)",
      "summary":"O dvomu vase, ki te želi zaščititi. Spoznaj, kako prepoznati ta glas in verjeti, da si že zdaj dovolj.",
-     "image":"blog-sindrom.png"},
+     "image":"blog-sindrom.webp"},
     {"slug":"ko-mir-v-sebi-postane-pomembnejši-od-tega-da-imaš-prav", "title":"Ko mir v sebi postane pomembnejši od tega, da imaš prav",
      "summary":"O notranji svobodi, ko mir izbereš pred dokazovanjem. Nauči se slišati sebe, ne potrebe po potrditvi.",
-     "image":"blog-mir.png"},
+     "image":"blog-mir.webp"},
     {"slug":"samozavest-ni-nekaj-kar-imas", "title":"Samozavest ni nekaj, kar imaš – ampak nekaj, kar gradiš",
      "summary":"Samozavest ni lastnost, s katero se rodiš – je pot, ki jo gradiš skozi drobne izbire in notranji dialog.",
-     "image":"blog-samozavest.png"},
+     "image":"blog-samozavest.webp"},
     {"slug":"avtenticno-vodenje-moc-resnicnega-stika", "title":"Avtentično vodenje: Moč resničnega stika",
      "summary":"Avtentično vodenje ne temelji na popolnosti, temveč na iskrenosti in povezanosti. Kako voditi z resničnostjo.",
-     "image":"blog-avtenticno.png"},
+     "image":"blog-avtenticno.webp"},
     {"slug":"notranji-kritik-kako-ga-prepoznati-in-spremeniti-v-zaveznika", "title":"Notranji kritik: Kako ga prepoznati in spremeniti v zaveznika",
      "summary":"Notranji kritik pogosto ovira našo rast, a lahko postane vir učenja. Kako ga prepoznati in preoblikovati.",
-     "image":"blog-notranji.png"},
+     "image":"blog-notranji.webp"},
     {"slug":"odpornost-in-proznost-celostna-notranja-moc", "title":"Odpornost in prožnost: Kako graditi notranjo moč celostno",
      "summary":"Odpornost ni le miselna trdnost – vključuje telo, čustva, misli in odnose. Kako celostno graditi notranjo moč.",
-     "image":"blog-odpornost.png"},
+     "image":"blog-odpornost.webp"},
 ]
 
 def page_blog_index():
@@ -664,7 +658,6 @@ def page_blog_index():
     )
     body = f"""<section class="page-header">
   <div class="container">
-    <span class="eyebrow">Blog</span>
     <h1>Blog</h1>
   </div>
 </section>
@@ -782,7 +775,7 @@ def page_blog_vracanje():
         "vracanje-s-porodniskega-dopusta",
         "Vračanje s porodniškega dopusta: ko se vrneš drugačna",
         "Kako podpreti vračanje s porodniškega dopusta? O izzivih, prehodu in vlogi coachinga za posameznice in podjetja.",
-        "blog-vracanje.png",
+        "blog-vracanje.webp",
         body,
         prev_post=None,
         next_post=POSTS[1],
@@ -824,7 +817,7 @@ def page_blog_izgorelost():
         "kako-preprečiti-izgorelost-v-podjetjih-kultura-ravnovesja-ne-žrtvovanja",
         "Kako preprečiti izgorelost v podjetjih: kultura ravnovesja, ne žrtvovanja",
         "Kultura zaupanja in ravnovesja namesto preobremenjenosti. Ustvari delovno okolje, kjer ljudje resnično zmorejo rasti.",
-        "blog-izgorelost.png",
+        "blog-izgorelost.webp",
         body,
         prev_post=POSTS[0],
         next_post=POSTS[2],
@@ -867,7 +860,7 @@ def page_blog_sindrom():
         "kako-premagati-sindrom-vsiljivca-(imposter-syndrome)",
         "Kako premagati sindrom vsiljivca (imposter syndrome)",
         "O dvomu vase, ki te želi zaščititi. Spoznaj, kako prepoznati ta glas in verjeti, da si že zdaj dovolj.",
-        "blog-sindrom.png",
+        "blog-sindrom.webp",
         body,
         prev_post=POSTS[1],
         next_post=POSTS[3],
@@ -907,7 +900,7 @@ def page_blog_mir():
         "ko-mir-v-sebi-postane-pomembnejši-od-tega-da-imaš-prav",
         "Ko mir v sebi postane pomembnejši od tega, da imaš prav",
         "O notranji svobodi, ko mir izbereš pred dokazovanjem. Nauči se slišati sebe, ne potrebe po potrditvi.",
-        "blog-mir.png",
+        "blog-mir.webp",
         body,
         prev_post=POSTS[2],
         next_post=POSTS[4],
@@ -948,7 +941,7 @@ def page_blog_samozavest():
         "samozavest-ni-nekaj-kar-imas",
         "Samozavest ni nekaj, kar imaš – ampak nekaj, kar gradiš",
         "Samozavest ni lastnost, s katero se rodiš – je pot, ki jo gradiš skozi drobne izbire in notranji dialog. Preberi, kako lahko začneš danes.",
-        "blog-samozavest.png",
+        "blog-samozavest.webp",
         body,
         prev_post=POSTS[3],
         next_post=POSTS[5],
@@ -985,7 +978,7 @@ def page_blog_avtenticno():
         "avtenticno-vodenje-moc-resnicnega-stika",
         "Avtentično vodenje: Moč resničnega stika",
         "Avtentično vodenje ne temelji na popolnosti, temveč na iskrenosti in povezanosti. Preberi, kako lahko kot vodja navdihuješ s svojo avtentičnostjo.",
-        "blog-avtenticno.png",
+        "blog-avtenticno.webp",
         body,
         prev_post=POSTS[4],
         next_post=POSTS[6],
@@ -1026,7 +1019,7 @@ def page_blog_notranji():
         "notranji-kritik-kako-ga-prepoznati-in-spremeniti-v-zaveznika",
         "Notranji kritik: Kako ga prepoznati in spremeniti v zaveznika",
         "Notranji kritik pogosto ovira našo rast, a lahko postane vir učenja. Preberi, kako ga prepoznati in ga preoblikovati v notranjega zaveznika.",
-        "blog-notranji.png",
+        "blog-notranji.webp",
         body,
         prev_post=POSTS[5],
         next_post=POSTS[7],
@@ -1067,7 +1060,7 @@ def page_blog_odpornost():
         "odpornost-in-proznost-celostna-notranja-moc",
         "Odpornost in prožnost: Kako graditi notranjo moč celostno",
         "Odpornost ni le miselna trdnost – vključuje telo, čustva, misli in odnose. Preberi, kako lahko celostno gradiš notranjo moč in prožnost.",
-        "blog-odpornost.png",
+        "blog-odpornost.webp",
         body,
         prev_post=POSTS[6],
         next_post=None,
