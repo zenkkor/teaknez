@@ -323,10 +323,11 @@ def page_index():
 
 # ---------- ABOUT ----------
 def page_about():
-    body = """<section class="page-header">
+    body = """<section class="page-header page-header--about">
   <div class="container">
     <span class="eyebrow">O meni</span>
-    <h1>O meni</h1>
+    <h1>O <em>meni</em></h1>
+    <span class="page-header-rule" aria-hidden="true"></span>
     <p class="lead">Večina ljudi ne potrebuje več informacij. Potrebuje prostor, da lahko jasno razmisli.</p>
   </div>
 </section>
