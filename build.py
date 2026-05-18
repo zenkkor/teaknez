@@ -1107,7 +1107,7 @@ def page_contact():
         <input type="checkbox" name="consent" required>
         <span>Strinjam se s <a href="politika-zasebnosti.html">Pogoji.</a></span>
       </label>
-      <div class="h-captcha" data-captcha="true"></div>
+      <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
       <button type="submit" class="btn btn-primary">Piši mi</button>
       <div class="form-status" role="status" aria-live="polite"></div>
     </form>
