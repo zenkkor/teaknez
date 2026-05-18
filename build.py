@@ -325,19 +325,18 @@ def page_index():
 def page_about():
     body = """<section class="page-header page-header--about">
   <div class="container">
-    <span class="eyebrow">O meni</span>
-    <h1>O <em>meni</em></h1>
-    <span class="page-header-rule" aria-hidden="true"></span>
-    <p class="lead">Večina ljudi ne potrebuje več informacij. Potrebuje prostor, da lahko jasno razmisli.</p>
-  </div>
-</section>
-
-<section class="container">
-  <div class="about-intro">
-    <div class="split-image portrait"><img src="assets/images/about-tea.png" alt="Tea Knez"></div>
-    <div>
-      <p>Sem <strong>Tea</strong>, coachinja in podjetnica, predvsem pa ženska in mama. V svoji karieri sem delovala v okoljih, kjer so odločitve pomembne, odgovornost velika in odnosi kompleksni. Prav tam sem od blizu spoznala, kako hitro lahko jasnost zamegli pritisk - in kako dragocen je prostor za premišljen razmislek.</p>
-      <p>Vedno me je zanimalo, kaj ljudi zares premakne, ne le navzven, ampak navznoter. Kaj ustvarja notranjo stabilnost, iz katere lahko delujemo bolj zrelo.</p>
+    <div class="page-header-intro">
+      <span class="eyebrow">O meni</span>
+      <h1>O <em>meni</em></h1>
+      <span class="page-header-rule" aria-hidden="true"></span>
+      <p class="lead">Večina ljudi ne potrebuje več informacij. Potrebuje prostor, da lahko jasno razmisli.</p>
+    </div>
+    <div class="about-intro">
+      <div class="split-image portrait"><img src="assets/images/about-tea.png" alt="Tea Knez"></div>
+      <div>
+        <p>Sem <strong>Tea</strong>, coachinja in podjetnica, predvsem pa ženska in mama. V svoji karieri sem delovala v okoljih, kjer so odločitve pomembne, odgovornost velika in odnosi kompleksni. Prav tam sem od blizu spoznala, kako hitro lahko jasnost zamegli pritisk - in kako dragocen je prostor za premišljen razmislek.</p>
+        <p>Vedno me je zanimalo, kaj ljudi zares premakne, ne le navzven, ampak navznoter. Kaj ustvarja notranjo stabilnost, iz katere lahko delujemo bolj zrelo.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1080,7 +1079,8 @@ def page_contact():
     body = """<section class="page-header">
   <div class="container">
     <span class="eyebrow">Kontakt</span>
-    <h1>Začni svoje potovanje</h1>
+    <h1>Začni svoje <em>potovanje</em></h1>
+    <span class="page-header-rule" aria-hidden="true"></span>
     <p class="lead">Včasih že en pogovor prinese več jasnosti. Piši mi za rezervacijo prvega brezplačnega uvodnega srečanja, kjer skupaj pogledava, kje si in kam želiš.</p>
   </div>
 </section>
