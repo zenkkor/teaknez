@@ -122,7 +122,6 @@ def footer(depth=0):
     </div>
     <div class="footer-bottom">
       <span>© 2026 Integra, Tea Knez s.p.</span>
-      <span><a href="mailto:tea@teaknez.com">tea@teaknez.com</a></span>
     </div>
   </div>
 </footer>
