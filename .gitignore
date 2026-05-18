@@ -9,13 +9,8 @@ __pycache__/
 .venv/
 venv/
 
-# Local tooling (Playwright verification scripts, node_modules, etc.)
-.pw/node_modules/
-.pw/package-lock.json
-.pw/screenshots/
-.pw/live/
-.pw/local/
-.pw/local-v*/
+# Local tooling (Playwright verification scripts, screenshots, node_modules, etc.)
+.pw/
 
 # Editor
 .vscode/
