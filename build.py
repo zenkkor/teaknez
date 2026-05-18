@@ -396,15 +396,15 @@ def page_about():
       <h2>Vrednote, ki me vodijo</h2>
     </div>
     <div class="values">
-      <div class="value">
+      <div class="value" data-letter="P">
         <h3>Prisotnost</h3>
         <p>V vsakem srečanju sem polno zbrana, pozorna in odprta. Verjamem, da se spremembe začnejo takrat, ko se človek res počuti slišanega.</p>
       </div>
-      <div class="value">
+      <div class="value" data-letter="R">
         <h3>Rast</h3>
         <p>Ne ponujam rešitev namesto tebe. Verjamem, da že nosiš v sebi vse odgovore. Jaz sem tu, da ti pomagam, da jih (ponovno) odkriješ.</p>
       </div>
-      <div class="value">
+      <div class="value" data-letter="Z">
         <h3>Zaupanje</h3>
         <p>Temelj coachinga je iskrenost in spoštovanje meja. Tvoja izkušnja je tvoja, jaz sem tu, da jo podpiram brez sodbe.</p>
       </div>
