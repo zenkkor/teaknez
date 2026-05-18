@@ -333,8 +333,8 @@ def page_about():
     </div>
     <div class="about-intro">
       <div class="split-image portrait"><img src="assets/images/about-tea.png" alt="Tea Knez"></div>
-      <div>
-        <p>Sem <strong>Tea</strong>, coachinja in podjetnica, predvsem pa ženska in mama. V svoji karieri sem delovala v okoljih, kjer so odločitve pomembne, odgovornost velika in odnosi kompleksni. Prav tam sem od blizu spoznala, kako hitro lahko jasnost zamegli pritisk - in kako dragocen je prostor za premišljen razmislek.</p>
+      <div class="about-text">
+        <p><span class="dropcap">S</span>em <strong>Tea</strong>, coachinja in podjetnica, predvsem pa ženska in mama. V svoji karieri sem delovala v okoljih, kjer so odločitve pomembne, odgovornost velika in odnosi kompleksni. Prav tam sem od blizu spoznala, kako hitro lahko jasnost zamegli pritisk - in kako dragocen je prostor za premišljen razmislek.</p>
         <p>Vedno me je zanimalo, kaj ljudi zares premakne, ne le navzven, ampak navznoter. Kaj ustvarja notranjo stabilnost, iz katere lahko delujemo bolj zrelo.</p>
       </div>
     </div>
