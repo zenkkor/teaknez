@@ -323,6 +323,28 @@ ul li::marker { color: var(--clay); }
   line-height: 1.4;
 }
 .dropdown-link:hover strong { color: var(--clay-dark); }
+.dropdown-link--sub {
+  margin-left: 28px;
+  margin-top: -4px;
+  padding: 8px 14px 10px;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  position: relative;
+}
+.dropdown-link--sub::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 16px;
+  width: 10px;
+  height: 1px;
+  background: var(--sage);
+  opacity: 0.55;
+}
+.dropdown-link--sub:hover {
+  background: rgba(143, 163, 138, 0.1);
+  color: var(--sage-darker);
+}
 .dropdown-divider {
   height: 1px;
   background: var(--line);
@@ -1973,6 +1995,59 @@ ul li::marker { color: var(--clay); }
   .program-card { padding: 28px 24px; }
   .benefit-col { padding: 28px 24px; }
   .about-pullquote { font-size: 1.15rem; padding-top: 18px; margin-top: 22px; }
+}
+
+/* Program callout: surface a deeper sub-program on a service page */
+.program-callout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 32px;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(143, 163, 138, 0.14) 0%, rgba(232, 220, 200, 0.4) 100%);
+  border: 1px solid rgba(143, 163, 138, 0.28);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.program-callout::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--sage);
+}
+.program-callout-text .eyebrow {
+  color: var(--sage-darker);
+  margin-bottom: 12px;
+}
+.program-callout-text h2 {
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.program-callout-text h2 em {
+  font-style: italic;
+  color: var(--sage-darker);
+}
+.program-callout-text p {
+  color: var(--ink-soft);
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.program-callout-cta {
+  justify-self: end;
+}
+@media (max-width: 760px) {
+  .program-callout {
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+    gap: 20px;
+  }
+  .program-callout-cta { justify-self: start; }
 }
 
 /* Minimal header (landing pages): logo left, single CTA right */

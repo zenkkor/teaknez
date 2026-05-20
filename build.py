@@ -120,6 +120,9 @@ def header(active, depth=0):
             <strong>Coaching za podjetja</strong>
             <span>Kultura zaupanja, zavestnega vodenja in odgovornosti.</span>
           </a></li>
+          <li role="none"><a class="dropdown-link dropdown-link--sub" role="menuitem" href="{p}podpora-vracanju.html">
+            Podpora vračanju po porodniški
+          </a></li>
           <li role="none"><hr class="dropdown-divider"></li>
           <li role="none"><a class="dropdown-link dropdown-link-all" role="menuitem" href="{p}storitve.html">
             <strong>Vse storitve →</strong>
@@ -533,7 +536,7 @@ def page_services_hub():
 
 
 # ---------- SERVICE DETAIL TEMPLATE ----------
-def service_detail(slug, title, lead, intro_paragraphs, bullets_intro, bullets, benefits_intro, benefits, image, meta_pills, head_desc):
+def service_detail(slug, title, lead, intro_paragraphs, bullets_intro, bullets, benefits_intro, benefits, image, meta_pills, head_desc, extra_block=""):
     bullets_html = ""
     if bullets:
         items = "\n".join(f"      <li>{b}</li>" for b in bullets)
@@ -582,6 +585,7 @@ def service_detail(slug, title, lead, intro_paragraphs, bullets_intro, bullets, 
     </div>
   </div>
 </section>
+{extra_block}
 """ + testimonials_section() + """
 <section class="cta-end">
   <div class="container">
@@ -652,6 +656,22 @@ def page_karierni():
 
 
 def page_podjetja():
+    podpora_callout = """
+<section class="section">
+  <div class="container">
+    <div class="program-callout">
+      <div class="program-callout-text">
+        <span class="eyebrow">Posebna podpora</span>
+        <h2>Vračanje po porodniški <em>kot ločen program</em></h2>
+        <p>Za podjetja, ki želijo bolj jasen okvir za kakovostno reintegracijo zaposlenih po porodniški: 2-urni seminar za vodje in HR ter 1:1 coaching proces za zaposlene.</p>
+      </div>
+      <div class="program-callout-cta">
+        <a href="../podpora-vracanju.html" class="btn btn-primary">Spoznajte program →</a>
+      </div>
+    </div>
+  </div>
+</section>
+"""
     service_detail(
         slug="coaching-za-podjetja",
         title="Coaching za podjetja",
@@ -676,7 +696,8 @@ def page_podjetja():
         ],
         image="service-podjetja.webp",
         meta_pills=["Individualno ali skupinsko", "Online ali v živo", "Skladno z ICF standardi"],
-        head_desc="Coaching za podjetja. Razvoj vodij, ekip in kulture zaupanja. Profesionalno strukturiran proces v skladu z ICF standardi."
+        head_desc="Coaching za podjetja. Razvoj vodij, ekip in kulture zaupanja. Profesionalno strukturiran proces v skladu z ICF standardi.",
+        extra_block=podpora_callout
     )
 
 
@@ -1593,7 +1614,7 @@ def page_podpora_vracanju():
         "Vračanje po porodniški: podpora podjetjem - Tea Knez",
         "Seminar za vodje in HR ter 1:1 coaching za zaposlene ob vračanju po porodniški. Strukturirana podpora kakovostni reintegraciji zaposlenih.",
         "https://www.teaknez.com/podpora-vracanju.html", 0
-    ) + header_minimal(0) + body + footer(0)
+    ) + header("services", 0) + body + footer(0)
     write("podpora-vracanju.html", page)
 
 
