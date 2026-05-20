@@ -172,4 +172,43 @@
       }
     });
   }
+
+  // Modal — open via [data-open-modal="id"], close via [data-modal-close] or Escape
+  const modalTriggers = document.querySelectorAll("[data-open-modal]");
+  if (modalTriggers.length) {
+    let lastFocused = null;
+    function openModal(modal) {
+      lastFocused = document.activeElement;
+      modal.hidden = false;
+      document.body.classList.add("modal-open");
+      lockScroll();
+      const focusable = modal.querySelector("input, textarea, button, [href]");
+      if (focusable) focusable.focus({ preventScroll: true });
+    }
+    function closeModal(modal) {
+      modal.hidden = true;
+      document.body.classList.remove("modal-open");
+      unlockScroll();
+      if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+    }
+    modalTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = trigger.getAttribute("data-open-modal");
+        const modal = document.getElementById(id);
+        if (modal) openModal(modal);
+      });
+    });
+    document.querySelectorAll(".modal [data-modal-close]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const modal = btn.closest(".modal");
+        if (modal) closeModal(modal);
+      });
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      const openOne = document.querySelector(".modal:not([hidden])");
+      if (openOne) closeModal(openOne);
+    });
+  }
 })();

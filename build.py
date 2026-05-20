@@ -31,6 +31,69 @@ def head(title, description, canonical, depth=0):
 <body>
 """
 
+def header_minimal(depth=0):
+    p = "../" * depth
+    return f"""<a href="#main" class="skip-link">Preskoči na vsebino</a>
+<header class="site-header site-header--minimal">
+  <div class="container">
+    <a href="{p}index.html" class="site-logo" aria-label="Tea Knez Coaching - domov">
+      <span>Tea Knez<small class="tag">Coaching</small></span>
+    </a>
+    <a href="{p}index.html" class="nav-cta nav-cta--ghost">Na domačo stran</a>
+  </div>
+</header>
+<main id="main">
+"""
+
+
+def contact_modal(depth=0, subject="Povpraševanje s teaknez.com"):
+    p = "../" * depth
+    return f"""<div class="modal" id="contact-modal" role="dialog" aria-labelledby="contact-modal-title" aria-modal="true" hidden>
+  <div class="modal-backdrop" data-modal-close></div>
+  <div class="modal-dialog" role="document">
+    <button class="modal-close" type="button" aria-label="Zapri" data-modal-close>
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-body">
+      <span class="eyebrow">Uvodni pogovor</span>
+      <h2 id="contact-modal-title">Dogovorimo se</h2>
+      <p class="modal-lead">Pusti mi kontakt in javim se ti za kratek uvodni pogovor.</p>
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-web3forms>
+        <input type="hidden" name="access_key" value="e78b399d-a62e-494f-b90b-519f4b7f7a48">
+        <input type="hidden" name="subject" value="{subject}">
+        <input type="hidden" name="from_name" value="teaknez.com">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field">
+          <label for="modal-name">Ime*</label>
+          <input id="modal-name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="modal-email">Email*</label>
+          <input id="modal-email" name="email" type="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="modal-company">Podjetje</label>
+          <input id="modal-company" name="company" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="modal-message">Sporočilo</label>
+          <textarea id="modal-message" name="message" placeholder="Napiši na kratko, kaj te zanima…"></textarea>
+        </div>
+        <label class="field-check">
+          <input type="checkbox" name="consent" required>
+          <span>Strinjam se s <a href="{p}politika-zasebnosti.html">Pogoji.</a></span>
+        </label>
+        <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
+        <button type="submit" class="btn btn-primary">Pošlji</button>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+"""
+
+
 def header(active, depth=0):
     p = "../" * depth
     chev = '<svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -1287,7 +1350,7 @@ def page_podpora_vracanju():
       <span class="page-header-rule" aria-hidden="true"></span>
       <p class="lead">Je pomemben prehod, ki vpliva na samozavest, energijo, identiteto in način, kako se zaposlene ponovno vključijo v delovno okolje.</p>
       <p class="page-header-subtext">Podpora podjetjem pri kakovostni reintegraciji zaposlenih skozi <strong>seminarje za vodje in HR</strong> ter <strong>individualni coaching za zaposlene</strong> ob vračanju po porodniški ali daljši odsotnosti.</p>
-      <a href="kontakt.html" class="btn btn-primary page-header-cta">Dogovorite uvodni pogovor</a>
+      <button type="button" class="btn btn-primary page-header-cta" data-open-modal="contact-modal">Dogovorite uvodni pogovor</button>
       <div class="service-meta page-header-meta">
         <span class="service-meta-item">2-urni seminar za vodje</span>
         <span class="service-meta-item">1:1 coaching podpora</span>
@@ -1391,7 +1454,7 @@ def page_podpora_vracanju():
         <strong>Kaj seminar ni:</strong> To ni motivacijski seminar ali splošno predavanje o wellbeing-u. Gre za <em>strukturirano podporo vodjem in podjetjem</em> pri kakovostni reintegraciji zaposlenih po pomembnem življenjskem prehodu.
       </div>
       <div class="program-cta">
-        <a href="kontakt.html" class="btn btn-primary">Pošljite povpraševanje</a>
+        <button type="button" class="btn btn-primary" data-open-modal="contact-modal">Pošljite povpraševanje</button>
       </div>
     </div>
   </div>
@@ -1445,7 +1508,7 @@ def page_podpora_vracanju():
       </div>
       <p class="program-note">Coaching je na voljo kot samostojna podpora ali kot nadgradnja seminarja za podjetja.</p>
       <div class="program-cta">
-        <a href="kontakt.html" class="btn btn-primary">Dogovorite uvodni pogovor</a>
+        <button type="button" class="btn btn-primary" data-open-modal="contact-modal">Dogovorite uvodni pogovor</button>
       </div>
     </div>
   </div>
@@ -1512,7 +1575,7 @@ def page_podpora_vracanju():
         <li>tesnejše sodelovanje</li>
         <li>soustvarjanje nadaljnjega razvoja programa</li>
       </ul>
-      <a href="kontakt.html" class="btn btn-primary">Rezervirajte uvodni pogovor</a>
+      <button type="button" class="btn btn-primary" data-open-modal="contact-modal">Rezervirajte uvodni pogovor</button>
     </div>
   </div>
 </section>
@@ -1521,15 +1584,16 @@ def page_podpora_vracanju():
   <div class="container">
     <h2>Želite vodjem ponuditi bolj jasen okvir za <em>podporo zaposlenim ob vračanju po porodniški?</em></h2>
     <p class="cta-end-lead">Dogovorimo se za kratek uvodni pogovor in preverimo, kako bi seminar ali coaching podpora lahko najbolje podprla vaše zaposlene in vodje.</p>
-    <a href="kontakt.html" class="btn btn-primary">Dogovorite uvodni pogovor</a>
+    <button type="button" class="btn btn-primary" data-open-modal="contact-modal">Dogovorite uvodni pogovor</button>
   </div>
 </section>"""
 
+    body += "\n" + contact_modal(0, subject="Povpraševanje – podpora vračanju po porodniški")
     page = head(
         "Vračanje po porodniški: podpora podjetjem - Tea Knez",
         "Seminar za vodje in HR ter 1:1 coaching za zaposlene ob vračanju po porodniški. Strukturirana podpora kakovostni reintegraciji zaposlenih.",
         "https://www.teaknez.com/podpora-vracanju.html", 0
-    ) + header("", 0) + body + footer(0)
+    ) + header_minimal(0) + body + footer(0)
     write("podpora-vracanju.html", page)
 
 
