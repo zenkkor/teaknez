@@ -1630,7 +1630,13 @@ ul li::marker { color: var(--clay); }
     margin-left: 10px;
     flex: none;
   }
-  .nav-link .chevron { width: 14px; height: 14px; transition: transform .25s ease; }
+  .nav-link .chevron {
+    width: 14px;
+    height: 14px;
+    margin-left: auto;
+    transition: transform .25s ease;
+    flex: none;
+  }
 
   /* Mobile: each top-level nav item stacks vertically (cancel the
      desktop flex-alignment hack on the <li>) */
@@ -1668,19 +1674,21 @@ ul li::marker { color: var(--clay); }
   .dropdown-link {
     display: flex;
     align-items: center;
-    padding: 12px 14px;
-    background: rgba(181, 135, 106, 0.08);
-    border: 1px solid rgba(181, 135, 106, 0.15);
-    border-radius: 10px;
-    margin-bottom: 6px;
+    padding: 12px 18px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    color: var(--ink-soft);
+    position: relative;
   }
   /* Kill the desktop hover-bar / chevron pseudo-elements on mobile */
   .dropdown-link::before,
   .dropdown-link::after { content: none; }
-  .dropdown-link strong { font-size: 0.98rem; }
+  .dropdown-link strong { font-size: 0.98rem; font-weight: 500; color: var(--ink); }
   .dropdown-link.dropdown-link--sub {
-    margin-left: 18px;
-    padding: 10px 14px 10px 30px;
+    margin-left: 16px;
+    padding: 10px 14px 10px 28px;
     font-size: 0.92rem;
   }
   .dropdown-link.dropdown-link--sub::before {
@@ -1694,6 +1702,7 @@ ul li::marker { color: var(--clay); }
     opacity: 0.6;
     transform: translateY(-50%);
   }
+  .dropdown-link.dropdown-link--sub strong { font-weight: 400; color: var(--ink-soft); }
   .dropdown-link.dropdown-link-all { display: none; }
   .dropdown-divider { display: none; }
 
