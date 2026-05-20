@@ -108,22 +108,22 @@ def header(active, depth=0):
           Storitve {chev}
         </a>
         <ul class="dropdown-menu" role="menu">
-          <li role="none"><a class="dropdown-link is-numbered has-arrow" role="menuitem" href="{p}storitve/osebni-coaching.html">
+          <li role="none"><a class="dropdown-link has-arrow" role="menuitem" href="{p}storitve/osebni-coaching.html">
             <strong>Osebni coaching</strong>
           </a></li>
-          <li role="none"><a class="dropdown-link is-numbered has-arrow" role="menuitem" href="{p}storitve/karierni-in-poslovni-coaching.html">
+          <li role="none"><a class="dropdown-link has-arrow" role="menuitem" href="{p}storitve/karierni-in-poslovni-coaching.html">
             <strong>Karierni in poslovni coaching</strong>
           </a></li>
-          <li role="none"><a class="dropdown-link is-numbered has-arrow" role="menuitem" href="{p}storitve/coaching-za-podjetja.html">
+          <li role="none"><a class="dropdown-link has-arrow" role="menuitem" href="{p}storitve/coaching-za-podjetja.html">
             <strong>Coaching za podjetja</strong>
           </a></li>
-          <li role="none"><a class="dropdown-link dropdown-link--sub has-arrow" role="menuitem" href="{p}podpora-vracanju.html">
+          <li role="none"><a class="dropdown-link dropdown-link--sub" role="menuitem" href="{p}podpora-vracanju.html">
             <strong>Podpora vračanju po porodniški</strong>
           </a></li>
           <li role="none"><hr class="dropdown-divider"></li>
           <li role="none"><a class="dropdown-link dropdown-link-all" role="menuitem" href="{p}storitve.html">
             <strong>Vse storitve</strong>
-            <span aria-hidden="true">→</span>
+            <span class="dropdown-all-arrow" aria-hidden="true">→</span>
           </a></li>
         </ul>
       </li>"""

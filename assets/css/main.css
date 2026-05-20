@@ -299,13 +299,13 @@ ul li::marker { color: var(--clay); }
 .dropdown-link {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 11px 16px;
+  gap: 12px;
+  padding: 11px 18px;
   border-radius: 12px;
   color: var(--ink);
   text-decoration: none;
   position: relative;
-  transition: background .2s ease, color .2s ease;
+  transition: background .2s ease, color .2s ease, padding .2s ease;
 }
 .dropdown-link strong {
   font-size: 0.98rem;
@@ -313,22 +313,24 @@ ul li::marker { color: var(--clay); }
   color: var(--ink);
   letter-spacing: 0;
   flex: 1;
+  transition: color .2s ease;
 }
-/* Italic serif Roman numeral on each top-level service item */
-.dropdown-link.is-numbered::before {
-  counter-increment: dropdown-item;
-  content: counter(dropdown-item, lower-roman) ".";
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: 1rem;
-  color: var(--sage);
-  min-width: 22px;
-  text-align: right;
-  opacity: 0.75;
-  transition: opacity .2s ease, color .2s ease;
+/* Small sage vertical bar that grows on hover at the left edge.
+   Anchored absolutely so the label doesn't shift. */
+.dropdown-link::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  width: 2px;
+  height: 0;
+  background: var(--sage);
+  border-radius: 2px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: height .2s ease, opacity .2s ease;
 }
-/* Chevron arrow on the right, animates in on hover */
+/* Chevron on the right, animates in on hover */
 .dropdown-link.has-arrow::after {
   content: "→";
   margin-left: auto;
@@ -346,45 +348,68 @@ ul li::marker { color: var(--clay); }
 .dropdown-link:hover strong,
 .dropdown-link:focus-visible strong { color: var(--sage-darker); }
 .dropdown-link:hover::before,
-.dropdown-link:focus-visible::before { opacity: 1; color: var(--sage-darker); }
+.dropdown-link:focus-visible::before {
+  height: 18px;
+  opacity: 1;
+}
 .dropdown-link:hover::after,
 .dropdown-link:focus-visible::after { opacity: 1; transform: translateX(0); }
 
 /* Sub-link (indented child entry) */
 .dropdown-link--sub {
-  margin-left: 38px;
+  margin-left: 32px;
   margin-top: -2px;
-  padding: 8px 14px;
+  padding: 8px 14px 8px 18px;
   font-size: 0.88rem;
   color: var(--ink-soft);
+  position: relative;
 }
 .dropdown-link--sub::before {
   content: "";
-  display: block;
-  width: 12px;
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  width: 14px;
   height: 1px;
   background: var(--sage);
   opacity: 0.55;
-  flex: none;
-  min-width: 0;
+  transform: none;
+  border-radius: 0;
+  background: var(--sage);
+  transition: width .2s ease, opacity .2s ease;
 }
 .dropdown-link--sub:hover {
   background: rgba(143, 163, 138, 0.1);
   color: var(--sage-darker);
 }
-
-/* "Vse storitve →" as a quieter tag-styled link */
-.dropdown-link-all {
-  justify-content: space-between;
-  font-size: 0.84rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--sage-darker);
-  padding: 10px 16px;
+.dropdown-link--sub:hover::before {
+  width: 22px;
+  opacity: 0.85;
+  height: 1px;
 }
-.dropdown-link-all strong { font-weight: 500; }
+/* the generic .dropdown-link::before vertical bar shouldn't show on sub-links */
+.dropdown-link--sub:hover::before { height: 1px; }
+
+/* "Vse storitve" — quieter italic serif anchor at the bottom */
+.dropdown-link-all {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--sage-darker);
+  padding: 10px 18px;
+}
+.dropdown-link-all strong { font-weight: 500; font-family: inherit; }
+.dropdown-link-all .dropdown-all-arrow {
+  margin-left: 8px;
+  color: var(--sage);
+  font-family: var(--sans);
+  font-style: normal;
+  transition: transform .2s ease;
+  display: inline-block;
+}
 .dropdown-link-all:hover { background: rgba(143, 163, 138, 0.12); }
+.dropdown-link-all:hover .dropdown-all-arrow { transform: translateX(4px); }
 
 .dropdown-divider {
   height: 1px;
