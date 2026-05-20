@@ -2050,12 +2050,12 @@ ul li::marker { color: var(--clay); }
 }
 .about-pullquote strong { color: var(--sage-darker); font-weight: 500; }
 
-/* Pilot list inside cta-band */
+/* Pilot list inside cta-band — block-level so the button sits on its own row */
 .cta-band .pilot-list {
   list-style: none;
   padding: 0;
-  margin: 14px 0 28px;
-  display: inline-block;
+  margin: 14px auto 28px;
+  width: fit-content;
   text-align: left;
 }
 .cta-band .pilot-list li {
