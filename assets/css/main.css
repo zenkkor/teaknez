@@ -261,7 +261,7 @@ ul li::marker { color: var(--clay); }
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 12px;
-  min-width: 360px;
+  min-width: 280px;
   box-shadow: 0 24px 60px rgba(74, 56, 42, 0.14);
   opacity: 0;
   pointer-events: none;
@@ -299,8 +299,8 @@ ul li::marker { color: var(--clay); }
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 14px 16px;
-  border-radius: 14px;
+  padding: 10px 16px;
+  border-radius: 12px;
   color: var(--ink);
   text-decoration: none;
   transition: background .2s ease, color .2s ease;

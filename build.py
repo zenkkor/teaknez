@@ -110,15 +110,12 @@ def header(active, depth=0):
         <ul class="dropdown-menu" role="menu">
           <li role="none"><a class="dropdown-link" role="menuitem" href="{p}storitve/osebni-coaching.html">
             <strong>Osebni coaching</strong>
-            <span>Prostor za jasen razmislek in zrele odločitve.</span>
           </a></li>
           <li role="none"><a class="dropdown-link" role="menuitem" href="{p}storitve/karierni-in-poslovni-coaching.html">
             <strong>Karierni in poslovni coaching</strong>
-            <span>Za prehode, premišljen naslednji korak in nove vloge.</span>
           </a></li>
           <li role="none"><a class="dropdown-link" role="menuitem" href="{p}storitve/coaching-za-podjetja.html">
             <strong>Coaching za podjetja</strong>
-            <span>Kultura zaupanja, zavestnega vodenja in odgovornosti.</span>
           </a></li>
           <li role="none"><a class="dropdown-link dropdown-link--sub" role="menuitem" href="{p}podpora-vracanju.html">
             Podpora vračanju po porodniški
