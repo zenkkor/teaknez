@@ -260,8 +260,8 @@ ul li::marker { color: var(--clay); }
   background: var(--cream);
   border: 1px solid var(--line);
   border-radius: 20px;
-  padding: 12px;
-  min-width: 280px;
+  padding: 16px;
+  min-width: 360px;
   box-shadow: 0 24px 60px rgba(74, 56, 42, 0.14);
   opacity: 0;
   pointer-events: none;
@@ -269,6 +269,7 @@ ul li::marker { color: var(--clay); }
   z-index: 110;
   list-style: none;
   margin: 0;
+  counter-reset: dropdown-item;
 }
 .dropdown-menu::before {
   content: "";
@@ -297,58 +298,98 @@ ul li::marker { color: var(--clay); }
 }
 .dropdown-link {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 10px 16px;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 16px;
   border-radius: 12px;
   color: var(--ink);
   text-decoration: none;
+  position: relative;
   transition: background .2s ease, color .2s ease;
+}
+.dropdown-link strong {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0;
+  flex: 1;
+}
+/* Italic serif Roman numeral on each top-level service item */
+.dropdown-link.is-numbered::before {
+  counter-increment: dropdown-item;
+  content: counter(dropdown-item, lower-roman) ".";
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--sage);
+  min-width: 22px;
+  text-align: right;
+  opacity: 0.75;
+  transition: opacity .2s ease, color .2s ease;
+}
+/* Chevron arrow on the right, animates in on hover */
+.dropdown-link.has-arrow::after {
+  content: "→";
+  margin-left: auto;
+  color: var(--sage-darker);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity .2s ease, transform .2s ease;
+  font-size: 0.95rem;
 }
 .dropdown-link:hover,
 .dropdown-link:focus-visible {
-  background: var(--cream-soft);
-  color: var(--ink);
+  background: rgba(143, 163, 138, 0.1);
+  color: var(--sage-darker);
 }
-.dropdown-link strong {
-  display: block;
-  font-size: 0.98rem;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: 0;
-}
-.dropdown-link span {
-  font-size: 0.86rem;
-  color: var(--muted);
-  line-height: 1.4;
-}
-.dropdown-link:hover strong { color: var(--clay-dark); }
+.dropdown-link:hover strong,
+.dropdown-link:focus-visible strong { color: var(--sage-darker); }
+.dropdown-link:hover::before,
+.dropdown-link:focus-visible::before { opacity: 1; color: var(--sage-darker); }
+.dropdown-link:hover::after,
+.dropdown-link:focus-visible::after { opacity: 1; transform: translateX(0); }
+
+/* Sub-link (indented child entry) */
 .dropdown-link--sub {
-  margin-left: 28px;
-  margin-top: -4px;
-  padding: 8px 14px 10px;
+  margin-left: 38px;
+  margin-top: -2px;
+  padding: 8px 14px;
   font-size: 0.88rem;
   color: var(--ink-soft);
-  position: relative;
 }
 .dropdown-link--sub::before {
   content: "";
-  position: absolute;
-  left: -14px;
-  top: 16px;
-  width: 10px;
+  display: block;
+  width: 12px;
   height: 1px;
   background: var(--sage);
   opacity: 0.55;
+  flex: none;
+  min-width: 0;
 }
 .dropdown-link--sub:hover {
   background: rgba(143, 163, 138, 0.1);
   color: var(--sage-darker);
 }
+
+/* "Vse storitve →" as a quieter tag-styled link */
+.dropdown-link-all {
+  justify-content: space-between;
+  font-size: 0.84rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--sage-darker);
+  padding: 10px 16px;
+}
+.dropdown-link-all strong { font-weight: 500; }
+.dropdown-link-all:hover { background: rgba(143, 163, 138, 0.12); }
+
 .dropdown-divider {
   height: 1px;
   background: var(--line);
-  margin: 6px 14px;
+  margin: 10px 14px;
   border: 0;
 }
 
