@@ -355,27 +355,26 @@ ul li::marker { color: var(--clay); }
 .dropdown-link:hover::after,
 .dropdown-link:focus-visible::after { opacity: 1; transform: translateX(0); }
 
-/* Sub-link (indented child entry) */
+/* Sub-link (indented child entry). Same full-row hover area as the
+   main entries; the indent comes from padding so the tick mark stays
+   inside the link's hover box. */
 .dropdown-link--sub {
-  margin-left: 32px;
   margin-top: -2px;
-  padding: 8px 14px 8px 18px;
+  padding: 8px 18px 8px 50px;
   font-size: 0.88rem;
   color: var(--ink-soft);
-  position: relative;
 }
 .dropdown-link--sub::before {
   content: "";
   position: absolute;
-  left: -10px;
+  left: 24px;
   top: 50%;
   width: 14px;
   height: 1px;
   background: var(--sage);
-  opacity: 0.55;
-  transform: none;
   border-radius: 0;
-  background: var(--sage);
+  opacity: 0.55;
+  transform: translateY(-50%);
   transition: width .2s ease, opacity .2s ease;
 }
 .dropdown-link--sub:hover {
@@ -387,8 +386,6 @@ ul li::marker { color: var(--clay); }
   opacity: 0.85;
   height: 1px;
 }
-/* the generic .dropdown-link::before vertical bar shouldn't show on sub-links */
-.dropdown-link--sub:hover::before { height: 1px; }
 
 /* "Vse storitve" — quieter italic serif anchor at the bottom */
 .dropdown-link-all {
