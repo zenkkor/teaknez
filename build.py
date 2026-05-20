@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Build static teaknez.com from extracted content."""
 import os, re, html as ihtml
+from datetime import datetime
 from pathlib import Path
+
+CURRENT_YEAR = datetime.now().year
 
 SITE = Path(__file__).parent
 
@@ -185,7 +188,7 @@ def footer(depth=0):
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Integra, Tea Knez s.p.</span>
+      <span>© {CURRENT_YEAR} Integra, Tea Knez s.p.</span>
     </div>
   </div>
 </footer>
