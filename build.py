@@ -1277,6 +1277,262 @@ def page_cookies():
     write("piskotki.html", page)
 
 
+# ---------- STANDALONE LANDING PAGE ----------
+def page_podpora_vracanju():
+    body = """<section class="page-header page-header--landing">
+  <div class="container">
+    <div class="page-header-intro">
+      <span class="eyebrow">Program za podjetja</span>
+      <h1>Vračanje po porodniški <em>ni samo organizacijski proces</em>.</h1>
+      <span class="page-header-rule" aria-hidden="true"></span>
+      <p class="lead">Je pomemben prehod, ki vpliva na samozavest, energijo, identiteto in način, kako se zaposlene ponovno vključijo v delovno okolje.</p>
+      <p class="page-header-subtext">Podpora podjetjem pri kakovostni reintegraciji zaposlenih skozi <strong>seminarje za vodje in HR</strong> ter <strong>individualni coaching za zaposlene</strong> ob vračanju po porodniški ali daljši odsotnosti.</p>
+      <a href="kontakt.html" class="btn btn-primary page-header-cta">Dogovorite uvodni pogovor</a>
+      <div class="service-meta page-header-meta">
+        <span class="service-meta-item">2-urni seminar za vodje</span>
+        <span class="service-meta-item">1:1 coaching podpora</span>
+        <span class="service-meta-item">Pilotni program za podjetja</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" style="text-align:left;max-width:820px;margin-left:0;">
+      <span class="eyebrow">Realnost prehoda</span>
+      <h2>Ko se zaposlene vračajo na delo, se pogosto <em>ne vračajo kot iste osebe</em>.</h2>
+    </div>
+    <div class="prose-narrow">
+      <p>Ob vračanju po porodniški se zaposlene pogosto soočajo z:</p>
+      <ul class="lp-list">
+        <li>občutkom, da morajo hitro dokazati, da so še vedno enako učinkovite kot pred odsotnostjo</li>
+        <li>spremembo prioritet in identitete</li>
+        <li>notranjim pritiskom</li>
+        <li>zmanjšano samozavestjo</li>
+        <li>konstantno razpetostjo med delom, logistiko in občutkom, da nikjer niso zares dovolj prisotne</li>
+        <li>usklajevanjem nove osebne in profesionalne vloge</li>
+      </ul>
+      <p>Navzven lahko delujejo "nazaj v rutini". V resnici pa pogosto poteka <strong>intenziven notranji prehod</strong>, ki vpliva na fokus, energijo, občutek stabilnosti in pripadnosti delovnemu okolju.</p>
+      <p class="prose-sub-eyebrow">Tudi vodje pogosto:</p>
+      <ul class="lp-list">
+        <li>ne vedo, kako odpreti temo vračanja po porodniški</li>
+        <li>ne želijo delovati vsiljivo</li>
+        <li>težko postavijo prava pričakovanja</li>
+        <li>ali pa prehitro pričakujejo vrnitev v "stari način delovanja"</li>
+      </ul>
+      <p>Največkrat ne gre za pomanjkanje podpore. Temveč za pomanjkanje <strong>jasnega okvirja</strong>, kako zaposlene v tem obdobju kakovostno podpreti.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream">
+  <div class="container">
+    <div class="outcomes">
+      <span class="eyebrow">Zakaj je to pomembno</span>
+      <h2>Zakaj je to pomembno za podjetje?</h2>
+      <p>Način, kako podjetje podpre zaposleno ob vračanju, pogosto dolgoročno vpliva tudi na njen občutek pripadnosti organizaciji.</p>
+      <p><strong>Podjetja, ki znajo bolje podpreti zaposlene v prehodnih obdobjih:</strong></p>
+      <ul>
+        <li>gradijo več psihološke varnosti</li>
+        <li>povečujejo zavzetost zaposlenih</li>
+        <li>ustvarjajo bolj trajnostno delovno okolje</li>
+        <li>zmanjšujejo tveganje za disengagement in preobremenjenost</li>
+        <li>podpirajo bolj stabilno in dolgoročno reintegracijo zaposlenih</li>
+      </ul>
+      <p class="outcomes-final">To ni samo wellbeing iniciativa. Gre za <em>kakovost leadershipa, employee experience in dolgoročno stabilnost zaposlenih</em>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="program">
+      <div class="program-head">
+        <span class="eyebrow">Seminar za vodje in HR</span>
+        <h2>Kako podpreti zaposlene pri <em>vračanju s porodniške</em></h2>
+        <p class="lead">2-urni interaktivni seminar za podjetja, ki želijo vodjem ponuditi bolj jasen okvir za podporo zaposlenim ob vračanju na delo.</p>
+      </div>
+      <div class="program-grid">
+        <div class="program-card" data-letter="A">
+          <h3>Seminar vodjem pomaga razumeti</h3>
+          <ul>
+            <li>kaj zaposlene v tem obdobju pogosto doživljajo</li>
+            <li>kako voditi bolj podporne pogovore</li>
+            <li>kako ustvariti več psihološke varnosti</li>
+            <li>kako podpreti reintegracijo brez pretiranega pritiska ali patronizing pristopa</li>
+          </ul>
+        </div>
+        <div class="program-card" data-letter="B">
+          <h3>Seminar vključuje</h3>
+          <ul>
+            <li>razumevanje psihološkega in profesionalnega prehoda po porodniški</li>
+            <li>najpogostejše izzive reintegracije</li>
+            <li>komunikacijo in podporo zaposlenim</li>
+            <li>leadership pristop pri vračanju zaposlenih</li>
+            <li>konkretne check-in frameworke za vodje</li>
+            <li>postavljanje realističnih pričakovanj</li>
+            <li>najpogostejše napake pri reintegraciji zaposlenih</li>
+          </ul>
+        </div>
+        <div class="program-card" data-letter="C">
+          <h3>Vodje po seminarju</h3>
+          <ul>
+            <li>bolje razumejo dinamiko vračanja po porodniški</li>
+            <li>dobijo konkretna vprašanja za check-ine</li>
+            <li>znajo postaviti bolj realistična pričakovanja</li>
+            <li>lažje vodijo podporne pogovore</li>
+            <li>imajo jasnejši framework za podporo zaposlenim v prehodnem obdobju</li>
+          </ul>
+        </div>
+      </div>
+      <p class="program-note">Seminar je na voljo kot samostojna storitev ali kot del širše podpore zaposlenim.</p>
+      <div class="program-disclaimer">
+        <strong>Kaj seminar ni:</strong> To ni motivacijski seminar ali splošno predavanje o wellbeing-u. Gre za <em>strukturirano podporo vodjem in podjetjem</em> pri kakovostni reintegraciji zaposlenih po pomembnem življenjskem prehodu.
+      </div>
+      <div class="program-cta">
+        <a href="kontakt.html" class="btn btn-primary">Pošljite povpraševanje</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream">
+  <div class="container">
+    <div class="program">
+      <div class="program-head">
+        <span class="eyebrow">Individualni coaching za zaposlene</span>
+        <h2>Strukturirana podpora <em>ob vračanju na delo</em></h2>
+        <p class="lead">1:1 coaching proces (6 srečanj), namenjen zaposlenim ob vračanju po porodniški ali daljši odsotnosti.</p>
+        <p>Coaching proces ni usmerjen v "hitro vrnitev v staro stanje", temveč v <strong>podporo zaposleni pri ustvarjanju bolj stabilnega in dolgoročno vzdržnega načina vračanja v delovno okolje</strong>.</p>
+      </div>
+      <div class="program-grid">
+        <div class="program-card" data-letter="A">
+          <h3>Coaching podpira</h3>
+          <ul>
+            <li>več notranje stabilnosti</li>
+            <li>boljše upravljanje energije in prioritet</li>
+            <li>več jasnosti in samozavesti</li>
+            <li>zmanjševanje notranjega pritiska</li>
+            <li>bolj trajnostno reintegracijo v delovno okolje</li>
+          </ul>
+        </div>
+        <div class="program-card" data-letter="B">
+          <h3>Pogoste coaching teme</h3>
+          <ul>
+            <li>overwhelm in mental load</li>
+            <li>sprememba identitete</li>
+            <li>postavljanje meja</li>
+            <li>vračanje v vodstveno vlogo po porodniški</li>
+            <li>energija, fokus in prioritete</li>
+            <li>usklajevanje profesionalne in osebne vloge</li>
+            <li>občutek zmanjšane samozavesti ob vračanju na delo</li>
+          </ul>
+        </div>
+        <div class="program-card" data-letter="C">
+          <h3>Coaching proces vključuje</h3>
+          <ul>
+            <li>uvodni reflection in določitev ključnih izzivov</li>
+            <li>strukturirane coaching pogovore</li>
+            <li>podporo pri postavljanju prioritet</li>
+            <li>refleksijo vedenjskih in notranjih vzorcev</li>
+            <li>konkretna orodja za bolj trajnostno reintegracijo</li>
+          </ul>
+        </div>
+      </div>
+      <div class="program-disclaimer">
+        <strong>Kaj coaching ni:</strong> Coaching ni terapija ali pritisk k hitrejši prilagoditvi. Gre za <em>strukturiran in zaupen proces podpore zaposleni</em> v obdobju pomembnega profesionalnega in osebnega prehoda.
+      </div>
+      <p class="program-note">Coaching je na voljo kot samostojna podpora ali kot nadgradnja seminarja za podjetja.</p>
+      <div class="program-cta">
+        <a href="kontakt.html" class="btn btn-primary">Dogovorite uvodni pogovor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Učinki programa</span>
+      <h2>Kaj pridobita <em>zaposlene</em> in <em>podjetje</em></h2>
+    </div>
+    <div class="benefits-split">
+      <div class="benefit-col">
+        <span class="benefit-col-tag">Zaposlene</span>
+        <h3>Kaj pridobijo zaposlene?</h3>
+        <ul class="benefit-list">
+          <li>več občutka stabilnosti ob vračanju</li>
+          <li>več jasnosti in samozavesti</li>
+          <li>manj overwhelm-a</li>
+          <li>boljše postavljanje prioritet</li>
+          <li>več občutka podpore in varnosti</li>
+          <li>bolj trajnosten način vračanja na delo</li>
+        </ul>
+      </div>
+      <div class="benefit-col">
+        <span class="benefit-col-tag">Podjetje</span>
+        <h3>Kaj pridobi podjetje?</h3>
+        <ul class="benefit-list">
+          <li>bolj gladko reintegracijo zaposlenih</li>
+          <li>bolj podprte vodje</li>
+          <li>več engagementa in pripadnosti</li>
+          <li>močnejšo kulturo podpore</li>
+          <li>bolj trajnostno employee experience</li>
+          <li>več psihološke varnosti</li>
+          <li>dolgoročnejše zadržanje kadra</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream">
+  <div class="container">
+    <div class="about-brief">
+      <span class="eyebrow">O meni</span>
+      <h2>Organizacijska coachinja, usmerjena v <em>prehodna obdobja</em>.</h2>
+      <p>Sem organizacijska coachinja in facilitatorica, usmerjena v podporo posameznikom in podjetjem v obdobjih pomembnih profesionalnih in osebnih prehodov.</p>
+      <p>Pri svojem delu združujem coaching, komunikacijske pristope in psihološko razumevanje prehodnih obdobij z namenom ustvarjanja bolj podpornih, stabilnih in trajnostnih delovnih okolij.</p>
+      <p class="about-pullquote">Verjamem, da ljudje ne potrebujejo vedno več pritiska za hitrejšo prilagoditev. Pogosto potrebujejo <strong>bolj kakovosten prostor za prehod</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <span class="eyebrow">Trenutno na voljo</span>
+      <h2>Pilotni program za podjetja</h2>
+      <p>Trenutno sodelujem z omejenim številom podjetij v pilotni fazi programa.</p>
+      <p><strong>Pilot omogoča:</strong></p>
+      <ul class="pilot-list">
+        <li>bolj individualen pristop</li>
+        <li>prilagoditev glede na potrebe organizacije</li>
+        <li>tesnejše sodelovanje</li>
+        <li>soustvarjanje nadaljnjega razvoja programa</li>
+      </ul>
+      <a href="kontakt.html" class="btn btn-primary">Rezervirajte uvodni pogovor</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-end cta-end--landing">
+  <div class="container">
+    <h2>Želite vodjem ponuditi bolj jasen okvir za <em>podporo zaposlenim ob vračanju po porodniški?</em></h2>
+    <p class="cta-end-lead">Dogovorimo se za kratek uvodni pogovor in preverimo, kako bi seminar ali coaching podpora lahko najbolje podprla vaše zaposlene in vodje.</p>
+    <a href="kontakt.html" class="btn btn-primary">Dogovorite uvodni pogovor</a>
+  </div>
+</section>"""
+
+    page = head(
+        "Vračanje po porodniški: podpora podjetjem - Tea Knez",
+        "Seminar za vodje in HR ter 1:1 coaching za zaposlene ob vračanju po porodniški. Strukturirana podpora kakovostni reintegraciji zaposlenih.",
+        "https://www.teaknez.com/podpora-vracanju.html", 0
+    ) + header("", 0) + body + footer(0)
+    write("podpora-vracanju.html", page)
+
+
 # ---------- Sitemap & robots ----------
 def page_sitemap():
     urls = [
@@ -1319,5 +1575,6 @@ if __name__ == "__main__":
     page_contact()
     page_privacy()
     page_cookies()
+    page_podpora_vracanju()
     page_sitemap()
     print("\nBuild complete.")
