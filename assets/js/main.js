@@ -1,4 +1,9 @@
 (function () {
+  // Footer copyright year — keep it accurate even if the site isn't rebuilt
+  document.querySelectorAll("[data-current-year]").forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
+
   const mqMobile = window.matchMedia("(max-width: 960px)");
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");

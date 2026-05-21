@@ -188,7 +188,7 @@ def footer(depth=0):
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© {CURRENT_YEAR} Integra, Tea Knez s.p.</span>
+      <span>© <span data-current-year>{CURRENT_YEAR}</span> Integra, Tea Knez s.p.</span>
     </div>
   </div>
 </footer>
