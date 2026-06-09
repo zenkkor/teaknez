@@ -1827,7 +1827,7 @@ ul li::marker { color: var(--clay); }
   margin: 0 auto 32px;
   line-height: 1.65;
 }
-.page-header-cta { margin-bottom: 24px; }
+.page-header-cta { margin-top: 32px; margin-bottom: 24px; }
 .page-header-meta {
   justify-content: center;
   margin-top: 0;
