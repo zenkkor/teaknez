@@ -1920,61 +1920,87 @@ ul li::marker { color: var(--clay); }
   .about-coach .split-image.portrait { max-width: 380px; margin: 0 auto; }
 }
 
-/* Offerings: three coaching modalities, side by side */
-.offerings {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1080px;
+/* Offerings (vertical stack) — three coaching modalities presented
+   as editorial blocks separated by thin sage rules. The signature
+   offering carries a small italic eyebrow label for emphasis. */
+.offerings-stack {
+  max-width: 880px;
   margin: 0 auto;
 }
-.offering {
-  position: relative;
-  background: var(--cream);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px 32px;
-  overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+.offering-block {
+  padding: 44px 0;
+  border-bottom: 1px solid rgba(143, 163, 138, 0.28);
 }
-.offering::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 32px;
-  width: 36px;
-  height: 3px;
-  background: var(--sage);
-  border-radius: 0 0 3px 3px;
+.offering-block:first-child { padding-top: 0; }
+.offering-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
-.offering:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-  border-color: var(--sage);
-}
-.offering h3 {
-  margin: 8px 0 14px;
-  font-size: 1.25rem;
-  color: var(--sage-darker);
-}
-.offering p {
-  font-size: 0.98rem;
-  line-height: 1.6;
-  color: var(--ink-soft);
-  margin-bottom: 14px;
-}
-.offering p:last-child { margin-bottom: 0; }
-.offering-note {
-  margin-top: 18px !important;
-  padding-top: 14px;
-  border-top: 1px solid rgba(143, 163, 138, 0.18);
+.offering-label {
+  display: inline-block;
+  font-family: var(--serif);
   font-style: italic;
-  font-size: 0.9rem !important;
+  font-size: 0.95rem;
+  color: var(--sage-darker);
+  margin-bottom: 14px;
+  letter-spacing: 0;
+}
+.offering-block h3 {
+  font-size: 1.65rem;
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.offering-sub {
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: 20px !important;
+  line-height: 1.45 !important;
+}
+.offering-block > p {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+.offering-benefits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  background: rgba(143, 163, 138, 0.07);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 12px 0 18px;
+}
+.offering-benefits > div p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.offering-benefit-tag {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--sage-darker);
+  margin-bottom: 8px;
+}
+.offering-note {
+  margin-top: 8px !important;
+  font-style: italic;
+  font-size: 0.95rem !important;
   color: var(--ink-soft);
   line-height: 1.55 !important;
+  padding-top: 14px;
+  border-top: 1px solid rgba(143, 163, 138, 0.22);
 }
-@media (max-width: 960px) {
-  .offerings { grid-template-columns: 1fr; gap: 18px; }
+@media (max-width: 760px) {
+  .offering-block { padding: 32px 0; }
+  .offering-block h3 { font-size: 1.4rem; }
+  .offering-benefits { grid-template-columns: 1fr; gap: 18px; padding: 20px 22px; }
 }
 
 /* Generic landing-page bullet list (sage tick mark) */
