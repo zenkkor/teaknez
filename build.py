@@ -178,7 +178,7 @@ TESTIMONIALS = [
     ("Vodenje lastnega podjetja je hitro postalo preveč razpršeno. S Teo sem začela razmišljati širše in z več jasnosti sprejemati podjetniške odločitve.",
      "Sara", "ustanoviteljica marketing studia"),
     ("Kot vodja ekipe sem bila pogosto ujeta med rezultate in ljudi. S coachingom sem postala mirnejša v zahtevnih situacijah in jasnejša v komunikaciji.",
-     "Petra", "vodja ekipe v bančnem sektorju"),
+     "Petra", "vodja prodaje v bančnem sektorju"),
     ("V poslu sem dolgo dvomila vase, čeprav sem bila strokovno samozavestna. Coaching mi je dal strateško jasnost in pogum za pomembne odločitve.",
      "Nina", "solo trenerka"),
     ("Navajena sem biti ves čas ‘vidna’, redko pa sem si dovolila prostor za razmislek. Naučila sem se postaviti jasnejše meje in začela ustvarjati z več notranjega miru.",
@@ -302,13 +302,13 @@ def page_index():
       <h2>Kaj se spremeni?</h2>
       <p class="outcomes-block-lead">Ko imaš prostor za razmislek in podporo, se začnejo premikati tudi stvari, ki so prej stale na mestu.</p>
       <ul class="dotted-list">
-        <li>odločitve sprejemaš z več zaupanja in manj dvoma</li>
-        <li>lažje prepoznaš, kaj je v tem obdobju res pomembno</li>
-        <li>jasneje postavljaš prioritete</li>
-        <li>z več miru usklajuješ različne življenjske vloge</li>
-        <li>ponovno najdeš čas s sabo in svojimi potrebami</li>
+        <li>odločitve sprejemaš z več zaupanja in manj dvoma.</li>
+        <li>lažje prepoznaš, kaj je v tem obdobju res pomembno.</li>
+        <li>jasneje postavljaš prioritete.</li>
+        <li>z več miru usklajuješ različne življenjske vloge.</li>
+        <li>ponovno najdeš čas s sabo in svojimi potrebami.</li>
       </ul>
-      <p class="outcomes-block-italic">Ne zato, ker bi dobila vse odgovore. Ampak zato, ker začneš bolj zaupati sebi.</p>
+      <p class="outcomes-block-italic">Ne zato, ker bi dobil vse odgovore. Ampak zato, ker začneš bolj zaupati sebi.</p>
     </div>
   </div>
 </section>
@@ -326,7 +326,7 @@ def page_index():
           <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 26c0-6 4-10 8-12"/><path d="M16 26c0-6-4-10-8-12"/><path d="M16 26V8"/><path d="M16 8c1-3 4-4 6-3"/><path d="M16 8c-1-3-4-4-6-3"/></svg>
         </div>
         <h3>Brez hitrih rešitev</h3>
-        <p>Ne verjamem v univerzalne recepte. Verjamem v razmislek, ki je resnično za tebe, tvojo situacijo in obdobje, v katerem si.</p>
+        <p>Ne verjamem v univerzalne recepte. Verjamem v razmislek, ki je resnično za tebe, tvojo situacijo in v obdobju, v katerem si.</p>
       </article>
       <article class="approach-card">
         <div class="approach-icon" aria-hidden="true">
@@ -364,7 +364,7 @@ def page_about():
         <span class="eyebrow">O meni</span>
         <h1>Pozdravljena, sem Tea.</h1>
         <p class="hero-italic">Coachinja, podjetnica, žena in mama.</p>
-        <p>Verjamem, da imajo ženske vse vire v sebi, le včasih potrebujejo prostor, odgovornost svojega časa in pomoč konkretnih kompasov.</p>
+        <p>V svoji karieri sem delovala v okoljih, kjer so odločitve pomembne, odgovornost velika in odnosi pogosto kompleksni.</p>
         <p>Danes spremljam predvsem ženske v pomembnih življenjskih in kariernih prehodih — od vračanja s porodniške do usklajevanja materinstva, kariere in podjetništva.</p>
       </div>
       <div class="page-hero-image">
@@ -379,10 +379,10 @@ def page_about():
     <div class="about-story">
       <span class="eyebrow">Moja zgodba</span>
       <h2>Vsaka izkušnja me je nekaj <em>naučila</em>.</h2>
-      <p>Moja pot ni začela s coachingom. Začela se je kot pravnica, mediatorka in nato razvila naprej — analitično in odločeno na izpostavah.</p>
-      <p>Različna delovna področja so me naučila, kako pomembni so odnosi, razumevanje in sposobnost poslušati slišano druge.</p>
-      <p>Kot vodja ekip sem skozi leta razvila tudi posebno občutljivost za prelome — trenutke, ko ljudi karierne in osebne odločitve počasi prikrivajo nove ravni odgovornosti.</p>
-      <p>Danes svoje izkušnje in podjetniško izkušnjo vključim v coaching, kjer s tem podpiram ženske v pomembnih prehodih — z naravnim tempom, vključeno in iskreno odločnostjo.</p>
+      <p>Moja pot se ni začela s coachingom. Začela se je kot pravnica in mediatorka, nato pa se je razvijala naprej — analitično, odločno in v okoljih, kjer so odločitve zahtevne.</p>
+      <p>Različna delovna področja so me naučila, kako pomembni so odnosi, razumevanje in sposobnost slišati drug drugega.</p>
+      <p>Kot vodja ekip sem skozi leta razvila tudi posebno občutljivost za prelome — trenutke, ko se karierne in osebne odločitve prepletajo na nov, zahtevnejši način.</p>
+      <p>Danes svoje pravniške, vodstvene in podjetniške izkušnje vključujem v coaching, kjer podpiram ženske v pomembnih prehodih — z naravnim tempom, vključujoče in iskreno.</p>
     </div>
     <div class="section-head section-head--center" style="margin-top: 72px;">
       <span class="eyebrow">Moj pristop</span>
@@ -407,7 +407,7 @@ def page_about():
         <div class="approach-icon" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16l5 5L24 9"/></svg>
         </div>
-        <h3>Določiti ti</h3>
+        <h3>Določiš ti</h3>
         <p>Zaupaš si in delaš premišljene korake. Ker so naslednji koraki tvoji — ne moji.</p>
       </article>
     </div>
@@ -424,12 +424,12 @@ def page_about():
     <div class="credentials-row">
       <ul class="credentials-bullets">
         <li>magistra prava</li>
-        <li>certificirana organizacijska coachinja</li>
-        <li>certificirana NLP mojstrica in coachinja</li>
+        <li>certificiran organizacijski coach</li>
+        <li>certificiran NLP mojster in coach</li>
         <li>strokovna izobraževanja s področja coachinga in komunikacije</li>
-        <li>stalno strokovno izpopolnjevanje in supervizija</li>
-        <li>članica European Mentoring &amp; Coaching Council (EMCC)</li>
-        <li>članica International Coaching Federation (ICF)</li>
+        <li>strokovno izpopolnjevanje in supervizija</li>
+        <li>članica European Mentoring &amp; Coaching Council</li>
+        <li>članica International Coaching Federation</li>
       </ul>
       <div class="credentials-badges">
         <div class="cred-badge">
@@ -462,14 +462,14 @@ def page_about():
           <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="1.5" fill="currentColor"/><path d="M2 16c4-6 8-9 14-9s10 3 14 9c-4 6-8 9-14 9S6 22 2 16z"/></svg>
         </div>
         <h3>Prisotnost</h3>
-        <p>V vsakem srečanju sem polno prisotna, polno zbrana in odprta za to, kar prinaša ta trenutek.</p>
+        <p>V vsakem srečanju sem polno prisotna, polno zbrana in odprta za to, kar prinašaš v ta prostor.</p>
       </article>
       <article class="value-item">
         <div class="value-icon" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 26V12"/><path d="M16 12c-3 0-5 2-5 5"/><path d="M16 12c3 0 5 2 5 5"/><path d="M8 26h16"/></svg>
         </div>
         <h3>Rast</h3>
-        <p>Verjamem, da nosimo v sebi resnico in moč. Jaz sem tu, da ti pomagam te dvignit na površje.</p>
+        <p>Verjamem, da v sebi že nosiš vse, kar potrebuješ. Coaching te podpre, da to slišiš in narediš naprej.</p>
       </article>
       <article class="value-item">
         <div class="value-icon" aria-hidden="true">
@@ -487,7 +487,7 @@ def page_about():
     <div class="closing-recognize">
       <div class="closing-recognize-text">
         <h2>Če si pri branju prepoznala sebe ...</h2>
-        <p>Mogoče je čas, da si vzameš trenutek zase. Na brezplačnem uvodnem srečanju bova skupaj raziskali, kaj v tem trenutku najbolj iščeš in kako bi ti coaching lahko služil.</p>
+        <p>Mogoče je čas, da si vzameš trenutek zase. Brez pričakovanj, brez pritiska. Samo prostor za razmislek o tem, kar potrebuješ ti.</p>
         <a href="kontakt.html" class="btn btn-primary">Rezerviraj uvodno srečanje →</a>
       </div>
       <div class="closing-recognize-image">
@@ -589,11 +589,11 @@ def page_za_posameznice():
         <p>Ob izzivih ohraniš stik s sabo in odločitve sprejemaš iz mirnejšega prostora.</p>
       </article>
       <article class="outcome-card">
-        <span class="outcome-tag">Občutek, da nisi sama</span>
+        <span class="outcome-tag">Občutek, da nisi več sama</span>
         <p>V coachingu imaš zaupen prostor, kjer lahko misliš na glas in si slišana.</p>
       </article>
     </div>
-    <p class="closing-italic">Ne zato, ker bi kdorkoli drug vedel namesto tebe. Ampak zato, ker se končno slišiš v skladu s sabo.</p>
+    <p class="closing-italic">Ne zato, ker bi te kdorkoli rešil. Ampak zato, ker se končno daš slišati v skladu s sabo.</p>
   </div>
 </section>
 
@@ -634,9 +634,9 @@ def page_za_podjetja():
         <span class="eyebrow">Storitve za podjetja</span>
         <h1>Podprite zaposlene ob <em>vračanju na delo</em> in drugih pomembnih prehodih</h1>
         <p>Organizacije danes vse več pozornosti namenjajo razvoju zaposlenih, zavzetosti in dobremu počutju. Kljub temu pa so prav obdobja velikih sprememb pogosto tista, v katerih zaposleni potrebujejo največ podpore.</p>
-        <p>Že zaposlenega je za podjetje veliko, prilagajanje in ohranja stik s tem, kar ji omogoča dolgoročno uspeh.</p>
-        <p>Coaching ni vnaprej določen, ki bi predpisoval, kar je za zaposlene podporo v ključnih prehodnih obdobjih. Je prepoznavanje individualnih potreb in oblikovanje podpore, ki res deluje.</p>
-        <p>Sem podjetjem, ki želijo s strokovnostjo in z dolgoročno podporo ustvariti prostor za bolj samozavesten, podprt in uspešen prehod — za zaposlene, vodje in celotno organizacijo.</p>
+        <p>Vračanje po porodniški, prehod v vodstveno vlogo ali druge karierne in osebne spremembe — vse to vpliva na zavzetost, samozavest in dolgoročno povezanost zaposlenega z organizacijo.</p>
+        <p>Coaching ni vnaprej določen program. Je prepoznavanje individualnih potreb in oblikovanje podpore, ki res deluje — za zaposleno, za vodjo in za organizacijo.</p>
+        <p>S strokovno in dolgoročno usmerjeno podporo pomagam ustvariti prostor za bolj samozavesten, podprt in uspešen prehod — za zaposlene, vodje in celotno organizacijo.</p>
       </div>
       <div class="page-hero-image">
         <img src="assets/images/service-podjetja.webp" alt="Coaching za podjetja">
@@ -650,7 +650,7 @@ def page_za_podjetja():
     <div class="section-head section-head--center">
       <span class="eyebrow">Kako lahko sodelujemo?</span>
       <h2>Dve poti podpore za vaše <em>zaposlene in vodje</em></h2>
-      <p>Coaching in delavnica se dopolnjujeta in jih je mogoče izvajati skupaj, s katerim se zaposlenim podpora podpora, vodjam pa samozavestno pri svoji vlogi.</p>
+      <p>Coaching in delavnica se dopolnjujeta in ju lahko izvajamo skupaj — zaposlenim ponudita celovito podporo, vodjam pa potrebno zaupanje pri njihovi vlogi.</p>
     </div>
     <div class="duo-card-grid">
       <article class="duo-card">
@@ -666,7 +666,7 @@ def page_za_podjetja():
           <li>usklajevanju delovnih in družinskih obveznosti</li>
           <li>kariernem prehodu v novo vlogo</li>
         </ul>
-        <p class="duo-card-note">Že in po uvodni VOD srečanju, kjer pogovorim pričakovanja, je coaching usmerjen v podporo zaposleni.</p>
+        <p class="duo-card-note">Že po uvodnem srečanju, kjer skupaj pogledamo cilje in pričakovanja, je coaching usmerjen v podporo zaposleni.</p>
       </article>
       <article class="duo-card">
         <span class="duo-card-eyebrow">Delavnica za vodje in HR</span>
