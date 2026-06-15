@@ -365,7 +365,7 @@ def page_about():
         <h1>Pozdravljena, sem Tea.</h1>
         <p class="hero-italic">Coachinja, podjetnica, žena in mama.</p>
         <p>V svoji karieri sem delovala v okoljih, kjer so odločitve pomembne, odgovornost velika in odnosi pogosto kompleksni.</p>
-        <p>Danes spremljam predvsem ženske v pomembnih življenjskih in kariernih prehodih — od vračanja s porodniške do usklajevanja materinstva, kariere in podjetništva.</p>
+        <p>Danes spremljam predvsem ženske v pomembnih življenjskih in kariernih prehodih - od vračanja s porodniške do usklajevanja materinstva, kariere in podjetništva.</p>
       </div>
       <div class="page-hero-image">
         <img src="assets/images/about-tea.webp" alt="Tea Knez">
@@ -379,10 +379,10 @@ def page_about():
     <div class="about-story">
       <span class="eyebrow">Moja zgodba</span>
       <h2>Vsaka izkušnja me je nekaj <em>naučila</em>.</h2>
-      <p>Moja pot se ni začela s coachingom. Začela se je kot pravnica in mediatorka, nato pa se je razvijala naprej — analitično, odločno in v okoljih, kjer so odločitve zahtevne.</p>
+      <p>Moja pot se ni začela s coachingom. Začela se je kot pravnica in mediatorka, nato pa se je razvijala naprej - analitično, odločno in v okoljih, kjer so odločitve zahtevne.</p>
       <p>Različna delovna področja so me naučila, kako pomembni so odnosi, razumevanje in sposobnost slišati drug drugega.</p>
-      <p>Kot vodja ekip sem skozi leta razvila tudi posebno občutljivost za prelome — trenutke, ko se karierne in osebne odločitve prepletajo na nov, zahtevnejši način.</p>
-      <p>Danes svoje pravniške, vodstvene in podjetniške izkušnje vključujem v coaching, kjer podpiram ženske v pomembnih prehodih — z naravnim tempom, vključujoče in iskreno.</p>
+      <p>Kot vodja ekip sem skozi leta razvila tudi posebno občutljivost za prelome - trenutke, ko se karierne in osebne odločitve prepletajo na nov, zahtevnejši način.</p>
+      <p>Danes svoje pravniške, vodstvene in podjetniške izkušnje vključujem v coaching, kjer podpiram ženske v pomembnih prehodih - z naravnim tempom, vključujoče in iskreno.</p>
     </div>
     <div class="section-head section-head--center" style="margin-top: 72px;">
       <span class="eyebrow">Moj pristop</span>
@@ -394,21 +394,21 @@ def page_about():
           <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="10"/><path d="M16 11v5l3 3"/></svg>
         </div>
         <h3>Ustavimo se</h3>
-        <p>Z usmerjenimi vprašanji odprem prostor, kjer lahko slišiš lasten glas — namesto da te prehitevajo zunanji nasveti.</p>
+        <p>Z usmerjenimi vprašanji odprem prostor, kjer lahko slišiš lasten glas - namesto da te prehitevajo zunanji nasveti.</p>
       </article>
       <article class="approach-card">
         <div class="approach-icon" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24l6-12 4 8 4-6 6 10"/><path d="M3 28h26"/></svg>
         </div>
         <h3>Razložimo</h3>
-        <p>Prepoznava vzorcev, vrednot in resničnih prioritet. Vidiš celotno sliko — od zunaj in znotraj.</p>
+        <p>Prepoznava vzorcev, vrednot in resničnih prioritet. Vidiš celotno sliko - od zunaj in znotraj.</p>
       </article>
       <article class="approach-card">
         <div class="approach-icon" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16l5 5L24 9"/></svg>
         </div>
         <h3>Določiš ti</h3>
-        <p>Zaupaš si in delaš premišljene korake. Ker so naslednji koraki tvoji — ne moji.</p>
+        <p>Zaupaš si in delaš premišljene korake. Ker so naslednji koraki tvoji - ne moji.</p>
       </article>
     </div>
   </div>
@@ -419,7 +419,7 @@ def page_about():
     <div class="section-head section-head--center">
       <span class="eyebrow">Izobrazba in akreditacije</span>
       <h2>Strokovna podpora. <em>Dokazana zavezanost kakovosti.</em></h2>
-      <p>Coaching ni zgolj veščina — je profesija. Zato si nenehno izpopolnjujem znanje in zagotavljam, da delam v skladu s standardi ICF in EMCC.</p>
+      <p>Coaching ni zgolj veščina - je profesija. Zato si nenehno izpopolnjujem znanje in zagotavljam, da delam v skladu s standardi ICF in EMCC.</p>
     </div>
     <div class="credentials-row">
       <ul class="credentials-bullets">
@@ -555,7 +555,7 @@ def page_za_posameznice():
       </div>
       <div class="duo-col">
         <span class="duo-eyebrow">Kako delujeva skupaj</span>
-        <p>Coaching proces izhaja iz tvoje izkušnje. Skozi pogovor ti pomagam slišati lasten glas, prepoznati notranje vzorce in postaviti korake, ki so smiselni zate. Vsako srečanje se prilagaja tvojemu ritmu in cilju — ni vnaprej določene poti.</p>
+        <p>Coaching proces izhaja iz tvoje izkušnje. Skozi pogovor ti pomagam slišati lasten glas, prepoznati notranje vzorce in postaviti korake, ki so smiselni zate. Vsako srečanje se prilagaja tvojemu ritmu in cilju - ni vnaprej določene poti.</p>
       </div>
     </div>
   </div>
@@ -634,9 +634,9 @@ def page_za_podjetja():
         <span class="eyebrow">Storitve za podjetja</span>
         <h1>Podprite zaposlene ob <em>vračanju na delo</em> in drugih pomembnih prehodih</h1>
         <p>Organizacije danes vse več pozornosti namenjajo razvoju zaposlenih, zavzetosti in dobremu počutju. Kljub temu pa so prav obdobja velikih sprememb pogosto tista, v katerih zaposleni potrebujejo največ podpore.</p>
-        <p>Vračanje po porodniški, prehod v vodstveno vlogo ali druge karierne in osebne spremembe — vse to vpliva na zavzetost, samozavest in dolgoročno povezanost zaposlenega z organizacijo.</p>
-        <p>Coaching ni vnaprej določen program. Je prepoznavanje individualnih potreb in oblikovanje podpore, ki res deluje — za zaposleno, za vodjo in za organizacijo.</p>
-        <p>S strokovno in dolgoročno usmerjeno podporo pomagam ustvariti prostor za bolj samozavesten, podprt in uspešen prehod — za zaposlene, vodje in celotno organizacijo.</p>
+        <p>Vračanje po porodniški, prehod v vodstveno vlogo ali druge karierne in osebne spremembe - vse to vpliva na zavzetost, samozavest in dolgoročno povezanost zaposlenega z organizacijo.</p>
+        <p>Coaching ni vnaprej določen program. Je prepoznavanje individualnih potreb in oblikovanje podpore, ki res deluje - za zaposleno, za vodjo in za organizacijo.</p>
+        <p>S strokovno in dolgoročno usmerjeno podporo pomagam ustvariti prostor za bolj samozavesten, podprt in uspešen prehod - za zaposlene, vodje in celotno organizacijo.</p>
       </div>
       <div class="page-hero-image">
         <img src="assets/images/service-podjetja.webp" alt="Coaching za podjetja">
@@ -650,7 +650,7 @@ def page_za_podjetja():
     <div class="section-head section-head--center">
       <span class="eyebrow">Kako lahko sodelujemo?</span>
       <h2>Dve poti podpore za vaše <em>zaposlene in vodje</em></h2>
-      <p>Coaching in delavnica se dopolnjujeta in ju lahko izvajamo skupaj — zaposlenim ponudita celovito podporo, vodjam pa potrebno zaupanje pri njihovi vlogi.</p>
+      <p>Coaching in delavnica se dopolnjujeta in ju lahko izvajamo skupaj - zaposlenim ponudita celovito podporo, vodjam pa potrebno zaupanje pri njihovi vlogi.</p>
     </div>
     <div class="duo-card-grid">
       <article class="duo-card">
@@ -670,7 +670,7 @@ def page_za_podjetja():
       </article>
       <article class="duo-card">
         <span class="duo-card-eyebrow">Delavnica za vodje in HR</span>
-        <h3>Delavnica za vodje in HR — <em>Kako podpreti zaposlene s porodniške</em></h3>
+        <h3>Delavnica za vodje in HR - <em>Kako podpreti zaposlene s porodniške</em></h3>
         <p>Vodje in HR strokovnjaki imajo ključno vlogo pri uspehu prehoda zaposlene nazaj v delovni proces. Delavnica vodjem ponudi praktične orodja in znanje za razumevanje dinamike in podpornih pristopov.</p>
         <p class="duo-card-sub">Teme delavnice:</p>
         <ul class="tick-list two-col">
@@ -681,7 +681,7 @@ def page_za_podjetja():
           <li>postavitev realističnih pričakovanj</li>
           <li>komunikacija o napredovanjih in razvoju</li>
         </ul>
-        <p class="duo-card-note">Delavnica je vodjem priložnost za razvoj veščin, zaposleni pa boljši podporni prostor — za bolj uspešno reintegracijo in dolgoročno zadržanje kadra.</p>
+        <p class="duo-card-note">Delavnica je vodjem priložnost za razvoj veščin, zaposleni pa boljši podporni prostor - za bolj uspešno reintegracijo in dolgoročno zadržanje kadra.</p>
       </article>
     </div>
   </div>
@@ -1166,7 +1166,7 @@ def page_contact():
       <span class="eyebrow">Kontakt</span>
       <h1>Tukaj sem za <em>tvoje vprašanje</em>.</h1>
       <p>Odgovorim ti hitro in v najkrajšem možnem času.</p>
-      <p>Če te kaj zaposluje, povprašuješ, ali bi rada uskladila spoznavno srečanje, mi piši — z veseljem se ti oglasim in najdeva čas za pogovor.</p>
+      <p>Če te kaj zaposluje, povprašuješ, ali bi rada uskladila spoznavno srečanje, mi piši - z veseljem se ti oglasim in najdeva čas za pogovor.</p>
     </div>
     <div class="contact-badges">
       <div class="contact-badge">
@@ -1248,7 +1248,7 @@ def page_contact():
             </div>
           </li>
         </ol>
-        <p class="contact-signature">— Se veselim tvojega sporočila</p>
+        <p class="contact-signature">- Se veselim tvojega sporočila</p>
       </div>
     </div>
   </div>
@@ -1442,7 +1442,7 @@ def page_podpora_vracanju():
     <div class="prose-narrow prose-narrow--center">
       <span class="eyebrow">Prehod</span>
       <h2>Vračanje po porodniškem dopustu <em>ni administrativen proces</em></h2>
-      <p>Zaposlene se po porodniškem dopustu pogosto vračajo s spremenjeno identiteto, drugačnimi prioritetami in novimi pričakovanji do dela. Notranje doživljanje prehoda vpliva na samozavest, fokus, energijo — ter na občutek pripadnosti delovnemu okolju.</p>
+      <p>Zaposlene se po porodniškem dopustu pogosto vračajo s spremenjeno identiteto, drugačnimi prioritetami in novimi pričakovanji do dela. Notranje doživljanje prehoda vpliva na samozavest, fokus, energijo - ter na občutek pripadnosti delovnemu okolju.</p>
       <p>Praktični izzivi se prepletajo s čustvenimi: usklajevanje novih osebnih in profesionalnih vlog, postavljanje meja, ponovno opredeljevanje svojega prispevka. Navzven zaposlene morda delujejo "nazaj v rutini", notranje pa še vedno potekajo pomembne spremembe.</p>
       <p>Način, kako organizacija podpre zaposleno v tem obdobju, neposredno vpliva na njeno dobro počutje, zavzetost in <strong>dolgoročno zadržanje kadra</strong>.</p>
     </div>
@@ -1455,7 +1455,7 @@ def page_podpora_vracanju():
       <span class="eyebrow">Pristop</span>
       <h2>Zakaj <em>coaching</em>?</h2>
       <p>Vsako vračanje na delo je drugačno. Ne obstaja univerzalna rešitev, ki bi delovala za vsako zaposleno ali vsako organizacijo.</p>
-      <p>Coaching ustvari prostor, kjer lahko zaposlena sama razišče, kar v tem trenutku najbolj potrebuje — prioritete, identitetne spremembe, samozavest, komunikacijo, postavljanje meja, odločitve, ki ji omogočijo trajnostno reintegracijo.</p>
+      <p>Coaching ustvari prostor, kjer lahko zaposlena sama razišče, kar v tem trenutku najbolj potrebuje - prioritete, identitetne spremembe, samozavest, komunikacijo, postavljanje meja, odločitve, ki ji omogočijo trajnostno reintegracijo.</p>
       <p>Kot coachinja, certificirana po standardih <strong>ICF</strong>, ne ponujam vnaprej določenih modulov ali odgovorov. Vsak coaching proces sledi <strong>potrebam, ciljem in izzivom posameznice</strong>.</p>
       <p>Coaching deluje, ker zaposlena sama prepozna svoje vire, vzorce in najboljše odločitve zase. To je močnejši in trajnejši temelj za vrnitev v delovno okolje kot katerikoli zunanji nasvet ali generičen trening.</p>
     </div>
@@ -1474,7 +1474,7 @@ def page_podpora_vracanju():
         <span class="offering-label">Signature specializacija</span>
         <h3>Reintegracijski coaching za zaposlene</h3>
         <p class="offering-sub">Individualna coaching podpora po porodniškem dopustu</p>
-        <p>Coaching podpora zaposlenim, ki se po porodniškem dopustu vračajo na delo. Naslavlja prehod celostno — od identitetnih sprememb in samozavesti do trajnostnega usklajevanja novih življenjskih in poklicnih vlog.</p>
+        <p>Coaching podpora zaposlenim, ki se po porodniškem dopustu vračajo na delo. Naslavlja prehod celostno - od identitetnih sprememb in samozavesti do trajnostnega usklajevanja novih življenjskih in poklicnih vlog.</p>
         <div class="offering-benefits">
           <div>
             <span class="offering-benefit-tag">Za zaposleno</span>
@@ -1485,14 +1485,14 @@ def page_podpora_vracanju():
             <p>Bolj uspešna reintegracija, večja zavzetost in večja možnost zadržanja kadra.</p>
           </div>
         </div>
-        <p class="offering-note">Coaching proces sledi potrebam, ciljem in izzivom posameznice — ne vnaprej določenemu kurikulumu.</p>
+        <p class="offering-note">Coaching proces sledi potrebam, ciljem in izzivom posameznice - ne vnaprej določenemu kurikulumu.</p>
       </article>
 
       <article class="offering-block">
         <span class="offering-label">Skupinska podpora</span>
         <h3>Seminar za vodje in HR</h3>
-        <p class="offering-sub">Kako podpreti zaposleno ob vračanju po porodniškem dopustu — 2-urni interaktivni seminar</p>
-        <p>Vodjem in HR strokovnjakom ponuja praktičen okvir za bolj podporno vodenje zaposlenih v prehodnem obdobju. Skupaj raziščemo dinamiko vračanja, najpogostejše izzive in konkretne pristope k komunikaciji in podpori — od check-in pogovorov do postavljanja realističnih pričakovanj.</p>
+        <p class="offering-sub">Kako podpreti zaposleno ob vračanju po porodniškem dopustu - 2-urni interaktivni seminar</p>
+        <p>Vodjem in HR strokovnjakom ponuja praktičen okvir za bolj podporno vodenje zaposlenih v prehodnem obdobju. Skupaj raziščemo dinamiko vračanja, najpogostejše izzive in konkretne pristope k komunikaciji in podpori - od check-in pogovorov do postavljanja realističnih pričakovanj.</p>
       </article>
 
       <article class="offering-block">
@@ -1500,7 +1500,7 @@ def page_podpora_vracanju():
         <h3>Coaching za zaposlene</h3>
         <p class="offering-sub">Individualni coaching onkraj reintegracije</p>
         <p>Coaching za zaposlene in strokovnjake, ki želijo bolj zavestno navigirati svojo profesionalno pot. Najpogostejše teme: karierni razvoj, samozavest, komunikacija, prehodi v vodstvene vloge, postavljanje meja in usklajevanje profesionalne in osebne vloge.</p>
-        <p class="offering-note">Coaching proces sledi potrebam in ciljem posameznika — ne vnaprej določenim temam.</p>
+        <p class="offering-note">Coaching proces sledi potrebam in ciljem posameznika - ne vnaprej določenim temam.</p>
       </article>
     </div>
   </div>
@@ -1538,7 +1538,7 @@ def page_podpora_vracanju():
 <section class="cta-end cta-end--landing">
   <div class="container">
     <h2>Dogovorimo se za <em>uvodni pogovor</em></h2>
-    <p class="cta-end-lead">Vsaka organizacija ima drugačne potrebe in kontekst. Uvodni pogovor je raziskovalen — skupaj prepoznava, katera oblika podpore bi vašim zaposlenim in vodjem najbolje služila.</p>
+    <p class="cta-end-lead">Vsaka organizacija ima drugačne potrebe in kontekst. Uvodni pogovor je raziskovalen - skupaj prepoznava, katera oblika podpore bi vašim zaposlenim in vodjem najbolje služila.</p>
     <button type="button" class="btn btn-primary" data-open-modal="contact-modal">Dogovorimo se za uvodni pogovor</button>
   </div>
 </section>"""
