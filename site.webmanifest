@@ -1,0 +1,19 @@
+{
+  "name": "Tea Knez Coaching",
+  "short_name": "Tea Knez",
+  "description": "Coaching za ženske in organizacije.",
+  "lang": "sl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#FAF6EF",
+  "theme_color": "#FAF6EF",
+  "icons": [
+    {
+      "src": "/assets/images/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    }
+  ]
+}

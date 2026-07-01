@@ -8,9 +8,103 @@ CURRENT_YEAR = datetime.now().year
 
 SITE = Path(__file__).parent
 
+# ---------- SEO constants ----------
+SITE_URL = "https://teaknez.com"
+SITE_NAME = "Tea Knez Coaching"
+
+def _org_jsonld():
+    """Shared Organization/ProfessionalService node, reused as publisher."""
+    return {
+        "@type": "ProfessionalService",
+        "@id": f"{SITE_URL}/#organization",
+        "name": SITE_NAME,
+        "legalName": "Integra, Tea Knez s.p.",
+        "url": f"{SITE_URL}/",
+        "logo": f"{SITE_URL}/assets/images/favicon.svg",
+        "image": f"{SITE_URL}/assets/images/about-tea.webp",
+        "email": "tea@teaknez.com",
+        "description": "Coaching za ženske in organizacije. Podpora pri pomembnih življenjskih in poklicnih prehodih, s specializacijo za vračanje po porodniškem dopustu.",
+        "areaServed": {"@type": "Country", "name": "Slovenija"},
+        "availableLanguage": "sl",
+        "founder": {"@id": f"{SITE_URL}/#tea-knez"},
+        "knowsAbout": [
+            "coaching", "reintegracijski coaching", "vračanje po porodniškem dopustu",
+            "karierni coaching", "organizacijski coaching", "razvoj vodij",
+        ],
+    }
+
+def _website_jsonld():
+    return {
+        "@type": "WebSite",
+        "@id": f"{SITE_URL}/#website",
+        "url": f"{SITE_URL}/",
+        "name": SITE_NAME,
+        "inLanguage": "sl",
+        "publisher": {"@id": f"{SITE_URL}/#organization"},
+    }
+
+def _person_jsonld():
+    return {
+        "@type": "Person",
+        "@id": f"{SITE_URL}/#tea-knez",
+        "name": "Tea Knez",
+        "jobTitle": "Coachinja",
+        "url": f"{SITE_URL}/o-meni.html",
+        "image": f"{SITE_URL}/assets/images/about-tea.webp",
+        "worksFor": {"@id": f"{SITE_URL}/#organization"},
+        "knowsLanguage": "sl",
+        "memberOf": [
+            {"@type": "Organization", "name": "European Mentoring & Coaching Council"},
+            {"@type": "Organization", "name": "International Coaching Federation"},
+        ],
+        "knowsAbout": [
+            "reintegracijski coaching", "vračanje po porodniškem dopustu",
+            "karierni coaching", "organizacijski coaching", "razvoj vodij in HR",
+        ],
+    }
+
+def _breadcrumb_jsonld(trail):
+    """trail: list of (name, url) tuples from Domov to current page."""
+    return {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": name, "item": url}
+            for i, (name, url) in enumerate(trail)
+        ],
+    }
+
+def _blogposting_jsonld(title, description, url, image):
+    return {
+        "@type": "BlogPosting",
+        "@id": url + "#article",
+        "headline": title,
+        "description": description,
+        "url": url,
+        "image": f"{SITE_URL}/assets/images/{image}",
+        "inLanguage": "sl",
+        "author": {"@id": f"{SITE_URL}/#tea-knez"},
+        "publisher": {"@id": f"{SITE_URL}/#organization"},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": url},
+    }
+
+def _jsonld_block(nodes):
+    import json as _json
+    graph = {"@context": "https://schema.org", "@graph": nodes}
+    return '<script type="application/ld+json">' + _json.dumps(graph, ensure_ascii=False, separators=(",", ":")) + "</script>\n"
+
+
 # ---------- Shared fragments ----------
-def head(title, description, canonical, depth=0):
-    asset = "../" * depth + "assets"
+def head(title, description, canonical, depth=0, og_type="website",
+         og_image="about-tea.webp", og_image_alt="Tea Knez - coachinja", extra_jsonld=None):
+    root = "../" * depth
+    asset = root + "assets"
+    og_image_url = f"{SITE_URL}/assets/images/{og_image}"
+
+    nodes = [_org_jsonld(), _website_jsonld()]
+    if extra_jsonld:
+        nodes.extend(extra_jsonld if isinstance(extra_jsonld, list) else [extra_jsonld])
+    jsonld = _jsonld_block(nodes)
+
     return f"""<!DOCTYPE html>
 <html lang="sl">
 <head>
@@ -19,18 +113,30 @@ def head(title, description, canonical, depth=0):
 <title>{title}</title>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{canonical}">
-<meta property="og:type" content="website">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Tea Knez">
+<meta name="theme-color" content="#FAF6EF">
+<meta property="og:type" content="{og_type}">
+<meta property="og:site_name" content="{SITE_NAME}">
+<meta property="og:locale" content="sl_SI">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="https://www.teaknez.com{asset.replace('..', '').lstrip('/')}/images/hero.webp">
+<meta property="og:image" content="{og_image_url}">
+<meta property="og:image:alt" content="{og_image_alt}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{description}">
+<meta name="twitter:image" content="{og_image_url}">
+<meta name="twitter:image:alt" content="{og_image_alt}">
 <link rel="icon" type="image/svg+xml" href="{asset}/images/favicon.svg">
 <link rel="apple-touch-icon" href="{asset}/images/favicon.svg">
+<link rel="manifest" href="{root}site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{asset}/css/main.css">
-</head>
+{jsonld}</head>
 <body>
 """
 
@@ -350,7 +456,9 @@ def page_index():
     page = head(
         "Tea Knez - Coaching za ženske in podjetja",
         "Coaching za ženske, ki usklajujejo materinstvo, kariero in odgovornosti, ter podporo organizacijam pri prehodih zaposlenih. Več jasnosti. Manj razpetosti. Več tebe.",
-        "https://www.teaknez.com/", 0
+        f"{SITE_URL}/", 0,
+        og_image="hero.webp", og_image_alt="Tea Knez - coaching za ženske in podjetja",
+        extra_jsonld=_person_jsonld()
     ) + header("home", 0) + body + footer(0)
     write("index.html", page)
 
@@ -498,9 +606,14 @@ def page_about():
 </section>"""
 
     page = head(
-        "O meni - Tea Knez",
-        "Sem Tea Knez, coachinja, mediatorka in podjetnica. Spoznaj moj pristop, vrednote in pot, ki vodi v ustvarjanje prostora za zrele odločitve.",
-        "https://www.teaknez.com/o-meni", 0
+        "O meni - Tea Knez, coachinja",
+        "Sem Tea Knez, coachinja, certificirana po standardih ICF in EMCC. Spoznaj moj pristop, vrednote in pot v coaching za ženske in organizacije.",
+        f"{SITE_URL}/o-meni.html", 0,
+        og_image="about-tea.webp", og_image_alt="Tea Knez - coachinja",
+        extra_jsonld=[
+            _person_jsonld(),
+            _breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("O meni", f"{SITE_URL}/o-meni.html")]),
+        ]
     ) + header("about", 0) + body + footer(0)
     write("o-meni.html", page)
 
@@ -620,7 +733,9 @@ def page_za_posameznice():
     page = head(
         "Coaching za posameznice - Tea Knez",
         "Coaching za ženske, ki usklajujejo materinstvo, kariero in podjetništvo. Prostor za jasnost, zaupanje vase in odločitve, skladne s sabo.",
-        "https://www.teaknez.com/za-posameznice.html", 0
+        f"{SITE_URL}/za-posameznice.html", 0,
+        og_image="about-tea.webp", og_image_alt="Coaching za ženske - Tea Knez",
+        extra_jsonld=_breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("Za posameznice", f"{SITE_URL}/za-posameznice.html")])
     ) + header("individuals", 0) + body + footer(0)
     write("za-posameznice.html", page)
 
@@ -704,7 +819,9 @@ def page_za_podjetja():
     page = head(
         "Coaching za podjetja - Tea Knez",
         "Coaching za zaposlene ob vračanju s porodniške in delavnica za vodje in HR. Strokovna podpora pri pomembnih prehodih za zaposlene in organizacijo.",
-        "https://www.teaknez.com/za-podjetja.html", 0
+        f"{SITE_URL}/za-podjetja.html", 0,
+        og_image="service-podjetja.webp", og_image_alt="Coaching za podjetja - Tea Knez",
+        extra_jsonld=_breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("Za podjetja", f"{SITE_URL}/za-podjetja.html")])
     ) + header("companies", 0) + body + footer(0)
     write("za-podjetja.html", page)
 
@@ -764,7 +881,19 @@ def page_blog_index():
     page = head(
         "Blog - Tea Knez Coaching",
         "Misli o samorefleksiji, samozavesti, odnosih, vodenju in notranji rasti. Praktični vpogledi za jasen razmislek in zrele odločitve.",
-        "https://www.teaknez.com/blog", 1
+        f"{SITE_URL}/blog/", 1,
+        og_image="blog-vracanje.webp", og_image_alt="Blog - Tea Knez Coaching",
+        extra_jsonld=[
+            {
+                "@type": "Blog",
+                "@id": f"{SITE_URL}/blog/#blog",
+                "name": "Blog - Tea Knez Coaching",
+                "url": f"{SITE_URL}/blog/",
+                "inLanguage": "sl",
+                "publisher": {"@id": f"{SITE_URL}/#organization"},
+            },
+            _breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("Blog", f"{SITE_URL}/blog/")]),
+        ]
     ) + header("blog", 1) + body + footer(1)
     write("blog/index.html", page)
 
@@ -800,10 +929,20 @@ def render_blog_post(slug, title, lead, image, body_html, prev_post=None, next_p
 </article>
 {nav}"""
 
+    post_url = f"{SITE_URL}/blog/{slug}/"
     page = head(
         f"{title} - Tea Knez",
         lead,
-        f"https://www.teaknez.com/blog/{slug}", 2
+        post_url, 2,
+        og_type="article", og_image=image, og_image_alt=title,
+        extra_jsonld=[
+            _blogposting_jsonld(title, lead, post_url, image),
+            _breadcrumb_jsonld([
+                ("Domov", f"{SITE_URL}/"),
+                ("Blog", f"{SITE_URL}/blog/"),
+                (title, post_url),
+            ]),
+        ]
     ) + header("blog", 2) + body + footer(2)
     write(f"blog/{slug}/index.html", page)
 
@@ -1257,7 +1396,19 @@ def page_contact():
     page = head(
         "Kontakt - Tea Knez Coaching",
         "Piši mi za rezervacijo brezplačnega uvodnega srečanja. Coaching online, 60 minut, prilagojeno tvojemu tempu.",
-        "https://www.teaknez.com/kontakt", 0
+        f"{SITE_URL}/kontakt.html", 0,
+        og_image="about-tea.webp", og_image_alt="Kontakt - Tea Knez",
+        extra_jsonld=[
+            {
+                "@type": "ContactPage",
+                "@id": f"{SITE_URL}/kontakt.html#contactpage",
+                "url": f"{SITE_URL}/kontakt.html",
+                "name": "Kontakt - Tea Knez Coaching",
+                "inLanguage": "sl",
+                "about": {"@id": f"{SITE_URL}/#organization"},
+            },
+            _breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("Kontakt", f"{SITE_URL}/kontakt.html")]),
+        ]
     ) + header("contact", 0) + body + footer(0)
     write("kontakt.html", page)
 
@@ -1355,7 +1506,8 @@ Zavezanec za DDV: da</p>
     page = head(
         "Politika zasebnosti – Tea Knez",
         "Politika zasebnosti spletne strani teaknez.com v skladu z GDPR in slovensko zakonodajo.",
-        "https://www.teaknez.com/politika-zasebnosti", 0
+        f"{SITE_URL}/politika-zasebnosti.html", 0,
+        extra_jsonld=_breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("Politika zasebnosti", f"{SITE_URL}/politika-zasebnosti.html")])
     ) + header("", 0) + body + footer(0)
     write("politika-zasebnosti.html", page)
 
@@ -1418,7 +1570,8 @@ def page_cookies():
     page = head(
         "Politika piškotkov – Tea Knez",
         "Politika piškotkov spletne strani teaknez.com – kateri piškotki se uporabljajo in kako jih lahko upravljate.",
-        "https://www.teaknez.com/piskotki", 0
+        f"{SITE_URL}/piskotki.html", 0,
+        extra_jsonld=_breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("Politika piškotkov", f"{SITE_URL}/piskotki.html")])
     ) + header("", 0) + body + footer(0)
     write("piskotki.html", page)
 
@@ -1547,7 +1700,25 @@ def page_podpora_vracanju():
     page = head(
         "Reintegracijski coaching za zaposlene po porodniškem dopustu - Tea Knez",
         "Coaching za zaposlene ob vračanju po porodniškem dopustu in podpora organizacijam. Seminar za vodje in HR. Individualni coaching za zaposlene in strokovnjake.",
-        "https://www.teaknez.com/podpora-vracanju.html", 0
+        f"{SITE_URL}/podpora-vracanju.html", 0,
+        og_image="service-podjetja.webp", og_image_alt="Reintegracijski coaching po porodniškem dopustu",
+        extra_jsonld=[
+            {
+                "@type": "Service",
+                "@id": f"{SITE_URL}/podpora-vracanju.html#service",
+                "name": "Reintegracijski coaching za zaposlene po porodniškem dopustu",
+                "serviceType": "Reintegracijski coaching",
+                "url": f"{SITE_URL}/podpora-vracanju.html",
+                "provider": {"@id": f"{SITE_URL}/#organization"},
+                "areaServed": {"@type": "Country", "name": "Slovenija"},
+                "audience": {"@type": "Audience", "audienceType": "Organizacije, vodje, HR in zaposleni"},
+            },
+            _breadcrumb_jsonld([
+                ("Domov", f"{SITE_URL}/"),
+                ("Za podjetja", f"{SITE_URL}/za-podjetja.html"),
+                ("Reintegracijski coaching", f"{SITE_URL}/podpora-vracanju.html"),
+            ]),
+        ]
     ) + header("services", 0) + body + footer(0)
     write("podpora-vracanju.html", page)
 
@@ -1556,23 +1727,54 @@ def page_podpora_vracanju():
 
 # ---------- Sitemap & robots ----------
 def page_sitemap():
-    urls = [
-        "https://www.teaknez.com/",
-        "https://www.teaknez.com/za-posameznice.html",
-        "https://www.teaknez.com/za-podjetja.html",
-        "https://www.teaknez.com/podpora-vracanju.html",
-        "https://www.teaknez.com/o-meni.html",
-        "https://www.teaknez.com/blog/",
-        "https://www.teaknez.com/kontakt.html",
-        "https://www.teaknez.com/politika-zasebnosti.html",
-        "https://www.teaknez.com/piskotki.html",
-    ] + [f"https://www.teaknez.com/blog/{p['slug']}/" for p in POSTS]
+    today = datetime.now().strftime("%Y-%m-%d")
+    # (path, changefreq, priority)
+    entries = [
+        ("/", "monthly", "1.0"),
+        ("/za-posameznice.html", "monthly", "0.9"),
+        ("/za-podjetja.html", "monthly", "0.9"),
+        ("/podpora-vracanju.html", "monthly", "0.8"),
+        ("/o-meni.html", "yearly", "0.8"),
+        ("/blog/", "weekly", "0.7"),
+        ("/kontakt.html", "yearly", "0.7"),
+        ("/politika-zasebnosti.html", "yearly", "0.3"),
+        ("/piskotki.html", "yearly", "0.3"),
+    ] + [(f"/blog/{p['slug']}/", "yearly", "0.6") for p in POSTS]
     body = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    for u in urls:
-        body += f"  <url><loc>{u}</loc></url>\n"
+    for path, changefreq, priority in entries:
+        body += (
+            "  <url>\n"
+            f"    <loc>{SITE_URL}{path}</loc>\n"
+            f"    <lastmod>{today}</lastmod>\n"
+            f"    <changefreq>{changefreq}</changefreq>\n"
+            f"    <priority>{priority}</priority>\n"
+            "  </url>\n"
+        )
     body += "</urlset>\n"
     write("sitemap.xml", body)
-    write("robots.txt", "User-agent: *\nAllow: /\nSitemap: https://www.teaknez.com/sitemap.xml\n")
+    write("robots.txt",
+          "User-agent: *\n"
+          "Allow: /\n\n"
+          f"Sitemap: {SITE_URL}/sitemap.xml\n")
+
+
+def page_webmanifest():
+    import json as _json
+    manifest = {
+        "name": "Tea Knez Coaching",
+        "short_name": "Tea Knez",
+        "description": "Coaching za ženske in organizacije.",
+        "lang": "sl",
+        "start_url": "/",
+        "scope": "/",
+        "display": "browser",
+        "background_color": "#FAF6EF",
+        "theme_color": "#FAF6EF",
+        "icons": [
+            {"src": "/assets/images/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any"}
+        ],
+    }
+    write("site.webmanifest", _json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
 
 
 # ---------- Build ----------
@@ -1595,4 +1797,5 @@ if __name__ == "__main__":
     page_cookies()
     page_podpora_vracanju()
     page_sitemap()
+    page_webmanifest()
     print("\nBuild complete.")
