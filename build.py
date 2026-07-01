@@ -292,6 +292,7 @@ def footer(depth=0):
         <ul>
           <li><a href="{p}politika-zasebnosti.html">Politika zasebnosti</a></li>
           <li><a href="{p}piskotki.html">Politika piškotkov</a></li>
+          <li><button type="button" class="footer-link-btn" data-cookie-settings>Nastavitve piškotkov</button></li>
         </ul>
       </div>
     </div>

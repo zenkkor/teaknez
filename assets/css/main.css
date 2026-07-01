@@ -968,6 +968,18 @@ ul li::marker { color: var(--clay); }
 .footer-col ul { list-style: none; padding: 0; }
 .footer-col li { margin-bottom: 12px; }
 .footer-col a { font-size: 0.96rem; }
+.footer-link-btn {
+  font-family: inherit;
+  font-size: 0.96rem;
+  color: rgba(250, 246, 239, 0.85);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: color .2s ease;
+}
+.footer-link-btn:hover { color: var(--clay-light); }
 .footer-bottom {
   padding-top: 30px;
   display: flex;
@@ -3344,7 +3356,7 @@ body.modal-open { overflow: hidden; }
 /* Cookie consent banner — non-invasive bottom-left card */
 .cookie-banner {
   position: fixed;
-  left: 24px;
+  right: 24px;
   bottom: 24px;
   z-index: 300;
   width: min(420px, calc(100vw - 48px));

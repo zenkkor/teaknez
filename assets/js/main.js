@@ -220,28 +220,44 @@
   // Cookie consent banner (Google Consent Mode v2)
   const cookieBanner = document.getElementById("cookie-banner");
   if (cookieBanner) {
-    let stored = null;
-    try {
-      stored = localStorage.getItem("tk-consent");
-    } catch (e) {}
-    if (!stored) {
-      // Reveal after a beat so it animates in and doesn't fight first paint.
+    function showBanner() {
       cookieBanner.removeAttribute("hidden");
       requestAnimationFrame(() =>
         setTimeout(() => cookieBanner.classList.add("is-visible"), 60)
       );
     }
+    function hideBanner() {
+      cookieBanner.classList.remove("is-visible");
+      setTimeout(() => cookieBanner.setAttribute("hidden", ""), 320);
+    }
+
+    let stored = null;
+    try {
+      stored = localStorage.getItem("tk-consent");
+    } catch (e) {}
+    if (!stored) showBanner();
+
     cookieBanner.querySelectorAll("[data-consent]").forEach((btn) => {
       btn.addEventListener("click", () => {
         const value = btn.getAttribute("data-consent");
         try {
           localStorage.setItem("tk-consent", value);
         } catch (e) {}
-        if (value === "granted" && typeof window.gtag === "function") {
-          window.gtag("consent", "update", { analytics_storage: "granted" });
+        if (typeof window.gtag === "function") {
+          // Symmetric update so re-opening and changing the choice takes effect.
+          window.gtag("consent", "update", {
+            analytics_storage: value === "granted" ? "granted" : "denied",
+          });
         }
-        cookieBanner.classList.remove("is-visible");
-        setTimeout(() => cookieBanner.setAttribute("hidden", ""), 320);
+        hideBanner();
+      });
+    });
+
+    // Footer "Nastavitve piškotkov" — re-open the banner to change the choice.
+    document.querySelectorAll("[data-cookie-settings]").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        showBanner();
       });
     });
   }
