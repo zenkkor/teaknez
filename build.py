@@ -12,6 +12,18 @@ SITE = Path(__file__).parent
 SITE_URL = "https://teaknez.com"
 SITE_NAME = "Tea Knez Coaching"
 
+# ---------- Analytics ----------
+GA_MEASUREMENT_ID = "G-SZ4TH63Z3D"
+GA_SNIPPET = f"""<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{GA_MEASUREMENT_ID}');
+</script>
+"""
+
 def _org_jsonld():
     """Shared Organization/ProfessionalService node, reused as publisher."""
     return {
@@ -110,7 +122,7 @@ def head(title, description, canonical, depth=0, og_type="website",
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title}</title>
+{GA_SNIPPET}<title>{title}</title>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{canonical}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
