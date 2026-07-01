@@ -14,12 +14,26 @@ SITE_NAME = "Tea Knez Coaching"
 
 # ---------- Analytics ----------
 GA_MEASUREMENT_ID = "G-SZ4TH63Z3D"
-GA_SNIPPET = f"""<!-- Google tag (gtag.js) -->
+GA_SNIPPET = f"""<!-- Google tag (gtag.js) with Consent Mode v2 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){{dataLayer.push(arguments);}}
   gtag('js', new Date());
+  // Default to denied until the visitor decides (GDPR / EU).
+  gtag('consent', 'default', {{
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  }});
+  // Restore a prior choice as early as possible.
+  try {{
+    if (localStorage.getItem('tk-consent') === 'granted') {{
+      gtag('consent', 'update', {{ 'analytics_storage': 'granted' }});
+    }}
+  }} catch (e) {{}}
   gtag('config', '{GA_MEASUREMENT_ID}');
 </script>
 """
@@ -286,6 +300,19 @@ def footer(depth=0):
     </div>
   </div>
 </footer>
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Obvestilo o piškotkih" aria-live="polite" hidden>
+  <div class="cookie-banner-inner">
+    <span class="cookie-banner-eyebrow">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5z"/><circle cx="9.5" cy="10.5" r="0.6" fill="currentColor"/><circle cx="14.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="10" cy="15.5" r="0.6" fill="currentColor"/></svg>
+      Piškotki
+    </span>
+    <p class="cookie-banner-text">Za analizo obiska strani uporabljamo piškotke. Sam/a se odločiš, ali jih dovoliš. Več v <a href="{p}piskotki.html">politiki piškotkov</a>.</p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-cookie btn-cookie--ghost" data-consent="denied">Zavrni</button>
+      <button type="button" class="btn-cookie btn-cookie--accept" data-consent="granted">Sprejmi</button>
+    </div>
+  </div>
+</div>
 <script src="{p}assets/js/main.js"></script>
 </body>
 </html>

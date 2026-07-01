@@ -216,4 +216,33 @@
       if (openOne) closeModal(openOne);
     });
   }
+
+  // Cookie consent banner (Google Consent Mode v2)
+  const cookieBanner = document.getElementById("cookie-banner");
+  if (cookieBanner) {
+    let stored = null;
+    try {
+      stored = localStorage.getItem("tk-consent");
+    } catch (e) {}
+    if (!stored) {
+      // Reveal after a beat so it animates in and doesn't fight first paint.
+      cookieBanner.removeAttribute("hidden");
+      requestAnimationFrame(() =>
+        setTimeout(() => cookieBanner.classList.add("is-visible"), 60)
+      );
+    }
+    cookieBanner.querySelectorAll("[data-consent]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const value = btn.getAttribute("data-consent");
+        try {
+          localStorage.setItem("tk-consent", value);
+        } catch (e) {}
+        if (value === "granted" && typeof window.gtag === "function") {
+          window.gtag("consent", "update", { analytics_storage: "granted" });
+        }
+        cookieBanner.classList.remove("is-visible");
+        setTimeout(() => cookieBanner.setAttribute("hidden", ""), 320);
+      });
+    });
+  }
 })();
