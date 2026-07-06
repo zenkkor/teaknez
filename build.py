@@ -737,7 +737,6 @@ def page_za_posameznice():
         <p>V coachingu imaš zaupen prostor, kjer lahko misliš na glas in si slišana.</p>
       </article>
     </div>
-    <p class="closing-italic">Ne zato, ker bi te kdorkoli rešil. Ampak zato, ker se končno daš slišati v skladu s sabo.</p>
   </div>
 </section>
 
