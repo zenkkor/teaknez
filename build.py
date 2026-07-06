@@ -581,22 +581,14 @@ def page_about():
       </ul>
       <div class="credentials-badges">
         <div class="cred-badge">
-          <div class="cred-badge-mark">
-            <img src="assets/images/eia-emcc.webp" alt="EMCC Global Individual Accreditation - EIA Practitioner" loading="lazy">
-          </div>
-          <div class="cred-badge-text">
-            <strong>EIA EMCC</strong>
-            <span>Akreditirana coachinja</span>
-          </div>
-        </div>
-        <div class="cred-badge">
-          <div class="cred-badge-mark cred-badge-mark--icf" aria-hidden="true">
+          <div class="cred-badge-mark cred-badge-mark--icf">
             <span class="cred-badge-acc">ACC</span>
             <span class="cred-badge-icf">ICF</span>
           </div>
-          <div class="cred-badge-text">
-            <strong>ACC ICF</strong>
-            <span>Akreditirana coachinja</span>
+        </div>
+        <div class="cred-badge">
+          <div class="cred-badge-mark">
+            <img src="assets/images/eia-emcc.webp" alt="EMCC Global Individual Accreditation - EIA Practitioner" loading="lazy">
           </div>
         </div>
       </div>
