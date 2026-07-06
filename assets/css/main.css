@@ -2265,51 +2265,52 @@ ul li::marker { color: var(--clay); }
   gap: 18px;
 }
 .cred-badge {
-  background: var(--cream);
+  background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 22px 18px;
+  padding: 30px 24px 26px;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(46, 42, 36, 0.06);
 }
 .cred-badge-mark {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 64px;
-  border-radius: 8px;
-  margin-bottom: 14px;
-  position: relative;
+  height: 96px;
+  margin-bottom: 20px;
 }
-.cred-badge-mark--emcc {
-  background: linear-gradient(135deg, #c9d3a5 0%, #aebe87 100%);
-  color: #36412a;
+.cred-badge-mark img {
+  max-width: 100%;
+  max-height: 96px;
+  object-fit: contain;
+  display: block;
 }
+/* ICF typographic lockup (until official badge is supplied) */
 .cred-badge-mark--icf {
-  background: linear-gradient(135deg, #b7d7a0 0%, #82b079 100%);
-  color: #2b3e25;
+  flex-direction: column;
+  gap: 4px;
 }
-.cred-badge-mark-tag {
+.cred-badge-acc {
   font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 2.9rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #12395f;
 }
-.cred-badge-mark small {
-  position: absolute;
-  bottom: 6px;
-  font-size: 0.42rem;
+.cred-badge-icf {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.7;
-  max-width: 90%;
-  line-height: 1.2;
+  color: #12395f;
+  padding-left: 0.34em;
 }
 .cred-badge-text strong {
   display: block;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--ink);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 .cred-badge-text span {
   font-size: 0.72rem;
@@ -2455,14 +2456,6 @@ ul li::marker { color: var(--clay); }
   line-height: 1.4;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 48px;
-  max-width: 1080px;
-  margin: 0 auto;
-  align-items: start;
-}
 .contact-block-eyebrow {
   display: inline-block;
   font-size: 0.72rem;
@@ -2470,54 +2463,26 @@ ul li::marker { color: var(--clay); }
   letter-spacing: 0.16em;
   color: var(--sage-darker);
   font-weight: 500;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
-.contact-form-wrap .contact-form {
+/* Single centered contact form */
+.contact-form-wrap--center {
+  max-width: 660px;
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-form-wrap--center .contact-form {
+  text-align: left;
   background: var(--cream);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 36px 32px;
+  padding: 44px 44px 40px;
+  box-shadow: 0 10px 34px rgba(46, 42, 36, 0.05);
 }
-.contact-steps {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.contact-steps li {
-  display: flex;
-  gap: 20px;
-  padding: 22px 0;
-  border-bottom: 1px solid rgba(143, 163, 138, 0.22);
-}
-.contact-steps li:first-child { padding-top: 0; }
-.contact-steps li:last-child { border-bottom: none; }
-.contact-step-num {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.4rem;
-  color: var(--sage-darker);
-  min-width: 36px;
-  letter-spacing: 0.04em;
-}
-.contact-steps strong {
-  display: block;
-  font-size: 1.02rem;
-  font-weight: 500;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-.contact-steps p {
-  font-size: 0.92rem;
-  line-height: 1.55;
-  color: var(--ink-soft);
-  margin: 0;
-}
-.contact-signature {
-  margin-top: 30px;
-  font-family: var(--serif);
-  font-style: italic;
-  color: var(--sage-darker);
-  font-size: 1.08rem;
+.contact-form-wrap--center .field label { font-size: 0.92rem; }
+.contact-form-wrap--center .contact-form input,
+.contact-form-wrap--center .contact-form textarea {
+  font-size: 1rem;
 }
 
 /* Home hero variations */

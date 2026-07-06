@@ -571,32 +571,32 @@ def page_about():
     </div>
     <div class="credentials-row">
       <ul class="credentials-bullets">
-        <li>magistra prava</li>
-        <li>certificiran organizacijski coach</li>
-        <li>certificiran NLP mojster in coach</li>
-        <li>strokovna izobraževanja s področja coachinga in komunikacije</li>
-        <li>strokovno izpopolnjevanje in supervizija</li>
-        <li>članica European Mentoring &amp; Coaching Council</li>
-        <li>članica International Coaching Federation</li>
+        <li>ACC ICF akreditirana coachinja</li>
+        <li>EIA EMCC akreditirana coachinja</li>
+        <li>certificirana organizacijska coachinja</li>
+        <li>NLP mojstrica in coachinja</li>
+        <li>stalno strokovno izpopolnjevanje na področju coachinga, komunikacije in osebnega razvoja</li>
+        <li>redna supervizija in zavezanost etični coaching praksi</li>
+        <li>magistrica prava z izkušnjami na področju mediacije in potrošniških sporov</li>
       </ul>
       <div class="credentials-badges">
         <div class="cred-badge">
-          <div class="cred-badge-mark cred-badge-mark--emcc">
-            <span class="cred-badge-mark-tag">EMCC</span>
-            <small>European Mentoring &amp; Coaching Council</small>
+          <div class="cred-badge-mark">
+            <img src="assets/images/eia-emcc.webp" alt="EMCC Global Individual Accreditation - EIA Practitioner" loading="lazy">
           </div>
           <div class="cred-badge-text">
             <strong>EIA EMCC</strong>
-            <span>Accredited Coach</span>
+            <span>Akreditirana coachinja</span>
           </div>
         </div>
         <div class="cred-badge">
-          <div class="cred-badge-mark cred-badge-mark--icf">
-            <span class="cred-badge-mark-tag">ICF</span>
+          <div class="cred-badge-mark cred-badge-mark--icf" aria-hidden="true">
+            <span class="cred-badge-acc">ACC</span>
+            <span class="cred-badge-icf">ICF</span>
           </div>
           <div class="cred-badge-text">
             <strong>ACC ICF</strong>
-            <span>Accredited Coach</span>
+            <span>Akreditirana coachinja</span>
           </div>
         </div>
       </div>
@@ -639,7 +639,7 @@ def page_about():
         <a href="kontakt.html" class="btn btn-primary">Rezerviraj uvodno srečanje →</a>
       </div>
       <div class="closing-recognize-image">
-        <img src="assets/images/coaching-section.webp" alt="">
+        <img src="assets/images/omeni-closing.webp" alt="Miren kotiček s skodelico čaja in dnevnikom">
       </div>
     </div>
   </div>
@@ -672,7 +672,7 @@ def page_za_posameznice():
         <p>Skupaj ustvariva prostor za več jasnosti, zaupanja vase in odločitve, ki so skladne s tabo.</p>
       </div>
       <div class="page-hero-image">
-        <img src="assets/images/about-tea.webp" alt="Tea Knez">
+        <img src="assets/images/posameznice-hero.webp" alt="Dnevnik Več jasnosti s skodelico čaja">
       </div>
     </div>
   </div>
@@ -1344,8 +1344,8 @@ def page_contact():
     <div class="contact-header">
       <span class="eyebrow">Kontakt</span>
       <h1>Tukaj sem za <em>tvoje vprašanje</em>.</h1>
-      <p>Odgovorim ti hitro in v najkrajšem možnem času.</p>
-      <p>Če te kaj zaposluje, povprašuješ, ali bi rada uskladila spoznavno srečanje, mi piši - z veseljem se ti oglasim in najdeva čas za pogovor.</p>
+      <p>Odgovorim ti osebno, jasno in v najkrajšem možnem času.</p>
+      <p>Če te zanima coaching, imaš vprašanje o sodelovanju ali bi rada uskladila spoznavno srečanje, mi piši. Z veseljem ti odgovorim in skupaj poiščeva primeren čas za pogovor.</p>
     </div>
     <div class="contact-badges">
       <div class="contact-badge">
@@ -1353,8 +1353,8 @@ def page_contact():
           <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg>
         </div>
         <div>
-          <strong>Hitri odgovor</strong>
-          <span>Odgovorim ti v 1-2 delovnih dneh.</span>
+          <strong>Hiter odgovor</strong>
+          <span>Odgovorim ti v 1–2 delovnih dneh.</span>
         </div>
       </div>
       <div class="contact-badge">
@@ -1362,8 +1362,8 @@ def page_contact():
           <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="14" width="18" height="14" rx="2"/><path d="M11 14V9a5 5 0 0 1 10 0v5"/></svg>
         </div>
         <div>
-          <strong>Diskretnost</strong>
-          <span>Vsebina sporočila ostane med nama.</span>
+          <strong>Zaupnost</strong>
+          <span>Tvoje sporočilo ostane zaupno.</span>
         </div>
       </div>
     </div>
@@ -1372,63 +1372,34 @@ def page_contact():
 
 <section class="section section-cream">
   <div class="container">
-    <div class="contact-grid">
-      <div class="contact-form-wrap">
-        <span class="contact-block-eyebrow">Pošlji sporočilo</span>
-        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-web3forms>
-          <input type="hidden" name="access_key" value="e78b399d-a62e-494f-b90b-519f4b7f7a48">
-          <input type="hidden" name="subject" value="Novo povpraševanje s teaknez.com">
-          <input type="hidden" name="from_name" value="teaknez.com - kontaktni obrazec">
-          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="field">
-            <label for="name">Ime in priimek</label>
-            <input id="name" name="name" type="text" required autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="email">E-naslov</label>
-            <input id="email" name="email" type="email" required autocomplete="email">
-          </div>
-          <div class="field">
-            <label for="message">Sporočilo (neobvezno)</label>
-            <textarea id="message" name="message" placeholder="Napiši na kratko, kaj te zanima…"></textarea>
-          </div>
-          <label class="field-check">
-            <input type="checkbox" name="consent" required>
-            <span>Strinjam se z obdelavo podatkov v skladu s <a href="politika-zasebnosti.html">pogoji</a>.</span>
-          </label>
-          <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
-          <button type="submit" class="btn btn-primary">Pošlji sporočilo →</button>
-          <div class="form-status" role="status" aria-live="polite"></div>
-        </form>
-        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-      </div>
-      <div class="contact-steps-wrap">
-        <span class="contact-block-eyebrow">Kaj se zgodi naprej</span>
-        <ol class="contact-steps">
-          <li>
-            <span class="contact-step-num">01</span>
-            <div>
-              <strong>Pregledam tvoje sporočilo</strong>
-              <p>Si vzamem čas, da razumem, kaj te trenutno zaposluje in kakšno podporo iščeš.</p>
-            </div>
-          </li>
-          <li>
-            <span class="contact-step-num">02</span>
-            <div>
-              <strong>Odgovorim ti</strong>
-              <p>V 1-2 delovnih dneh ti pišem nazaj in predlagam termin za uvodni pogovor.</p>
-            </div>
-          </li>
-          <li>
-            <span class="contact-step-num">03</span>
-            <div>
-              <strong>Razmišljiva o možnostih</strong>
-              <p>Na brezplačnem uvodnem klicu skupaj raziščeva, kako bi ti coaching lahko služil.</p>
-            </div>
-          </li>
-        </ol>
-        <p class="contact-signature">- Se veselim tvojega sporočila</p>
-      </div>
+    <div class="contact-form-wrap contact-form-wrap--center">
+      <span class="contact-block-eyebrow">Pošlji sporočilo</span>
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-web3forms>
+        <input type="hidden" name="access_key" value="e78b399d-a62e-494f-b90b-519f4b7f7a48">
+        <input type="hidden" name="subject" value="Novo povpraševanje s teaknez.com">
+        <input type="hidden" name="from_name" value="teaknez.com - kontaktni obrazec">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field">
+          <label for="name">Ime in priimek</label>
+          <input id="name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">E-naslov</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="message">Sporočilo</label>
+          <textarea id="message" name="message" placeholder="Napiši na kratko, kaj te zanima…"></textarea>
+        </div>
+        <label class="field-check">
+          <input type="checkbox" name="consent" required>
+          <span>Strinjam se z obdelavo podatkov v skladu s <a href="politika-zasebnosti.html">pogoji</a>.</span>
+        </label>
+        <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
+        <button type="submit" class="btn btn-primary">Pošlji sporočilo →</button>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+      <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     </div>
   </div>
 </section>
