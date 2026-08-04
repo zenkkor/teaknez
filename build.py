@@ -367,7 +367,67 @@ TESTIMONIALS = [
      "Maja", "influencerka"),
 ]
 
+# Longer client stories - shown first, as the focus of the section.
+FEATURED_TESTIMONIALS = [
+    {
+        "name": "Živa O.",
+        "paragraphs": [
+            "Na začetku nisem vedela, kaj točno pričakovati, saj sem se s tovrstnim coachingom prvič zares srečala. Pred tem sem se že več let poglabljala vase in se ukvarjala s samoanalizo nerazrešenih čustev, miselnih vzorcev in samopodobe. Občutek sem imela, da sem si že odgovorila na vsa vprašanja in pogledala v vse skrivne kotičke...",
+            "Na vsakem srečanju s Teo so se odpirale in odstirale različne teme, ki so bile takrat aktualne. Vsakokrat se je začelo s sproščenim pogovorom, ki se je nadaljeval s samorealizacijo, kje so še skriti občutki in zataknjena čustva, ki so me zaustavljali na moji poti, da dosežem to, kar si globoko v sebi želim.",
+            "Tea me je s subtilnimi vprašanji spodbudila k razmisleku o stvareh, na katere si sama nisem nikoli zares odgovorila. Ko sem sama premlevala različne teme potiho v svojem umu, sem nezavedno obšla ali pa se nisem dovolj globoko poglobila, od kod pravzaprav izvirajo določena čustva in miselni vzorci.",
+            "S Teino pomočjo sem te dele lažje ozavestila ter se z njimi soočila in jih integrirala v zdajšnjo realnost. Presenetilo me je, kako drugače je, ko na glas poveš to, kar se ti poraja v mislih, od kod to prihaja in kaj to pomeni v sedanjem trenutku. Neprecenljivo, ko imaš pred seboj sogovornika, ki ustvari prostor, da se izraziš in te pri tem neobsojajoče in sočutno podpira.",
+            "Najina srečanja so okrepila mojo notranjo moč in mi dala dodaten zagon, da bolj samozavestno, odločno in brez obotavljanja nadaljujem svojo poslovno pot, misijo, ki tli v mojem srcu.",
+            "Coaching s Teo bi priporočala vsakomur, ki čuti, da potrebuje spodbudo, hitrejši napredek in si želi poglobiti, razrešiti ter sprostiti globoko zakoreninjena prepričanja, ki mu/ji ne služijo več. Toplo priporočam!",
+        ],
+    },
+    {
+        "name": "Vesna T.",
+        "paragraphs": [
+            "S Teo sva se spoznali čisto po naključju, ravno v obdobju, ko sem to podporo najbolj potrebovala. Bila sem približno pol leta po porodniški, v času, ko sem se še privajala na novo vlogo mame, hkrati pa odpirala novo podjetje. Iskreno, precej sem se lovila. Imela sem veliko idej, želja in odgovornosti, ampak tudi ogromno dvomov, notranjih pritiskov in občutka, da skušam vse uskladiti hkrati.",
+            "Tea je izjemno strokovna, empatična in predvsem zna zares poslušati. Ne posluša samo besed, ampak sliši tudi tisto, česar včasih sama ne znaš ubesediti. Ker ima tudi sama podobne življenjske izkušnje, sem imela ves čas občutek, da me res razume.",
+            "Skupaj sva se dotaknili mojih omejujočih prepričanj, postavljanja ciljev, organizacije časa ter usklajevanja vlog mame in podjetnice. Z njeno pomočjo sem začela spreminjati svoj notranji “moram” v “želim” in že ta premik mi je pomagal, da sem začela na svoje odločitve gledati bolj mirno, zavestno in z manj občutka krivde.",
+            "Tea mi je pomagala tudi na novo definirati, kaj zame pomeni biti uspešna. Ne samo skozi rezultate, delo in dosežke, ampak tudi skozi občutek notranjega miru, prisotnosti in zvestobe sebi. Veliko sva delali tudi na tem, kaj je res v moji moči in na kaj nimam vpliva - kar mi je pomagalo spustiti del pritiska, ki sem si ga nalagala sama.",
+            "Njeno vodenje me je pripeljalo do številnih pomembnih spoznanj, ki jih še danes uporabljam pri svojem delu in v zasebnem življenju. No, vsaj poskušam...",
+            "Največ pa mi pomeni občutek, ki sem ga imela po vsakem srečanju – da sem slišana, razumljena in da mi ni treba vsega nositi sama.",
+            "Tea bi priporočila vsakomur, ki si želi osebne ali poslovne rasti, še posebej pa ženskam, ki se znajdejo med materinstvom in podjetniško potjo. Hvala, Tea, za tvojo podporo, usmeritve in varen prostor za rast. ❤️",
+        ],
+    },
+    {
+        "name": "Tamara K.",
+        "paragraphs": [
+            "Na coaching sem prišla z željo, da ponovno najdem sebe ter pridobim več notranjega miru in jasnosti. Najbolj dragocen mi je bil varen prostor, kjer sem se lahko iskreno odprla, ter podpora, ki mi je pomagala narediti konkretne korake naprej. Med procesom sem začela bolj zaupati sebi, lažje postavljati meje in sprejemati odločitve. Coaching bi priporočila vsakomur, ki čuti, da je čas za spremembo, osebno rast in življenje v večji harmoniji s seboj.",
+        ],
+    },
+]
+
+
+def _featured_testimonial(t):
+    """Long client story. The opening paragraph is always visible; the rest
+    expands via a native <details> so the section stays scannable."""
+    paras = t["paragraphs"]
+    opening = f'      <p class="testimonial-opening">{paras[0]}</p>'
+    rest = ""
+    if len(paras) > 1:
+        more = "\n".join(f"          <p>{p}</p>" for p in paras[1:])
+        rest = f"""
+      <details class="testimonial-more">
+        <summary><span class="testimonial-more-open">Preberi celotno zgodbo</span><span class="testimonial-more-close">Skrij zgodbo</span></summary>
+        <div class="testimonial-more-body">
+{more}
+        </div>
+      </details>"""
+    return f"""    <article class="testimonial-featured">
+      <span class="testimonial-quotemark" aria-hidden="true">»</span>
+{opening}{rest}
+      <footer class="testimonial-author">
+        <span class="testimonial-avatar" aria-hidden="true">{t["name"][0]}</span>
+        <cite><strong>{t["name"]}</strong></cite>
+      </footer>
+    </article>"""
+
+
 def testimonials_section():
+    featured = "\n".join(_featured_testimonial(t) for t in FEATURED_TESTIMONIALS)
     cards = "\n".join(
         f"""    <article class="testimonial">
       <blockquote>»{q}«</blockquote>
@@ -382,8 +442,11 @@ def testimonials_section():
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Zaupanje strank</span>
-      <h2>Kaj pravijo stranke</h2>
-      <p>Vsak pogovor prinese drugačno zgodbo - od večje jasnosti in samozavesti, do konkretnih premikov v življenju.</p>
+      <h2>Njihove zgodbe</h2>
+      <p>Vsak proces je drugačen. Preberi, kako so coaching doživele ženske, ki so mi zaupale del svoje poti.</p>
+    </div>
+    <div class="testimonials-featured">
+{featured}
     </div>
     <div class="testimonials">
 {cards}
