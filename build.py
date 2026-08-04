@@ -897,7 +897,7 @@ POSTS = [
     {"slug":"identiteta-po-materinstvu", "title":"Ko se rodi otrok, se spremeni tudi ženska",
      "summary":"Materinstvo lahko spremeni identiteto, potrebe in odnos ženske do sebe. Preberi, zakaj so te spremembe razumljive in zakaj si zaslužijo prostor.",
      "image":"identiteta-po-materinstvu-tea-knez.webp",
-     "image_alt":"Tea Knez, coachinja za ženske po materinstvu",
+     "image_alt":"Mama z dojenčkom v naročju zamišljeno gleda skozi okno, v steklu se zrcali njen odsev",
      "date":"2026-08-04"},
     {"slug":"vracanje-s-porodniskega-dopusta", "title":"Vračanje s porodniškega dopusta: ko se vrneš drugačna",
      "summary":"Kako podpreti vračanje s porodniškega dopusta? O izzivih, prehodu in vlogi coachinga za posameznice in podjetja.",
