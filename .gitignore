@@ -9,8 +9,10 @@ __pycache__/
 .venv/
 venv/
 
-# Local tooling (Playwright verification scripts, screenshots, node_modules, etc.)
-.pw/
+# Local tooling (Playwright screenshots, node_modules, scratch scripts).
+# shot.mjs is the shared verification helper documented in CLAUDE.md - keep it.
+.pw/*
+!.pw/shot.mjs
 
 # Editor
 .vscode/

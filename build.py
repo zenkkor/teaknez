@@ -358,13 +358,13 @@ def footer(depth=0):
 # Testimonials shared markup
 TESTIMONIALS = [
     ("Vodenje lastnega podjetja je hitro postalo preveč razpršeno. S Teo sem začela razmišljati širše in z več jasnosti sprejemati podjetniške odločitve.",
-     "Sara", "ustanoviteljica marketing studia"),
+     "Sara B."),
     ("Kot vodja ekipe sem bila pogosto ujeta med rezultate in ljudi. S coachingom sem postala mirnejša v zahtevnih situacijah in jasnejša v komunikaciji.",
-     "Petra", "vodja prodaje v bančnem sektorju"),
+     "Petra M."),
     ("V poslu sem dolgo dvomila vase, čeprav sem bila strokovno samozavestna. Coaching mi je dal strateško jasnost in pogum za pomembne odločitve.",
-     "Nina", "solo trenerka"),
+     "Nina R."),
     ("Navajena sem biti ves čas ‘vidna’, redko pa sem si dovolila prostor za razmislek. Naučila sem se postaviti jasnejše meje in začela ustvarjati z več notranjega miru.",
-     "Maja", "influencerka"),
+     "Maja S."),
 ]
 
 # Longer client stories - shown first, as the focus of the section.
@@ -433,10 +433,10 @@ def testimonials_section():
       <blockquote>»{q}«</blockquote>
       <footer class="testimonial-author">
         <span class="testimonial-avatar" aria-hidden="true">{name[0]}</span>
-        <cite><strong>{name}</strong><span>{role}</span></cite>
+        <cite><strong>{name}</strong></cite>
       </footer>
     </article>"""
-        for q, name, role in TESTIMONIALS
+        for q, name in TESTIMONIALS
     )
     return f"""<section class="section section-cream">
   <div class="container">
