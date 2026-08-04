@@ -99,8 +99,8 @@ def _breadcrumb_jsonld(trail):
         ],
     }
 
-def _blogposting_jsonld(title, description, url, image):
-    return {
+def _blogposting_jsonld(title, description, url, image, date=None, modified=None):
+    node = {
         "@type": "BlogPosting",
         "@id": url + "#article",
         "headline": title,
@@ -112,6 +112,33 @@ def _blogposting_jsonld(title, description, url, image):
         "publisher": {"@id": f"{SITE_URL}/#organization"},
         "mainEntityOfPage": {"@type": "WebPage", "@id": url},
     }
+    # Only emit dates we actually know - never fabricate them.
+    if date:
+        node["datePublished"] = date
+        node["dateModified"] = modified or date
+    return node
+
+
+# ---------- Blog helpers ----------
+BLOG_AUTHOR = "Tea Knez"
+
+_SL_MONTHS = ["januarja", "februarja", "marca", "aprila", "maja", "junija",
+              "julija", "avgusta", "septembra", "oktobra", "novembra", "decembra"]
+
+def _sl_date(iso):
+    """2026-08-04 -> '4. avgusta 2026' (Slovenian genitive, as used in dates)."""
+    y, m, d = (int(x) for x in iso.split("-"))
+    return f"{d}. {_SL_MONTHS[m - 1]} {y}"
+
+def _post_neighbors(slug):
+    """Derive prev/next from position in POSTS so inserting a post can't
+    desynchronise the navigation."""
+    idx = next((i for i, p in enumerate(POSTS) if p["slug"] == slug), None)
+    if idx is None:
+        return None, None
+    prev_post = POSTS[idx - 1] if idx > 0 else None
+    next_post = POSTS[idx + 1] if idx < len(POSTS) - 1 else None
+    return prev_post, next_post
 
 def _jsonld_block(nodes):
     import json as _json
@@ -121,7 +148,8 @@ def _jsonld_block(nodes):
 
 # ---------- Shared fragments ----------
 def head(title, description, canonical, depth=0, og_type="website",
-         og_image="about-tea.webp", og_image_alt="Tea Knez - coachinja", extra_jsonld=None):
+         og_image="about-tea.webp", og_image_alt="Tea Knez - coachinja", extra_jsonld=None,
+         article_date=None):
     root = "../" * depth
     asset = root + "assets"
     og_image_url = f"{SITE_URL}/assets/images/{og_image}"
@@ -130,6 +158,14 @@ def head(title, description, canonical, depth=0, og_type="website",
     if extra_jsonld:
         nodes.extend(extra_jsonld if isinstance(extra_jsonld, list) else [extra_jsonld])
     jsonld = _jsonld_block(nodes)
+
+    article_meta = ""
+    if article_date:
+        article_meta = (
+            f'<meta property="article:published_time" content="{article_date}">\n'
+            f'<meta property="article:modified_time" content="{article_date}">\n'
+            f'<meta property="article:author" content="{BLOG_AUTHOR}">\n'
+        )
 
     return f"""<!DOCTYPE html>
 <html lang="sl">
@@ -150,7 +186,7 @@ def head(title, description, canonical, depth=0, og_type="website",
 <meta property="og:url" content="{canonical}">
 <meta property="og:image" content="{og_image_url}">
 <meta property="og:image:alt" content="{og_image_alt}">
-<meta name="twitter:card" content="summary_large_image">
+{article_meta}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
 <meta name="twitter:image" content="{og_image_url}">
@@ -858,6 +894,11 @@ def page_za_podjetja():
 
 # ---------- BLOG INDEX ----------
 POSTS = [
+    {"slug":"identiteta-po-materinstvu", "title":"Ko se rodi otrok, se spremeni tudi ženska",
+     "summary":"Materinstvo lahko spremeni identiteto, potrebe in odnos ženske do sebe. Preberi, zakaj so te spremembe razumljive in zakaj si zaslužijo prostor.",
+     "image":"identiteta-po-materinstvu-tea-knez.webp",
+     "image_alt":"Tea Knez, coachinja za ženske po materinstvu",
+     "date":"2026-08-04"},
     {"slug":"vracanje-s-porodniskega-dopusta", "title":"Vračanje s porodniškega dopusta: ko se vrneš drugačna",
      "summary":"Kako podpreti vračanje s porodniškega dopusta? O izzivih, prehodu in vlogi coachinga za posameznice in podjetja.",
      "image":"blog-vracanje.webp"},
@@ -929,7 +970,65 @@ def page_blog_index():
 
 
 # ---------- BLOG POSTS ----------
-def render_blog_post(slug, title, lead, image, body_html, prev_post=None, next_post=None):
+def render_blog_post(slug, title, lead, image, body_html,
+                     description=None, seo_title=None, cta=None, author_block=False):
+    """Render one blog post.
+
+    lead        - visible intro paragraph under the title
+    description - meta description (falls back to lead)
+    seo_title   - full <title> override (falls back to "<title> - Tea Knez")
+    cta         - dict(text=..., label=..., href=...) rendered under the article
+    author_block- render the author bio card under the article
+    Date, image alt and prev/next all come from the POSTS entry.
+    """
+    meta = next((p for p in POSTS if p["slug"] == slug), {})
+    date = meta.get("date")
+    image_alt = meta.get("image_alt", "")
+    description = description or lead
+    prev_post, next_post = _post_neighbors(slug)
+
+    byline = ""
+    if date:
+        byline = f"""
+    <p class="post-meta">
+      <span class="post-meta-author">{BLOG_AUTHOR}</span>
+      <span class="post-meta-sep" aria-hidden="true">·</span>
+      <time datetime="{date}">{_sl_date(date)}</time>
+    </p>"""
+
+    cta_html = ""
+    if cta:
+        cta_html = f"""
+<section class="section">
+  <div class="container-narrow">
+    <div class="post-cta">
+      <p>{cta["text"]}</p>
+      <a href="{cta["href"]}" class="btn btn-primary">{cta["label"]}</a>
+    </div>
+  </div>
+</section>
+"""
+
+    author_html = ""
+    if author_block:
+        author_html = """
+<section class="section">
+  <div class="container-narrow">
+    <aside class="post-author">
+      <div class="post-author-photo">
+        <img src="../../assets/images/about-tea.webp" alt="Tea Knez" loading="lazy">
+      </div>
+      <div class="post-author-body">
+        <span class="post-author-eyebrow">Avtorica</span>
+        <p class="post-author-name">Tea Knez</p>
+        <p>Tea Knez je ACC ICF in EIA EMCC certificirana coachinja. Pri svojem delu podpira predvsem ženske po materinstvu pri raziskovanju identitete, izčrpanosti, krivde, perfekcionizma, meja in odnosa do sebe.</p>
+        <a class="post-author-link" href="../../o-meni.html">Spoznaj Teo in njeno pot</a>
+      </div>
+    </aside>
+  </div>
+</section>
+"""
+
     nav = ""
     if prev_post or next_post:
         prev_html = f'<a href="../{prev_post["slug"]}/" style="display:flex;flex-direction:column;gap:6px;color:var(--ink-soft);"><span style="font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);">← Prejšnji</span><strong style="color:var(--ink);font-family:var(--serif);font-size:1.15rem;font-weight:500;">{prev_post["title"]}</strong></a>' if prev_post else "<span></span>"
@@ -947,26 +1046,27 @@ def render_blog_post(slug, title, lead, image, body_html, prev_post=None, next_p
     body = f"""<section class="post-hero">
   <div class="container-narrow">
     <a class="back-link" href="../../blog/">Nazaj na blog</a>
-    <h1>{title}</h1>
+    <h1>{title}</h1>{byline}
     <p class="lead">{lead}</p>
   </div>
 </section>
 
-<div class="post-image"><img src="../../assets/images/{image}" alt=""></div>
+<div class="post-image"><img src="../../assets/images/{image}" alt="{image_alt}"></div>
 
 <article class="post-body">
 {body_html}
 </article>
-{nav}"""
+{cta_html}{author_html}{nav}"""
 
     post_url = f"{SITE_URL}/blog/{slug}/"
     page = head(
-        f"{title} - Tea Knez",
-        lead,
+        seo_title or f"{title} - Tea Knez",
+        description,
         post_url, 2,
-        og_type="article", og_image=image, og_image_alt=title,
+        og_type="article", og_image=image, og_image_alt=image_alt or title,
+        article_date=date,
         extra_jsonld=[
-            _blogposting_jsonld(title, lead, post_url, image),
+            _blogposting_jsonld(title, description, post_url, image, date=date),
             _breadcrumb_jsonld([
                 ("Domov", f"{SITE_URL}/"),
                 ("Blog", f"{SITE_URL}/blog/"),
@@ -975,6 +1075,45 @@ def render_blog_post(slug, title, lead, image, body_html, prev_post=None, next_p
         ]
     ) + header("blog", 2) + body + footer(2)
     write(f"blog/{slug}/index.html", page)
+
+
+def page_blog_identiteta():
+    body = """<p>Ko se rodi otrok, se pozornost razumljivo usmeri vanj. Kako spi? Ali dovolj je? Kako napreduje? Kako se privaja na svet? Tudi mamo ljudje pogosto vprašajo, kako je, vendar se pogovor hitro vrne k otroku. Manj pogosto se zares ustavimo pri vprašanju, kaj se je z rojstvom otroka spremenilo v njej. Materinstvo namreč ni samo nova vloga in drugačen urnik. Za nekatere ženske pomeni tudi veliko spremembo identitete, prioritet, odnosov in načina, kako doživljajo sebe.</p>
+
+<h2>Ko postaneš mama, ne prenehaš biti ti</h2>
+<p>Materinstvo lahko v življenje prinese veliko ljubezni, bližine in smisla. Hkrati lahko prinese odgovornost, ki je prej nisi poznala, utrujenost, manj predvidljivosti in občutek, da so tvoje potrebe nenadoma vedno na koncu. Zelo dobro začneš prepoznavati, kaj potrebuje otrok. Opazuješ, predvidevaš, organiziraš in skrbiš, da vsakdan nekako teče. Veliko težje pa lahko postane odgovoriti na preprosta vprašanja: Kako sem jaz? Kaj potrebujem? Kaj mi je pomembno? Kaj me še veseli?</p>
+<p>To ne pomeni, da je s tabo nekaj narobe. Prav tako ne pomeni, da nisi hvaležna ali da svojega otroka nimaš dovolj rada. Lahko imaš rada materinstvo in hkrati pogrešaš dele sebe, ki imajo zdaj manj prostora. Lahko si predana mama in si obenem želiš pogovora, v katerem nisi obravnavana samo skozi svojo vlogo. Ženska z rojstvom otroka ne preneha obstajati, vendar se lahko v množici novih potreb, nalog in pričakovanj težje sliši.</p>
+
+<h2>Tudi sama sem potrebovala pomoč</h2>
+<p>Ta tema zame ni samo strokovna. Med drugo porodniško sem doživela močno telesno in mentalno izčrpanost. Dolgo sem poskušala zdržati, obvladati vsakdan in iti naprej. Šele ko tako ni šlo več, sem si priznala, da potrebujem pomoč. Nisem potrebovala še enega seznama stvari, ki bi jih morala narediti bolje. Potrebovala sem prostor, da se ustavim, razumem, kaj se z mano dogaja, in ponovno vzpostavim stik s sabo.</p>
+<p>Ta izkušnja je pomemben del razloga, da danes delam z ženskami po materinstvu. Ne zato, ker bi verjela, da vse doživljamo enako. Moja zgodba ni razlaga zgodbe druge ženske. Vem pa, kako osamljen je lahko občutek, da bi morala zmogla, medtem ko v sebi čutiš, da ne zmoreš več na isti način. In vem, kako pomembno je, da te nekdo ne poskuša takoj popraviti, ampak te najprej zares posluša.</p>
+
+<h2>Materinstvo lahko spremeni odnos do sebe</h2>
+<p>Po rojstvu otroka se lahko spremenijo tvoje prioritete, ambicije, meje in odnos do časa. Stvari, ki so se ti zdele prej pomembne, morda nimajo več enake teže. Lahko začneš drugače razmišljati o delu, partnerstvu, prijateljstvih ali načinu življenja. Morda pogrešaš svojo prejšnjo spontanost. Morda se ne prepoznaš več v ženski, kakršna si bila, hkrati pa še ne veš, kdo postajaš.</p>
+<p>Ob takšnih spremembah se lahko hitro pojavi pritisk, da bi se morala »spet najti« ali vrniti k stari sebi. Toda morda naloga ni samo vrnitev. Morda potrebuješ čas in prostor, da raziščeš, kaj želiš ohraniti, kaj se je spremenilo in kaj ti je pomembno danes. Identiteta po materinstvu ni nujno nekaj, kar moraš čim hitreje dokončno opredeliti. Lahko je proces, v katerem se na novo srečuješ s sabo.</p>
+
+<h2>Ta prostor ni namenjen temu, kako postati boljša mama</h2>
+<p>Veliko vsebin za mame govori o razvoju otroka, vzgoji, spanju, prehrani in organizaciji družinskega življenja. Vse to ima svoje mesto. Ta prostor pa je namenjen drugačnim vprašanjem: Kaj se po materinstvu dogaja s tabo? Kako se je spremenil tvoj odnos do sebe? Kaj se skriva pod krivdo, perfekcionizmom, notranjim kritikom, potrebo po nadzoru ali težavo pri postavljanju meja?</p>
+<p>Pri svojem delu ne izhajam iz prepričanja, da ti manjka še en pravilen odgovor. Coaching razumem kot zaupen prostor, v katerem lahko raziskuješ svoje doživljanje, potrebe, vrednote in odločitve. Coach ti ne pove, kdo bi morala biti ali kako bi morala živeti. Z vprašanji, poslušanjem in zrcaljenjem ti pomaga ustvariti več jasnosti ter slišati tudi tisto, kar v vsakdanjem hrupu težko pride do besede.</p>
+<p>Ko se rodi otrok, se lahko spremeni tudi ženska. To ni napaka, ki jo je treba odpraviti. Je sprememba, ki si zasluži pozornost. Morda ti danes ni treba poznati vseh odgovorov. Začneš lahko z enim vprašanjem:</p>
+
+<p class="pullquote">Kaj se je po materinstvu najbolj spremenilo v mojem odnosu do sebe?</p>
+"""
+    render_blog_post(
+        "identiteta-po-materinstvu",
+        "Ko se rodi otrok, se spremeni tudi ženska",
+        "Materinstvo ne spremeni le vsakdana. Spremeni lahko tudi odnos ženske do sebe, njenih potreb, telesa, dela, odnosov in tega, kdo verjame, da mora biti.",
+        "identiteta-po-materinstvu-tea-knez.webp",
+        body,
+        description="Materinstvo lahko spremeni identiteto, potrebe in odnos ženske do sebe. Preberi, zakaj so te spremembe razumljive in zakaj si zaslužijo prostor.",
+        seo_title="Identiteta po materinstvu: kako se spremeni ženska | Tea Knez",
+        cta={
+            "text": "Materinstvo lahko odpre vprašanja, na katera ni mogoče odgovoriti z enim nasvetom. Če želiš raziskati, kaj se je po materinstvu spremenilo v tvojem odnosu do sebe, si lahko ogledaš možnosti individualnega coachinga.",
+            "label": "Oglej si individualni coaching",
+            "href": "../../za-posameznice.html",
+        },
+        author_block=True,
+    )
 
 
 def page_blog_vracanje():
@@ -1037,8 +1176,6 @@ def page_blog_vracanje():
         "Kako podpreti vračanje s porodniškega dopusta? O izzivih, prehodu in vlogi coachinga za posameznice in podjetja.",
         "blog-vracanje.webp",
         body,
-        prev_post=None,
-        next_post=POSTS[1],
     )
 
 
@@ -1079,8 +1216,6 @@ def page_blog_izgorelost():
         "Kultura zaupanja in ravnovesja namesto preobremenjenosti. Ustvari delovno okolje, kjer ljudje resnično zmorejo rasti.",
         "blog-izgorelost.webp",
         body,
-        prev_post=POSTS[0],
-        next_post=POSTS[2],
     )
 
 
@@ -1122,8 +1257,6 @@ def page_blog_sindrom():
         "O dvomu vase, ki te želi zaščititi. Spoznaj, kako prepoznati ta glas in verjeti, da si že zdaj dovolj.",
         "blog-sindrom.webp",
         body,
-        prev_post=POSTS[1],
-        next_post=POSTS[3],
     )
 
 
@@ -1162,8 +1295,6 @@ def page_blog_mir():
         "O notranji svobodi, ko mir izbereš pred dokazovanjem. Nauči se slišati sebe, ne potrebe po potrditvi.",
         "blog-mir.webp",
         body,
-        prev_post=POSTS[2],
-        next_post=POSTS[4],
     )
 
 
@@ -1203,8 +1334,6 @@ def page_blog_samozavest():
         "Samozavest ni lastnost, s katero se rodiš – je pot, ki jo gradiš skozi drobne izbire in notranji dialog. Preberi, kako lahko začneš danes.",
         "blog-samozavest.webp",
         body,
-        prev_post=POSTS[3],
-        next_post=POSTS[5],
     )
 
 
@@ -1240,8 +1369,6 @@ def page_blog_avtenticno():
         "Avtentično vodenje ne temelji na popolnosti, temveč na iskrenosti in povezanosti. Preberi, kako lahko kot vodja navdihuješ s svojo avtentičnostjo.",
         "blog-avtenticno.webp",
         body,
-        prev_post=POSTS[4],
-        next_post=POSTS[6],
     )
 
 
@@ -1281,8 +1408,6 @@ def page_blog_notranji():
         "Notranji kritik pogosto ovira našo rast, a lahko postane vir učenja. Preberi, kako ga prepoznati in ga preoblikovati v notranjega zaveznika.",
         "blog-notranji.webp",
         body,
-        prev_post=POSTS[5],
-        next_post=POSTS[7],
     )
 
 
@@ -1322,8 +1447,6 @@ def page_blog_odpornost():
         "Odpornost ni le miselna trdnost – vključuje telo, čustva, misli in odnose. Preberi, kako lahko celostno gradiš notranjo moč in prožnost.",
         "blog-odpornost.webp",
         body,
-        prev_post=POSTS[6],
-        next_post=None,
     )
 
 
@@ -1785,6 +1908,7 @@ if __name__ == "__main__":
     page_za_posameznice()
     page_za_podjetja()
     page_blog_index()
+    page_blog_identiteta()
     page_blog_vracanje()
     page_blog_izgorelost()
     page_blog_sindrom()
