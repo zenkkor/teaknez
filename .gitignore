@@ -22,7 +22,8 @@ venv/
 # Logs / temp
 *.log
 /tmp/
-spletna stran.eml
-Popravki moje spletne strani.eml
-02 TOREK- BLOG.docx
-SEO- in GEO-paket.docx
+
+# Source material from Tea (blog drafts, SEO briefs, emails). The content
+# gets applied to the site; the sources themselves don't belong in the repo.
+*.docx
+*.eml
