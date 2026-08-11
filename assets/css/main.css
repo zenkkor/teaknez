@@ -1495,6 +1495,20 @@ ul li::marker { color: var(--clay); }
   padding: 0 28px;
 }
 .post-body p { font-size: 1.12rem; line-height: 1.75; color: var(--ink-soft); margin-bottom: 1.3em; }
+/* Inline links in article copy need an underline: the clay/ink-soft colour
+   pair only reaches ~2:1, so colour alone can't mark them as links. */
+.post-body p a {
+  color: var(--clay-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(142, 101, 73, 0.45);
+  transition: color .2s ease, text-decoration-color .2s ease;
+}
+.post-body p a:hover {
+  color: var(--ink);
+  text-decoration-color: var(--ink);
+}
 .post-body h2, .post-body h3 {
   margin: 2.2em 0 0.8em;
 }

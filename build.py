@@ -957,6 +957,11 @@ def page_za_podjetja():
 
 # ---------- BLOG INDEX ----------
 POSTS = [
+    {"slug":"sem-samo-se-mama", "title":"»Sem samo še mama?«",
+     "summary":"Se po materinstvu ne prepoznaš več? Preberi, zakaj lahko ljubezen do otroka in pogrešanje sebe obstajata hkrati ter kako raziskati, kdo si danes.",
+     "image":"sem-samo-se-mama-tea-knez.webp",
+     "image_alt":"Ženska razmišlja o svoji identiteti in odnosu do sebe po materinstvu",
+     "date":"2026-08-11"},
     {"slug":"identiteta-po-materinstvu", "title":"Ko se rodi otrok, se spremeni tudi ženska",
      "summary":"Materinstvo lahko spremeni identiteto, potrebe in odnos ženske do sebe. Preberi, zakaj so te spremembe razumljive in zakaj si zaslužijo prostor.",
      "image":"identiteta-po-materinstvu-tea-knez.webp",
@@ -1034,14 +1039,15 @@ def page_blog_index():
 
 # ---------- BLOG POSTS ----------
 def render_blog_post(slug, title, lead, image, body_html,
-                     description=None, seo_title=None, cta=None, author_block=False):
+                     description=None, seo_title=None, cta=None, author_bio=None):
     """Render one blog post.
 
     lead        - visible intro paragraph under the title
     description - meta description (falls back to lead)
     seo_title   - full <title> override (falls back to "<title> - Tea Knez")
     cta         - dict(text=..., label=..., href=...) rendered under the article
-    author_block- render the author bio card under the article
+    author_bio  - bio text for the author card under the article; each post
+                  uses the wording from its own SEO brief, so pass it in
     Date, image alt and prev/next all come from the POSTS entry.
     """
     meta = next((p for p in POSTS if p["slug"] == slug), {})
@@ -1073,8 +1079,8 @@ def render_blog_post(slug, title, lead, image, body_html,
 """
 
     author_html = ""
-    if author_block:
-        author_html = """
+    if author_bio:
+        author_html = f"""
 <section class="section">
   <div class="container-narrow">
     <aside class="post-author">
@@ -1084,7 +1090,7 @@ def render_blog_post(slug, title, lead, image, body_html,
       <div class="post-author-body">
         <span class="post-author-eyebrow">Avtorica</span>
         <p class="post-author-name">Tea Knez</p>
-        <p>Tea Knez je ACC ICF in EIA EMCC certificirana coachinja. Pri svojem delu podpira predvsem ženske po materinstvu pri raziskovanju identitete, izčrpanosti, krivde, perfekcionizma, meja in odnosa do sebe.</p>
+        <p>{author_bio}</p>
         <a class="post-author-link" href="../../o-meni.html">Spoznaj Teo in njeno pot</a>
       </div>
     </aside>
@@ -1140,6 +1146,53 @@ def render_blog_post(slug, title, lead, image, body_html,
     write(f"blog/{slug}/index.html", page)
 
 
+def page_blog_sem_samo_se_mama():
+    body = """<p>Ko postaneš mama, se v kratkem času spremeni zelo veliko. Tvoj vsakdan, telo, odnosi, odgovornosti in način, kako razporejaš svoj čas. Potrebe otroka hitro postanejo zelo jasne. Tvoje pa se lahko počasi umaknejo v ozadje.</p>
+<p>Morda se nekega dne ustaviš in pomisliš: Sploh ne vem več, kdo sem.</p>
+<p>Po materinstvu se morda ne prepoznaš več, ker so se v kratkem času spremenili tvoj vsakdan, telo, odnosi, odgovornosti in prostor za lastne potrebe. To ne pomeni, da si izgubila sebe. Morda še nisi imela dovolj prostora, da bi opazila, kako si se ob materinstvu spremenila tudi ti.</p>
+
+<h2>Lahko imaš rada svoje življenje in hkrati pogrešaš sebe</h2>
+<p>Ta občutek je lahko zelo zmeden. Veš, da imaš veliko razlogov za hvaležnost. Rada imaš svojega otroka. Morda si si materinstva dolgo želela.</p>
+<p>Kljub temu lahko pogrešaš svojo prejšnjo svobodo, energijo, delo, ustvarjalnost ali preprosto občutek, da veš, kaj ti je všeč in kaj potrebuješ. To ne pomeni, da si nehvaležna ali da je s tabo nekaj narobe. Ljubezen do otroka in pogrešanje sebe lahko obstajata hkrati.</p>
+
+<h2>Morda nisi izgubila sebe</h2>
+<p>Ko rečeš, da se ne prepoznaš več, to ne pomeni nujno, da te ni več. Morda se je samo spremenilo toliko stvari, da še nisi imela prostora opaziti, kako si se ob njih spremenila tudi ti.</p>
+<p>Stvari, ki so ti bile pomembne prej, ti danes morda ne pomenijo več enako. Nekateri deli tebe so lahko za nekaj časa ostali v ozadju, ker zanje ni bilo dovolj časa, energije ali prostora. To ne pomeni, da so izginili.</p>
+
+<h2>Ni se ti treba vrniti k stari sebi</h2>
+<p>Pogosto slišimo, da se mora ženska po rojstvu otroka »spet najti«. Kot da obstaja ena prejšnja različica nje, h kateri se mora vrniti. Kaj pa, če cilj ni vrnitev?</p>
+<p>Morda lahko raziščeš, kaj želiš iz svojega prejšnjega življenja ohraniti, kaj se je spremenilo in kaj ti je pomembno danes. Ni ti treba takoj vedeti, kdo si zdaj.</p>
+<p>Identiteta po materinstvu se lahko oblikuje postopoma. Več o spremembah identitete, potreb in odnosa do sebe po rojstvu otroka lahko prebereš tudi v članku <a href="../identiteta-po-materinstvu/">»Ko se rodi otrok, se spremeni tudi ženska«</a>.</p>
+
+<h2>Kdo si danes?</h2>
+<p>Ko se ne prepoznaš več, lahko hitro začneš iskati odgovor zunaj sebe.</p>
+<p>Opazuješ druge ženske, bereš nasvete in razmišljaš, kaj bi morala narediti, da bi se spet počutila kot ti. Toda ni enega pravilnega odgovora. Ena ženska pogreša delo. Druga potrebuje več samote. Tretja si želi več bližine, ustvarjalnosti ali podpore.</p>
+<p>Pomembno je, da začneš raziskovati, kaj je tvoje. Kaj pogrešaš? Kaj ti je danes pomembnejše kot prej? Pri čem se za trenutek spet počutiš kot ti?</p>
+
+<h2>Coaching kot prostor za raziskovanje</h2>
+<p>Coaching ni namenjen temu, da ti nekdo pove, kdo si ali kakšna bi morala postati.</p>
+<p>Lahko pa ti ponudi prostor, kjer se ti ni treba prilagajati potrebam vseh drugih. Prostor, kjer lahko raziščeš svoje občutke, potrebe, vrednote in odločitve. Včasih prvi premik ni odgovor.</p>
+<p>Lahko je že spoznanje: Morda nisem izginila. Morda šele spoznavam, kdo sem danes.</p>
+
+<p class="pullquote">Za začetek se lahko vprašaš: Kaj pri sebi danes najtežje prepoznam?</p>
+"""
+    render_blog_post(
+        "sem-samo-se-mama",
+        "»Sem samo še mama?«",
+        "Lahko imaš rada svojega otroka in svoje življenje, pa se vseeno ne počutiš več kot ti.",
+        "sem-samo-se-mama-tea-knez.webp",
+        body,
+        description="Se po materinstvu ne prepoznaš več? Preberi, zakaj lahko ljubezen do otroka in pogrešanje sebe obstajata hkrati ter kako raziskati, kdo si danes.",
+        seo_title="Sem samo še mama? Izguba sebe po materinstvu | Tea Knez",
+        cta={
+            "text": "Ni ti treba že vedeti, kdo si danes. Če želiš v zaupnem coaching procesu raziskati, kaj se je po materinstvu spremenilo in kaj je pomembno zate, si lahko ogledaš možnosti individualnega coachinga.",
+            "label": "Oglej si individualni coaching",
+            "href": "../../za-posameznice.html",
+        },
+        author_bio="Tea Knez je nosilka akreditacij ACC pri ICF in EIA pri EMCC. Kot coachinja podpira predvsem ženske po materinstvu pri raziskovanju identitete, izčrpanosti, krivde, perfekcionizma, meja, pomembnih odločitev in odnosa do sebe.",
+    )
+
+
 def page_blog_identiteta():
     body = """<p>Ko se rodi otrok, se pozornost razumljivo usmeri vanj. Kako spi? Ali dovolj je? Kako napreduje? Kako se privaja na svet? Tudi mamo ljudje pogosto vprašajo, kako je, vendar se pogovor hitro vrne k otroku. Manj pogosto se zares ustavimo pri vprašanju, kaj se je z rojstvom otroka spremenilo v njej. Materinstvo namreč ni samo nova vloga in drugačen urnik. Za nekatere ženske pomeni tudi veliko spremembo identitete, prioritet, odnosov in načina, kako doživljajo sebe.</p>
 
@@ -1175,7 +1228,7 @@ def page_blog_identiteta():
             "label": "Oglej si individualni coaching",
             "href": "../../za-posameznice.html",
         },
-        author_block=True,
+        author_bio="Tea Knez je ACC ICF in EIA EMCC certificirana coachinja. Pri svojem delu podpira predvsem ženske po materinstvu pri raziskovanju identitete, izčrpanosti, krivde, perfekcionizma, meja in odnosa do sebe.",
     )
 
 
@@ -1971,6 +2024,7 @@ if __name__ == "__main__":
     page_za_posameznice()
     page_za_podjetja()
     page_blog_index()
+    page_blog_sem_samo_se_mama()
     page_blog_identiteta()
     page_blog_vracanje()
     page_blog_izgorelost()
