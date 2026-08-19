@@ -957,6 +957,11 @@ def page_za_podjetja():
 
 # ---------- BLOG INDEX ----------
 POSTS = [
+    {"slug":"cas-zase-ne-vem-kaj-potrebujem", "title":"Ko imam čas zase, ne vem, kaj potrebujem",
+     "summary":"Si želiš časa zase, ko ga dobiš, pa ne veš, kaj potrebuješ? Preberi, zakaj počitek lahko postane nova naloga in kako ponovno slišati sebe.",
+     "image":"cas-zase-ne-vem-kaj-potrebujem-tea-knez.webp",
+     "image_alt":"Ženska med prostim trenutkom razmišlja, kaj v tem trenutku potrebuje",
+     "date":"2026-08-19"},
     {"slug":"sem-samo-se-mama", "title":"»Sem samo še mama?«",
      "summary":"Se po materinstvu ne prepoznaš več? Preberi, zakaj lahko ljubezen do otroka in pogrešanje sebe obstajata hkrati ter kako raziskati, kdo si danes.",
      "image":"sem-samo-se-mama-tea-knez.webp",
@@ -1144,6 +1149,60 @@ def render_blog_post(slug, title, lead, image, body_html,
         ]
     ) + header("blog", 2) + body + footer(2)
     write(f"blog/{slug}/index.html", page)
+
+
+def page_blog_cas_zase():
+    body = """<p>Ko večino dneva skrbiš za otroka, družino, delo in stvari, ki morajo biti opravljene, se čas zase pogosto zdi kot nekaj, kar bi rešilo vsaj del tvoje utrujenosti.</p>
+<p>Želiš si miru. Nekaj ur brez prekinitev. Trenutek, ko te nihče ničesar ne potrebuje. Ko ta čas končno pride, pa se lahko zgodi nekaj nepričakovanega.</p>
+<p>Ne veš, kaj bi z njim.</p>
+<p>Bi počivala? Šla na sprehod? Telovadila? Poklicala prijateljico? Prebrala knjigo ali naredila nekaj koristnega? Morda vzameš telefon, pospraviš kuhinjo ali urediš nekaj, kar že dolgo čaka. Ko se prosti čas izteče, imaš občutek, da ga nisi dobro izkoristila.</p>
+
+<p class="pullquote">Končno sem imela čas zase, pa sem ga spet zapravila.</p>
+
+<p>Ko imaš čas zase, morda ne veš, kaj bi počela, ker je bil tvoj vsakdan dolgo usmerjen predvsem v potrebe drugih. Odgovor na vprašanje »Kaj potrebujem jaz?« zato ne pride vedno takoj. To ne pomeni, da nimaš svojih želja ali da si izgubila sebe. Morda svoje potrebe samo ponovno prepoznavaš.</p>
+
+<h2>Čas zase ni vedno takoj prijeten</h2>
+<p>Veliko govorimo o tem, kako pomembno je, da si mama vzame čas zase. Manj pogosto pa govorimo o tem, kaj se zgodi, ko ga dejansko dobi.</p>
+<p>Tvoj vsakdan je večino časa organiziran okoli vprašanj: Kaj potrebuje otrok? Kaj moram še urediti? Kaj ne sme biti pozabljeno? Ko se nato pojavi vprašanje »Kaj si želim jaz?«, odgovor morda ne pride takoj.</p>
+<p>To ne pomeni, da si izgubila sebe. Morda si bila samo tako dolgo usmerjena v potrebe drugih, da svoje trenutno težje prepoznaš. Če se poleg nejasnosti glede svojih potreb srečuješ tudi z občutkom, da se po materinstvu ne prepoznaš več, lahko prebereš članek <a href="../sem-samo-se-mama/">»Sem samo še mama?«</a>.</p>
+
+<h2>Ko prosti čas postane nova naloga</h2>
+<p>Če počivaš, se morda sprašuješ, ali bi morala ta čas izkoristiti bolj aktivno. Če greš telovadit, razmišljaš, ali bi bolj potrebovala počitek. Če ostaneš doma, se ti zdi, da bi morala ven.</p>
+<p>Namesto vprašanja »Kaj mi danes ustreza?« se pojavi vprašanje: Kaj bi bilo najbolj pravilno narediti?</p>
+<p>Takrat čas zase postane nov projekt, pri katerem lahko uspeš ali ne uspeš.</p>
+<p>Pojavi se lahko notranji glas: »Morala bi uživati.« »Spet sem zapravila čas.« »Včasih sem vedela, kaj me veseli.« Toda ne obstaja en pravilen način počitka. Včasih potrebuješ gibanje, drugič tišino. Včasih pogovor, drugič samoto. Včasih pa samo uro, v kateri ti ni treba narediti ničesar.</p>
+
+<h2>Morda ne potrebuješ še enega načrta</h2>
+<p>Ko ne veš, kaj bi počela, lahko začneš iskati nove ideje, rutine in nasvete za skrb zase. Nekateri so lahko uporabni, vendar lahko tudi skrb zase hitro postane še en seznam stvari, ki bi jih morala opraviti.</p>
+<p>Morda ne potrebuješ več idej. Morda potrebuješ prostor, da opaziš, kaj se dogaja v tebi. Odgovor se morda ne pokaže kot jasna želja. Lahko se začne kot občutek, da bi rada zaprla oči. Kot želja po sprehodu brez cilja. Kot odpor do še enega pogovora. Kot potreba, da ti danes ne bi bilo treba biti koristna. Prepoznavanje potreb je lahko postopno učenje poslušanja majhnih signalov, ki jih v hrupu vsakdana hitro preslišiš.</p>
+
+<h2>Tudi telefon in opravila imajo svojo vlogo</h2>
+<p>Opravila so jasna. Imajo začetek, konec in viden rezultat. Zato lahko delujejo varno in obvladljivo. Telefon pa ti omogoči, da za trenutek ne izbiraš in ne čutiš vsega, kar se pokaže, ko se ustaviš.</p>
+<p>Namesto kritike lahko poskusiš z radovednostjo: Kaj mi telefon ali opravilo v tem trenutku omogočata? Kaj bi se pojavilo, če ne bi takoj zapolnila praznega prostora?</p>
+
+<h2>Ni ti treba vedeti takoj</h2>
+<p>Če dolgo nisi imela dovolj prostora zase, en prost večer verjetno ne bo takoj prinesel jasnosti.</p>
+<p>Morda šele takrat opaziš, kako utrujena si. Morda postaneš nemirna ali ne začutiš ničesar posebnega. Tudi to je informacija. Ni ti treba vsakega trenutka zase spremeniti v posebno izkušnjo. Ni treba, da si po njem boljša, mirnejša ali produktivnejša.</p>
+<p>Coaching ti lahko ponudi prostor, kjer ti ni treba takoj poznati odgovorov. Kjer lahko brez pritiska raziskuješ svoje občutke, potrebe in želje. Morda nisi pozabila, kaj potrebuješ. Morda šele ponovno vzpostavljaš stik z delom sebe, ki je bil dolgo tišji od vseh drugih zahtev.</p>
+<p>Več o tem, kako materinstvo lahko spremeni odnos ženske do sebe, lahko prebereš v članku <a href="../identiteta-po-materinstvu/">»Ko se rodi otrok, se spremeni tudi ženska«</a>.</p>
+
+<p class="pullquote">Za začetek se lahko vprašaš: Kaj se zgodi v meni, ko se vprašam, kaj si želim jaz?</p>
+"""
+    render_blog_post(
+        "cas-zase-ne-vem-kaj-potrebujem",
+        "Ko imam čas zase, ne vem, kaj potrebujem",
+        "Dolgo si želiš nekaj časa zase. Ko ga končno dobiš, pa obstaneš in ugotoviš, da sploh ne veš, kaj bi ti v tem trenutku ustrezalo.",
+        "cas-zase-ne-vem-kaj-potrebujem-tea-knez.webp",
+        body,
+        description="Si želiš časa zase, ko ga dobiš, pa ne veš, kaj potrebuješ? Preberi, zakaj počitek lahko postane nova naloga in kako ponovno slišati sebe.",
+        seo_title="Ko imam čas zase, ne vem, kaj potrebujem | Tea Knez",
+        cta={
+            "text": "Morda ti ni treba že vedeti, kaj potrebuješ. Če želiš v zaupnem coaching procesu raziskati, kaj se zgodi, ko se ustaviš, in ponovno vzpostaviti stik s svojimi potrebami, si lahko ogledaš možnosti individualnega coachinga.",
+            "label": "Razišči individualni coaching",
+            "href": "../../za-posameznice.html",
+        },
+        author_bio="Tea Knez je nosilka akreditacij ACC pri ICF in EIA pri EMCC. Kot coachinja podpira predvsem ženske po materinstvu pri raziskovanju identitete, izčrpanosti, krivde, perfekcionizma, meja, pomembnih odločitev in odnosa do sebe.",
+    )
 
 
 def page_blog_sem_samo_se_mama():
@@ -2024,6 +2083,7 @@ if __name__ == "__main__":
     page_za_posameznice()
     page_za_podjetja()
     page_blog_index()
+    page_blog_cas_zase()
     page_blog_sem_samo_se_mama()
     page_blog_identiteta()
     page_blog_vracanje()
