@@ -957,6 +957,16 @@ def page_za_podjetja():
 
 # ---------- BLOG INDEX ----------
 POSTS = [
+    {"slug":"slaba-vest-ko-naredim-nekaj-zase", "title":"Zakaj imam slabo vest, ko naredim nekaj zase?",
+     "summary":"Krivda ob času zase ne pomeni nujno, da si sebična. Lahko se pojavi zato, ker prvič ravnaš drugače in tudi svoje potrebe postavljaš med pomembne.",
+     "image":"slaba-vest-ko-naredim-nekaj-zase-tea-knez.webp",
+     "image_alt":"Ženska sedi sama v kavarni s kavo in knjigo, roko pa ima položeno na telefon",
+     "date":"2026-09-02"},
+    {"slug":"zakaj-se-ne-znam-ustaviti", "title":"Zakaj se ne znam ustaviti?",
+     "summary":"Počitek je lahko težak, kadar je tvoja vrednost dolgo povezana s koristnostjo, odgovornostjo in tem, koliko narediš za druge.",
+     "image":"zakaj-se-ne-znam-ustaviti-tea-knez.webp",
+     "image_alt":"Ženska zlaga perilo v dnevni sobi, kjer jo čakata prazen naslanjač in skodelica čaja",
+     "date":"2026-08-25"},
     {"slug":"cas-zase-ne-vem-kaj-potrebujem", "title":"Ko imam čas zase, ne vem, kaj potrebujem",
      "summary":"Si želiš časa zase, ko ga dobiš, pa ne veš, kaj potrebuješ? Preberi, zakaj počitek lahko postane nova naloga in kako ponovno slišati sebe.",
      "image":"cas-zase-ne-vem-kaj-potrebujem-tea-knez.webp",
@@ -1149,6 +1159,136 @@ def render_blog_post(slug, title, lead, image, body_html,
         ]
     ) + header("blog", 2) + body + footer(2)
     write(f"blog/{slug}/index.html", page)
+
+
+def page_blog_slaba_vest():
+    body = """<p>Po dolgem času si vzameš dve uri zase. Greš na kavo, trening, sprehod ali k frizerju. Nihče doma ni ogrožen. Otrok je z osebo, ki ji zaupaš. Vse je urejeno.</p>
+<p>Pa vseeno večkrat pogledaš na telefon. Razmišljaš, ali je doma vse v redu. Ali si predolgo odsotna. Ali bi morala ta čas porabiti koristneje. Morda se celo zalotiš, da si želiš čim prej nazaj.</p>
+<p>Ne zato, ker ti čas zase ne bi prijal. Ampak zato, ker se je skupaj z njim pojavila slaba vest.</p>
+<p>Če se v tem prepoznaš, to še ne pomeni, da si sebična ali da delaš nekaj narobe. Krivda se lahko pojavi tudi takrat, ko narediš nekaj, česar nisi vajena: med vse pomembne ljudi za trenutek postaviš tudi sebe.</p>
+<p>Slaba vest, ko mama naredi nekaj zase, se lahko pojavi zaradi prepričanja, da morajo biti potrebe otroka in drugih vedno pred njenimi. Občutek krivde zato ni vedno dokaz napačnega ravnanja, ampak je lahko odziv na postavljanje novih meja in upoštevanje lastnih potreb.</p>
+
+<h2>Zakaj se krivda pojavi ravno takrat, ko poskrbiš zase?</h2>
+<p>Ko postaneš mama, se veliko tvoje pozornosti razumljivo usmeri v otroka. Spremljaš njegove potrebe, predvidevaš, organiziraš in se prilagajaš.</p>
+<p>Sčasoma lahko postane samoumevno, da so potrebe drugih na prvem mestu, tvoje pa pridejo na vrsto, ko je vse drugo urejeno.</p>
+<p>Težava je, da je le redko zares vse urejeno. Vedno obstaja še nekaj, kar bi lahko naredila. Nekaj, kar bi lahko pripravila, pospravila ali preverila. Zato se lahko ob času zase pojavi občutek, da si nekje, kjer ne bi smela biti.</p>
+<p>V ozadju je lahko prepričanje: Če nekaj namenim sebi, bo nekdo drug zaradi tega dobil manj.</p>
+<p>Toda čas zase ni nujno nekaj, kar jemlješ družini. Lahko je tudi način, da ostajaš v odnosu s sabo, svojimi potrebami in omejitvami.</p>
+
+<h2>Krivda ni vedno dokaz, da si ravnala narobe</h2>
+<p>Krivda ima pomembno funkcijo. Lahko nas opozori, kadar ravnamo v nasprotju s svojimi vrednotami ali nekomu povzročimo škodo. Toda vsak občutek krivde še ni zanesljiv dokaz, da smo naredile nekaj napačnega. Včasih se krivda pojavi, ker smo prekršile staro pravilo.</p>
+<p>Na primer:</p>
+<ul>
+  <li>dobra mama je vedno na voljo;</li>
+  <li>druge moram najprej osrečiti;</li>
+  <li>počitek si moram zaslužiti;</li>
+  <li>če prosim za pomoč, obremenjujem druge;</li>
+  <li>če uživam brez otroka, z mano nekaj ni v redu.</li>
+</ul>
+<p>Ta pravila lahko delujejo zelo resnično, tudi če jih nisi nikoli zavestno izbrala. Zato se ob skrbi zase lahko počutiš krivo, čeprav se v resnici samo učiš ravnati drugače.</p>
+
+<h2>Ko si čas zase dovoliš, vendar v njem ne moreš uživati</h2>
+<p>Včasih ženska fizično odide, misli pa ostanejo doma. Preverja sporočila. V glavi organizira naslednji dan. Razmišlja, kaj bo morala nadoknaditi, ko se vrne. Svojo odsotnost poskuša čim bolj skrajšati in drugim pokazati, da zaradi nje ne bodo ničesar izgubili.</p>
+<p>Tako čas zase postane še ena naloga, ki jo mora opraviti pravilno in brez posledic. Toda če moraš biti tudi med počitkom odgovorna za vse, potem se v resnici nisi zares umaknila iz vloge tiste, ki vse drži skupaj. Več o tem, zakaj je lahko tako težko zares prenehati, lahko prebereš v članku <a href="../zakaj-se-ne-znam-ustaviti/">»Zakaj se ne znam ustaviti?«</a>.</p>
+<p>Morda zato vprašanje ni samo kako si lahko vzamem več časa zase, ampak je tudi ali si lahko dovolim, da v tem času nisem odgovorna za vse?</p>
+
+<h2>Skrb zase ni nasprotje skrbi za druge</h2>
+<p>Skrb zase se včasih predstavlja kot razkošje: masaža, vikend oddih, popolna rutina ali veliko prostega časa.</p>
+<p>Toda lahko je precej manjša in bolj vsakdanja.</p>
+<p>Lahko pomeni, da:</p>
+<ul>
+  <li>dokončaš kavo, preden se lotiš naslednje naloge;</li>
+  <li>poveš, da danes ne zmoreš še ene obveznosti;</li>
+  <li>prosiš za pomoč, ne da bi najprej dokazala, da si poskusila vse;</li>
+  <li>narediš nekaj samo zato, ker ti je prijetno;</li>
+  <li>upoštevaš svojo utrujenost, še preden postane nevzdržna.</li>
+</ul>
+<p>Skrb zase ne pomeni, da potrebe drugih niso pomembne. Pomeni, da tvoje potrebe niso samodejno vedno zadnje. Če ti je ob prostem času pogosto nejasno, kaj sploh potrebuješ, o tem več v članku <a href="../cas-zase-ne-vem-kaj-potrebujem/">»Ko imam čas zase, ne vem, kaj potrebujem«</a>.</p>
+
+<h2>Kaj ti želi krivda preprečiti?</h2>
+<p>Ko se pojavi slaba vest, jo pogosto poskušamo čim prej odstraniti. Odpovemo načrt, se vrnemo domov ali si obljubimo, da si bomo naslednjič čas zase bolje zaslužile.</p>
+<p>Lahko pa se ob krivdi za trenutek ustaviš in jo raziščeš. Kaj ti govori? Česa se boji, da bi se zgodilo, če bi sebe redno postavljala med pomembne? Bi koga razočarala? Bi izgubila občutek, da si dobra mama? Bi morala drugim prepustiti del odgovornosti? Bi ugotovila, da ne želiš več vsega početi tako kot prej?</p>
+<p>Krivde ni treba ignorirati. Prav tako ji ni treba vedno prepustiti odločitve.</p>
+
+<h2>Kako lahko pomaga coaching</h2>
+<p>Coaching ti ne pove, koliko časa zase potrebuješ ali kako ga moraš preživeti.</p>
+<p>Lahko pa ti ponudi prostor, v katerem raziščeš, kaj zate pomeni skrb zase, katera pričakovanja nosiš in zakaj se ob lastnih potrebah tako hitro pojavi krivda. Morda odkriješ, da težava ni v tem, da ne znaš poskrbeti zase.</p>
+<p>Morda si se naučila, da je varneje, sprejemljiveje ali bolj pravilno vedno najprej poskrbeti za druge. Krivda se ob spremembi morda ne bo takoj umaknila.</p>
+<p>Toda njena prisotnost še ne pomeni, da se moraš vrniti k staremu načinu.</p>
+
+<p class="pullquote">Za začetek se lahko vprašaš: Kaj bi naredila zase, če krivda za trenutek ne bi odločala namesto tebe?</p>
+"""
+    render_blog_post(
+        "slaba-vest-ko-naredim-nekaj-zase",
+        "Zakaj imam slabo vest, ko naredim nekaj zase?",
+        "Krivda še ne pomeni, da delaš nekaj narobe. Včasih se pojavi zato, ker prvič ravnaš drugače.",
+        "slaba-vest-ko-naredim-nekaj-zase-tea-knez.webp",
+        body,
+        description="Imaš slabo vest, ko narediš nekaj zase? Preberi, zakaj krivda ne pomeni vedno, da delaš nekaj narobe, in kaj se lahko skriva za njo.",
+        seo_title="Slaba vest, ko naredim nekaj zase | Tea Knez",
+        cta={
+            "text": "Če želiš raziskati, zakaj se ob tvojih potrebah tako hitro pojavi krivda in kaj bi želela izbrati drugače, si lahko ogledaš možnosti individualnega coachinga.",
+            "label": "Spoznaj individualni coaching",
+            "href": "../../za-posameznice.html",
+        },
+        author_bio="Tea Knez je nosilka akreditacij ACC pri ICF in EIA pri EMCC. Kot coachinja podpira predvsem ženske po materinstvu pri raziskovanju identitete, izčrpanosti, krivde, perfekcionizma, meja, pomembnih odločitev in odnosa do sebe.",
+    )
+
+
+def page_blog_zakaj_se_ne_znam_ustaviti():
+    body = """<p>Ves dan si želiš trenutka miru. Ko ga končno dobiš, pa namesto počitka pospraviš kuhinjo, pripraviš stvari za naslednji dan, odgovoriš na sporočila ali začneš urejati nekaj, kar bi lahko počakalo.</p>
+<p>Morda si rečeš: “Samo še to naredim, potem pa se bom malo vsedla.”</p>
+<p>Toda za eno nalogo pride druga. Ko se končno ustaviš, je večer skoraj mimo. Zakaj je lahko tako težko počivati, tudi ko imaš možnost?</p>
+<p>Človek se lahko težko ustavi, kadar se ob mirovanju pojavijo krivda, nemir ali občutek, da bi moral biti koristen. Če je počitek dovoljen šele po vseh opravljenih nalogah, v življenju z nenehnimi obveznostmi skoraj nikoli ne pride na vrsto.</p>
+
+<h2>Ko mirovanje ne prinese miru</h2>
+<p>Počitek navzven lahko pomeni, da sediš ali ležiš. Znotraj pa se lahko dogaja nekaj povsem drugega. Misli še vedno preverjajo, česa nisi naredila. Opaziš nered. Spomniš se obveznosti. Začneš načrtovati naslednji dan. Morda se celo pojavi nelagodje, češ da bi ta čas morala porabiti bolje. Telo se ustavi, občutek odgovornosti pa ne.</p>
+<p>Zato ni nenavadno, da ženska reče, da ne zna počivati. Morda ni težava v sami dejavnosti, ampak v tem, da mirovanje odpre prostor za občutke, ki jih med nenehnim delovanjem lažje presliši. Če se ob prostem času pogosto vprašaš, kaj bi sploh potrebovala, lahko prebereš tudi članek <a href="../cas-zase-ne-vem-kaj-potrebujem/">»Ko imam čas zase, ne vem, kaj potrebujem«</a>.</p>
+
+<h2>Počitek kot nagrada</h2>
+<p>Veliko ljudi se zgodaj nauči, da počitek pride po opravljenem delu. Najprej naloge, nato prosti čas. Najprej odgovornost, nato užitek. Najprej poskrbi za druge, nato zase.</p>
+<p>Takšno pravilo je lahko uporabno, dokler je delo mogoče zares zaključiti. V življenju z majhnimi otroki pa je le redko vse narejeno. Perilo se ponovno nabere. Nekdo je spet lačen. Na seznam pride nova obveznost.</p>
+<p>Če je počitek dovoljen šele po koncu vseh nalog, ga skoraj ni mogoče doseči. Zato vprašanje ni samo, ali imaš dovolj časa. Pomembno je tudi, pod katerimi pogoji si počitek sploh dovoliš.</p>
+
+<h2>Ko je koristnost povezana z lastno vrednostjo</h2>
+<p>Za nekatere ženske je občutek vrednosti močno povezan s tem, koliko naredijo za druge.</p>
+<p>Ko organizirajo, rešujejo, skrbijo in predvidevajo, vedo, kakšna je njihova naloga. Čutijo, da prispevajo in da so potrebne. Ko se ustavijo, pa se lahko pojavi vprašanje: Kaj pa zdaj upravičuje moj čas?</p>
+<p>Takrat počitek ni samo odsotnost dela. Lahko pomeni trenutek, v katerem nisi koristna, učinkovita ali na voljo.</p>
+<p>In če si dolgo prejemala priznanje predvsem zato, ker veliko zmoreš, je takšno mirovanje lahko neprijetno. To ne pomeni, da je s tabo nekaj narobe. Pomeni lahko, da si oblikovala način delovanja, ki ti je nekoč pomagal, danes pa te morda izčrpava.</p>
+
+<h2>Počivati, čeprav seznam ni prazen</h2>
+<p>Počitek ne zahteva, da se pretvarjaš, da nalog ni. Zahteva pa možnost, da se v nekem trenutku odločiš: Za danes je dovolj.</p>
+<p>To je lahko težje, kot se sliši. Morda se moraš srečati z občutkom, da nekoga razočaraš. Da nisi naredila dovolj. Da bi dobra mama, partnerka ali sodelavka nadaljevala. Toda seznam opravkov ni objektivno merilo tvoje vrednosti. Tvoje potrebe ne postanejo legitimne šele takrat, ko so potrebe vseh drugih izpolnjene.</p>
+<p>Če se ob skrbi zase pogosto pojavi tudi slaba vest, o tem več v članku <a href="../slaba-vest-ko-naredim-nekaj-zase/">»Zakaj imam slabo vest, ko naredim nekaj zase?«</a>.</p>
+
+<h2>Kaj se pojavi, ko se ustaviš?</h2>
+<p>Namesto da se siliš v počitek, lahko najprej radovedno opazuješ, kaj ti ga otežuje.</p>
+<p>Ko se vsedeš, kaj najprej pomisliš?</p>
+<p>Se pojavi krivda? Nemir? Dolgčas? Strah, da boš izgubila nadzor? Občutek, da moraš biti vedno pripravljena?</p>
+<p>Morda ugotoviš, da ne potrebuješ nove tehnike sproščanja.</p>
+<p>Morda potrebuješ dovoljenje, da nehaš, tudi kadar bi lahko naredila še več.</p>
+
+<h2>Kako lahko pomaga coaching</h2>
+<p>Coaching ni namenjen temu, da ti nekdo predpiše, koliko časa moraš počivati ali kako naj bo videti tvoja rutina. Lahko pa ponudi prostor, v katerem raziščeš pravila, ki jih imaš o počitku, delu in lastni vrednosti.</p>
+<p>Kaj mora biti izpolnjeno, da si dovoliš ustaviti? Česa se bojiš, da bi se zgodilo, če ne bi vsega dokončala? Komu poskušaš dokazati, da zmoreš? Včasih se sprememba ne začne z dodatno prosto uro.</p>
+
+<p class="pullquote">Začne se z drugačnim odgovorom na vprašanje: Ali si smem odpočiti, tudi če bi lahko naredila še več?</p>
+"""
+    render_blog_post(
+        "zakaj-se-ne-znam-ustaviti",
+        "Zakaj se ne znam ustaviti?",
+        "Včasih počitka ne preprečuje pomanjkanje časa, ampak to, kar začutimo, ko nehamo delati.",
+        "zakaj-se-ne-znam-ustaviti-tea-knez.webp",
+        body,
+        description="Se težko ustaviš tudi takrat, ko bi lahko počivala? Preberi, zakaj se lahko ob počitku pojavita nemir in krivda ter kaj se skriva pod njima.",
+        seo_title="Zakaj se ne znam ustaviti in počivati? | Tea Knez",
+        cta={
+            "text": "Če želiš raziskati, kaj se v tebi zgodi, ko se ustaviš, ter kakšna pravila imaš o počitku, odgovornosti in lastni vrednosti, si lahko ogledaš individualni coaching.",
+            "label": "Spoznaj individualni coaching",
+            "href": "../../za-posameznice.html",
+        },
+        author_bio="Tea Knez je nosilka akreditacij ACC pri ICF in EIA pri EMCC. Kot coachinja podpira predvsem ženske po materinstvu pri raziskovanju identitete, izčrpanosti, krivde, perfekcionizma, meja, pomembnih odločitev in odnosa do sebe.",
+    )
 
 
 def page_blog_cas_zase():
@@ -2083,6 +2223,8 @@ if __name__ == "__main__":
     page_za_posameznice()
     page_za_podjetja()
     page_blog_index()
+    page_blog_slaba_vest()
+    page_blog_zakaj_se_ne_znam_ustaviti()
     page_blog_cas_zase()
     page_blog_sem_samo_se_mama()
     page_blog_identiteta()
