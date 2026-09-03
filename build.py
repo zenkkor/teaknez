@@ -122,11 +122,11 @@ def _blogposting_jsonld(title, description, url, image, date=None, modified=None
 # ---------- Blog helpers ----------
 BLOG_AUTHOR = "Tea Knez"
 
-_SL_MONTHS = ["januarja", "februarja", "marca", "aprila", "maja", "junija",
-              "julija", "avgusta", "septembra", "oktobra", "novembra", "decembra"]
+_SL_MONTHS = ["januar", "februar", "marec", "april", "maj", "junij",
+              "julij", "avgust", "september", "oktober", "november", "december"]
 
 def _sl_date(iso):
-    """2026-08-04 -> '4. avgusta 2026' (Slovenian genitive, as used in dates)."""
+    """2026-08-04 -> '4. avgust 2026'."""
     y, m, d = (int(x) for x in iso.split("-"))
     return f"{d}. {_SL_MONTHS[m - 1]} {y}"
 
