@@ -177,7 +177,7 @@ def head(title, description, canonical, depth=0, og_type="website",
 <link rel="canonical" href="{canonical}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Tea Knez">
-<meta name="theme-color" content="#FAF6EF">
+<meta name="theme-color" content="#F7F3EE">
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="{SITE_NAME}">
 <meta property="og:locale" content="sl_SI">
@@ -196,7 +196,7 @@ def head(title, description, canonical, depth=0, og_type="website",
 <link rel="manifest" href="{root}site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{asset}/css/main.css">
 {jsonld}</head>
 <body>
@@ -272,23 +272,21 @@ def header(active, depth=0):
         active_cls = " is-active" if active == key else ""
         return f'<a href="{href}" class="nav-link{active_cls}"{extra}>{label}</a>'
 
-    arrow = '<svg class="nav-cta-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10"/><path d="M9 4l4 4-4 4"/></svg>'
-
     return f"""<a href="#main" class="skip-link">Preskoči na vsebino</a>
 <header class="site-header">
   <div class="container">
-    <a href="{p}index.html" class="site-logo" aria-label="Tea Knez Coaching - domov">
-      <span>Tea Knez<small class="tag">Coaching</small></span>
+    <a href="{p}index.html" class="site-logo" aria-label="Tea Knez - domov">
+      <span>Tea Knez<small class="tag">Professional Coach</small></span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Glavna navigacija">
       <ul class="nav-list">
         <li>{link("Domov", p + "index.html", "home")}</li>
-        <li>{link("Za posameznice", p + "za-posameznice.html", "individuals")}</li>
+        <li>{link("Individualni coaching", p + "za-posameznice.html", "individuals")}</li>
         <li>{link("Za podjetja", p + "za-podjetja.html", "companies")}</li>
-        <li>{link("Blog", p + "blog/", "blog")}</li>
         <li>{link("O meni", p + "o-meni.html", "about")}</li>
+        <li>{link("Blog", p + "blog/", "blog")}</li>
       </ul>
-      <a href="{p}kontakt.html" class="nav-cta">Rezerviraj uvodno srečanje {arrow}</a>
+      <a href="{p}kontakt.html" class="nav-cta">Kontakt / Uvodni pogovor</a>
     </nav>
     <button class="nav-toggle" aria-label="Odpri meni" aria-controls="site-nav" aria-expanded="false"><span></span></button>
   </div>
@@ -305,35 +303,29 @@ def footer(depth=0):
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>Tea Knez</h3>
-        <p>Coaching za ženske in organizacije. Prostor za jasen razmislek, zrele odločitve in trajne spremembe.</p>
+        <p class="footer-cred">ICF ACC · EMCC EIA</p>
+        <p>Profesionalni coaching za posameznike in organizacije ter delavnice za podjetja.</p>
       </div>
       <div class="footer-col">
-        <h4>Coaching</h4>
+        <h4>Povezave</h4>
         <ul>
-          <li><a href="{p}za-posameznice.html">Za posameznice</a></li>
+          <li><a href="{p}index.html">Domov</a></li>
+          <li><a href="{p}za-posameznice.html">Individualni coaching</a></li>
           <li><a href="{p}za-podjetja.html">Za podjetja</a></li>
-          <li><a href="{p}podpora-vracanju.html">Vračanje po porodniški</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Raziskuj</h4>
-        <ul>
           <li><a href="{p}o-meni.html">O meni</a></li>
           <li><a href="{p}blog/">Blog</a></li>
           <li><a href="{p}kontakt.html">Kontakt</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Pravno</h4>
+        <h4>Kontakt</h4>
         <ul>
-          <li><a href="{p}politika-zasebnosti.html">Politika zasebnosti</a></li>
-          <li><a href="{p}piskotki.html">Politika piškotkov</a></li>
-          <li><button type="button" class="footer-link-btn" data-cookie-settings>Nastavitve piškotkov</button></li>
+          <li><a href="mailto:tea@teaknez.com">tea@teaknez.com</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span data-current-year>{CURRENT_YEAR}</span> Integra, Tea Knez s.p.</span>
+      <span>© <span data-current-year>{CURRENT_YEAR}</span> Tea Knez · <a href="{p}politika-zasebnosti.html">Politika zasebnosti</a> · <a href="{p}piskotki.html">Piškotki</a> · <button type="button" class="footer-link-btn" data-cookie-settings>Nastavitve piškotkov</button></span>
     </div>
   </div>
 </footer>
@@ -403,57 +395,49 @@ FEATURED_TESTIMONIALS = [
 
 def _featured_testimonial(t):
     """Long client story. The opening paragraph is always visible; the rest
-    expands via a native <details> so the section stays scannable."""
+    expands via a native <details> so the section stays scannable. Copy is
+    verbatim and never shortened."""
     paras = t["paragraphs"]
-    opening = f'      <p class="testimonial-opening">{paras[0]}</p>'
+    opening = f'      <p>{paras[0]}</p>'
     rest = ""
     if len(paras) > 1:
-        more = "\n".join(f"          <p>{p}</p>" for p in paras[1:])
+        more = "\n".join(f"          <p>{x}</p>" for x in paras[1:])
         rest = f"""
-      <details class="testimonial-more">
-        <summary><span class="testimonial-more-open">Preberi celotno zgodbo</span><span class="testimonial-more-close">Skrij zgodbo</span></summary>
-        <div class="testimonial-more-body">
+      <details class="quote-more">
+        <summary><span class="quote-more-show">Preberi celotno zgodbo</span><span class="quote-more-hide">Skrij zgodbo</span></summary>
+        <div class="quote-more-body">
 {more}
         </div>
       </details>"""
-    return f"""    <article class="testimonial-featured">
-      <span class="testimonial-quotemark" aria-hidden="true">»</span>
+    return f"""    <article class="quote">
 {opening}{rest}
-      <footer class="testimonial-author">
-        <span class="testimonial-avatar" aria-hidden="true">{t["name"][0]}</span>
-        <cite><strong>{t["name"]}</strong></cite>
-      </footer>
+      <cite class="quote-author">{t["name"]}</cite>
     </article>"""
 
 
 def testimonials_section():
     featured = "\n".join(_featured_testimonial(t) for t in FEATURED_TESTIMONIALS)
-    cards = "\n".join(
-        f"""    <article class="testimonial">
-      <blockquote>»{q}«</blockquote>
-      <footer class="testimonial-author">
-        <span class="testimonial-avatar" aria-hidden="true">{name[0]}</span>
-        <cite><strong>{name}</strong></cite>
-      </footer>
+    short = "\n".join(
+        f"""    <article class="quote">
+      <p>{q}</p>
+      <cite class="quote-author">{name}</cite>
     </article>"""
         for q, name in TESTIMONIALS
     )
-    return f"""<section class="section section-cream">
+    return f"""<section class="sec sec--cream">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Zaupanje strank</span>
-      <h2>Njihove zgodbe</h2>
-      <p>Vsak proces je drugačen. Preberi, kako so coaching doživele ženske, ki so mi zaupale del svoje poti.</p>
+    <div class="sec-head-center">
+      <span class="kicker">IZKUŠNJE KLIENTK</span>
+      <h2>Njihove besede. Njihova spoznanja.</h2>
     </div>
-    <div class="testimonials-featured">
+    <div class="quotes">
 {featured}
-    </div>
-    <div class="testimonials">
-{cards}
+{short}
     </div>
   </div>
 </section>
 """
+
 
 def cta_band(depth=0):
     p = "../" * depth
@@ -476,127 +460,140 @@ def write(path, content):
 
 # ---------- INDEX ----------
 def page_index():
-    body = """<section class="page-hero page-hero--home">
+    body = """<section class="sec sec--cream">
   <div class="container">
-    <div class="page-hero-grid">
-      <div class="page-hero-text">
-        <h1>Več jasnosti.<br><em>Manj razpetosti.</em><br>Več tebe.</h1>
-        <p class="hero-lead">Pomagam ženskam, ki usklajujejo materinstvo, kariero in življenjske odgovornosti, ustvariti več prostora za premišljene odločitve, jasne prioritete in tisto, kar je res pomembno.</p>
-        <div class="dual-cta">
-          <a href="za-posameznice.html" class="btn-outline">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 20c0-3.5 3.5-6 8-6s8 2.5 8 6"/></svg>
-            <span>Sem posameznica</span>
-          </a>
-          <a href="za-podjetja.html" class="btn-outline">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h2M9 12h2M9 15h2M13 9h2M13 12h2M13 15h2"/></svg>
-            <span>Sem podjetje</span>
-          </a>
+    <div class="hero-split">
+      <div class="hero-split-copy">
+        <span class="kicker">TEA KNEZ · PROFESIONALNI COACHING</span>
+        <h1>Imaš življenje, ki si si ga želela. Zakaj si potem želiš nekaj drugače?</h1>
+        <p>Med vsemi obveznostmi, pričakovanji in skrbjo za druge pogosto zmanjka prostora zate. Morda niti ne veš več, kaj si želiš, veš pa, da si želiš nekaj drugače.</p>
+        <p>Individualni coaching za ženske, ki želijo raziskati, kdo so danes, kaj jim je pomembno in kaj si želijo zase – tudi zunaj materinstva.</p>
+        <div class="hero-actions">
+          <a href="kontakt.html?namen=uvodni-pogovor" class="btn btn-primary">Dogovori se za uvodni pogovor</a>
         </div>
-        <ul class="trust-strip">
-          <li>
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l2 5h5l-4 3 1.5 6L12 14l-4.5 4L9 12 5 9h5z"/></svg>
-            <span>Več jasnosti</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18"/><path d="M7 8l-4 4 4 4"/><path d="M17 8l4 4-4 4"/></svg>
-            <span>Manj razpetosti</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>
-            <span>Več tebe</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-12V4l-8-2-8 2v6c0 8 8 12 8 12z"/><path d="M9 11l2 2 4-4"/></svg>
-            <span>Zrele odločitve</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20"/><path d="M5 9c1-3 4-5 7-5"/><path d="M19 9c-1-3-4-5-7-5"/><path d="M5 15c1 3 4 5 7 5"/><path d="M19 15c-1 3-4 5-7 5"/></svg>
-            <span>Trajne spremembe</span>
-          </li>
-        </ul>
+        <p class="cred-line">ICF ACC · EMCC EIA</p>
       </div>
-      <div class="page-hero-image">
-        <img src="assets/images/hero.webp" alt="Tea Knez - coaching" loading="eager">
+      <div class="hero-split-media">
+        <img src="assets/images/tea-hero.webp" alt="Tea Knez, profesionalna coachinja" loading="eager" width="1052" height="1495">
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-cream">
+<section class="sec sec--beige sec--tight">
   <div class="container">
-    <div class="reasons-split">
-      <div class="reasons-split-text">
-        <span class="eyebrow">Za obdobja, ko se veliko spreminja</span>
-        <h2>Se prepoznaš v katerem od teh občutkov?</h2>
-        <p>Ni treba, da vse nosiš sama. Včasih najbolj pomaga prostor, kjer lahko za trenutek odložiš vse vloge in prisluhneš sebi.</p>
+    <div class="sec-head-center">
+      <h2>Kako lahko sodelujemo?</h2>
+    </div>
+    <div class="offer-grid">
+      <a class="offer-card" href="za-posameznice.html">
+        <h3>Individualni coaching</h3>
+        <p>Za ženske, ki si želijo več jasnosti, zaupanja vase in prostora za svoje želje, odločitve ter spremembe.</p>
+        <span class="offer-link">Razišči individualni coaching</span>
+      </a>
+      <a class="offer-card" href="za-podjetja.html">
+        <h3>Za podjetja</h3>
+        <p>Individualni coaching in delavnice za razvoj zaposlenih, boljšo komunikacijo in sodelovanje ter podporo ob pomembnih kariernih prehodih, kot sta vrnitev s starševskega dopusta ali po daljši odsotnosti.</p>
+        <span class="offer-link">Razišči ponudbo za podjetja</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--cream">
+  <div class="container">
+    <div class="split-copy">
+      <div>
+        <span class="kicker">SE PREPOZNAŠ?</span>
+        <h2>Vse nekako teče. Samo ti se včasih izgubiš vmes.</h2>
       </div>
-      <ul class="dotted-list">
-        <li>si v obdobju sprememb in iščeš smer naprej</li>
-        <li>usklajuješ materinstvo, kariero in življenjske odgovornosti</li>
-        <li>želiš sprejemati odločitve, ki so res skladne s tabo</li>
-        <li>čutiš, da je čas, da ponovno namenjaš prostor tudi sebi</li>
-        <li>si želiš več miru, zaupanja vase in notranje trdnosti</li>
-      </ul>
+      <div class="split-copy-body">
+        <p>Dan se še dobro ne začne, pa imaš v glavi že seznam vsega, kar moraš narediti. Otroci, služba, družina, obveznosti. Za vse nekako najdeš čas, zase pa pogosto zmanjka energije.</p>
+        <p>Ob tem opažaš, da nisi več povsem ista. Morda manj zaupaš sebi, pogosteje dvomiš o svojih odločitvah in se sprašuješ, ali si dovolj dobra mama, partnerka, sodelavka.</p>
+        <p>Trudiš se, da bi vse uskladila. Tudi ko narediš ogromno, imaš občutek, da bi lahko naredila še več. In ko si končno vzameš nekaj časa zase, se pogosto oglasi občutek krivde.</p>
+        <p>Nekje med vsemi temi vlogami in pričakovanji pa se vedno pogosteje sprašuješ, kaj si pravzaprav želiš ti.</p>
+        <p class="closing">Ni treba, da imaš vse odgovore. Za začetek je dovolj, da se začneš spraševati tudi o sebi.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="sec sec--beige">
   <div class="container">
-    <div class="outcomes-block">
-      <h2>Kaj se spremeni?</h2>
-      <p class="outcomes-block-lead">Ko imaš prostor za razmislek in podporo, se začnejo premikati tudi stvari, ki so prej stale na mestu.</p>
-      <ul class="dotted-list">
-        <li>odločitve sprejemaš z več zaupanja in manj dvoma.</li>
-        <li>lažje prepoznaš, kaj je v tem obdobju res pomembno.</li>
-        <li>jasneje postavljaš prioritete.</li>
-        <li>z več miru usklajuješ različne življenjske vloge.</li>
-        <li>ponovno najdeš čas s sabo in svojimi potrebami.</li>
-      </ul>
-      <p class="outcomes-block-italic">Ne zato, ker bi dobil vse odgovore. Ampak zato, ker začneš bolj zaupati sebi.</p>
+    <div class="sec-head-center">
+      <span class="kicker">KONČNO TUDI TI</span>
+      <h2>Kolikokrat si si že rekla: »Ko bo malo manj vsega, bom pa jaz na vrsti«?</h2>
+      <p class="sec-intro">Ko bodo otroci večji. Ko bo v službi bolj mirno. Ko bo doma vse urejeno.</p>
+      <p class="sec-intro">Ampak vedno pride nekaj novega. In ti spet počakaš.</p>
+    </div>
+    <div class="sec-head-center" style="margin-bottom:0;">
+      <h2>Kaj, če bi začela živeti malo bolj po svoje?</h2>
+    </div>
+    <div class="point-grid">
+      <article class="point-card">
+        <p>Rekla ne, ne da bi potem ves večer premlevala, ali si koga prizadela.</p>
+      </article>
+      <article class="point-card">
+        <p>Sprejela odločitev, ne da bi prej potrebovala potrditev vseh okoli sebe.</p>
+      </article>
+      <article class="point-card">
+        <p>Si dovolila želeti nekaj zase, tudi če drugi tega ne razumejo.</p>
+      </article>
+    </div>
+    <p class="closing-line">In nehala čakati, da bodo vsi drugi prišli na vrsto pred tabo.</p>
+  </div>
+</section>
+
+<section class="sec sec--cream">
+  <div class="container">
+    <span class="kicker">INDIVIDUALNI COACHING</span>
+    <h2 class="sec-title">Ne potrebuješ še nekoga, ki ti bo povedal, kaj moraš narediti.</h2>
+    <div class="prose-block">
+      <p>Verjetno imaš že sama dovolj dolg seznam stvari, ki bi jih morala narediti, spremeniti ali izboljšati.</p>
+      <p class="prose-emphasis">Pri meni ne boš dobila še enega.</p>
+      <p>Na najinih srečanjih se bova ustavili pri vprašanjih, za katera v vsakdanjem tempu pogosto zmanjka prostora. Kaj si v resnici želiš? Zakaj tako težko rečeš ne? Čigava pričakovanja poskušaš izpolniti? Kaj te ustavlja, ko želiš nekaj spremeniti?</p>
+      <p>Včasih bova raziskovali prepričanja, ki jih imaš o sebi. Drugič tvoje vrednote, potrebe ali odločitve, pred katerimi stojiš. Ne bova iskali odgovorov, ki bi bili pravi za vse, ampak tiste, ki imajo smisel zate.</p>
+      <p>Ker ni pomembno samo, da veš, kaj si želiš spremeniti. Pomembno je tudi, da najdeš svoj način, kako to prenesti v vsakdanje življenje.</p>
     </div>
   </div>
 </section>
 
-<section class="section section-cream">
+<section class="sec sec--beige">
   <div class="container">
-    <div class="section-head section-head--center">
-      <span class="eyebrow">Moj pristop</span>
-      <h2>Kako je delati z mano?</h2>
-      <p>Vsaka ženska pride z drugačno zgodbo. Nekaj pa jim je skupno: iščejo prostor, kjer jim ni treba imeti vseh odgovorov.</p>
-    </div>
-    <div class="approach-cards">
-      <article class="approach-card">
-        <div class="approach-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 26c0-6 4-10 8-12"/><path d="M16 26c0-6-4-10-8-12"/><path d="M16 26V8"/><path d="M16 8c1-3 4-4 6-3"/><path d="M16 8c-1-3-4-4-6-3"/></svg>
+    <div class="hero-split hero-split--reverse">
+      <div class="hero-split-copy">
+        <span class="kicker">SPOZNAJ ME</span>
+        <h2>Živjo, sem Tea.</h2>
+        <p>Sem profesionalna coachinja z akreditacijama ICF ACC in EMCC EIA. Pa tudi mama dveh fantov, ki iz lastne izkušnje ve, kako zelo se lahko z materinstvom spremenijo naši pogledi nase, delo in življenje.</p>
+        <p>Pri svojem delu mi je pomembno, da imaš prostor za iskren pogovor, razmislek in svoja spoznanja. Brez obsojanja in brez pričakovanj, kakšna bi morala biti.</p>
+        <div class="hero-actions" style="margin-bottom:0;">
+          <a href="o-meni.html" class="btn btn-secondary">Več o meni</a>
         </div>
-        <h3>Brez hitrih rešitev</h3>
-        <p>Ne verjamem v univerzalne recepte. Verjamem v razmislek, ki je resnično za tebe, tvojo situacijo in v obdobju, v katerem si.</p>
-      </article>
-      <article class="approach-card">
-        <div class="approach-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14h12v6a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4v-6z"/><path d="M22 16h2a3 3 0 0 1 0 6h-2"/><path d="M14 9c1-2 3-2 4 0M18 9c1-2 3-2 4 0"/></svg>
-        </div>
-        <h3>Dovolj prostora za razmislek</h3>
-        <p>V hitrem tempu življenja redko dobimo prostor, da si dovolimo razmislek. Coaching je prostor, kjer imaš nemoten čas zase. Razmislek pa je razlika med ponavljanjem in resničnim korakom naprej.</p>
-      </article>
-      <article class="approach-card">
-        <div class="approach-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27s-9-5.5-9-13a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 7.5-9 13-9 13z"/></svg>
-        </div>
-        <h3>Toplo. Neposredno. Iskreno.</h3>
-        <p>Ob teh ne tipam. Sem ti na voljo s pravimi vprašanji in z empatijo. Hkrati pa te povabim k pogumnim odgovorom in k iskrenemu pogledu nase.</p>
-      </article>
+      </div>
+      <div class="hero-split-media">
+        <img src="assets/images/tea-portret.webp" alt="Tea Knez" loading="lazy" width="1086" height="1448">
+      </div>
     </div>
   </div>
 </section>
-""" + testimonials_section() + """"""
+""" + testimonials_section() + """
+<section class="sec sec--bordo">
+  <div class="container">
+    <div class="invite">
+      <span class="kicker">ZAČNIVA S POGOVOROM</span>
+      <h2>Ni treba, da čakaš, da bo vse drugo urejeno.</h2>
+      <p>Če se prepoznaš v zapisanem in si želiš nekaj spremeniti, te vabim na uvodni pogovor.</p>
+      <p>Spoznali se bova, pogovorili o tem, kaj te trenutno zaposluje, in preverili, ali je coaching prava izbira zate.</p>
+      <a href="kontakt.html?namen=uvodni-pogovor" class="btn btn-light">Dogovori se za uvodni pogovor</a>
+    </div>
+  </div>
+</section>"""
 
     page = head(
-        "Tea Knez - Coaching za ženske in podjetja",
-        "Coaching za ženske, ki usklajujejo materinstvo, kariero in odgovornosti, ter podporo organizacijam pri prehodih zaposlenih. Več jasnosti. Manj razpetosti. Več tebe.",
+        "Tea Knez - profesionalni coaching za ženske in organizacije",
+        "Individualni coaching za ženske, ki želijo raziskati, kdo so danes, kaj jim je pomembno in kaj si želijo zase. Coaching in delavnice tudi za podjetja.",
         f"{SITE_URL}/", 0,
-        og_image="hero.webp", og_image_alt="Tea Knez - coaching za ženske in podjetja",
+        og_image="tea-hero.webp", og_image_alt="Tea Knez, profesionalna coachinja",
         extra_jsonld=_person_jsonld()
     ) + header("home", 0) + body + footer(0)
     write("index.html", page)
@@ -604,142 +601,139 @@ def page_index():
 
 # ---------- ABOUT ----------
 def page_about():
-    body = """<section class="page-hero">
+    body = """<section class="sec sec--cream">
   <div class="container">
-    <div class="page-hero-grid">
-      <div class="page-hero-text">
-        <span class="eyebrow">O meni</span>
-        <h1>Pozdravljena, sem Tea.</h1>
-        <p class="hero-italic">Coachinja, podjetnica, žena in mama.</p>
-        <p>V svoji karieri sem delovala v okoljih, kjer so odločitve pomembne, odgovornost velika in odnosi pogosto kompleksni.</p>
-        <p>Danes spremljam predvsem ženske v pomembnih življenjskih in kariernih prehodih - od vračanja s porodniške do usklajevanja materinstva, kariere in podjetništva.</p>
+    <div class="hero-split">
+      <div class="hero-split-copy">
+        <span class="kicker">O MENI</span>
+        <h1>Živjo, sem Tea. In tudi sama sem morala na novo ugotoviti, kdo sem.</h1>
+        <p>Sem profesionalna coachinja, magistra prava in mama dveh fantov. Pa tudi ženska, ki je nekoč mislila, da mora imeti vse pod nadzorom, biti uspešna v vsem, kar počne, in nekako najti čas še zase.</p>
+        <p>Materinstvo je precej spremenilo moje življenje. Ne samo moj vsakdan, ampak tudi pogled nase, na delo in na to, kaj mi je zares pomembno. Nekje med vsemi vlogami, pričakovanji in obveznostmi sem se tudi sama začela spraševati, kaj si želim jaz.</p>
+        <p>Danes kot coachinja ustvarjam prostor, v katerem lahko tudi druge ženske raziskujejo svoja vprašanja, odločitve in spremembe. Ne zato, ker bi imela odgovore zanje, ampak ker verjamem, kako pomembno je, da dobijo priložnost poiskati svoje.</p>
       </div>
-      <div class="page-hero-image">
-        <img src="assets/images/about-tea.webp" alt="Tea Knez">
+      <div class="hero-split-media">
+        <img src="assets/images/tea-hero.webp" alt="Tea Knez, profesionalna coachinja" loading="eager" width="1052" height="1495">
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-cream">
+<section class="sec sec--beige">
   <div class="container">
-    <div class="about-story">
-      <span class="eyebrow">Moja zgodba</span>
-      <h2>Vsaka izkušnja me je nekaj <em>naučila</em>.</h2>
-      <p>Moja pot se ni začela s coachingom. Začela se je kot pravnica in mediatorka, nato pa se je razvijala naprej - analitično, odločno in v okoljih, kjer so odločitve zahtevne.</p>
-      <p>Različna delovna področja so me naučila, kako pomembni so odnosi, razumevanje in sposobnost slišati drug drugega.</p>
-      <p>Kot vodja ekip sem skozi leta razvila tudi posebno občutljivost za prelome - trenutke, ko se karierne in osebne odločitve prepletajo na nov, zahtevnejši način.</p>
-      <p>Danes svoje pravniške, vodstvene in podjetniške izkušnje vključujem v coaching, kjer podpiram ženske v pomembnih prehodih - z naravnim tempom, vključujoče in iskreno.</p>
+    <div class="narrow-col">
+      <span class="kicker">MOJA POT</span>
+      <h2 class="sec-title">Kako sem prišla do coachinga?</h2>
+      <p>Moja poklicna pot je bila vse prej kot ravna. Delala sem v različnih okoljih, preizkušala različne vloge in dolgo iskala delo, v katerem bi se zares našla.</p>
+      <p>Potem sem postala mama. Z materinstvom so prišle nove prioritete, drugačna pričakovanja in vprašanja, na katera nisem imela vedno odgovorov. Tudi izkušnja izgorelosti je bila eden od trenutkov, ko sem morala znova razmisliti, kako želim živeti in delati.</p>
+      <p>Coaching sem najprej spoznala kot klientka. Iz prve roke sem izkusila, kako dragoceno je imeti prostor, kjer ti ni treba ničesar dokazovati, kjer lahko na glas razmišljaš in raziskuješ vprašanja, ki jih sicer pogosto odrineš na stran.</p>
+      <p>Prav ta izkušnja je pomembno vplivala na mojo odločitev, da postanem coachinja. Danes želim tak prostor ponuditi tudi drugim.</p>
     </div>
-    <div class="section-head section-head--center" style="margin-top: 72px;">
-      <span class="eyebrow">Moj pristop</span>
-      <h2>Coaching zame ni svetovanje. Je strukturiran proces razmisleka.</h2>
+  </div>
+</section>
+
+<section class="sec sec--bordo">
+  <div class="container">
+    <span class="kicker">MOJ PRISTOP</span>
+    <h2 class="sec-title">Pri meni ti ni treba imeti vsega pod nadzorom.</h2>
+    <div class="prose-block">
+      <p>Ni ti treba priti z jasnimi odgovori, popolno razlago svoje situacije ali načrtom, kaj želiš doseči. Lahko prideš tudi z mislimi, ki jih še sama težko ubesediš.</p>
+      <p>Kot coachinja sem radovedna, neposredna in iskrena. Rada poslušam tudi tisto, kar ostane neizrečeno, opazim besede, ki jih večkrat ponoviš, in postavim vprašanje, ob katerem se morda za trenutek ustaviš.</p>
+      <p>Ne bom ti vedno postavljala samo prijetnih vprašanj. Včasih bova pogledali tudi tja, kjer se pojavijo dvomi, nasprotja ali prepričanja, ki jih do zdaj morda nisi postavila pod vprašaj. Vedno pa v tempu in globini, ki ju želiš raziskovati sama.</p>
+      <p>Pri svojem delu mi je pomembno, da se počutiš slišano in spoštovano. Da lahko razmišljaš na glas, se ne strinjaš z mano, se nasmejiš ali preprosto nekaj časa ostaneš v tišini.</p>
+      <p>Ne verjamem, da obstaja ena prava pot za vse. Verjamem pa, da si zaslužiš prostor, v katerem lahko odkriješ svojo.</p>
     </div>
-    <div class="approach-cards">
-      <article class="approach-card">
-        <div class="approach-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="10"/><path d="M16 11v5l3 3"/></svg>
+  </div>
+</section>
+
+<section class="sec sec--cream">
+  <div class="container">
+    <div class="sec-head-center">
+      <span class="kicker">KAJ MI JE POMEMBNO</span>
+      <h2>V kaj verjamem kot coachinja?</h2>
+      <p class="sec-intro">Način, kako delam, ni odvisen samo od mojega znanja in izkušenj. Pomembne so mi tudi vrednote, ki jih prinašam v vsak coaching odnos.</p>
+    </div>
+    <div class="value-grid">
+      <article class="value-item">
+        <span class="value-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>
+        </span>
+        <div>
+          <h3>Pristnost</h3>
+          <p>Verjamem, da ti ni treba postati drugačna različica sebe, da bi bila dovolj dobra. Pomembno mi je, da lahko raziskuješ, kdo si, brez potrebe po ugajanju ali dokazovanju.</p>
         </div>
-        <h3>Ustavimo se</h3>
-        <p>Z usmerjenimi vprašanji odprem prostor, kjer lahko slišiš lasten glas - namesto da te prehitevajo zunanji nasveti.</p>
       </article>
-      <article class="approach-card">
-        <div class="approach-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24l6-12 4 8 4-6 6 10"/><path d="M3 28h26"/></svg>
+      <article class="value-item">
+        <span class="value-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </span>
+        <div>
+          <h3>Svoboda izbire</h3>
+          <p>Ne verjamem v eno pravo pot za vse. Spoštujem tvojo pravico, da sprejemaš lastne odločitve, tudi kadar so drugačne od mojih pogledov.</p>
         </div>
-        <h3>Razložimo</h3>
-        <p>Prepoznava vzorcev, vrednot in resničnih prioritet. Vidiš celotno sliko - od zunaj in znotraj.</p>
       </article>
-      <article class="approach-card">
-        <div class="approach-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16l5 5L24 9"/></svg>
+      <article class="value-item">
+        <span class="value-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h6M14 12h6"/><circle cx="12" cy="12" r="2"/></svg>
+        </span>
+        <div>
+          <h3>Spoštovanje in enakovrednost</h3>
+          <p>V coaching odnos vstopava kot partnerici. Ti si strokovnjakinja za svoje življenje, jaz pa prinašam coaching znanje, vprašanja in drugačne perspektive.</p>
         </div>
-        <h3>Določiš ti</h3>
-        <p>Zaupaš si in delaš premišljene korake. Ker so naslednji koraki tvoji - ne moji.</p>
+      </article>
+      <article class="value-item">
+        <span class="value-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 15.8 6.9 18.5l1.2-5.6L4 9l5.6-.6z"/></svg>
+        </span>
+        <div>
+          <h3>Iskrenost in pogum</h3>
+          <p>Pomembno mi je, da si lahko iskrena do sebe. Da si upaš pogledati tudi tisto, kar ni vedno prijetno, in raziskati vprašanja, ki jih je včasih lažje pustiti pri miru.</p>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="sec sec--beige">
   <div class="container">
-    <div class="section-head section-head--center">
-      <span class="eyebrow">Izobrazba in akreditacije</span>
-      <h2>Strokovna podpora. <em>Dokazana zavezanost kakovosti.</em></h2>
-      <p>Coaching ni zgolj veščina - je profesija. Zato si nenehno izpopolnjujem znanje in zagotavljam, da delam v skladu s standardi ICF in EMCC.</p>
-    </div>
-    <div class="credentials-row">
-      <ul class="credentials-bullets">
-        <li>ACC ICF akreditirana coachinja</li>
-        <li>EIA EMCC akreditirana coachinja</li>
-        <li>certificirana organizacijska coachinja</li>
-        <li>NLP mojstrica in coachinja</li>
-        <li>stalno strokovno izpopolnjevanje na področju coachinga, komunikacije in osebnega razvoja</li>
-        <li>redna supervizija in zavezanost etični coaching praksi</li>
-        <li>magistrica prava z izkušnjami na področju mediacije in potrošniških sporov</li>
-      </ul>
-      <div class="credentials-badges">
-        <div class="cred-badge">
-          <div class="cred-badge-mark cred-badge-mark--seal">
-            <img src="assets/images/acc-icf.webp" alt="ICF ACC - Associate Certified Coach" loading="lazy">
-          </div>
-        </div>
-        <div class="cred-badge">
-          <div class="cred-badge-mark">
-            <img src="assets/images/eia-emcc.webp" alt="EMCC Global Individual Accreditation - EIA Practitioner" loading="lazy">
-          </div>
-        </div>
+    <span class="kicker">MOJA STROKOVNA POT</span>
+    <h2 class="sec-title">Strokovnost, ki jo nenehno nadgrajujem.</h2>
+    <p class="sec-intro">Profesionalni coaching zame pomeni tudi odgovornost do klientov. Zato vlagam v svoje znanje, razvijam coaching kompetence in pri delu sledim etičnim standardom ICF in EMCC.</p>
+    <div class="accred-grid">
+      <div class="accred">
+        <img src="assets/images/acc-icf.webp" alt="ICF ACC - Associate Certified Coach" loading="lazy">
+        <h3>ICF ACC</h3>
+        <p>Mednarodna akreditacija Associate Certified Coach organizacije International Coaching Federation.</p>
+      </div>
+      <div class="accred">
+        <img src="assets/images/eia-emcc.webp" alt="EMCC Global Individual Accreditation - EIA" loading="lazy">
+        <h3>EMCC EIA</h3>
+        <p>Mednarodna individualna akreditacija za profesionalno coaching in mentorsko prakso organizacije EMCC Global.</p>
       </div>
     </div>
-    <div class="section-head section-head--center" style="margin-top: 80px;">
-      <span class="eyebrow">Vrednote, ki me vodijo</span>
-    </div>
-    <div class="value-strip">
-      <article class="value-item">
-        <div class="value-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="1.5" fill="currentColor"/><path d="M2 16c4-6 8-9 14-9s10 3 14 9c-4 6-8 9-14 9S6 22 2 16z"/></svg>
-        </div>
-        <h3>Prisotnost</h3>
-        <p>V vsakem srečanju sem polno prisotna, polno zbrana in odprta za to, kar prinašaš v ta prostor.</p>
-      </article>
-      <article class="value-item">
-        <div class="value-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 26V12"/><path d="M16 12c-3 0-5 2-5 5"/><path d="M16 12c3 0 5 2 5 5"/><path d="M8 26h16"/></svg>
-        </div>
-        <h3>Rast</h3>
-        <p>Verjamem, da v sebi že nosiš vse, kar potrebuješ. Coaching te podpre, da to slišiš in narediš naprej.</p>
-      </article>
-      <article class="value-item">
-        <div class="value-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27s-9-6-9-13a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 7-9 13-9 13z"/></svg>
-        </div>
-        <h3>Zaupanje</h3>
-        <p>Coaching je zaupen prostor, kjer si lahko taka, kot si. Brez sodbe, brez pričakovanj, ki niso tvoja.</p>
-      </article>
+    <div class="accred-extra">
+      <h3>Izobrazba in strokovna vključenost</h3>
+      <p>Sem magistra prava z dodatnimi usposabljanji s področja coachinga, mediacije, NLP in komunikacije. Sem tudi članica Upravnega odbora ICF Slovenija in skupnosti Coachiefy, kjer ostajam povezana s strokovnim okoljem ter nadaljnjim razvojem coachinga.</p>
     </div>
   </div>
 </section>
 
-<section class="section section-cream">
+<section class="sec sec--bordo">
   <div class="container">
-    <div class="closing-recognize">
-      <div class="closing-recognize-text">
-        <h2>Če si pri branju prepoznala sebe ...</h2>
-        <p>Mogoče je čas, da si vzameš trenutek zase. Brez pričakovanj, brez pritiska. Samo prostor za razmislek o tem, kar potrebuješ ti.</p>
-        <a href="kontakt.html" class="btn btn-primary">Rezerviraj uvodno srečanje →</a>
-      </div>
-      <div class="closing-recognize-image">
-        <img src="assets/images/omeni-closing.webp" alt="Miren kotiček s skodelico čaja in dnevnikom">
-      </div>
+    <div class="invite">
+      <span class="kicker">MOJI ZAPISI</span>
+      <h2>Ker vseh misli pač ne morem zadržati zase.</h2>
+      <p>O materinstvu, spremembah, pričakovanjih, odnosu do sebe in vseh tistih vprašanjih, ki se nam porajajo nekje med vsakdanjimi obveznostmi.</p>
+      <p>Na blogu delim svoja razmišljanja, izkušnje in drugačne poglede na stvari, ki jih pogosto jemljemo za samoumevne.</p>
+      <a href="blog/" class="btn btn-light">Preberi moje zapise</a>
     </div>
   </div>
 </section>"""
 
     page = head(
-        "O meni - Tea Knez, coachinja",
-        "Sem Tea Knez, coachinja, certificirana po standardih ICF in EMCC. Spoznaj moj pristop, vrednote in pot v coaching za ženske in organizacije.",
+        "O meni - Tea Knez, profesionalna coachinja",
+        "Sem Tea Knez, profesionalna coachinja z akreditacijama ICF ACC in EMCC EIA. Spoznaj mojo pot, pristop in vrednote, ki jih prinašam v vsak coaching odnos.",
         f"{SITE_URL}/o-meni.html", 0,
-        og_image="about-tea.webp", og_image_alt="Tea Knez - coachinja",
+        og_image="tea-hero.webp", og_image_alt="Tea Knez, profesionalna coachinja",
         extra_jsonld=[
             _person_jsonld(),
             _breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("O meni", f"{SITE_URL}/o-meni.html")]),
@@ -748,208 +742,321 @@ def page_about():
     write("o-meni.html", page)
 
 
-
 # ---------- ZA POSAMEZNICE ----------
 def page_za_posameznice():
-    body = """<section class="page-hero">
+    body = """<section class="sec sec--cream">
   <div class="container">
-    <div class="page-hero-grid">
-      <div class="page-hero-text">
-        <span class="eyebrow">Coaching za ženske</span>
-        <h1>Več jasnosti.<br><em>Manj razpetosti.</em><br>Več tebe.</h1>
-        <p>Materinstvo, kariera, partnerstvo, podjetništvo, vsakodnevne obveznosti. V določenih obdobjih se lahko zgodi, da postane vsega preveč. Ne zato, ker ne bi zmogla. Temveč zato, ker nosiš veliko odgovornosti in ob tem pogosto zmanjka prostora za razmislek o tem, kaj potrebuješ ti.</p>
-        <p>Coaching je prostor, kjer se za trenutek ustaviš. Prostor, kjer lahko razčlenjuješ svoje misli, odločitve in izzive brez pričakovanj, da moraš imeti vse odgovore.</p>
-        <p>Skupaj ustvariva prostor za več jasnosti, zaupanja vase in odločitve, ki so skladne s tabo.</p>
+    <div class="hero-split">
+      <div class="hero-split-copy">
+        <span class="kicker">INDIVIDUALNI COACHING ZA ŽENSKE</span>
+        <h1>Več jasnosti. Manj dvomov. Odločitve, za katerimi lahko stojiš.</h1>
+        <p>Morda si želiš spremembe, pa ne veš, kje začeti. Morda imaš občutek, da si ves čas razpeta med tem, kar potrebujejo drugi, in tem, kar si želiš sama. Ali pa si pred odločitvijo, o kateri razmišljaš že mesece, a se nikakor ne premakneš naprej.</p>
+        <p>Individualni coaching je prostor, kjer lahko raziščeš svoje misli, želje in možnosti. Brez dodatnih nasvetov, kakšna bi morala biti, in brez pričakovanja, da moraš imeti vse odgovore že danes.</p>
+        <div class="hero-actions" style="margin-bottom:0;">
+          <a href="kontakt.html?namen=uvodni-pogovor" class="btn btn-primary">Dogovori se za brezplačen uvodni pogovor</a>
+        </div>
       </div>
-      <div class="page-hero-image">
-        <img src="assets/images/posameznice-hero.webp" alt="Dnevnik Več jasnosti s skodelico čaja">
+      <div class="hero-statement">
+        <p>Kaj pa si želiš ti?</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-cream">
+<section class="sec sec--beige">
   <div class="container">
-    <div class="section-head section-head--center">
-      <span class="eyebrow">Ko te kliče sprememba</span>
-      <h2>Tukaj sem, da te podprem, ko ...</h2>
+    <div class="sec-head-center">
+      <span class="kicker">SPOZNAJ COACHING</span>
+      <h2>Coaching je več kot samo pogovor.</h2>
+      <p class="sec-intro">Coaching ni pogovor, v katerem ti nekdo pove, kako moraš živeti. Je partnerstvo, v katerem skozi razmislek, vprašanja in nova spoznanja raziskuješ svoje možnosti, sprejemaš odločitve in iščeš poti do sprememb, ki si jih želiš.</p>
     </div>
-    <ul class="dual-list">
-      <li>usklajuješ materinstvo, kariero ali podjetništvo in se pogosto počutiš razpeto med različnimi vlogami</li>
-      <li>se vračaš s porodniške in iščeš svoj način prehoda nazaj v delo</li>
-      <li>si pred pomembno osebno ali karierno odločitvijo</li>
-      <li>čutiš, da si se med vsemi odgovornostmi nekoliko izgubila</li>
-      <li>želiš več zaupanja vase in manj notranjega dvoma</li>
-      <li>si želiš prostor za iskren razmislek in podporo</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head section-head--center">
-      <span class="eyebrow">Kaj lahko pričakuješ?</span>
-      <h2>Prostor za jasnost, podporo in rast</h2>
-    </div>
-    <div class="duo-split">
+    <div class="duo-cols">
       <div class="duo-col">
-        <span class="duo-eyebrow">Moj pristop</span>
-        <p>Coaching ni svetovanje in ni terapija. Je strukturiran, zaupen proces, kjer s pravimi vprašanji odpirava prostor za razmislek, ki ga v vsakdanu morda nimaš. V kombinaciji refleksije, usmerjenih vprašanj in konkretnih korakov bova raziskovali tisto, kar je trenutno najbolj pomembno zate.</p>
+        <h3>Kaj coaching je</h3>
+        <p>Zaupen in ustvarjalen proces, v katerem sva enakovredni partnerici. Ti prinašaš svoje izkušnje, želje in cilje, jaz pa vprašanja, aktivno poslušanje in prostor za raziskovanje. Skupaj odkrivava nove perspektive in možnosti, ti pa odločaš, kaj je zate pravi naslednji korak.</p>
       </div>
       <div class="duo-col">
-        <span class="duo-eyebrow">Kako delujeva skupaj</span>
-        <p>Coaching proces izhaja iz tvoje izkušnje. Skozi pogovor ti pomagam slišati lasten glas, prepoznati notranje vzorce in postaviti korake, ki so smiselni zate. Vsako srečanje se prilagaja tvojemu ritmu in cilju - ni vnaprej določene poti.</p>
+        <h3>Kaj coaching ni</h3>
+        <p>Coaching ni psihoterapija, svetovanje ali mentorstvo. Kot coachinja ne postavljam diagnoz, ne zdravim duševnih stisk in ne prevzemam odločitev namesto tebe. Prav tako ti ne ponujam univerzalnih nasvetov ali vnaprej pripravljenih rešitev.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-cream">
+<section class="sec sec--cream">
   <div class="container">
-    <div class="section-head section-head--center">
-      <span class="eyebrow">Kaj ti coaching prinese</span>
-      <h2>Spremembe, ki jih začutiš v <em>vsakdanjem življenju</em></h2>
+    <div class="sec-head-center">
+      <span class="kicker">KDAJ NA COACHING?</span>
+      <h2>Morda se prepoznaš v kateri od teh situacij.</h2>
+      <p class="sec-intro">Na coaching ne prihajajo samo ženske, ki so pred veliko življenjsko odločitvijo. Včasih je razlog nekaj, kar se ponavlja že dolgo, pa si do zdaj nisi vzela časa, da bi se temu zares posvetila.</p>
     </div>
-    <div class="outcome-grid">
-      <article class="outcome-card">
-        <span class="outcome-tag">Več jasnosti</span>
-        <p>Lažje prepoznaš, kaj v tem obdobju res šteje, in kaj lahko za zdaj odložiš.</p>
+    <div class="situation-grid">
+      <article class="situation">
+        <h3>Ves čas usklajuješ vse in vse druge.</h3>
+        <p>Zase pa pogosto zmanjka časa. Želiš si postaviti meje, ne da bi te ob tem vedno spremljal občutek krivde.</p>
       </article>
-      <article class="outcome-card">
-        <span class="outcome-tag">Močnejše zaupanje vase</span>
-        <p>Bolj verjameš svojim odločitvam in ne potrebuješ zunanje potrditve, da si v redu.</p>
+      <article class="situation">
+        <h3>Preveč razmišljaš in premalo zaupaš sebi.</h3>
+        <p>Odločitve premlevaš znova in znova, iščeš potrditve pri drugih in se sprašuješ, ali si se odločila prav.</p>
       </article>
-      <article class="outcome-card">
-        <span class="outcome-tag">Jasne prioritete</span>
-        <p>Veš, kam usmerjati svojo energijo in kateri koraki te vodijo naprej.</p>
+      <article class="situation">
+        <h3>Pred tabo je sprememba.</h3>
+        <p>Vračanje v službo, nova karierna smer ali druga življenjska prelomnica. Želiš raziskati, kaj si danes želiš in kako naprej.</p>
       </article>
-      <article class="outcome-card">
-        <span class="outcome-tag">Zdrave meje</span>
-        <p>Lažje rečeš ne, kar ti ne služi, in da, kar ti je pomembno.</p>
+      <article class="situation">
+        <h3>Nekje med vsemi vlogami pogrešaš sebe.</h3>
+        <p>Rada imaš svoje življenje, pa vseeno čutiš, da nekaj manjka. Želiš si bolje razumeti, kaj je pomembno tebi, ne samo drugim.</p>
       </article>
-      <article class="outcome-card">
-        <span class="outcome-tag">Več notranjega miru</span>
-        <p>Ob izzivih ohraniš stik s sabo in odločitve sprejemaš iz mirnejšega prostora.</p>
+      <article class="situation">
+        <h3>Od sebe pričakuješ ogromno.</h3>
+        <p>Trudiš se biti dobra mama, partnerka, sodelavka. Tudi ko narediš veliko, vidiš predvsem tisto, česar nisi. Želiš si manj pritiska in več prostora za svoje potrebe.</p>
       </article>
-      <article class="outcome-card">
-        <span class="outcome-tag">Občutek, da nisi več sama</span>
-        <p>V coachingu imaš zaupen prostor, kjer lahko misliš na glas in si slišana.</p>
+      <article class="situation">
+        <h3>Težko poveš, kaj si zares želiš.</h3>
+        <p>Pogosto se prilagodiš drugim, da ne bi koga razočarala ali povzročila konflikta. Svoje želje raje zadržiš zase, čeprav si želiš, da bi jih znala izraziti bolj odkrito in samozavestno.</p>
       </article>
+    </div>
+    <p class="closing-line">Ni treba, da se prepoznaš v vseh situacijah. Pomembno je, kaj želiš raziskati ti.</p>
+  </div>
+</section>
+
+<section class="sec sec--beige">
+  <div class="container">
+    <div class="sec-head-center">
+      <span class="kicker">NAJINO SODELOVANJE</span>
+      <h2>Kako začneva?</h2>
+      <p class="sec-intro">Za prvi korak ne potrebuješ pripravljenega načrta. Dovolj je, da si želiš raziskati, ali je coaching prava izbira zate.</p>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-num">01</span>
+        <div>
+          <h3>Dogovoriva se za uvodni pogovor</h3>
+          <p>Kratek, brezplačen in neobvezujoč pogovor, v katerem se spoznava, pogovoriva o tem, kaj te trenutno zaposluje, in preveriva, ali je coaching ustrezna oblika podpore zate.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">02</span>
+        <div>
+          <h3>Določiva smer sodelovanja</h3>
+          <p>Če se odločiš za coaching, se pogovoriva o tem, kaj želiš skozi proces doseči, kako bova sodelovali in kaj lahko pričakuješ. Cilje lahko med procesom tudi prilagajava, če se tvoje potrebe spremenijo.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">03</span>
+        <div>
+          <h3>Začneva s coaching srečanji</h3>
+          <p>Na srečanjih raziskujeva teme, ki jih prineseš. Skozi vprašanja, poslušanje in razmislek odkrivaš nove perspektive, prepoznavaš svoje možnosti in izbiraš korake, ki jih želiš preizkusiti v vsakdanjem življenju.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">04</span>
+        <div>
+          <h3>Spremljava tvoj napredek</h3>
+          <p>Med procesom se vračava k tvojim ciljem, spoznanjem in spremembam, ki jih opažaš. Ob zaključku pogledava, kaj si odnesla iz sodelovanja in kako želiš nadaljevati.</p>
+        </div>
+      </li>
+    </ol>
+    <div class="step-note">
+      <h3>Zaupnost in varen prostor</h3>
+      <p>Coaching poteka v zaupnem in spoštljivem okolju. Pred začetkom se dogovoriva o načinu sodelovanja, zaupnosti in drugih pomembnih pogojih.</p>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="sec sec--cream sec--tight">
   <div class="container">
-    <div class="cta-pair">
-      <div class="cta-pair-info">
-        <h3>Individualni coaching</h3>
-        <ul class="tick-list">
-          <li>60-minutna srečanja</li>
-          <li>Online ali v živo</li>
-          <li>Prilagojeno tvojemu ritmu in cilju</li>
-        </ul>
+    <div class="sec-head-center">
+      <h2>Praktične informacije</h2>
+    </div>
+    <div class="facts">
+      <div class="fact">
+        <h3>60 minut</h3>
+        <p>Trajanje posameznega coaching srečanja.</p>
       </div>
-      <div class="cta-pair-action">
-        <h3>Rezerviraj uvodni pogovor</h3>
-        <p>Na brezplačnem spoznavnem klicu bova raziskali, kaj te trenutno najbolj zaposluje, kakšno podporo iščeš in ali je coaching prava izbira zate.</p>
-        <a href="kontakt.html" class="btn btn-primary">Rezerviraj uvodno srečanje →</a>
+      <div class="fact">
+        <h3>Online srečanja</h3>
+        <p>Srečanja potekajo na daljavo, v dogovorjenih terminih.</p>
       </div>
+      <div class="fact">
+        <h3>Priporočen proces: 6–9 srečanj</h3>
+        <p>Za bolj poglobljeno raziskovanje in prenos spoznanj v vsakdanje življenje priporočam proces vsaj šestih srečanj, pogosto pa devetih. Obseg in tempo sodelovanja prilagodiva tvojim ciljem in potrebam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--bordo">
+  <div class="container">
+    <div class="invite">
+      <span class="kicker">ZAČNIVA S POGOVOROM</span>
+      <h2>Kaj, če bi tokrat dala priložnost sebi?</h2>
+      <p>Ni treba, da že danes veš, kaj želiš spremeniti ali kako boš to naredila.</p>
+      <p>Na brezplačnem uvodnem pogovoru se bova spoznali, pogledali, kaj te trenutno zaposluje, in preverili, ali je coaching prava izbira zate. Brez obveznosti in brez pritiska.</p>
+      <a href="kontakt.html?namen=uvodni-pogovor" class="btn btn-light">Dogovori se za brezplačen uvodni pogovor</a>
     </div>
   </div>
 </section>"""
 
     page = head(
-        "Coaching za posameznice - Tea Knez",
-        "Coaching za ženske, ki usklajujejo materinstvo, kariero in podjetništvo. Prostor za jasnost, zaupanje vase in odločitve, skladne s sabo.",
+        "Individualni coaching za ženske - Tea Knez",
+        "Individualni coaching za ženske: več jasnosti, manj dvomov in odločitve, za katerimi lahko stojiš. Brezplačen uvodni pogovor, online srečanja po 60 minut.",
         f"{SITE_URL}/za-posameznice.html", 0,
-        og_image="about-tea.webp", og_image_alt="Coaching za ženske - Tea Knez",
-        extra_jsonld=_breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("Za posameznice", f"{SITE_URL}/za-posameznice.html")])
+        og_image="tea-hero.webp", og_image_alt="Individualni coaching za ženske - Tea Knez",
+        extra_jsonld=_breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("Individualni coaching", f"{SITE_URL}/za-posameznice.html")])
     ) + header("individuals", 0) + body + footer(0)
     write("za-posameznice.html", page)
 
 
 # ---------- ZA PODJETJA ----------
 def page_za_podjetja():
-    body = """<section class="page-hero">
+    body = """<section class="sec sec--cream">
   <div class="container">
-    <div class="page-hero-grid">
-      <div class="page-hero-text">
-        <span class="eyebrow">Storitve za podjetja</span>
-        <h1>Podprite zaposlene ob <em>vračanju na delo</em> in drugih pomembnih prehodih</h1>
-        <p>Organizacije danes vse več pozornosti namenjajo razvoju zaposlenih, zavzetosti in dobremu počutju. Kljub temu pa so prav obdobja velikih sprememb pogosto tista, v katerih zaposleni potrebujejo največ podpore.</p>
-        <p>Vračanje po porodniški, prehod v vodstveno vlogo ali druge karierne in osebne spremembe - vse to vpliva na zavzetost, samozavest in dolgoročno povezanost zaposlenega z organizacijo.</p>
-        <p>Coaching ni vnaprej določen program. Je prepoznavanje individualnih potreb in oblikovanje podpore, ki res deluje - za zaposleno, za vodjo in za organizacijo.</p>
-        <p>S strokovno in dolgoročno usmerjeno podporo pomagam ustvariti prostor za bolj samozavesten, podprt in uspešen prehod - za zaposlene, vodje in celotno organizacijo.</p>
+    <div class="hero-split">
+      <div class="hero-split-copy">
+        <span class="kicker">COACHING IN DELAVNICE ZA PODJETJA</span>
+        <h1>Razvoj zaposlenih ni samo vprašanje kompetenc.</h1>
+        <p>Za učinkovito sodelovanje niso pomembna le znanja in veščine, temveč tudi samozavedanje, komunikacija, zaupanje vase in sposobnost soočanja s spremembami.</p>
+        <p>Z individualnim coachingom in delavnicami podpiram zaposlene pri razvoju teh področij ter pri izzivih, ki jih prinašajo delo, odnosi in pomembni karierni prehodi.</p>
+        <div class="hero-actions" style="margin-bottom:0;">
+          <a href="kontakt.html?namen=podjetja" class="btn btn-primary">Povprašajte o sodelovanju</a>
+        </div>
       </div>
-      <div class="page-hero-image">
-        <img src="assets/images/service-podjetja.webp" alt="Coaching za podjetja">
+      <div class="hero-split-media">
+        <img src="assets/images/tea-portret.webp" alt="Tea Knez, coachinja za organizacije" loading="eager" width="1086" height="1448">
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-cream">
+<section class="sec sec--beige">
   <div class="container">
-    <div class="section-head section-head--center">
-      <span class="eyebrow">Kako lahko sodelujemo?</span>
-      <h2>Dve poti podpore za vaše <em>zaposlene in vodje</em></h2>
-      <p>Coaching in delavnica se dopolnjujeta in ju lahko izvajamo skupaj - zaposlenim ponudita celovito podporo, vodjam pa potrebno zaupanje pri njihovi vlogi.</p>
+    <div class="sec-head-center">
+      <span class="kicker">OBLIKE SODELOVANJA</span>
+      <h2>Kako lahko podprem vašo organizacijo?</h2>
+      <p class="sec-intro">Vsaka organizacija ima svoje izzive, vsaka ekipa pa svoje potrebe. Zato lahko sodelovanje oblikujemo glede na cilje organizacije in ljudi, ki jim je namenjeno.</p>
     </div>
-    <div class="duo-card-grid">
-      <article class="duo-card">
-        <span class="duo-card-eyebrow">Coaching za zaposlene</span>
-        <h3>Coaching za zaposlene <em>ob vračanju s porodniške</em></h3>
-        <p>Vračanje s porodniške ne pomeni le organizacijskih sprememb. Je tudi notranji prehod, ki vpliva na samozavest, prioritete in identiteto.</p>
-        <p class="duo-card-sub">Podpora pri:</p>
-        <ul class="tick-list two-col">
-          <li>vračanju na delo po porodniški</li>
-          <li>komunikaciji z vodjo in sodelavci</li>
-          <li>postavljanju mej</li>
-          <li>karierni rasti</li>
-          <li>usklajevanju delovnih in družinskih obveznosti</li>
-          <li>kariernem prehodu v novo vlogo</li>
-        </ul>
-        <p class="duo-card-note">Že po uvodnem srečanju, kjer skupaj pogledamo cilje in pričakovanja, je coaching usmerjen v podporo zaposleni.</p>
+    <div class="service-grid">
+      <article class="service-card">
+        <h3>Individualni coaching zaposlenih</h3>
+        <p>Individualni coaching zaposlenim omogoča zaupen prostor za raziskovanje poklicnih izzivov, sprejemanje odločitev, razvoj samozavedanja in iskanje lastnih načinov za učinkovitejše delovanje.</p>
+        <p>Primeren je za zaposlene in vodje, ki se soočajo s spremembami, zahtevnimi odločitvami, izzivi v komunikaciji, postavljanjem meja ali prevzemanjem novih odgovornosti.</p>
       </article>
-      <article class="duo-card">
-        <span class="duo-card-eyebrow">Delavnica za vodje in HR</span>
-        <h3>Delavnica za vodje in HR - <em>Kako podpreti zaposlene s porodniške</em></h3>
-        <p>Vodje in HR strokovnjaki imajo ključno vlogo pri uspehu prehoda zaposlene nazaj v delovni proces. Delavnica vodjem ponudi praktične orodja in znanje za razumevanje dinamike in podpornih pristopov.</p>
-        <p class="duo-card-sub">Teme delavnice:</p>
-        <ul class="tick-list two-col">
-          <li>kaj se pogosto spreminja po prihodu zaposlene</li>
-          <li>učinkovita komunikacija pri vračanju</li>
-          <li>postavitev pričakovanj in pogovorov</li>
-          <li>usklajenje pričakovanj med poslom in zaposleno</li>
-          <li>postavitev realističnih pričakovanj</li>
-          <li>komunikacija o napredovanjih in razvoju</li>
-        </ul>
-        <p class="duo-card-note">Delavnica je vodjem priložnost za razvoj veščin, zaposleni pa boljši podporni prostor - za bolj uspešno reintegracijo in dolgoročno zadržanje kadra.</p>
+      <article class="service-card">
+        <h3>Delavnice za zaposlene in ekipe</h3>
+        <p>Interaktivne delavnice, ki udeležencem omogočajo raziskovanje konkretnih izzivov, izmenjavo pogledov in preizkušanje novih pristopov.</p>
+        <p>Vsebine lahko vključujejo komunikacijo, sodelovanje, samozavedanje, postavljanje meja, osebno odgovornost ter soočanje s spremembami. Teme in izvedbo prilagodimo potrebam organizacije.</p>
+      </article>
+      <article class="service-card service-card--feature">
+        <span class="service-badge">Specializacija</span>
+        <span class="service-tag">POSEBNO PODROČJE</span>
+        <h3>Podpora ob vrnitvi na delo</h3>
+        <p>Vrnitev po starševskem dopustu ali drugi daljši odsotnosti ni vedno samo nadaljevanje tam, kjer je zaposleni ostal. Spremenijo se lahko prioritete, pričakovanja, samozavest in način usklajevanja poklicnega ter zasebnega življenja.</p>
+        <p>Z individualnim coachingom in prilagojenimi delavnicami organizacijam pomagam oblikovati podporo zaposlenim pri tem prehodu, da lahko raziščejo svoje potrebe, pričakovanja in možnosti za uspešno ponovno vključitev v delovno okolje.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="sec sec--bordo">
   <div class="container">
-    <div class="closing-cta">
-      <div class="closing-cta-text">
-        <h2>Skupaj ustvarimo okolje, v katerem ljudje uspevajo.</h2>
-        <p>S pravim pristopom v obdobjih sprememb krepimo zavzetost, zaupanje in dolgoročno povezanost zaposlenih z organizacijo.</p>
-      </div>
-      <div class="closing-cta-action">
-        <a href="kontakt.html" class="btn btn-primary">Pridobi ponudbo →</a>
-      </div>
+    <div class="sec-head-center">
+      <span class="kicker">ZA IZZIVI SO LJUDJE</span>
+      <h2>Za vsakim poklicnim izzivom je tudi osebna zgodba.</h2>
+      <p class="sec-intro">Težave pri komunikaciji, sprejemanju odločitev ali soočanju s spremembami niso vedno samo vprašanje znanja in kompetenc. V ozadju so lahko tudi prepričanja, strahovi, pričakovanja in načini razmišljanja, ki vplivajo na to, kako posameznik deluje.</p>
+      <p class="sec-intro">Coaching zaposlenim omogoča, da te vzorce ozavestijo, raziščejo drugačne perspektive in poiščejo načine delovanja, ki so bolj skladni z njihovimi vrednotami, potrebami in cilji.</p>
+    </div>
+    <div class="situation-grid">
+      <article class="situation">
+        <h3>Komunikacija in odnosi</h3>
+        <p>Kaj se zgodi, ko zaposleni težko izrazi svoje mnenje, se izogiba konfliktom ali vedno prevzame več, kot zmore?</p>
+      </article>
+      <article class="situation">
+        <h3>Nove vloge in odgovornosti</h3>
+        <p>Kako posameznik razvija zaupanje vase, ko prevzame novo vlogo, se sooči z dvomi ali občutkom, da mora ves čas dokazovati svojo vrednost?</p>
+      </article>
+      <article class="situation">
+        <h3>Spremembe in prehodi</h3>
+        <p>Kako najde svojo pot naprej, ko se spremenijo okoliščine, prioritete ali predstava o tem, kaj si želi od svoje kariere?</p>
+      </article>
+      <article class="situation">
+        <h3>Pritiski in pričakovanja</h3>
+        <p>Kaj posameznika žene, da si postavlja vedno višja pričakovanja, težko reče ne ali ima občutek, da nikoli ne naredi dovolj?</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--cream">
+  <div class="container">
+    <div class="sec-head-center">
+      <span class="kicker">POTEK SODELOVANJA</span>
+      <h2>Od prvega pogovora do izvedbe.</h2>
+      <p class="sec-intro">Vsako sodelovanje se začne z razumevanjem potreb organizacije in ljudi, ki jim je podpora namenjena. Na tej podlagi skupaj oblikujemo ustrezen način sodelovanja.</p>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-num">01</span>
+        <div>
+          <h3>Uvodni pogovor z organizacijo</h3>
+          <p>Pogovorimo se o izzivih, potrebah in pričakovanjih ter preverimo, ali je ustreznejši individualni coaching, delavnica ali kombinacija obojega.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">02</span>
+        <div>
+          <h3>Dogovor o sodelovanju</h3>
+          <p>Opredelimo cilje, obseg, način izvedbe in pogoje sodelovanja. Pri individualnem coachingu se posebej dogovorimo tudi o vlogah, odgovornostih in zaupnosti med organizacijo, zaposlenim in coachinjo.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">03</span>
+        <div>
+          <h3>Izvedba coachinga ali delavnic</h3>
+          <p>Individualni coaching poteka v zaupnem partnerstvu s posameznim zaposlenim, ki aktivno sooblikuje cilje in vsebino srečanj. Delavnice pa prilagodimo dogovorjeni temi, skupini in potrebam organizacije.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">04</span>
+        <div>
+          <h3>Pregled sodelovanja</h3>
+          <p>Ob zaključku preverimo doseganje dogovorjenih ciljev in možnosti za nadaljnje sodelovanje. Pri individualnem coachingu morebitno povratno informiranje organizacije poteka izključno v vnaprej dogovorjenih mejah zaupnosti.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec--bordo">
+  <div class="container">
+    <div class="narrow-col">
+      <span class="kicker">STROKOVNOST IN ZAUPNOST</span>
+      <h2>Zaupanje je temelj dobrega coachinga.</h2>
+      <p>Pri svojem delu sledim etičnim standardom ICF (International Coaching Federation) in EMCC (European Mentoring and Coaching Council), ki poudarjajo strokovnost, integriteto, zaupnost in spoštovanje avtonomije klienta.</p>
+      <p>Tudi kadar coaching financira organizacija, je pomembno, da ima zaposleni varen in zaupen prostor za raziskovanje svojih izzivov, potreb in ciljev.</p>
+      <p>Zato pred začetkom sodelovanja jasno opredelimo pričakovanja, odgovornosti in meje zaupnosti. Vsebina individualnih srečanj se ne deli z delodajalcem brez ustreznega soglasja oziroma druge veljavne podlage za razkritje.</p>
+      <p class="cred-line" style="margin-top:28px;">ICF ACC · EMCC EIA</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--beige">
+  <div class="container">
+    <div class="invite">
+      <span class="kicker">ZAČNIMO S POGOVOROM</span>
+      <h2>Kakšno podporo trenutno potrebujejo vaši zaposleni?</h2>
+      <p>Razmišljate o individualnem coachingu, delavnici ali podpori zaposlenim ob pomembnih kariernih prehodih?</p>
+      <p>Vabim vas na neobvezujoč uvodni pogovor, na katerem bomo raziskali potrebe vaše organizacije in možnosti sodelovanja.</p>
+      <a href="kontakt.html?namen=podjetja" class="btn btn-primary">Povprašajte o sodelovanju</a>
     </div>
   </div>
 </section>"""
 
     page = head(
-        "Coaching za podjetja - Tea Knez",
-        "Coaching za zaposlene ob vračanju s porodniške in delavnica za vodje in HR. Strokovna podpora pri pomembnih prehodih za zaposlene in organizacijo.",
+        "Coaching in delavnice za podjetja - Tea Knez",
+        "Individualni coaching in delavnice za razvoj zaposlenih, boljšo komunikacijo in podporo ob kariernih prehodih, vključno z vrnitvijo po starševskem dopustu.",
         f"{SITE_URL}/za-podjetja.html", 0,
-        og_image="service-podjetja.webp", og_image_alt="Coaching za podjetja - Tea Knez",
+        og_image="tea-portret.webp", og_image_alt="Coaching za podjetja - Tea Knez",
         extra_jsonld=_breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("Za podjetja", f"{SITE_URL}/za-podjetja.html")])
     ) + header("companies", 0) + body + footer(0)
     write("za-podjetja.html", page)
@@ -957,91 +1064,145 @@ def page_za_podjetja():
 
 # ---------- BLOG INDEX ----------
 POSTS = [
-    {"slug":"slaba-vest-ko-naredim-nekaj-zase", "title":"Zakaj imam slabo vest, ko naredim nekaj zase?",
+    {"slug":"slaba-vest-ko-naredim-nekaj-zase", "cat":"materinstvo", "title":"Zakaj imam slabo vest, ko naredim nekaj zase?",
      "summary":"Krivda ob času zase ne pomeni nujno, da si sebična. Lahko se pojavi zato, ker prvič ravnaš drugače in tudi svoje potrebe postavljaš med pomembne.",
      "image":"slaba-vest-ko-naredim-nekaj-zase-tea-knez.webp",
      "image_alt":"Ženska sedi sama v kavarni s kavo in knjigo, roko pa ima položeno na telefon",
      "date":"2026-09-02"},
-    {"slug":"zakaj-se-ne-znam-ustaviti", "title":"Zakaj se ne znam ustaviti?",
+    {"slug":"zakaj-se-ne-znam-ustaviti", "cat":"materinstvo", "title":"Zakaj se ne znam ustaviti?",
      "summary":"Počitek je lahko težak, kadar je tvoja vrednost dolgo povezana s koristnostjo, odgovornostjo in tem, koliko narediš za druge.",
      "image":"zakaj-se-ne-znam-ustaviti-tea-knez.webp",
      "image_alt":"Ženska zlaga perilo v dnevni sobi, kjer jo čakata prazen naslanjač in skodelica čaja",
      "date":"2026-08-25"},
-    {"slug":"cas-zase-ne-vem-kaj-potrebujem", "title":"Ko imam čas zase, ne vem, kaj potrebujem",
+    {"slug":"cas-zase-ne-vem-kaj-potrebujem", "cat":"materinstvo", "title":"Ko imam čas zase, ne vem, kaj potrebujem",
      "summary":"Si želiš časa zase, ko ga dobiš, pa ne veš, kaj potrebuješ? Preberi, zakaj počitek lahko postane nova naloga in kako ponovno slišati sebe.",
      "image":"cas-zase-ne-vem-kaj-potrebujem-tea-knez.webp",
      "image_alt":"Ženska med prostim trenutkom razmišlja, kaj v tem trenutku potrebuje",
      "date":"2026-08-19"},
-    {"slug":"sem-samo-se-mama", "title":"»Sem samo še mama?«",
+    {"slug":"sem-samo-se-mama", "cat":"materinstvo", "title":"»Sem samo še mama?«",
      "summary":"Se po materinstvu ne prepoznaš več? Preberi, zakaj lahko ljubezen do otroka in pogrešanje sebe obstajata hkrati ter kako raziskati, kdo si danes.",
      "image":"sem-samo-se-mama-tea-knez.webp",
      "image_alt":"Ženska razmišlja o svoji identiteti in odnosu do sebe po materinstvu",
      "date":"2026-08-11"},
-    {"slug":"identiteta-po-materinstvu", "title":"Ko se rodi otrok, se spremeni tudi ženska",
+    {"slug":"identiteta-po-materinstvu", "cat":"materinstvo", "title":"Ko se rodi otrok, se spremeni tudi ženska",
      "summary":"Materinstvo lahko spremeni identiteto, potrebe in odnos ženske do sebe. Preberi, zakaj so te spremembe razumljive in zakaj si zaslužijo prostor.",
      "image":"identiteta-po-materinstvu-tea-knez.webp",
      "image_alt":"Mama z dojenčkom v naročju zamišljeno gleda skozi okno, v steklu se zrcali njen odsev",
      "date":"2026-08-04"},
-    {"slug":"vracanje-s-porodniskega-dopusta", "title":"Vračanje s porodniškega dopusta: ko se vrneš drugačna",
+    {"slug":"vracanje-s-porodniskega-dopusta", "cat":"materinstvo", "title":"Vračanje s porodniškega dopusta: ko se vrneš drugačna",
      "summary":"Kako podpreti vračanje s porodniškega dopusta? O izzivih, prehodu in vlogi coachinga za posameznice in podjetja.",
      "image":"blog-vracanje.webp"},
-    {"slug":"kako-preprečiti-izgorelost-v-podjetjih-kultura-ravnovesja-ne-žrtvovanja", "title":"Kako preprečiti izgorelost v podjetjih: kultura ravnovesja, ne žrtvovanja",
+    {"slug":"kako-preprečiti-izgorelost-v-podjetjih-kultura-ravnovesja-ne-žrtvovanja", "cat":"podjetja", "title":"Kako preprečiti izgorelost v podjetjih: kultura ravnovesja, ne žrtvovanja",
      "summary":"Kultura zaupanja in ravnovesja namesto preobremenjenosti. Ustvari delovno okolje, kjer ljudje resnično zmorejo rasti.",
      "image":"blog-izgorelost.webp"},
-    {"slug":"kako-premagati-sindrom-vsiljivca-(imposter-syndrome)", "title":"Kako premagati sindrom vsiljivca (imposter syndrome)",
+    {"slug":"kako-premagati-sindrom-vsiljivca-(imposter-syndrome)", "cat":"rast", "title":"Kako premagati sindrom vsiljivca (imposter syndrome)",
      "summary":"O dvomu vase, ki te želi zaščititi. Spoznaj, kako prepoznati ta glas in verjeti, da si že zdaj dovolj.",
      "image":"blog-sindrom.webp"},
-    {"slug":"ko-mir-v-sebi-postane-pomembnejši-od-tega-da-imaš-prav", "title":"Ko mir v sebi postane pomembnejši od tega, da imaš prav",
+    {"slug":"ko-mir-v-sebi-postane-pomembnejši-od-tega-da-imaš-prav", "cat":"rast", "title":"Ko mir v sebi postane pomembnejši od tega, da imaš prav",
      "summary":"O notranji svobodi, ko mir izbereš pred dokazovanjem. Nauči se slišati sebe, ne potrebe po potrditvi.",
      "image":"blog-mir.webp"},
-    {"slug":"samozavest-ni-nekaj-kar-imas", "title":"Samozavest ni nekaj, kar imaš – ampak nekaj, kar gradiš",
+    {"slug":"samozavest-ni-nekaj-kar-imas", "cat":"rast", "title":"Samozavest ni nekaj, kar imaš – ampak nekaj, kar gradiš",
      "summary":"Samozavest ni lastnost, s katero se rodiš – je pot, ki jo gradiš skozi drobne izbire in notranji dialog.",
      "image":"blog-samozavest.webp"},
-    {"slug":"avtenticno-vodenje-moc-resnicnega-stika", "title":"Avtentično vodenje: Moč resničnega stika",
+    {"slug":"avtenticno-vodenje-moc-resnicnega-stika", "cat":"podjetja", "title":"Avtentično vodenje: Moč resničnega stika",
      "summary":"Avtentično vodenje ne temelji na popolnosti, temveč na iskrenosti in povezanosti. Kako voditi z resničnostjo.",
      "image":"blog-avtenticno.webp"},
-    {"slug":"notranji-kritik-kako-ga-prepoznati-in-spremeniti-v-zaveznika", "title":"Notranji kritik: Kako ga prepoznati in spremeniti v zaveznika",
+    {"slug":"notranji-kritik-kako-ga-prepoznati-in-spremeniti-v-zaveznika", "cat":"rast", "title":"Notranji kritik: Kako ga prepoznati in spremeniti v zaveznika",
      "summary":"Notranji kritik pogosto ovira našo rast, a lahko postane vir učenja. Kako ga prepoznati in preoblikovati.",
      "image":"blog-notranji.webp"},
-    {"slug":"odpornost-in-proznost-celostna-notranja-moc", "title":"Odpornost in prožnost: Kako graditi notranjo moč celostno",
+    {"slug":"odpornost-in-proznost-celostna-notranja-moc", "cat":"rast", "title":"Odpornost in prožnost: Kako graditi notranjo moč celostno",
      "summary":"Odpornost ni le miselna trdnost – vključuje telo, čustva, misli in odnose. Kako celostno graditi notranjo moč.",
      "image":"blog-odpornost.webp"},
 ]
 
-def page_blog_index():
-    cards = "\n".join(
-        f"""      <a class="blog-card" href="{p['slug']}/">
-        <div class="blog-card-image"><img src="../assets/images/{p['image']}" alt=""></div>
-        <div class="blog-card-body">
-          <h3>{p['title']}</h3>
-        </div>
-      </a>"""
-        for p in POSTS
-    )
-    body = f"""<section class="page-header">
-  <div class="container">
-    <h1>Blog</h1>
-  </div>
-</section>
+# Three confirmed blog categories. Assignment of existing articles is a
+# proposal pending Tea's confirmation (see PREVERITI in the brief).
+BLOG_CATEGORIES = [
+    ("materinstvo", "Materinstvo in družina"),
+    ("rast", "Osebna rast in coaching"),
+    ("podjetja", "Za podjetja in vodje"),
+]
+CATEGORY_LABEL = dict(BLOG_CATEGORIES)
 
-<section class="section">
+
+def newsletter_section(depth=0):
+    """Signups are delivered through web3forms with their own subject, so the
+    form genuinely works rather than only appearing to."""
+    p = "../" * depth
+    return f"""<section class="sec sec--bordo sec--tight">
   <div class="container">
-    <div class="blog-grid">
-{cards}
+    <div class="newsletter">
+      <span class="kicker">OSTANIVA V STIKU</span>
+      <h2>Kakšno dobro misel ti lahko pošljem tudi v nabiralnik.</h2>
+      <p>Občasno ti pošljem novo razmišljanje z bloga, povabilo na brezplačno delavnico ali posebno ponudbo za coaching. Brez vsakodnevnih sporočil in nepotrebne pošte.</p>
+      <form class="newsletter-form" action="https://api.web3forms.com/submit" method="POST" data-web3forms>
+        <input type="hidden" name="access_key" value="e78b399d-a62e-494f-b90b-519f4b7f7a48">
+        <input type="hidden" name="subject" value="Nova prijava na e-novice">
+        <input type="hidden" name="from_name" value="teaknez.com - e-novice">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="sr-only" for="news-email-{depth}">Tvoj e-naslov</label>
+        <input id="news-email-{depth}" name="email" type="email" required autocomplete="email" placeholder="Tvoj e-naslov">
+        <button type="submit" class="btn btn-light">Prijavi se na novice</button>
+      </form>
+      <p class="newsletter-note">S prijavo soglašaš s prejemanjem e-novic. Odjaviš se lahko kadarkoli. Več v <a href="{p}politika-zasebnosti.html">politiki zasebnosti</a>.</p>
+      <div class="form-status" role="status" aria-live="polite"></div>
     </div>
   </div>
-</section>"""
+</section>
+"""
+
+
+def page_blog_index():
+    filters = "\n".join(
+        f'      <button type="button" class="filter-btn" data-filter="{key}" aria-pressed="false">{label}</button>'
+        for key, label in BLOG_CATEGORIES
+    )
+    cards = []
+    for p in POSTS:
+        cat = p.get("cat", "")
+        date_html = ""
+        if p.get("date"):
+            date_html = f'<time datetime="{p["date"]}">{_sl_date(p["date"])}</time>'
+        cards.append(f"""      <a class="post-card" href="{p['slug']}/" data-cat="{cat}">
+        <div class="post-card-media"><img src="../assets/images/{p['image']}" alt="{p.get('image_alt', '')}" loading="lazy"></div>
+        <div class="post-card-body">
+          <p class="post-card-meta"><span>{CATEGORY_LABEL.get(cat, '')}</span>{date_html}</p>
+          <h3>{p['title']}</h3>
+          <p>{p['summary']}</p>
+          <span class="post-card-more">Preberi članek</span>
+        </div>
+      </a>""")
+    cards_html = "\n".join(cards)
+
+    body = f"""<section class="sec sec--cream sec--tight">
+  <div class="container">
+    <div class="sec-head-center">
+      <span class="kicker">BLOG · TEA KNEZ</span>
+      <h1>Misli, ki jih ne zadržim zase.</h1>
+      <p class="sec-intro">O materinstvu, spremembah, odnosu do sebe in vprašanjih, ki si jih včasih premalokrat zastavimo.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filtriraj zapise po kategoriji">
+      <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">Vsi zapisi</button>
+{filters}
+    </div>
+    <div class="posts-grid" id="posts-grid">
+{cards_html}
+    </div>
+    <p class="posts-empty" id="posts-empty" hidden>V tej kategoriji trenutno ni zapisov. <button type="button" class="link-btn" data-filter="all">Prikaži vse zapise</button></p>
+  </div>
+</section>
+""" + newsletter_section(1)
 
     page = head(
-        "Blog - Tea Knez Coaching",
-        "Misli o samorefleksiji, samozavesti, odnosih, vodenju in notranji rasti. Praktični vpogledi za jasen razmislek in zrele odločitve.",
+        "Blog - misli o materinstvu, spremembah in odnosu do sebe | Tea Knez",
+        "O materinstvu, spremembah, odnosu do sebe in vprašanjih, ki si jih včasih premalokrat zastavimo. Zapisi coachinje Tee Knez.",
         f"{SITE_URL}/blog/", 1,
-        og_image="blog-vracanje.webp", og_image_alt="Blog - Tea Knez Coaching",
+        og_image="blog-vracanje.webp", og_image_alt="Blog - Tea Knez",
         extra_jsonld=[
             {
                 "@type": "Blog",
                 "@id": f"{SITE_URL}/blog/#blog",
-                "name": "Blog - Tea Knez Coaching",
+                "name": "Blog - Tea Knez",
                 "url": f"{SITE_URL}/blog/",
                 "inLanguage": "sl",
                 "publisher": {"@id": f"{SITE_URL}/#organization"},
@@ -1071,14 +1232,15 @@ def render_blog_post(slug, title, lead, image, body_html,
     description = description or lead
     prev_post, next_post = _post_neighbors(slug)
 
-    byline = ""
+    cat_label = CATEGORY_LABEL.get(meta.get("cat", ""), "")
+    bits = []
+    if cat_label:
+        bits.append(f'<span class="post-meta-cat">{cat_label}</span>')
+    bits.append(f'<span class="post-meta-author">{BLOG_AUTHOR}</span>')
     if date:
-        byline = f"""
-    <p class="post-meta">
-      <span class="post-meta-author">{BLOG_AUTHOR}</span>
-      <span class="post-meta-sep" aria-hidden="true">·</span>
-      <time datetime="{date}">{_sl_date(date)}</time>
-    </p>"""
+        bits.append(f'<time datetime="{date}">{_sl_date(date)}</time>')
+    sep = '<span class="post-meta-sep" aria-hidden="true">·</span>'
+    byline = '\n    <p class="post-meta">' + sep.join(bits) + "</p>"
 
     cta_html = ""
     if cta:
@@ -1767,82 +1929,70 @@ def page_blog_odpornost():
 
 # ---------- CONTACT ----------
 def page_contact():
-    body = """<section class="section contact-intro">
+    body = """<section class="sec sec--cream sec--tight">
   <div class="container">
-    <div class="contact-header">
-      <span class="eyebrow">Kontakt</span>
-      <h1>Tukaj sem za <em>tvoje vprašanje</em>.</h1>
-      <p>Odgovorim ti osebno, jasno in v najkrajšem možnem času.</p>
-      <p>Če te zanima coaching, imaš vprašanje o sodelovanju ali bi rada uskladila spoznavno srečanje, mi piši. Z veseljem ti odgovorim in skupaj poiščeva primeren čas za pogovor.</p>
+    <div class="sec-head-center">
+      <span class="kicker">KONTAKT</span>
+      <h1>Tukaj sem za tvoja vprašanja.</h1>
+      <p class="sec-intro">Te zanima individualni coaching, sodelovanje s podjetji ali bi se rada dogovorila za uvodni pogovor?</p>
+      <p class="sec-intro">Piši mi in z veseljem ti odgovorim.</p>
+      <p class="sec-intro"><a href="mailto:tea@teaknez.com">tea@teaknez.com</a></p>
     </div>
-    <div class="contact-badges">
-      <div class="contact-badge">
-        <div class="contact-badge-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg>
-        </div>
-        <div>
-          <strong>Hiter odgovor</strong>
-          <span>Odgovorim ti v 1–2 delovnih dneh.</span>
-        </div>
-      </div>
-      <div class="contact-badge">
-        <div class="contact-badge-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="14" width="18" height="14" rx="2"/><path d="M11 14V9a5 5 0 0 1 10 0v5"/></svg>
-        </div>
-        <div>
-          <strong>Zaupnost</strong>
-          <span>Tvoje sporočilo ostane zaupno.</span>
-        </div>
+    <div class="contact-wrap">
+      <div class="contact-card">
+        <span class="kicker">POŠLJI SPOROČILO</span>
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-web3forms>
+          <input type="hidden" name="access_key" value="e78b399d-a62e-494f-b90b-519f4b7f7a48">
+          <input type="hidden" name="subject" value="Novo sporočilo s teaknez.com">
+          <input type="hidden" name="from_name" value="teaknez.com - kontaktni obrazec">
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="field">
+            <label for="namen">Zanima me</label>
+            <select id="namen" name="zanima_me" data-intent-select>
+              <option value="Uvodni pogovor">Uvodni pogovor</option>
+              <option value="Individualni coaching">Individualni coaching</option>
+              <option value="Sodelovanje s podjetji">Sodelovanje s podjetji</option>
+              <option value="Drugo">Drugo</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="name">Ime in priimek</label>
+            <input id="name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="email">E-naslov</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="message">Sporočilo</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <label class="field-check">
+            <input type="checkbox" name="consent" required>
+            <span>Seznanjena sem s <a href="politika-zasebnosti.html">politiko zasebnosti</a>.</span>
+          </label>
+          <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
+          <button type="submit" class="btn btn-primary">Pošlji sporočilo</button>
+          <div class="form-status" role="status" aria-live="polite"></div>
+        </form>
+        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
       </div>
     </div>
   </div>
 </section>
+""" + newsletter_section(0)
 
-<section class="section section-cream">
-  <div class="container">
-    <div class="contact-form-wrap contact-form-wrap--center">
-      <span class="contact-block-eyebrow">Pošlji sporočilo</span>
-      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-web3forms>
-        <input type="hidden" name="access_key" value="e78b399d-a62e-494f-b90b-519f4b7f7a48">
-        <input type="hidden" name="subject" value="Novo povpraševanje s teaknez.com">
-        <input type="hidden" name="from_name" value="teaknez.com - kontaktni obrazec">
-        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="field">
-          <label for="name">Ime in priimek</label>
-          <input id="name" name="name" type="text" required autocomplete="name">
-        </div>
-        <div class="field">
-          <label for="email">E-naslov</label>
-          <input id="email" name="email" type="email" required autocomplete="email">
-        </div>
-        <div class="field">
-          <label for="message">Sporočilo</label>
-          <textarea id="message" name="message" placeholder="Napiši na kratko, kaj te zanima…"></textarea>
-        </div>
-        <label class="field-check">
-          <input type="checkbox" name="consent" required>
-          <span>Strinjam se z obdelavo podatkov v skladu s <a href="politika-zasebnosti.html">pogoji</a>.</span>
-        </label>
-        <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
-        <button type="submit" class="btn btn-primary">Pošlji sporočilo →</button>
-        <div class="form-status" role="status" aria-live="polite"></div>
-      </form>
-      <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-    </div>
-  </div>
-</section>
-"""
     page = head(
-        "Kontakt - Tea Knez Coaching",
-        "Piši mi za rezervacijo brezplačnega uvodnega srečanja. Coaching online, 60 minut, prilagojeno tvojemu tempu.",
+        "Kontakt - Tea Knez",
+        "Te zanima individualni coaching, sodelovanje s podjetji ali uvodni pogovor? Piši mi na tea@teaknez.com in z veseljem ti odgovorim.",
         f"{SITE_URL}/kontakt.html", 0,
-        og_image="about-tea.webp", og_image_alt="Kontakt - Tea Knez",
+        og_image="tea-hero.webp", og_image_alt="Kontakt - Tea Knez",
         extra_jsonld=[
             {
                 "@type": "ContactPage",
                 "@id": f"{SITE_URL}/kontakt.html#contactpage",
                 "url": f"{SITE_URL}/kontakt.html",
-                "name": "Kontakt - Tea Knez Coaching",
+                "name": "Kontakt - Tea Knez",
                 "inLanguage": "sl",
                 "about": {"@id": f"{SITE_URL}/#organization"},
             },
@@ -2207,8 +2357,8 @@ def page_webmanifest():
         "start_url": "/",
         "scope": "/",
         "display": "browser",
-        "background_color": "#FAF6EF",
-        "theme_color": "#FAF6EF",
+        "background_color": "#F7F3EE",
+        "theme_color": "#F7F3EE",
         "icons": [
             {"src": "/assets/images/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any"}
         ],

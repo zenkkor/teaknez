@@ -27,3 +27,8 @@ venv/
 # gets applied to the site; the sources themselves don't belong in the repo.
 *.docx
 *.eml
+
+# Redesign source material (briefs, original photos). The site is built
+# from these; the originals themselves don't belong in a repo that is
+# served publicly from the root.
+prenova/

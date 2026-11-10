@@ -122,11 +122,13 @@
     });
   }
 
-  // Contact form — web3forms (AJAX submit, inline status)
-  const form = document.querySelector("form[data-web3forms]");
-  if (form) {
-    const status = form.querySelector(".form-status");
+  // web3forms AJAX submit with inline status. There can be more than one
+  // form on a page (contact + newsletter), so bind every one of them.
+  document.querySelectorAll("form[data-web3forms]").forEach((form) => {
+    const scope = form.closest(".newsletter") || form.parentElement || form;
+    const status = form.querySelector(".form-status") || scope.querySelector(".form-status");
     const submit = form.querySelector("button[type='submit']");
+    const isNewsletter = form.classList.contains("newsletter-form");
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (status) {
@@ -157,7 +159,9 @@
         if (res.ok && data.success) {
           form.reset();
           if (status) {
-            status.textContent = "Hvala — sporočilo je oddano. Odgovorim ti v najkrajšem možnem času.";
+            status.textContent = isNewsletter
+              ? "Hvala - tvoja prijava je zabeležena."
+              : "Hvala, sporočilo je oddano. Oglasim se ti v najkrajšem možnem času.";
             status.classList.add("is-success");
           }
         } else {
@@ -165,8 +169,9 @@
         }
       } catch (err) {
         if (status) {
-          status.textContent =
-            "Sporočila ni bilo mogoče oddati. Poskusi znova ali piši neposredno na tea@teaknez.com.";
+          status.textContent = isNewsletter
+            ? "Prijave ni bilo mogoče oddati. Poskusi znova ali piši na tea@teaknez.com."
+            : "Sporočila ni bilo mogoče oddati. Poskusi znova ali piši neposredno na tea@teaknez.com.";
           status.classList.add("is-error");
         }
       } finally {
@@ -176,7 +181,7 @@
         }
       }
     });
-  }
+  });
 
   // Modal — open via [data-open-modal="id"], close via [data-modal-close] or Escape
   const modalTriggers = document.querySelectorAll("[data-open-modal]");
@@ -260,5 +265,52 @@
         showBanner();
       });
     });
+  }
+
+  // Blog category filter. Progressive enhancement: without JS every post
+  // stays visible, which is also what crawlers see.
+  const grid = document.getElementById("posts-grid");
+  if (grid) {
+    const cards = Array.from(grid.querySelectorAll(".post-card"));
+    const empty = document.getElementById("posts-empty");
+    const buttons = Array.from(document.querySelectorAll(".filter-btn"));
+
+    function applyFilter(value) {
+      let shown = 0;
+      cards.forEach((card) => {
+        const match = value === "all" || card.dataset.cat === value;
+        card.hidden = !match;
+        if (match) shown++;
+      });
+      buttons.forEach((b) =>
+        b.setAttribute("aria-pressed", b.dataset.filter === value ? "true" : "false")
+      );
+      if (empty) empty.hidden = shown > 0;
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => applyFilter(btn.dataset.filter));
+    });
+    // "Show all" inside the empty state
+    document.querySelectorAll(".link-btn[data-filter]").forEach((b) => {
+      b.addEventListener("click", () => applyFilter(b.dataset.filter));
+    });
+  }
+
+  // Pre-select the contact intent from ?namen=... The visitor can still
+  // change it; the CTA only sets a sensible default.
+  const intentSelect = document.querySelector("[data-intent-select]");
+  if (intentSelect) {
+    const map = {
+      "uvodni-pogovor": "Uvodni pogovor",
+      "coaching": "Individualni coaching",
+      "podjetja": "Sodelovanje s podjetji",
+      "drugo": "Drugo",
+    };
+    const wanted = map[new URLSearchParams(location.search).get("namen")];
+    if (wanted) {
+      const opt = Array.from(intentSelect.options).find((o) => o.value === wanted);
+      if (opt) intentSelect.value = wanted;
+    }
   }
 })();

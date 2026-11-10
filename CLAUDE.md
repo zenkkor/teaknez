@@ -16,18 +16,19 @@ single Python file.
 
 ## Site structure
 
-Top-level nav: **Domov · Za posameznice · Za podjetja · Blog · O meni** plus a
-"Rezerviraj uvodno srečanje" CTA.
+Top-level nav: **Domov · Individualni coaching · Za podjetja · O meni · Blog**
+plus a bordo **"Kontakt / Uvodni pogovor"** button. There is no plain Kontakt
+text link in the nav.
 
 | Page | File |
 |---|---|
-| Home | `index.html` |
-| Coaching for individuals | `za-posameznice.html` |
-| Coaching for companies | `za-podjetja.html` |
-| Reintegration deep-dive (linked from Za podjetja, not in nav) | `podpora-vracanju.html` |
-| About | `o-meni.html` |
-| Contact | `kontakt.html` |
-| Blog index + 9 posts | `blog/index.html`, `blog/<slug>/index.html` |
+| Domov | `index.html` |
+| Individualni coaching | `za-posameznice.html` (label changed, URL kept) |
+| Za podjetja | `za-podjetja.html` |
+| Reintegration deep-dive (kept live for inbound links, not in nav or footer) | `podpora-vracanju.html` |
+| O meni | `o-meni.html` |
+| Kontakt | `kontakt.html` |
+| Blog index + 13 posts | `blog/index.html`, `blog/<slug>/index.html` |
 | Legal | `politika-zasebnosti.html`, `piskotki.html` |
 
 The old `/storitve` hub and its three sub-pages were retired; don't reintroduce
@@ -118,6 +119,9 @@ it must handle them too:
 
 - **Playwright lives in `.pw/node_modules`** — scripts must be *inside* `.pw/`
   or the import fails. Run them from the project root.
+- **Playwright needs Node 18+.** The default `node` on this machine may be
+  v16; use `export PATH=~/.nvm/versions/node/v22.23.1/bin:$PATH` first. If
+  the browser binary is missing, `cd .pw && npx playwright install chromium`.
 - **Remove the cookie banner before capturing** — it is `position: fixed` and
   will cover whatever you are trying to see:
   `await pg.evaluate(() => document.getElementById("cookie-banner")?.remove())`
@@ -131,17 +135,35 @@ it must handle them too:
 
 ## Design system
 
-`assets/css/main.css` is the only stylesheet. Tokens live at the top: cream /
-clay / sage / earth palette, Cormorant Garamond serif + Inter sans.
+`assets/css/main.css` is the only stylesheet. **Prenova 2026** design system,
+four base colours only — no sage, clay, pink or green variants, and no
+botanical or leaf ornament anywhere:
 
-Recurring patterns — reuse these rather than inventing new ones:
+| Token | Value | Use |
+|---|---|---|
+| `--cream` | `#F7F3EE` | primary background |
+| `--beige` | `#EDE2D9` | secondary background |
+| `--bordo` | `#783D51` | accent surfaces, buttons, emphasis |
+| `--ink` | `#2D2427` | body copy |
+| `--white` | `#FFFFFF` | type on bordo, light cards |
 
-- Sage **top tab** (`::before`, ~40×3 px) on cards and bands
-- **Italic serif** for accents, eyebrows-in-serif, pull quotes and emphasis
-  inside headings (`<em>` inside `<h1>`/`<h2>` renders sage-darker italic)
-- Small-caps **`.eyebrow`** above headings
-- Cream cards with `--line` border and soft shadow
-- Sage-gradient CTA bands (`.post-cta`, `.closing-cta`)
+Type: **DM Serif Display** headings (single weight — never ask for bold),
+**Manrope** body. H1 48–64px desktop / 32–40px mobile, body 17–18px.
+
+Recurring patterns — reuse rather than reinvent:
+
+- `.sec` + `.sec--cream` / `.sec--beige` / `.sec--bordo` section wrappers
+- `.kicker` small-caps label above headings
+- `.hero-split` (copy + photo, `--reverse` to flip), `.offer-grid`,
+  `.point-grid`, `.situation-grid`, `.steps` timeline, `.service-grid`,
+  `.value-grid`, `.accred-grid`, `.quotes`, `.posts-grid`, `.invite`
+- `.btn-primary` (bordo) on light, `.btn-light` (cream) on bordo
+
+**Text on bordo:** component rules like `.situation p` carry the same
+specificity as `.sec--bordo p` and win on source order, so any new
+component used inside `.sec--bordo` needs an explicit light-colour
+override in the block near the end of the file. Check contrast after
+adding one.
 
 Body copy is justified with hyphens (`lang="sl"`). Headlines, eyebrows,
 buttons, centered CTA bands and pull quotes stay unjustified — see the justify
