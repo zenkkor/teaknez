@@ -1376,25 +1376,11 @@ ul li::marker { color: var(--clay); }
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
-.service-card {
-  background: var(--cream);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--line);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-}
 .service-card-image {
   aspect-ratio: 4/3;
   overflow: hidden;
 }
 .service-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
-.service-card:hover .service-card-image img { transform: scale(1.04); }
 .service-card-body { padding: 32px; flex: 1; display: flex; flex-direction: column; }
 .service-card-body h3 { font-family: var(--serif); font-size: 1.55rem; font-weight: 500; margin-bottom: 12px; }
 .service-card-body p { font-size: 0.98rem; flex: 1; margin-bottom: 22px; }
@@ -1410,7 +1396,6 @@ ul li::marker { color: var(--clay); }
   content: "\2192";
   transition: transform .2s ease;
 }
-.service-card:hover .service-card-more::after { transform: translateX(4px); }
 
 /* SERVICE DETAIL */
 .service-hero {
@@ -2014,16 +1999,8 @@ ul li::marker { color: var(--clay); }
   .credentials-list { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 
-  /* Horizontal cards at tablet - image left, content right */
-  .service-card, .blog-card { flex-direction: row; align-items: stretch; }
-  .service-card .service-card-image,
-  .blog-card .blog-card-image { width: 38%; aspect-ratio: auto; flex-shrink: 0; }
-  .service-card .service-card-image img,
-  .blog-card .blog-card-image img { height: 100%; }
-  .service-card .service-card-body,
-  .blog-card .blog-card-body { padding: 28px 30px; }
-  .blog-grid .blog-card { flex-direction: column; }
-  .blog-grid .blog-card .blog-card-image { width: 100%; aspect-ratio: 4/3; }
+  /* Legacy horizontal card rules removed: .service-card is now a prenova
+     component and this turned it into a flex row at tablet width. */
   .outcomes, .cta-band, .credentials, .contact-form { padding: 40px 28px; }
   .blog-feature { padding: 28px; margin-bottom: 28px; gap: 32px; }
   .section { padding: 44px 0; }
@@ -2223,12 +2200,6 @@ ul li::marker { color: var(--clay); }
   font-size: 1.05rem;
   color: var(--sage-darker);
   margin-bottom: 14px;
-}
-.duo-col p {
-  font-size: 1.02rem;
-  line-height: 1.7;
-  color: var(--ink-soft);
-  margin: 0;
 }
 
 /* Outcome grid — 3x2 outcome cards */
@@ -2556,9 +2527,6 @@ ul li::marker { color: var(--clay); }
   margin: 0 auto;
   padding-top: 8px;
 }
-.value-item {
-  text-align: center;
-}
 .value-icon {
   display: inline-flex;
   align-items: center;
@@ -2567,18 +2535,6 @@ ul li::marker { color: var(--clay); }
   height: 44px;
   margin-bottom: 16px;
   color: var(--sage-darker);
-}
-.value-item h3 {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-  font-weight: 500;
-  color: var(--ink);
-}
-.value-item p {
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--ink-soft);
-  margin: 0;
 }
 
 /* Closing recognize block — heading+CTA left, image right */
@@ -3963,6 +3919,7 @@ body.modal-open { overflow: hidden; }
   align-items: start;
 }
 .service-card {
+  display: block;          /* never inherit a legacy flex direction */
   background: var(--white);
   border: 1px solid rgba(224, 211, 200, 0.75);
   border-radius: var(--radius-lg);
@@ -4498,3 +4455,14 @@ body.modal-open { overflow: hidden; }
   accent-color: var(--bordo);
 }
 .contact-card .field-check a { color: var(--bordo); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Headings sit directly on the following paragraph because the global
+   reset zeroes margins and these headings carry no utility class. */
+.sec-head-center h1,
+.sec-head-center h2,
+.sec-head-center h3 { margin-bottom: 20px; }
+.hero-split-copy h2,
+.narrow-col h2:not(.sec-title),
+.prose-block + h2 { margin-bottom: 22px; }
+/* Consecutive intro paragraphs need rhythm of their own */
+.sec-head-center .sec-intro + .sec-intro { margin-top: 14px; }
