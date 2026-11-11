@@ -465,16 +465,16 @@ def page_index():
     <div class="hero-split">
       <div class="hero-split-copy">
         <span class="kicker">TEA KNEZ · PROFESIONALNI COACHING</span>
-        <h1>Imaš življenje, ki si si ga želela. Zakaj si potem želiš nekaj drugače?</h1>
-        <p>Med vsemi obveznostmi, pričakovanji in skrbjo za druge pogosto zmanjka prostora zate. Morda niti ne veš več, kaj si želiš, veš pa, da si želiš nekaj drugače.</p>
-        <p>Individualni coaching za ženske, ki želijo raziskati, kdo so danes, kaj jim je pomembno in kaj si želijo zase – tudi zunaj materinstva.</p>
+        <h1>Ni ene prave poti. Pomembno je, da najdeš svojo.</h1>
+        <p>Coaching odpira prostor za nova vprašanja, drugačne perspektive in odločitve, ki so skladne s tvojimi cilji in vrednotami.</p>
+        <p>Individualni coaching in delavnice za osebni ter profesionalni razvoj.</p>
         <div class="hero-actions">
           <a href="kontakt.html?namen=uvodni-pogovor" class="btn btn-primary">Dogovori se za uvodni pogovor</a>
         </div>
         <p class="cred-line">ICF ACC · EMCC EIA</p>
       </div>
       <div class="hero-split-media">
-        <img src="assets/images/tea-hero.webp" alt="Tea Knez, profesionalna coachinja" loading="eager" width="1052" height="1495">
+        <img src="assets/images/tea-blazer.webp" alt="Tea Knez, profesionalna coachinja" loading="eager" width="1025" height="1280">
       </div>
     </div>
   </div>
@@ -571,7 +571,7 @@ def page_index():
         </div>
       </div>
       <div class="hero-split-media">
-        <img src="assets/images/tea-portret.webp" alt="Tea Knez" loading="lazy" width="1086" height="1448">
+        <img src="assets/images/tea-sofa.webp" alt="Tea Knez" loading="lazy" width="960" height="1280">
       </div>
     </div>
   </div>
@@ -593,7 +593,7 @@ def page_index():
         "Tea Knez - profesionalni coaching za ženske in organizacije",
         "Individualni coaching za ženske, ki želijo raziskati, kdo so danes, kaj jim je pomembno in kaj si želijo zase. Coaching in delavnice tudi za podjetja.",
         f"{SITE_URL}/", 0,
-        og_image="tea-hero.webp", og_image_alt="Tea Knez, profesionalna coachinja",
+        og_image="tea-blazer.webp", og_image_alt="Tea Knez, profesionalna coachinja",
         extra_jsonld=_person_jsonld()
     ) + header("home", 0) + body + footer(0)
     write("index.html", page)
@@ -607,12 +607,14 @@ def page_about():
       <div class="hero-split-copy">
         <span class="kicker">O MENI</span>
         <h1>Živjo, sem Tea. In tudi sama sem morala na novo ugotoviti, kdo sem.</h1>
-        <p>Sem profesionalna coachinja, magistra prava in mama dveh fantov. Pa tudi ženska, ki je nekoč mislila, da mora imeti vse pod nadzorom, biti uspešna v vsem, kar počne, in nekako najti čas še zase.</p>
-        <p>Materinstvo je precej spremenilo moje življenje. Ne samo moj vsakdan, ampak tudi pogled nase, na delo in na to, kaj mi je zares pomembno. Nekje med vsemi vlogami, pričakovanji in obveznostmi sem se tudi sama začela spraševati, kaj si želim jaz.</p>
-        <p>Danes kot coachinja ustvarjam prostor, v katerem lahko tudi druge ženske raziskujejo svoja vprašanja, odločitve in spremembe. Ne zato, ker bi imela odgovore zanje, ampak ker verjamem, kako pomembno je, da dobijo priložnost poiskati svoje.</p>
+        <p>Sem profesionalna coachinja z akreditacijama ICF ACC in EMCC EIA, magistra prava in mama dveh fantov. Rada imam dobre pogovore, iskrena vprašanja in ljudi, ki si upajo podvomiti v to, kar so dolgo imeli za samoumevno.</p>
+        <p>Dolgo sem verjela, da moram imeti stvari pod nadzorom. Da moram vedeti, kaj delam, kam grem in kako bom vse skupaj izpeljala. Pa še najbolje, da mi pri tem uspeva na vseh področjih življenja. :)</p>
+        <p>Danes na marsikaj gledam drugače. Ne verjamem, da moramo imeti življenje ves čas pod nadzorom, niti da obstaja ena prava pot, ki bi ji morali slediti.</p>
+        <p>Verjamem pa, da je vredno kdaj ustaviti avtomatski pilot in se vprašati, ali so odločitve, ki jih sprejemamo, še vedno naše.</p>
+        <p>In prav tak prostor želim ustvarjati tudi pri svojem delu.</p>
       </div>
       <div class="hero-split-media">
-        <img src="assets/images/tea-hero.webp" alt="Tea Knez, profesionalna coachinja" loading="eager" width="1052" height="1495">
+        <img src="assets/images/tea-sofa.webp" alt="Tea Knez, profesionalna coachinja" loading="eager" width="960" height="1280">
       </div>
     </div>
   </div>
@@ -622,11 +624,15 @@ def page_about():
   <div class="container">
     <div class="narrow-col">
       <span class="kicker">MOJA POT</span>
-      <h2 class="sec-title">Kako sem prišla do coachinga?</h2>
-      <p>Moja poklicna pot je bila vse prej kot ravna. Delala sem v različnih okoljih, preizkušala različne vloge in dolgo iskala delo, v katerem bi se zares našla.</p>
-      <p>Potem sem postala mama. Z materinstvom so prišle nove prioritete, drugačna pričakovanja in vprašanja, na katera nisem imela vedno odgovorov. Tudi izkušnja izgorelosti je bila eden od trenutkov, ko sem morala znova razmisliti, kako želim živeti in delati.</p>
-      <p>Coaching sem najprej spoznala kot klientka. Iz prve roke sem izkusila, kako dragoceno je imeti prostor, kjer ti ni treba ničesar dokazovati, kjer lahko na glas razmišljaš in raziskuješ vprašanja, ki jih sicer pogosto odrineš na stran.</p>
-      <p>Prav ta izkušnja je pomembno vplivala na mojo odločitev, da postanem coachinja. Danes želim tak prostor ponuditi tudi drugim.</p>
+      <h2 class="sec-title">Od prava do coachinga. Z nekaj ovinki vmes.</h2>
+      <p>Moja poklicna pot ni bila ravno zgodba o tem, kako sem že pri petih letih vedela, kaj želim postati. :)</p>
+      <p>Po študiju prava sem delala v različnih okoljih, prevzemala različne odgovornosti in se preizkusila tudi v podjetništvu. Veliko sem se naučila, a sem se ob tem vedno znova spraševala, kaj je tisto, kar si zares želim početi.</p>
+      <p>Potem sem postala mama. In čeprav sem mislila, da imam precej jasno predstavo o sebi in svojem življenju, se je marsikaj spremenilo. Moje prioritete, odnos do dela, pričakovanja do sebe in pogled na to, kaj zame sploh pomeni uspeh.</p>
+      <p>Na tej poti sem se srečala tudi z izgorelostjo. To ni bila edina prelomnica, je pa bila ena tistih izkušenj, ob katerih sem začela resneje razmišljati, kako želim živeti in delati.</p>
+      <p>Coaching sem najprej spoznala kot klientka. In presenetilo me je, koliko lahko odneseš iz pogovora, v katerem ti nihče ne deli nasvetov, ne odloča namesto tebe in te ne poskuša prepričati, kaj bi bilo zate najbolje.</p>
+      <p>Namesto tega dobiš prostor, da začneš drugače razmišljati, prepoznavati svoje vzorce in iskati odgovore, ki imajo smisel zate.</p>
+      <p>Ta izkušnja je pomembno vplivala na mojo odločitev, da se tudi sama podam na pot profesionalnega coachinga.</p>
+      <p>Danes pri svojem delu združujem strokovno znanje, različne življenjske in poklicne izkušnje ter predvsem iskreno radovednost do ljudi in njihovih zgodb.</p>
     </div>
   </div>
 </section>
@@ -733,7 +739,7 @@ def page_about():
         "O meni - Tea Knez, profesionalna coachinja",
         "Sem Tea Knez, profesionalna coachinja z akreditacijama ICF ACC in EMCC EIA. Spoznaj mojo pot, pristop in vrednote, ki jih prinašam v vsak coaching odnos.",
         f"{SITE_URL}/o-meni.html", 0,
-        og_image="tea-hero.webp", og_image_alt="Tea Knez, profesionalna coachinja",
+        og_image="tea-sofa.webp", og_image_alt="Tea Knez, profesionalna coachinja",
         extra_jsonld=[
             _person_jsonld(),
             _breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("O meni", f"{SITE_URL}/o-meni.html")]),
@@ -756,8 +762,8 @@ def page_za_posameznice():
           <a href="kontakt.html?namen=uvodni-pogovor" class="btn btn-primary">Dogovori se za brezplačen uvodni pogovor</a>
         </div>
       </div>
-      <div class="hero-statement">
-        <p>Kaj pa si želiš ti?</p>
+      <div class="hero-split-media">
+        <img src="assets/images/delovni-zvezek.webp" alt="Coaching delovni zvezek Kaj pa jaz? na mizi s kavo in beležko" loading="eager" width="854" height="1180">
       </div>
     </div>
   </div>
@@ -902,7 +908,7 @@ def page_za_posameznice():
         "Individualni coaching za ženske - Tea Knez",
         "Individualni coaching za ženske: več jasnosti, manj dvomov in odločitve, za katerimi lahko stojiš. Brezplačen uvodni pogovor, online srečanja po 60 minut.",
         f"{SITE_URL}/za-posameznice.html", 0,
-        og_image="tea-hero.webp", og_image_alt="Individualni coaching za ženske - Tea Knez",
+        og_image="delovni-zvezek.webp", og_image_alt="Coaching delovni zvezek Kaj pa jaz?",
         extra_jsonld=_breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("Individualni coaching", f"{SITE_URL}/za-posameznice.html")])
     ) + header("individuals", 0) + body + footer(0)
     write("za-posameznice.html", page)
@@ -923,7 +929,7 @@ def page_za_podjetja():
         </div>
       </div>
       <div class="hero-split-media">
-        <img src="assets/images/tea-portret.webp" alt="Tea Knez, coachinja za organizacije" loading="eager" width="1086" height="1448">
+        <img src="assets/images/delavnica.webp" alt="Tea Knez vodi delavnico za skupino zaposlenih" loading="eager" width="1280" height="1244">
       </div>
     </div>
   </div>
@@ -1056,7 +1062,7 @@ def page_za_podjetja():
         "Coaching in delavnice za podjetja - Tea Knez",
         "Individualni coaching in delavnice za razvoj zaposlenih, boljšo komunikacijo in podporo ob kariernih prehodih, vključno z vrnitvijo po starševskem dopustu.",
         f"{SITE_URL}/za-podjetja.html", 0,
-        og_image="tea-portret.webp", og_image_alt="Coaching za podjetja - Tea Knez",
+        og_image="delavnica.webp", og_image_alt="Delavnica za zaposlene - Tea Knez",
         extra_jsonld=_breadcrumb_jsonld([("Domov", f"{SITE_URL}/"), ("Za podjetja", f"{SITE_URL}/za-podjetja.html")])
     ) + header("companies", 0) + body + footer(0)
     write("za-podjetja.html", page)
@@ -1986,7 +1992,7 @@ def page_contact():
         "Kontakt - Tea Knez",
         "Te zanima individualni coaching, sodelovanje s podjetji ali uvodni pogovor? Piši mi na tea@teaknez.com in z veseljem ti odgovorim.",
         f"{SITE_URL}/kontakt.html", 0,
-        og_image="tea-hero.webp", og_image_alt="Kontakt - Tea Knez",
+        og_image="tea-blazer.webp", og_image_alt="Kontakt - Tea Knez",
         extra_jsonld=[
             {
                 "@type": "ContactPage",

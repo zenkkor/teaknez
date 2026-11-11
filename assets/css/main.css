@@ -4346,28 +4346,6 @@ body.modal-open { overflow: hidden; }
    the confirmed 48-64px desktop range. */
 .hero-split h1 { font-size: clamp(2rem, 3.6vw, 3.25rem); }
 
-/* Typographic statement used instead of a photo on Individualni coaching */
-.hero-statement {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 320px;
-  padding: 48px 36px;
-  background: var(--beige);
-  border-radius: var(--radius-lg);
-}
-.hero-statement p {
-  font-family: var(--serif);
-  font-size: clamp(1.9rem, 3.4vw, 3rem);
-  line-height: 1.2;
-  color: var(--bordo);
-  text-align: center;
-  margin: 0;
-}
-@media (max-width: 960px) {
-  .hero-statement { min-height: 0; padding: 36px 28px; }
-  .hero-statement p { font-size: 1.7rem; }
-}
 
 /* Visually hidden label, still read by screen readers */
 .sr-only {
